@@ -72,6 +72,9 @@ acceptance run is:
 python3 tests/browser_check.py
 ```
 
+Set `K4CELL_TEST_BASE_URL` to run the same acceptance suite against a deployed
+preview or canonical host.
+
 ## Evidence boundaries
 
 - The current public-review manuscript is a frozen historical review object,

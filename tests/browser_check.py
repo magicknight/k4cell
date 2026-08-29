@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Small browser acceptance suite for a running local preview."""
 
+import os
 from pathlib import Path
 from urllib.parse import urljoin
 
 from playwright.sync_api import sync_playwright
 
 
-BASE = "http://127.0.0.1:4173/"
+BASE = os.environ.get("K4CELL_TEST_BASE_URL", "http://127.0.0.1:4173/")
 ARTIFACTS = Path(__file__).resolve().parents[1] / "artifacts"
 ARTIFACTS.mkdir(exist_ok=True)
 
