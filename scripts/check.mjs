@@ -15,6 +15,9 @@ const required = [
   "assets/site.css",
   "assets/cell.js",
   "assets/favicon.svg",
+  "provenance/README.md",
+  "provenance/K4V_FOUNDER_OPENPGP_KEY_v1.asc",
+  "provenance/K4V_FOUNDER_OPENPGP_FINGERPRINT_v1.txt",
   "status.json",
   "season-01.json",
   "robots.txt",
@@ -34,6 +37,8 @@ const robots = await readFile(join(site, "robots.txt"), "utf8");
 const status = JSON.parse(await readFile(join(site, "status.json"), "utf8"));
 const season = JSON.parse(await readFile(join(site, "season-01.json"), "utf8"));
 const checksumText = await readFile(join(site, "SITE_SHA256SUMS.txt"), "utf8");
+const founderPublicKey = await readFile(join(site, "provenance", "K4V_FOUNDER_OPENPGP_KEY_v1.asc"), "utf8");
+const founderFingerprint = await readFile(join(site, "provenance", "K4V_FOUNDER_OPENPGP_FINGERPRINT_v1.txt"), "utf8");
 
 assert.match(english, /K4V has not launched/);
 assert.match(chinese, /K4V 尚未发行/);
@@ -63,6 +68,10 @@ assert.equal(status.science.full_scientific_reproduction_package, "OPEN");
 assert.equal(status.public_science.season, "NOT_STARTED");
 assert.match(status.public_science.start_gate.public_review_status_sync, /^PASS@f739333/);
 assert.equal(status.public_science.start_gate.founder_signed_no_official_mint, "OPEN");
+assert.equal(status.founder_identity.fingerprint, "C74953F60AD573F54A3FD06C72213914E4860F47");
+assert.match(founderPublicKey, /BEGIN PGP PUBLIC KEY BLOCK/);
+assert.doesNotMatch(founderPublicKey, /PRIVATE KEY/);
+assert.match(founderFingerprint, /fingerprint=C74953F60AD573F54A3FD06C72213914E4860F47/);
 assert.equal(status.k4v.launched, false);
 assert.equal(status.k4v.official_mint, null);
 assert.equal(status.k4v.mainnet_authorized, false);

@@ -54,6 +54,7 @@ No official mint, presale, whitelist, or payment wallet exists.
 - `docs/PUBLICATION_AND_DOMAIN_HANDOFF.md` — DNS, HTTPS, publication, and rollback gate;
 - `docs/IMPACT_REGRESSION_2026-08-29.md` — value and scope comparison against the earlier public surface;
 - `content/season-01/` — twelve bilingual content-card specifications;
+- `provenance/` — Founder public OpenPGP key and fingerprint; no secret material;
 - `.github/workflows/pages.yml` — build, validate, and GitHub Pages deployment.
 
 ## Local use

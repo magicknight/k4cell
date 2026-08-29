@@ -1,0 +1,9 @@
+K4V FOUNDER OPENPGP IDENTITY v1
+founder=Zhihua Liang
+email=zhihua@k4cell.com
+algorithm=Ed25519
+usage=sign,certify
+fingerprint=C74953F60AD573F54A3FD06C72213914E4860F47
+created_at_utc=2026-08-29
+expires_at_utc=2029-08-28
+no_mint_payload_signature=OPEN

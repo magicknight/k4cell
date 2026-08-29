@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const out = join(root, "site");
 const assets = join(root, "src", "assets");
+const provenance = join(root, "provenance");
 const publicReviewCommit = "36becf6d6941fc5e51fb7897a93a6b8443f100ba";
 const publicStatusCommit = "f7393338360c0bb972a5c662f744175f9ecdf9e7";
 
@@ -369,6 +370,13 @@ const status = {
       twelve_card_and_metrics_hash_freeze: "OPEN"
     },
   },
+  founder_identity: {
+    state: "PUBLIC_OPENPGP_KEY_ANCHORED / NO_MINT_SIGNATURE_OPEN",
+    uid: "Zhihua Liang <zhihua@k4cell.com>",
+    algorithm: "Ed25519",
+    fingerprint: "C74953F60AD573F54A3FD06C72213914E4860F47",
+    public_key_path: "/provenance/K4V_FOUNDER_OPENPGP_KEY_v1.asc",
+  },
   k4v: {
     launched: false,
     official_mint: null,
@@ -384,7 +392,9 @@ await rm(out, { recursive: true, force: true });
 await mkdir(join(out, "en"), { recursive: true });
 await mkdir(join(out, "zh"), { recursive: true });
 await mkdir(join(out, "assets"), { recursive: true });
+await mkdir(join(out, "provenance"), { recursive: true });
 await cp(assets, join(out, "assets"), { recursive: true });
+await cp(provenance, join(out, "provenance"), { recursive: true });
 await writeFile(join(out, "index.html"), rootPage);
 await writeFile(join(out, "en", "index.html"), renderPage("en", content.en));
 await writeFile(join(out, "zh", "index.html"), renderPage("zh", content.zh));
