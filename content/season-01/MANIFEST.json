@@ -1,0 +1,20 @@
+{
+  "schema": "K4CELL-PUBLIC-SCIENCE-SEASON-v1",
+  "season_id": "K4CELL-PS-S01",
+  "artifact_status": "FROZEN_DESIGN_CONTENT_DRAFT",
+  "calendar": "RELATIVE_TO_FOUNDER_AUTHORIZED_START",
+  "cards": [
+    {"id":"W1-BEAUTY","day":1,"lane":"BEAUTY","title_en":"Four sites, six relations","title_zh":"四点，六条关系","state":"DRAFT"},
+    {"id":"W1-REALITY","day":3,"lane":"RESEARCH_REALITY","title_en":"What K4 is — and is not","title_zh":"K4 是什么，又不是什么","state":"DRAFT"},
+    {"id":"W1-PARTICIPATION","day":5,"lane":"PARTICIPATION","title_en":"Explain the cell in one sentence","title_zh":"用一句话解释 K4 单元","state":"DRAFT"},
+    {"id":"W2-BEAUTY","day":8,"lane":"BEAUTY","title_en":"A route made of dependencies","title_zh":"一条由依赖组成的路线","state":"DRAFT"},
+    {"id":"W2-REALITY","day":10,"lane":"RESEARCH_REALITY","title_en":"Established is not supported is not open","title_zh":"已建立、获支持与开放并不相同","state":"DRAFT"},
+    {"id":"W2-PARTICIPATION","day":12,"lane":"PARTICIPATION","title_en":"Verify a frozen artifact","title_zh":"核验一个冻结工件","state":"DRAFT"},
+    {"id":"W3-BEAUTY","day":15,"lane":"BEAUTY","title_en":"A theory as a living graph","title_zh":"作为活依赖图的理论","state":"DRAFT"},
+    {"id":"W3-REALITY","day":17,"lane":"RESEARCH_REALITY","title_en":"What an erratum really changes","title_zh":"一次勘误究竟改变什么","state":"DRAFT"},
+    {"id":"W3-PARTICIPATION","day":19,"lane":"PARTICIPATION","title_en":"Find the first broken bridge","title_zh":"找出第一座断裂的桥","state":"DRAFT"},
+    {"id":"W4-BEAUTY","day":22,"lane":"BEAUTY","title_en":"What research time could open","title_zh":"研究时间能够打开什么","state":"DRAFT"},
+    {"id":"W4-REALITY","day":24,"lane":"RESEARCH_REALITY","title_en":"Attention is not evidence","title_zh":"注意力不是科学证据","state":"DRAFT"},
+    {"id":"W4-PARTICIPATION","day":26,"lane":"PARTICIPATION","title_en":"Open Cell challenge","title_zh":"开放单元挑战","state":"DRAFT"}
+  ]
+}

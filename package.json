@@ -1,0 +1,15 @@
+{
+  "name": "k4cell-public-science",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Bilingual public-science surface for the K4 Cell Framework.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "npm run build && npm run check"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
