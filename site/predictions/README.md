@@ -32,6 +32,7 @@ repackaged as predictions registered before the target data.
 - [`validate_prediction_registry.py`](validate_prediction_registry.py)
 - [`test_prediction_registry.py`](test_prediction_registry.py)
 - [`evidence/snapshots/K4CELL_LEDGER_5ac0ca2.json`](evidence/snapshots/K4CELL_LEDGER_5ac0ca2.json)
+- [`PUBLICATION_RECEIPT_v0.1.json`](PUBLICATION_RECEIPT_v0.1.json)
 
 ## Verify
 

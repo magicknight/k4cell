@@ -47,6 +47,7 @@ const required = [
   "predictions/validate_prediction_registry.py",
   "predictions/test_prediction_registry.py",
   "predictions/evidence/snapshots/K4CELL_LEDGER_5ac0ca2.json",
+  "predictions/PUBLICATION_RECEIPT_v0.1.json",
   "status.json",
   "ledger.json",
   "season-01.json",
@@ -91,6 +92,7 @@ const publicationReceipt = JSON.parse(await readFile(join(site, "official-k4v", 
 const predictionPage = await readFile(join(site, "predictions", "index.html"), "utf8");
 const predictionRegistry = JSON.parse(await readFile(join(site, "predictions", "config", "K4_PREDICTION_REGISTRY_v0.1.json"), "utf8"));
 const observabilityInventory = JSON.parse(await readFile(join(site, "predictions", "config", "K4_CLAIM_OBSERVABILITY_INVENTORY_v0.1.json"), "utf8"));
+const predictionPublicationReceipt = JSON.parse(await readFile(join(site, "predictions", "PUBLICATION_RECEIPT_v0.1.json"), "utf8"));
 
 const both = `${english}\n${chinese}`;
 
@@ -365,6 +367,10 @@ assert.equal(status.public_science.scientific_validation.public_participation_di
 assert.equal(status.public_science.scientific_validation.prediction_registry,
   "FOUNDATION_PASS / ENTRIES_0 / PREREGISTERED_0");
 assert.equal(status.public_science.scientific_validation.prediction_registry_path, "/predictions/");
+assert.equal(status.public_science.scientific_validation.prediction_registry_publication,
+  "PASS@6fae08691052224efb35a359b2e31377f1d42223");
+assert.equal(status.public_science.scientific_validation.prediction_registry_receipt_path,
+  "/predictions/PUBLICATION_RECEIPT_v0.1.json");
 assert.deepEqual(status.public_science.scientific_validation.observability_inventory, {
   scope: "PUBLIC_LEDGER_11_ROWS_ONLY",
   retrospective: 11,
@@ -444,6 +450,13 @@ assert.ok(observabilityInventory.claims.every((claim) =>
 assert.match(predictionPage, /Preregistered predictions: zero/);
 assert.match(predictionPage, /预注册预测：零/);
 assert.match(predictionPage, /public attention, funding support and token interest have zero direct/i);
+assert.equal(predictionPublicationReceipt.live_validation.program_valid, true);
+assert.equal(predictionPublicationReceipt.live_validation.registry_entries, 0);
+assert.equal(predictionPublicationReceipt.live_validation.preregistered_predictions, 0);
+assert.equal(predictionPublicationReceipt.live_validation.retrospective_claims, 11);
+assert.equal(predictionPublicationReceipt.live_validation.python_bytecode_public, false);
+assert.equal(predictionPublicationReceipt.epistemic_boundary.official_mint, null);
+assert.equal(predictionPublicationReceipt.epistemic_boundary.mainnet_authorized, false);
 assert.equal(officialStatus.openpgp.payload_sha256,
   createHash("sha256").update(officialPayload).digest("hex"));
 assert.equal(officialStatus.openpgp.signature_sha256,

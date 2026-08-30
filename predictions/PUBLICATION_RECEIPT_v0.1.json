@@ -1,0 +1,45 @@
+{
+  "schema": "K4-PREDICTION-REGISTRY-PUBLICATION-RECEIPT-v1",
+  "first_live_observed_at_utc": "2026-08-30T16:07:38Z",
+  "canonical_url": "https://k4cell.com/predictions/",
+  "source_repository": "https://github.com/magicknight/k4cell",
+  "initial_publication_commit": "5da19aeade31c3de5a74b16b83890ae3d45ded0e",
+  "clean_publication_commit": "6fae08691052224efb35a359b2e31377f1d42223",
+  "bytecode_exclusion_commit": "1b8183b1a919aeaca4ad47f11472fcd51e17882b",
+  "pages_ci_run": "https://github.com/magicknight/k4cell/actions/runs/33321501567",
+  "pages_ci_state": "SUCCESS",
+  "live_artifacts": {
+    "page_sha256": "2dadc9980b030cfb493c0a8e4cc8ad0ad12514db926593711d312b334e85979d",
+    "readme_sha256": "96b5ef6480d422f86a8127c4ea20caf37f8b202e4fa6b07166ad496261dc9b19",
+    "prediction_registry_sha256": "b67e2c4c5afc63e24a1f1db0bbce006db09e661a3bb2e04eb9f48a338e39c5f3",
+    "observability_inventory_sha256": "c1c8c8eaeefc39532c9abb131b12368f357ca61486a7c1bd6435c1e30c2379d8",
+    "prediction_schema_sha256": "a57933c328391487e1426ecac8e934670119d803f979ae02d4eb1693cc66c999",
+    "inventory_schema_sha256": "60be00138df4f0c0d2e26a06ac5649d35c656b0cee13952d611aa454272a3001",
+    "validator_sha256": "687c9bef9dc7556eac716ad03f46a42c5f7d1407acf08e78f146b10d97d9e19e",
+    "tests_sha256": "add1e808f301f382fb1f641ba38a1811f744c6edc78a9f01087e48a70e5d53d9",
+    "frozen_ledger_sha256": "dd9e70d0a17c4d50956811fe5e036d623be4c56f30438a86403c1af46715ecd5"
+  },
+  "live_validation": {
+    "program_valid": true,
+    "registry_state": "EMPTY",
+    "registry_entries": 0,
+    "preregistered_predictions": 0,
+    "inventory_claims": 11,
+    "retrospective_claims": 11,
+    "prediction_candidates": 0,
+    "registry_eligible": 0,
+    "global_k4_coverage": false,
+    "semantic_tests": "PASS_21_OF_21",
+    "python_bytecode_public": false
+  },
+  "epistemic_boundary": {
+    "registry_infrastructure": "PUBLISHED_AND_LIVE_VALIDATED",
+    "scientific_prediction": "NONE_REGISTERED",
+    "paper_level_inventory": "OPEN",
+    "public_attention_direct_weight": 0,
+    "funding_signal_direct_weight": 0,
+    "token_market_direct_weight": 0,
+    "official_mint": null,
+    "mainnet_authorized": false
+  }
+}

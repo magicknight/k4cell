@@ -2537,6 +2537,8 @@ const status = {
       ],
       prediction_registry: "FOUNDATION_PASS / ENTRIES_0 / PREREGISTERED_0",
       prediction_registry_path: "/predictions/",
+      prediction_registry_publication: "PASS@6fae08691052224efb35a359b2e31377f1d42223",
+      prediction_registry_receipt_path: "/predictions/PUBLICATION_RECEIPT_v0.1.json",
       observability_inventory: {
         scope: "PUBLIC_LEDGER_11_ROWS_ONLY",
         retrospective: 11,
