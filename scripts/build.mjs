@@ -294,6 +294,42 @@ ${classes}</div>
 </div></section>`;
 };
 
+const renderExplain = (copy) => {
+  const x = copy.explain;
+  const tagLabel = Object.fromEntries(x.tagKey.map(([state, label]) => [state, label]));
+
+  const chips = (tags) => tags
+    .map((state) => `<span class="tag ${state}">${esc(tagLabel[state])}</span>`).join("");
+
+  /* Interface codes and target names link to the author's own published errata
+     and review targets, so a reader can go straight to the objection. */
+  const linkCodes = (text) => esc(text)
+    .replace(/\bE(1[01]|[1-9])\b/g, `<a href="${links.errata}">E$1</a>`)
+    .replace(/\b(Target|Targets|靶点)\s?([A-D0-9]+(?:\s?(?:and|与|、)\s?[A-D0-9]+)*)/g,
+      `<a href="${links.targets}">$1 $2</a>`);
+
+  const row = (r) => `<article class="xrow${r.lead ? " xlead" : ""}">
+<div class="xhead"><span class="xn">${esc(r.n)}</span><h3>${esc(r.h3)}</h3><span class="xtags">${chips(r.tags)}</span></div>
+<p class="xbody">${r.body}</p>
+<dl class="xmeta">
+<div><dt>${esc(x.ridesOnLabel)}</dt><dd>${linkCodes(r.ridesOn)}</dd></div>
+<div><dt>${esc(x.checkLabel)}</dt><dd>${esc(r.checkAt)}</dd></div>
+</dl>
+</article>`;
+
+  const keys = x.tagKey.map(([state, label, gloss]) =>
+    `<div><dt><span class="tag ${state}">${esc(label)}</span></dt><dd>${esc(gloss)}</dd></div>`).join("");
+
+  return `<section id="explain" class="explain"><div class="shell">
+${sectionHead(x.number, x.kicker, x.h2, x.intro)}
+<blockquote class="xepigraph"><p>${esc(x.epigraph.text)}</p>${x.epigraph.gloss ? `<p class="xgloss">${esc(x.epigraph.gloss)}</p>` : ""}<cite>${esc(x.epigraph.cite)}</cite></blockquote>
+<div class="xdef"><h3>${esc(x.closedDefTitle)}</h3><p>${esc(x.closedDef)}</p><p class="xcite">${esc(x.closedDefCite)}</p></div>
+<div class="xkey"><h3>${esc(x.tagKeyTitle)}</h3><dl>${keys}</dl></div>
+<div class="xrows">${x.rows.map(row).join("")}</div>
+<div class="xholo"><h3>${esc(x.holoTitle)}</h3>${x.holo.map((p) => `<p>${esc(p)}</p>`).join("")}</div>
+</div></section>`;
+};
+
 const renderLedger = (copy) => {
   const gaussian = ledger.gaussian.map((row) => {
     const conditional = row.interfaces.length
@@ -528,7 +564,9 @@ const renderPage = (copy) => {
       <div class="hero-inner shell">
         <h1>${esc(copy.hero.h1)}</h1>
         <p class="hero-deck">${esc(copy.hero.deck)}</p>
+        <blockquote class="hero-epigraph"><p>${esc(copy.hero.epigraph.text)}</p><p class="he-gloss">${esc(copy.hero.epigraph.gloss)}</p><cite>${esc(copy.hero.epigraph.cite)}</cite></blockquote>
         <p class="hero-lede">${copy.hero.lede}</p>
+        <p class="hero-claims">${copy.hero.claims}</p>
         <p class="hero-fine">${esc(copy.hero.fineprint)}</p>
         <p class="hero-body">${esc(copy.hero.body)}</p>
         <div class="chips">${chips}</div>
@@ -549,6 +587,7 @@ const renderPage = (copy) => {
       <p class="hero-caveat">${esc(copy.hero.caveat)}</p>
     </div>
     ${renderObject(copy)}
+    ${renderExplain(copy)}
     ${renderLedger(copy)}
     <section id="check-it" class="check-it"><div class="shell">
       ${sectionHead(copy.checkIt.number, copy.checkIt.kicker, copy.checkIt.h2, "")}

@@ -21,14 +21,14 @@ AMBER = (255, 194, 108)
 
 CARDS = {
     "en": {
-        "title": ["Nobody knows why the universe", "runs on these numbers."],
-        "deck": ["This work is an attempt to compute them instead —", "off one finite object, with no dial to turn."],
+        "title": ["An object that had no choice", "about its own shape."],
+        "deck": ["The cell has four corners because i has order four", "— within a stated class of cells."],
         "tag": "CONCEPT ART · NOT AN OBSERVATION · NOT THIS FRAMEWORK'S OUTPUT",
         "foot": ["0 continuous parameters fitted", "best 0.002 σ · worst 3.28 σ_eq", "not peer reviewed", "k4cell.com"],
     },
     "zh": {
-        "title": ["没有人知道，", "宇宙为什么偏偏用这些数。"],
-        "deck": ["这项工作试的是另一条路：把它们从一个有限的对象上算出来。", "那个对象里，没有一个可以拧的旋钮。"],
+        "title": ["一个对自己的形状", "别无选择的对象。"],
+        "deck": ["元胞有四个角，因为 i 的阶是四", "——在一个明确声明的元胞类之内。"],
         "tag": "概念图 · 不是观测 · 也不是本框架的计算结果",
         "foot": ["拟合的连续参数 0 个", "最好 0.002 σ · 最差 3.28 σ_eq", "未经同行评议", "k4cell.com"],
     },

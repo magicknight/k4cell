@@ -183,13 +183,62 @@ assert.match(chinese, /载体封顶/);
 assert.match(english, /What is not derived/);
 assert.match(chinese, /哪些还没有推出来/);
 
+/* ---- section 02: what it claims to explain ---- */
+
+const decks = await Promise.all([
+  import("../src/copy/en.js"), import("../src/copy/zh.js"),
+]).then((mods) => mods.map((m) => m.default));
+
+for (const deck of decks) {
+  assert.equal(deck.explain.rows.length, 11, `${deck.dir}: the explain section must carry eleven rows`);
+  assert.equal(deck.hero.chips.length, 4, `${deck.dir}: the hero carries four chips`);
+  const states = new Set(deck.explain.tagKey.map(([state]) => state));
+  for (const row of deck.explain.rows) {
+    assert.ok(row.tags.length > 0, `${deck.dir}/${row.n}: a claim must carry its evidence state`);
+    for (const tag of row.tags) {
+      assert.ok(states.has(tag), `${deck.dir}/${row.n}: unknown state "${tag}"`);
+    }
+    /* "rides on" is never empty: rows with no open interface print their class
+       boundary there instead. The scope must live in the row, not a footnote. */
+    assert.ok(row.ridesOn && row.ridesOn.length > 20, `${deck.dir}/${row.n}: rides-on is missing`);
+    assert.ok(row.checkAt && row.checkAt.length > 20, `${deck.dir}/${row.n}: check-it-at is missing`);
+    for (const code of row.ridesOn.match(/\bE(?:1[01]|[1-9])\b/g) ?? []) {
+      assert.ok(/^E(?:1[01]|[1-9])$/.test(code), `${deck.dir}/${row.n}: bad interface code ${code}`);
+    }
+  }
+}
+
+for (const [name, page] of [["en", english], ["zh", chinese]]) {
+  assert.equal((page.match(/class="xrow[" ]/g) ?? []).length, 11, `${name}: eleven claim rows must render`);
+  assert.match(page, /id="explain"/, `${name}: the explain section must be present`);
+  assert.match(page, /class="xholo"/, `${name}: the holography correction must be present`);
+  assert.match(page, /Was mich eigentlich interessiert/, `${name}: the Einstein epigraph must render`);
+  assert.match(page, /知之為知之/, `${name}: the Analects epigraph must render`);
+}
+
+/* The two split-tier leads must show BOTH tiers; collapsing a row to its
+   stronger half is the overclaim this section exists to prevent. */
+for (const deck of decks) {
+  for (const n of ["02", "03", "05", "06", "08"]) {
+    const row = deck.explain.rows.find((r) => r.n === n);
+    assert.ok(row.tags.length === 2, `${deck.dir}/${n}: split-tier row must print both tiers`);
+  }
+}
+
 /* ---- the never-say list ---- */
 
 for (const forbidden of [
-  /full-order Einstein/i,
+  /full[- ]order/i,           // E4: a higher response-moment tower survives
+  /全阶/,
   /official mint address/i,
   /peer[- ]reviewed publication/i,
   /at full granularity/i,
+  /the universe is a hologram/i,
+  /全息宇宙/,
+  /2D quantum ocean/i,
+  /二维量子海洋/,
+  /information paradox/i,     // E6
+  /Page curve/i,
   /\b774\b/,
   /\b730\b/,
   /40,727/,
@@ -197,6 +246,13 @@ for (const forbidden of [
 ]) {
   assert.doesNotMatch(both, forbidden, `forbidden string present: ${forbidden}`);
 }
+
+/* AdS/CFT may appear only where the site disowns it as a premise, which is what
+   the monograph's own abstract does. Assert the disclaimer rather than the word. */
+assert.match(english, /AdS\/CFT are not premises of this route/);
+assert.match(chinese, /AdS\/CFT 都不是这条路线的前提/);
+assert.equal((english.match(/AdS\/CFT/gi) ?? []).length, 1, "en: AdS/CFT may appear only in the disclaimer");
+assert.equal((chinese.match(/AdS\/CFT/gi) ?? []).length, 1, "zh: AdS/CFT may appear only in the disclaimer");
 
 /* ---- transport, indexing, and content-security posture ---- */
 

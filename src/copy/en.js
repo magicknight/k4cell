@@ -1,3 +1,5 @@
+import { en as explain } from "./explain.js";
+
 export default {
   htmlLang: "en",
   dir: "en",
@@ -6,6 +8,7 @@ export default {
   skip: "Skip to content",
   nav: [
     ["object", "The object"],
+    ["explain", "What it claims to explain"],
     ["ledger", "The numbers"],
     ["inputs", "What went in"],
     ["route", "The route"],
@@ -17,9 +20,9 @@ export default {
   footerNavLabel: "Footer",
   fundingLinkLabel: "Inspect the funding-vault repository",
 
-  title: "Nobody knows why the universe runs on these numbers — K4 Cell Framework",
+  title: "An object that had no choice about its own shape — K4 Cell Framework",
   description:
-    "A finite four-site quantum object with no continuous free parameters, and the measured constants it is claimed to reproduce. Every number carries its evidence state, its open interfaces, and a way to check it.",
+    "A finite four-site quantum object whose own structure is derived rather than chosen, and the eleven things the framework claims fall out of it. Every claim carries its evidence state, its open interfaces, and the theorem to check.",
 
   statusLine: [
     "K4 Cell Framework",
@@ -32,19 +35,27 @@ export default {
   statusNotReviewed: "not peer reviewed",
 
   hero: {
-    h1: "Nobody knows why the universe runs on these numbers.",
+    h1: "An object that had no choice about its own shape.",
     deck:
-      "This work is an attempt to compute them instead — off one finite object, with no dial to turn.",
+      "Nobody knows why the universe runs on the numbers it runs on. This work tries to compute them instead, from a single four-point object — and the object itself turns out not to be a choice: demand only that the imaginary unit really square to −1, and it must have exactly four corners carrying exactly three colours. No other pair survives.",
+    epigraph: {
+      text: "Was mich eigentlich interessiert, ist, ob Gott die Welt hätte anders machen können, das heißt, ob die Forderung der logischen Einfachheit überhaupt eine Freiheit lässt.",
+      gloss: "What really interests me is whether God could have made the world any differently — that is, whether the demand for logical simplicity leaves any freedom at all.",
+      cite: "Albert Einstein, reported by Ernst G. Straus — the epigraph the author placed on his first chapter",
+    },
     lede:
-      "There are about twenty of them. They set the size of an atom and the rate the universe is flying apart. Physics measures each one — the electron's mass, how strongly light grips charge, how much of the sky is dark matter — writes it into the equations by hand, and moves on.",
+      "There are about twenty of these numbers. They set the size of an atom and the rate the universe is flying apart. Physics measures each one — the electron's mass, how strongly light grips charge, how much of the sky is dark matter — writes it into the equations by hand, and moves on.",
+    claims:
+      "This work also claims to say <strong>why spacetime has four dimensions</strong> and not some other number, <strong>why matter comes in three generations</strong>, <strong>why the charges are the odd fractions they are</strong>, <strong>why the strong force shows no CP violation</strong> without a new particle invented to cancel it, and <strong>where the imaginary unit of quantum mechanics comes from</strong>. Eleven such claims are set out below — each with its evidence state, its open interfaces, and the theorem you can go and check.",
     fineprint:
-      "19 in the minimal Standard Model; 26 to 28 once neutrino masses are included, depending on whether neutrinos are Dirac or Majorana. Cosmology adds its own.",
+      "About twenty: 19 in the minimal Standard Model; 26 to 28 once neutrino masses are included, depending on whether neutrinos are Dirac or Majorana. Cosmology adds its own. And the theorem above states its own class — cells built from SU(m) fundamental site representations on a graph, with two-site interactions. Whether that class is honestly narrow or quietly convenient is the author's own open review target A.",
     body:
-      "A calculation with no dial to turn cannot be rescued when it is wrong. So this page prints its worst row next to its best, numbers its own open gaps, and names the measurement that would end it. The freedom that remains here is discrete — which embedding, which channel — and those are the open questions listed further down.",
+      "A calculation with no dial to turn cannot be rescued when it is wrong. So this page prints its worst row next to its best, numbers its own open gaps, and names the measurement that would end it. The freedom that remains here is discrete — which embedding, which branch, which channel — and those are the open questions listed further down.",
     caveat:
       "The row above is conditional. It depends on a map from the object's few ingredients into the full particle content of the Standard Model, and that map is not proved — the author lists it as open in his own published errata, entry E8. The cosmological-constant problem is not solved here, and nothing on this page claims it is. Not peer reviewed: two carved-out papers are under review (CQG-116665, JGP13432); the 1003-page monograph is not submitted and is not on arXiv.",
     chips: [
       ["continuous parameters fitted", "0"],
+      ["(colours, sites) surviving, over every m and every n", "one pair: (3, 4)"],
       ["best row · worst row", "0.002 σ · 3.28 σ_eq"],
       ["open interfaces, the author's own numbering", "5, plus one main bridge"],
     ],
@@ -60,8 +71,8 @@ export default {
     glyphLegendA: "four points · three colours · six links",
     glyphLegendB: "one pair must always collide",
     actions: [
+      ["What it claims to explain", "#explain"],
       ["See every number, worst first", "#ledger"],
-      ["First, what is the object?", "#object"],
     ],
     rulerCaption: "computed against measured, digit by digit",
     rulerComputed: "computed",
@@ -135,8 +146,10 @@ export default {
     classMono: "same-colour edges each",
   },
 
+  explain,
+
   ledger: {
-    number: "02",
+    number: "03",
     kicker: "THE NUMBERS",
     h2: "The eleven rows with a public comparison partner.",
     intro:
@@ -184,7 +197,7 @@ export default {
   },
 
   checkIt: {
-    number: "03",
+    number: "04",
     kicker: "CHECK ONE YOURSELF",
     h2: "9 ÷ 40",
     body:
@@ -198,7 +211,7 @@ export default {
   },
 
   inputs: {
-    number: "04",
+    number: "05",
     kicker: "WHAT WENT IN",
     h2: "Nothing you can turn.",
     closedTitle: "Closed",
@@ -221,7 +234,7 @@ export default {
   },
 
   route: {
-    number: "05",
+    number: "06",
     kicker: "THE ROUTE",
     h2: "Pull a bridge out and watch the numbers go dark.",
     intro:
@@ -254,7 +267,7 @@ export default {
   },
 
   kill: {
-    number: "06",
+    number: "07",
     kicker: "HOW TO KILL IT",
     h2: "What would end this, and who could do it.",
     intro:
@@ -302,7 +315,7 @@ export default {
   },
 
   notDerived: {
-    number: "07",
+    number: "08",
     kicker: "THE BOUNDARY",
     h2: "What is not derived.",
     updated: "updated",
@@ -328,7 +341,7 @@ export default {
   },
 
   machine: {
-    number: "08",
+    number: "09",
     kicker: "THE MACHINE",
     h2: "What the machine checked — and what that does not mean.",
     figures:
@@ -346,7 +359,7 @@ export default {
   },
 
   verify: {
-    number: "09",
+    number: "10",
     kicker: "VERIFY",
     h2: "Verify this page yourself.",
     checksumIntro: "The public-review PDF, and its checksum:",
@@ -369,7 +382,7 @@ export default {
   },
 
   attack: {
-    number: "10",
+    number: "11",
     kicker: "ATTACK IT",
     h2: "The cheapest way to break this.",
     intro:

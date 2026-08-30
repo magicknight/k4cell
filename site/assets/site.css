@@ -228,11 +228,6 @@ h2 { max-width: 20ch; margin: 0; font: 500 clamp(1.9rem, 4vw, 3.4rem)/1.05 var(-
 .beat-n { color: var(--mint); font: 500 2rem/1 var(--serif); }
 .beat h3 { margin: 0.5rem 0 0.5rem; font-size: 1.08rem; }
 .beat p { margin: 0; color: var(--muted); font-size: 0.9rem; }
-.tagkey { margin-top: 2rem; padding: 1.2rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255, 255, 255, 0.02); }
-.tagkey h3 { margin: 0 0 0.9rem; font-size: 0.98rem; }
-.tagkey dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0; }
-.tagkey dt { margin-bottom: 0.4rem; }
-.tagkey dd { margin: 0; color: var(--muted); font-size: 0.85rem; }
 .counts { margin: 1.5rem 0 0; color: var(--dim); font: 0.78rem/1.6 var(--mono); }
 
 .grid-block { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); gap: clamp(1.5rem, 4vw, 3rem); margin-top: 3rem; align-items: start; }
@@ -264,7 +259,71 @@ h2 { max-width: 20ch; margin: 0; font: 500 clamp(1.9rem, 4vw, 3.4rem)/1.05 var(-
 .st.dim { opacity: 0.1; }
 .st.swept .me { stroke-width: 4; }
 
-/* ---------- 02 the ledger ---------- */
+/* ---------- hero epigraph and claims line ---------- */
+
+.hero-epigraph {
+  max-width: 44rem; margin: 1rem 0 0; padding-left: 0.9rem;
+  border-left: 1px solid var(--line); color: var(--dim);
+}
+.hero-epigraph p { margin: 0; font: italic 0.86rem/1.6 var(--serif); }
+.hero-epigraph .he-gloss { margin-top: 0.35rem; font-style: normal; font-size: 0.82rem; color: var(--muted); }
+.hero-epigraph cite { display: block; margin-top: 0.35rem; font: 0.68rem var(--mono); font-style: normal; }
+.hero-claims { max-width: 47rem; margin: 0.85rem 0 0; color: var(--muted); font-size: 0.95rem; }
+.hero-claims strong { color: var(--paper); font-weight: 600; }
+
+/* ---------- 02 what it claims to explain ---------- */
+
+.explain { background: var(--ink-2); }
+.tag.conditional { color: var(--violet); }
+.tag.bound { color: var(--amber); }
+.xepigraph {
+  max-width: 46rem; margin: 2rem 0 0; padding-left: 1rem;
+  border-left: 2px solid var(--mint); color: var(--muted);
+}
+.xepigraph p { margin: 0; font: 1.05rem/1.7 var(--serif); }
+.xepigraph .xgloss { margin-top: 0.4rem; font-size: 0.88rem; color: var(--dim); }
+.xepigraph cite { display: block; margin-top: 0.5rem; color: var(--dim); font: 0.7rem var(--mono); font-style: normal; }
+.tagkey, .xdef, .xkey {
+  margin-top: 2rem; padding: 1.2rem 1.4rem;
+  border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255, 255, 255, 0.02);
+}
+.tagkey h3, .xdef h3, .xkey h3 { margin: 0 0 0.7rem; font-size: 0.98rem; }
+.xdef p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.xdef .xcite { margin-top: 0.6rem; color: var(--dim); font: 0.7rem var(--mono); }
+.tagkey dl, .xkey dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0; }
+.tagkey dt, .xkey dt { margin-bottom: 0.35rem; }
+.tagkey dd, .xkey dd { margin: 0; color: var(--muted); font-size: 0.84rem; }
+.xrows { display: grid; gap: 0.9rem; margin-top: 2rem; }
+.xrow {
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.4rem;
+  background: rgba(255, 255, 255, 0.022);
+}
+.xlead { border-color: rgba(105, 230, 199, 0.35); background: rgba(105, 230, 199, 0.035); }
+.xhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem 0.9rem; }
+.xn { color: var(--mint); font: 650 0.72rem var(--mono); }
+.xhead h3 { flex: 1 1 20rem; margin: 0; font-size: 1.08rem; }
+.xlead .xhead h3 { font: 500 1.45rem/1.2 var(--serif); }
+.xtags { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.xbody { margin: 0.8rem 0 0; color: var(--muted); font-size: 0.94rem; }
+.xlead .xbody { color: #d3d8e2; font-size: 1rem; }
+.xbody strong { color: var(--paper); }
+.xbody em { color: var(--paper); font-style: italic; }
+.xmeta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1rem 0 0; }
+.xmeta dt {
+  color: var(--dim); font: 0.64rem var(--mono);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem;
+}
+.xmeta dd { margin: 0; color: var(--dim); font-size: 0.8rem; }
+.xmeta a { color: var(--amber); }
+.xholo {
+  margin-top: 2.5rem; padding: 1.4rem 1.6rem;
+  border-left: 3px solid var(--violet); background: rgba(169, 140, 255, 0.06);
+}
+.xholo h3 { margin: 0 0 0.8rem; font-size: 1.05rem; }
+.xholo p { margin: 0 0 0.8rem; color: var(--muted); font-size: 0.92rem; }
+.xholo p:last-child { margin-bottom: 0; }
+
+/* ---------- 03 the ledger ---------- */
 
 .legend {
   margin-top: 2.5rem; padding: 1rem 1.2rem; border-left: 3px solid var(--amber);
@@ -477,7 +536,8 @@ footer nav { display: flex; flex-wrap: wrap; gap: 1rem; }
 }
 
 @media (max-width: 1000px) {
-  .tagkey dl { grid-template-columns: 1fr; }
+  .tagkey dl, .xkey dl { grid-template-columns: 1fr; }
+  .xmeta { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 900px) {

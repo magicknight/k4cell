@@ -34,6 +34,9 @@ NUMBERS = [
     "727d7c1fd690655a7a487afd66ba39b12f5b0eae5a622e2a224005a02d27c479",
 ]
 
+FORBIDDEN = ["full-order", "全阶", "the universe is a hologram", "全息宇宙",
+             "2D quantum ocean", "二维量子海洋"]
+
 
 def check_static(page, path: str, language: str) -> None:
     """With JavaScript off, the page must still carry the whole argument."""
@@ -46,10 +49,16 @@ def check_static(page, path: str, language: str) -> None:
     assert page.locator(".pullbar").count() >= 8, "pull bars must be server-rendered"
     assert page.locator(".lrow").count() == 11, "every ledger row must be server-rendered"
     assert page.locator(".gap-toggle").count() == 0, "no dead control may ship without JavaScript"
+    assert page.locator(".xrow").count() == 11, "eleven claim rows must be server-rendered"
+    assert page.locator(".xholo").count() == 1, "the holography correction must be present"
+    assert page.locator(".xrow .xtags .tag").count() >= 11, "every claim carries its evidence state"
     assert page.locator(".steps li").count() == 6, "the division must be complete without JS"
     body = page.locator("body").inner_text()
     for number in NUMBERS:
         assert number in body, f"{path} (no JS): missing {number}"
+    lowered = body.lower()
+    for phrase in FORBIDDEN:
+        assert phrase.lower() not in lowered, f"{path}: retracted claim present — {phrase!r}"
 
 
 def check_live(page, path: str, language: str, screenshot: str) -> None:
