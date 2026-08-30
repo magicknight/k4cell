@@ -152,7 +152,11 @@ assert.equal(stateCount, 81, "exactly 81 basis states must be rendered");
 for (const [name, page] of [["en", english], ["zh", chinese]]) {
   assert.match(page, /srcset="\.\.\/assets\/hero-web-port\.webp"/, `${name}: portrait plate not referenced`);
   assert.match(page, /src="\.\.\/assets\/hero-web-land\.webp"/, `${name}: landscape plate not referenced`);
-  assert.match(page, /class="ruler ruler-hero"/, `${name}: the hero ruler must stay server-rendered`);
+  /* The two-line hero ruler became a full figure: the same comparison, plus a
+     numbered digit axis and the measurement's own error bar drawn as a bracket
+     under the digits it covers. Pin the figure, not the element it replaced. */
+  assert.match(page, /class="figr"/, `${name}: the digit-ruler figure must stay server-rendered`);
+  assert.match(page, /class="fr-cut"/, `${name}: the figure must draw where the experiment stops resolving`);
   assert.ok(page.indexOf("data-row=") > page.indexOf('id="ledger"'),
     `${name}: no data-row may appear before the ledger section`);
 }
@@ -204,8 +208,14 @@ assert.match(english, /finite K4 substrate → faithful physical realization/);
 assert.match(chinese, /有限 K4 基底 → 忠实物理实现/);
 assert.match(english, /It is not an empirical claim about nature/);
 assert.match(chinese, /核验断言的是逻辑结构，不是自然界/);
-assert.match(english, /desk-rejected at editorial screening/);
-assert.match(chinese, /编辑部初筛退稿/);
+/* A submission history at another journal is the author's own record, not the
+   page's business: it is not a claim, and publishing it discloses more than a
+   reader needs to judge the work. The data stays in src/data/external.json,
+   which the build never emits; the gate now makes sure it cannot leak back in.
+   The peer-review status itself is unaffected and is asserted above. */
+assert.doesNotMatch(both, /desk-rejected|编辑部初筛|Physical Review D/);
+assert.doesNotMatch(`${JSON.stringify(status)}\n${JSON.stringify(ledger)}`,
+  /desk-rejected|编辑部初筛|priorSubmission/);
 assert.match(english, /carrier-capped/);
 assert.match(chinese, /载体封顶/);
 assert.match(english, /What is not derived/);
@@ -220,6 +230,19 @@ const decks = await Promise.all([
 for (const deck of decks) {
   assert.equal(deck.explain.rows.length, 11, `${deck.dir}: the explain section must carry eleven rows`);
   assert.equal(deck.hero.chips.length, 4, `${deck.dir}: the hero carries four chips`);
+  /* The first screen promotes two claims to display size. A promoted claim that
+     loses its tier is the one way this hero could become an overclaim, so the
+     tiers are pinned to the row they were lifted from. */
+  assert.ok(deck.hero.asks.length >= 1, `${deck.dir}: the hero must ask at least one question`);
+  for (const ask of deck.hero.asks) {
+    const row = deck.explain.rows.find((r) => r.n === ask.n);
+    assert.ok(row, `${deck.dir}: hero question ${ask.n} has no claim row`);
+    assert.deepEqual(ask.tags, row.tags,
+      `${deck.dir}: hero question ${ask.n} must carry exactly the tiers of claim ${ask.n}`);
+    assert.equal(ask.href, `#x-${ask.n}`, `${deck.dir}: hero question ${ask.n} must link to its row`);
+    assert.ok(ask.rides && ask.rides.length > 3, `${deck.dir}: hero question ${ask.n} must name what it rides on`);
+  }
+  assert.ok(deck.hero.askRider.length > 20, `${deck.dir}: the two-different-fours rider must ship with the hero`);
   const states = new Set(deck.explain.tagKey.map(([state]) => state));
   for (const row of deck.explain.rows) {
     assert.ok(row.tags.length > 0, `${deck.dir}/${row.n}: a claim must carry its evidence state`);
@@ -238,6 +261,12 @@ for (const deck of decks) {
 
 for (const [name, page] of [["en", english], ["zh", chinese]]) {
   assert.equal((page.match(/class="xrow[" ]/g) ?? []).length, 11, `${name}: eleven claim rows must render`);
+  assert.equal((page.match(/id="x-\d\d"/g) ?? []).length, 11, `${name}: every claim row must carry its anchor`);
+  assert.match(page, /class="anchors-in"/, `${name}: the closed anchor band must be on the first screen`);
+  assert.match(page, /class="colophon"/, `${name}: the colophon carries the identity, the review state and the archive`);
+  /* The author's own typed definition of "closed" is what stops eleven CLOSED
+     badges reading as "experiment has confirmed it". Nothing else guards it. */
+  assert.match(page, /class="xdef"/, `${name}: the verbatim definition of "closed" must stay on the page`);
   assert.match(page, /id="explain"/, `${name}: the explain section must be present`);
   assert.match(page, /class="xholo"/, `${name}: the holography correction must be present`);
   assert.match(page, /Was mich eigentlich interessiert/, `${name}: the Einstein epigraph must render`);
@@ -267,12 +296,17 @@ for (const forbidden of [
   /二维量子海洋/,
   /information paradox/i,     // E6
   /Page curve/i,
-  /\b774\b/,
-  /\b730\b/,
-  /40,727/,
-  /10,110/,
 ]) {
   assert.doesNotMatch(both, forbidden, `forbidden string present: ${forbidden}`);
+}
+
+/* The banned NUMBERS are superseded Lean tallies, so they are banned from what
+   the page prints rather than from its markup: an SVG coordinate that happens
+   to read 774 is a false positive, and pinning a figure's geometry to dodge one
+   would be the gate deforming the drawing instead of protecting the claim. */
+const bothText = `${textOf(english)}\n${textOf(chinese)}`;
+for (const forbidden of [/\b774\b/, /\b730\b/, /40,727/, /10,110/]) {
+  assert.doesNotMatch(bothText, forbidden, `forbidden figure printed: ${forbidden}`);
 }
 
 /* AdS/CFT may appear only where the site disowns it as a premise, which is what
@@ -434,7 +468,25 @@ assert.equal(
 /* ---- budgets ---- */
 
 assert.ok(Buffer.byteLength(javascript) < 16_000, "interactive JavaScript must remain below 16 KB uncompressed");
-assert.ok(Buffer.byteLength(css) < 32_000, "CSS must remain below 32 KB uncompressed");
+/* Raised twice on 2026-08-30: 32 KB -> 40 KB for the question hero, then to
+   72 KB when the page gained its figures. The site still ships exactly ONE
+   stylesheet and no inline style, so this file is the entire visual system:
+   two grounds (a graphite masthead band and a paper body), a four-track
+   responsive grid, a hue-free evidence-tier system, and seven server-rendered
+   figures whose geometry is CSS. The byte count was never the point; the two
+   assertions below are. */
+assert.ok(Buffer.byteLength(css) < 72_000, "CSS must remain below 72 KB uncompressed");
+
+/* The palette must stay in the token block. Colour on this site carries
+   meaning — an evidence tier, a warning, a link — so a hex value written at
+   the use site is how that meaning quietly drifts. */
+const cssTokens = css.slice(0, css.indexOf("\n}"));
+const cssBody = css.slice(css.indexOf("\n}"));
+const strayHex = [...cssBody.replace(/\/\*[\s\S]*?\*\//g, "").matchAll(/#[0-9a-fA-F]{3,8}\b/g)].map((m) => m[0])
+  .filter((hex) => !["#fff", "#ffffff", "#000", "#000000"].includes(hex.toLowerCase()));
+assert.deepEqual(strayHex, [],
+  `hex colours outside the :root token block: ${strayHex.join(", ")}`);
+assert.ok(cssTokens.includes("--alert:"), "the token block must still define the palette");
 
 const walk = async (directory) => {
   const paths = [];

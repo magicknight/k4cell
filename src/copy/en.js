@@ -7,72 +7,151 @@ export default {
   languageLabel: "中文",
   skip: "Skip to content",
   nav: [
-    ["object", "The object"],
-    ["explain", "What it claims to explain"],
+    ["explain", "The eleven claims"],
     ["ledger", "The numbers"],
     ["inputs", "What went in"],
-    ["route", "The route"],
     ["kill", "How to kill it"],
-    ["not-derived", "What is not derived"],
     ["attack", "Attack it"],
   ],
   navLabel: "Primary navigation",
   footerNavLabel: "Footer",
   fundingLinkLabel: "Inspect the funding-vault repository",
 
-  title: "An object that had no choice about its own shape — K4 Cell Framework",
+  title: "Why does spacetime have four dimensions? Where does i come from? — K4 Cell Framework",
   description:
-    "A finite four-site quantum object whose own structure is derived rather than chosen, and the eleven things the framework claims fall out of it. Every claim carries its evidence state, its open interfaces, and the theorem to check.",
+    "Eleven questions, one finite four-point quantum object, zero continuous fitted parameters. Every claim carries its evidence state, its open interfaces, and the theorem you can go and check.",
 
   statusLine: [
-    "K4 Cell Framework",
     "v2.0 public review, frozen 2026-07-08",
     "1003 pages",
-    "Zhihua Liang, no institutional affiliation",
+    "Zhihua Liang \u00b7 PhD in Physics",
     "not peer reviewed",
     "errata open",
   ],
   statusNotReviewed: "not peer reviewed",
 
-  hero: {
-    h1: "An object that had no choice about its own shape.",
-    deck:
-      "Nobody knows why the universe runs on the numbers it runs on. This work tries to compute them instead, from a single four-point object — and the object itself turns out not to be a choice: demand only that the imaginary unit really square to −1, and it must have exactly four corners carrying exactly three colours. No other pair survives.",
-    epigraph: {
-      text: "Was mich eigentlich interessiert, ist, ob Gott die Welt hätte anders machen können, das heißt, ob die Forderung der logischen Einfachheit überhaupt eine Freiheit lässt.",
-      gloss: "What really interests me is whether God could have made the world any differently — that is, whether the demand for logical simplicity leaves any freedom at all.",
-      cite: "Albert Einstein, reported by Ernst G. Straus — the epigraph the author placed on his first chapter",
+  imaginary: {
+    kicker: "Fig. 5",
+    title: "Where the imaginary unit comes from",
+    aTitle: "A real engine, a closed loop",
+    aSub: "Start from a real substrate with a real symmetric Hamiltonian — no i anywhere.",
+    aNote: "Dashed: the cell's other two links, which this loop does not use. Every hop multiplies the accumulated phase by i once more.",
+    startLabel: "start",
+    realLabel: "real",
+    imagLabel: "imaginary",
+    halfLabel: "halfway round: exactly −1",
+    closeLabel: "back to +1: the loop closes",
+    bTitle: "The cell's clock: a rotation by 2π/n",
+    bSub: "The unit must be a genuine complex structure — it must really square to −1.",
+    verdictOk: "A quarter turn: squares exactly onto −1",
+    verdictNo: "A third of a turn: 60° off, never reaches −1",
+    bNote: "A quarter turn squares to −1; a third of a turn does not. So n = 4. Machine side: a companion module kills every n ≥ 5.",
+    caption: "The engine is real. Push a particle around the cell's closed four-site loop; the loop's four-fold symmetry hands it a phase it cannot gauge away, and that phase is <em>i</em>. In the author's words: complex quantum mechanics is the geometric price of closing a two-dimensional loop. That unit is the cell's clock, a rotation by 2π/n — a quarter turn squares to −1, a third of a turn does not, so n = 4, which is also why the object has four corners.",
+    tierClosed: "CLOSED · the representation half",
+    tierCond: "CONDITIONAL · the compositional gluing",
+    ridesOnLabel: "rides on",
+    ridesOn: "The theorem's own conditional half — the compositional gluing that promotes the local ±J plane to a single global complex scalar. The representation half is closed.",
+    drawnLabel: "drawn from",
+    drawnFrom: "The loop is {loop} of the cell's own {edges} links and the dashed chords are the other two; both clocks are squared at build time — over n = {lo} to n = {hi}, only n = {n} lands on −1, and the build stops if that ever changes.",
+    checkLabel: "check it at",
+    checkAt: "“Emergence of i on K4 from three ingredients” and its Representation Lemma, real-vacuum chapter; the loop-closing passage; Experiment 074, the Z₄ location of the imaginary unit.",
+  },
+
+figures: {
+      ruler: {
+        figWord: "FIG.", stop: ".",
+        axisName: "digit", axisNameShort: "digit", pointLabel: "decimal point",
+        condPrefix: "CONDITIONAL · ",
+        resolvedSpan: "{n} digits the experiment resolves", tailSpan: "{n} digits nobody can check",
+        cutLabel: "experiment stops here · digit {n}",
+        sigmaSpan: "error bar {s} covers every digit from {k}",
+        resolvedTall: ["{n} digits the", "experiment resolves"],
+        tailTall: ["{n} digits nobody", "can check"],
+        sigmaTall: ["covers every digit", "from {k}"],
+        altA: "Digit-by-digit comparison: the computed value of m_mu over m_e carries 15 significant digits, the measurement resolves only the first 8, and the measurement's own error bar of plus or minus 0.0000046 covers every digit from the ninth onward.",
+        altB: "The same digit-by-digit comparison applied to lambda_C and sin squared theta_W on one shared digit axis, with the cut falling after digit 3 and digit 4 respectively.",
+        capA: "A: {sym}. The framework commits {N} significant digits; {cut}. Every digit right of the rule is {ghost}. The dashed bracket below is the measurement's own error bar, {s}: from digit {k} onward it covers everything left in this comparison — the blunt side here is the experiment, not the theory.",
+        capB: "B: the same notation on two more rows, sharing one digit axis. The rule moves with the experiment, not with the theory. λ_C is an {exact}, so it commits a digit in every column of the axis.",
+        capCond: "All three rows here are CONDITIONAL on E8, an interface the author lists as open; sin²θ_W rides on E3 as well. The resolved digits are set in the foreground colour, not in the closed-tier colour: none of these rows is closed.",
+        capSource: "Values from ledger.json; the digit counts, the resolved-digit cut and the error bar's landing column are all recomputed at build time, and the build fails if they disagree.",
+      },
     },
+
+  colophon: {
+    eyebrow: "PUBLIC REVIEW EDITION",
+    h1a: "Why does spacetime have four dimensions?",
+    h1b: "Where does the imaginary unit of quantum mechanics come from?",
+    sub: "Eleven claims, all read off one finite four-point quantum object, with zero continuous fitted parameters. Each carries its evidence state and the interfaces still open beneath it.",
+    keys: {
+      version: "VERSION",
+      pages: "EXTENT",
+      author: "AUTHOR",
+      review: "REVIEW",
+      errata: "ERRATA",
+      archive: "ARCHIVE",
+    },
+    author: "Zhihua Liang \u00b7 \u6881\u690d\u534e",
+    authorRole: "PhD in Physics, Southern Methodist University 2012; BSc in Physics, Tsinghua University 2003",
+    authorTrack: "INFN Cagliari / CERN, LHCb, 2024\u20132026 \u00b7 University of Antwerp VisionLab, 2019\u20132023 \u00b7 ATLAS collaboration, 2006\u20132012",
+    review: "not peer reviewed",
+    reviewNote: "Two carved-out papers under review: CQG-116665, JGP13432",
+    errata: "public, numbered",
+    railTiers: "THREE EVIDENCE STATES",
+  },
+
+  hero: {
+    open: "Nobody knows why the universe runs on the numbers it runs on.",
+    asks: [
+      {
+        n: "03",
+        q: "Why does spacetime have four dimensions",
+        a: "Count the directions the ground state can still move in: 8 \u2212 4 = 4. Two further independent constraints land on the same answer.",
+        tags: ["closed", "conditional"],
+        rides: "open interface E7",
+        href: "#x-03",
+      },
+      {
+        n: "05",
+        q: "Where does the imaginary unit of quantum mechanics come from",
+        a: "A real Hamiltonian, with no i in it. Walk a particle once around the closed four-site loop \u2014 it comes back holding i.",
+        tags: ["closed", "conditional"],
+        rides: "the gluing step is still open",
+        href: "#x-05",
+      },
+    ],
+    askRead: "Read this one",
+    askRider: "The four corners and the four dimensions are two different fours: one given by the order of i, the other by a coset dimension count. The framework locks them to the same carrier; it never claims one is the other.",
+    moreTitle: "Nine more",
+    moreLink: "All eleven, one by one",
     lede:
-      "There are about twenty of these numbers. They set the size of an atom and the rate the universe is flying apart. Physics measures each one — the electron's mass, how strongly light grips charge, how much of the sky is dark matter — writes it into the equations by hand, and moves on.",
-    claims:
-      "This work also claims to say <strong>why spacetime has four dimensions</strong> and not some other number, <strong>why matter comes in three generations</strong>, <strong>why the charges are the odd fractions they are</strong>, <strong>why the strong force shows no CP violation</strong> without a new particle invented to cancel it, and <strong>where the imaginary unit of quantum mechanics comes from</strong>. Eleven such claims are set out below — each with its evidence state, its open interfaces, and the theorem you can go and check.",
-    fineprint:
-      "About twenty: 19 in the minimal Standard Model; 26 to 28 once neutrino masses are included, depending on whether neutrinos are Dirac or Majorana. Cosmology adds its own. And the theorem above states its own class — cells built from SU(m) fundamental site representations on a graph, with two-site interactions. Whether that class is honestly narrow or quietly convenient is the author's own open review target A.",
+      "There are about twenty of these numbers. They set the size of an atom and the rate the universe is flying apart. Physics measures each one \u2014 the electron's mass, how strongly light grips charge, how much of the sky is dark matter \u2014 writes it into the equations by hand, and moves on.",
     body:
-      "A calculation with no dial to turn cannot be rescued when it is wrong. So this page prints its worst row next to its best, numbers its own open gaps, and names the measurement that would end it. The freedom that remains here is discrete — which embedding, which branch, which channel — and those are the open questions listed further down.",
+      "A calculation with no dial to turn cannot be rescued when it is wrong.",
     caveat:
-      "The row above is conditional. It depends on a map from the object's few ingredients into the full particle content of the Standard Model, and that map is not proved — the author lists it as open in his own published errata, entry E8. The cosmological-constant problem is not solved here, and nothing on this page claims it is. Not peer reviewed: two carved-out papers are under review (CQG-116665, JGP13432); the 1003-page monograph is not submitted and is not on arXiv.",
+      "Every claim above carries its own evidence state: the conditional half of each rides on an interface the author himself lists as open. The cosmological-constant problem is not solved here. Not peer reviewed: two carved-out papers are under review (CQG-116665, JGP13432); the 1003-page monograph is not submitted and is not on arXiv.",
+    fineprint:
+      "About twenty: 19 in the minimal Standard Model; 26 to 28 once neutrino masses are included, depending on whether neutrinos are Dirac or Majorana. Cosmology adds its own. And the no-dial claim above states its own class \u2014 cells built from SU(m) fundamental site representations on a graph, with two-site interactions. Whether that class is honestly narrow or quietly convenient is the author's own open review target A.",
     chips: [
       ["continuous parameters fitted", "0"],
-      ["(colours, sites) surviving, over every m and every n", "one pair: (3, 4)"],
-      ["best row · worst row", "0.002 σ · 3.28 σ_eq"],
+      ["the only (colours, sites) that survives", "one pair: (3, 4)"],
+      ["best row \u00b7 worst row", "0.002 \u03c3 \u00b7 3.28 \u03c3_eq"],
       ["open interfaces, the author's own numbering", "5, plus one main bridge"],
     ],
-    plateTag: "CONCEPT ART · NOT AN OBSERVATION · NOT THIS FRAMEWORK'S OUTPUT",
+    chipsNote: "The best row and the worst row are printed on the same table. No continuous parameter here was fitted; the freedom that remains is discrete \u2014 which embedding, which branch, which channel \u2014 and those are the open questions listed below.",
+    plateTag: "BACKDROP \u00b7 CONCEPT ART \u00b7 NOT AN OBSERVATION \u00b7 NOT THIS FRAMEWORK'S OUTPUT",
     plateAlt:
       "Concept art: a dark field of violet and mint filaments, nodes and voids, in the shape of cosmic large-scale structure. Generated from a fixed random seed; not an observation.",
     plateNoteA:
-      "A picture of an idea, not a picture of the sky. It was generated on the author's machine from a fixed random seed by a Zel'dovich toy model — the textbook first-order approximation that produces filaments, nodes and voids. No telescope data is shown, nothing in it was fitted, and no quantity from this framework enters it. Between the smallest length physics can name and the farthest thing we can see is about 61 factors of ten; this framework's single cosmological comparison sits at the far end of that span, and it is ",
+      "A picture of an idea, not a picture of the sky. It was generated on the author's machine from a fixed random seed by a Zel'dovich toy model \u2014 the textbook first-order approximation that produces filaments, nodes and voids. No telescope data is shown, nothing in it was fitted, and no quantity from this framework enters it. Between the smallest length physics can name and the farthest thing we can see is about 61 factors of ten; this framework's single cosmological comparison sits at the far end of that span, and it is ",
     plateNoteLink: "the worst row on this page",
     plateNoteB: ".",
     railTag: "CONDITIONAL on E8, an interface the author lists as open",
-    railLead: "m_μ/m_e · the experiment resolves 8 of these digits",
-    glyphLegendA: "four points · three colours · six links",
+    railLead: "m_\u03bc/m_e \u00b7 the experiment resolves 8 of these digits",
+    glyphLegendA: "four points \u00b7 three colours \u00b7 six links",
     glyphLegendB: "one pair must always collide",
     actions: [
-      ["What it claims to explain", "#explain"],
-      ["See every number, worst first", "#ledger"],
+      ["All eleven, one by one", "#explain"],
+      ["How to kill it", "#kill"],
     ],
     rulerCaption: "computed against measured, digit by digit",
     rulerComputed: "computed",
@@ -82,11 +161,16 @@ export default {
   },
 
   object: {
-    number: "01",
+    number: "03",
     kicker: "THE OBJECT",
     h2: "Four points that cannot agree.",
     intro:
       "Every number below is read off one finite object. Here it is, in three steps.",
+    epigraph: {
+      text: "Was mich eigentlich interessiert, ist, ob Gott die Welt hätte anders machen können, das heißt, ob die Forderung der logischen Einfachheit überhaupt eine Freiheit lässt.",
+      gloss: "What really interests me is whether God could have made the world any differently — that is, whether the demand for logical simplicity leaves any freedom at all.",
+      cite: "Albert Einstein, reported by Ernst G. Straus — the epigraph the author placed on his first chapter",
+    },
     beats: [
       {
         n: "1",
@@ -149,7 +233,21 @@ export default {
   explain,
 
   ledger: {
-    number: "03",
+  sigma: {
+      figNumber: "Figure 04·1", figTitle: "The eleven rows on one σ scale.",
+      laneKeys: ["A", "B", "C"], noDigits: "commits no digits",
+      bandTag: "ordinary agreement", ruleTag: "must be explained", keyTitle: "Key",
+      keyPull: "a comparable pull, at its own value",
+      keyCond: "ring: conditional on a named open interface",
+      keyDiag: "a χ²-equivalent, not a Gaussian pull",
+      keyBand: "the 0–1 σ band", keyRule: "the 3 σ rule",
+      noneTag: "untested, not confirmed",
+      keyNone: "no agreement figure is drawn for this lane",
+      ariaLead: "The eleven rows on one shared σ scale.",
+      ariaOff: "off the scale, no digits committed",
+      ariaWorst: "the only row past the 3 σ rule",
+    },
+    number: "04",
     kicker: "THE NUMBERS",
     h2: "The eleven rows with a public comparison partner.",
     intro:
@@ -197,7 +295,7 @@ export default {
   },
 
   checkIt: {
-    number: "04",
+    number: "02",
     kicker: "CHECK ONE YOURSELF",
     h2: "9 ÷ 40",
     body:
@@ -335,8 +433,6 @@ export default {
     submissionsUnderReview: "under review",
     submissionsAwaiting: "awaiting referee reports",
     submissionsSubmitted: "submitted",
-    submissionsPrior: "Previously submitted to",
-    submissionsDeskReject: "desk-rejected at editorial screening, not sent to referees",
     submissionsNoArxiv: "The monograph is not on arXiv.",
   },
 
@@ -348,14 +444,13 @@ export default {
       "Lean 4 is a proof assistant: you restate a theorem in a language a computer can check, and the file does not compile unless every step follows. At the 2026-07-08 release, a row-by-row sign-off ran over all <strong>771</strong> labelled theorem rows of the manuscript: <strong>727</strong> lean_certified, 19 proved_core_only, 4 needs_lean_node, 21 prose_empirical_open. The root corpus is <strong>313 modules</strong>. Every compiled statement rests on exactly the three standard logical axioms of the mathematical library — propext, Classical.choice, Quot.sound. The project contributes no axiom, no opaque declaration and no sorry of its own.",
     meaning:
       "Certified means the Lean statement carries the same logical force as the written one <em>at the granularity that statement declares</em>. Most of these certificates are carrier-capped: an analytic ingredient the mathematical library does not yet supply — a clustering bound, a continuum-limit input — enters as an explicitly named hypothesis rather than as a hidden assumption. Certification is a claim about logical structure. It is not an empirical claim about nature. A machine-checked proof of the wrong statement is still a proof of the wrong statement, and the honest reading of these 727 rows is that the bookkeeping is clean, not that the physics is right.",
-    barAria: "{total} theorem rows: {certified} certified, {open} not certified",
     barLabels: {
       leanCertified: "lean_certified",
       provedCoreOnly: "proved_core_only",
       needsLeanNode: "needs_lean_node",
       proseEmpiricalOpen: "prose_empirical_open",
     },
-    barNote: "44 rows are not certified, and are labelled as such.",
+    barNote: "rows are not certified, and are labelled as such.",
   },
 
   verify: {
@@ -404,8 +499,11 @@ export default {
     personTitle: "Who wrote it",
     personName: "Zhihua Liang (梁植华)",
     personLines: [
-      "Independent researcher, no current institutional affiliation.",
-      "Formerly Researcher, INFN Sezione di Cagliari, February 2024 – February 2026.",
+      "PhD in Physics, Southern Methodist University (2012); BSc in Physics, Tsinghua University (2003).",
+      "2024\u20132026, Researcher at INFN Sezione di Cagliari / CERN: AI detector-simulation surrogates and real-time data acquisition for the LHCb upgrade.",
+      "2019\u20132023, postdoc at the University of Antwerp VisionLab: deep learning for industrial and medical imaging. 2013\u20132016, postdoc at the University of Houston: medical physics and spectral CT.",
+      "2006\u20132012, ATLAS collaboration (Southern Methodist University / CERN): statistical analysis of the H \u2192 WW channel, one of the analyses behind the 2012 Higgs boson discovery; co-author of the NLO QCD program MEKS.",
+      "A 1003-page monograph, and a 313-module Lean 4 corpus held at machine-verified axiom purity.",
       "A 1003-page monograph and a 313-module Lean 4 corpus held at a machine-checked axiom-purity state.",
     ],
     personContact: "zhihua@k4cell.com",
