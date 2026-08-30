@@ -40,9 +40,9 @@
   },
   "publication": {
     "statement_publication_authorized_by_founder_signature": true,
-    "first_live_at_utc": null,
-    "first_live_receipt": null,
+    "first_live_at_utc": "2026-08-30T10:37:33Z",
+    "first_live_receipt": "PUBLICATION_RECEIPT_v1.json",
     "source_repository": "https://github.com/magicknight/k4cell",
-    "source_commit": null
+    "source_commit": "34a7aa92d2badc20d292a01a6be4770b1631ebb8"
   }
 }

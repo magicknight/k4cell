@@ -715,7 +715,7 @@ const status = {
     start_gate: {
       public_review_status_sync: `PASS@${publicStatusCommit}`,
       founder_signed_no_official_mint: "PASS",
-      canonical_https_source_graph: "SIGNED_ARTIFACTS_PUBLISHED / LIVE_REVERIFY_PENDING",
+      canonical_https_source_graph: "PASS@34a7aa92d2badc20d292a01a6be4770b1631ebb8",
       twelve_card_and_metrics_hash_freeze: "OPEN",
     },
   },

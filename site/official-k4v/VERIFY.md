@@ -5,6 +5,9 @@ This verifies the exact statement published at
 made by the advertised OpenPGP signing subkey. It does not authorize a token
 launch and does not establish any scientific claim.
 
+The first-live redownload and full-fingerprint verification receipt is
+[`PUBLICATION_RECEIPT_v1.json`](PUBLICATION_RECEIPT_v1.json).
+
 ## Frozen hashes
 
 ```text

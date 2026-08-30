@@ -36,6 +36,7 @@ const required = [
   "official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt",
   "official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt.asc",
   "official-k4v/VERIFY.md",
+  "official-k4v/PUBLICATION_RECEIPT_v1.json",
   "status.json",
   "ledger.json",
   "season-01.json",
@@ -76,6 +77,7 @@ const officialPayloadPath = join(site, "official-k4v", "K4V_NO_OFFICIAL_MINT_ATT
 const officialSignaturePath = `${officialPayloadPath}.asc`;
 const officialPayload = await readFile(officialPayloadPath);
 const officialSignature = await readFile(officialSignaturePath);
+const publicationReceipt = JSON.parse(await readFile(join(site, "official-k4v", "PUBLICATION_RECEIPT_v1.json"), "utf8"));
 
 const both = `${english}\n${chinese}`;
 
@@ -313,7 +315,8 @@ assert.equal(status.science.carved_submissions.length, 2);
 assert.equal(status.public_science.season, "NOT_STARTED");
 assert.match(status.public_science.start_gate.public_review_status_sync, /^PASS@f739333/);
 assert.equal(status.public_science.start_gate.founder_signed_no_official_mint, "PASS");
-assert.match(status.public_science.start_gate.canonical_https_source_graph, /^SIGNED_ARTIFACTS_PUBLISHED/);
+assert.equal(status.public_science.start_gate.canonical_https_source_graph,
+  "PASS@34a7aa92d2badc20d292a01a6be4770b1631ebb8");
 assert.equal(status.founder_identity.fingerprint, "C74953F60AD573F54A3FD06C72213914E4860F47");
 assert.equal(status.founder_identity.signing_subkey_fingerprint, "0427411FA4820FDA5EBFB79B48D9A06D3C49431F");
 assert.equal(status.founder_identity.server_subkey_test_signature, "PASS");
@@ -348,6 +351,17 @@ assert.equal(officialStatus.launch_state.official_mint, null);
 assert.equal(officialStatus.launch_state.official_payment_wallet, null);
 assert.equal(officialStatus.launch_state.tge_date, null);
 assert.equal(officialStatus.launch_state.mainnet_authorized, false);
+assert.equal(officialStatus.publication.first_live_at_utc, "2026-08-30T10:37:33Z");
+assert.equal(officialStatus.publication.source_commit, "34a7aa92d2badc20d292a01a6be4770b1631ebb8");
+assert.equal(publicationReceipt.first_live_observed_at_utc, "2026-08-30T10:37:33Z");
+assert.equal(publicationReceipt.first_publication_commit, "34a7aa92d2badc20d292a01a6be4770b1631ebb8");
+assert.equal(publicationReceipt.verification.cryptographic_result, "PASS");
+assert.equal(publicationReceipt.verification.validsig_signing_subkey_fingerprint,
+  "0427411FA4820FDA5EBFB79B48D9A06D3C49431F");
+assert.equal(publicationReceipt.verification.validsig_primary_fingerprint,
+  "C74953F60AD573F54A3FD06C72213914E4860F47");
+assert.equal(publicationReceipt.launch_boundary.official_mint, null);
+assert.equal(publicationReceipt.launch_boundary.mainnet_authorized, false);
 assert.equal(officialStatus.openpgp.payload_sha256,
   createHash("sha256").update(officialPayload).digest("hex"));
 assert.equal(officialStatus.openpgp.signature_sha256,
@@ -360,7 +374,8 @@ assert.match(officialPage, /K4V has not launched/);
 assert.match(officialPage, /K4V 尚未发行/);
 assert.match(officialPage, /3d972bdaec125196f5629485d1bec3f80b4c64c234d547903051c73172063a15/);
 assert.match(officialPage, /83447c16556ba4f68c04c295fefa8924b2e07d5115f5c08e7498c7c39775fd36/);
-assert.match(officialPage, /github\.com\/magicknight\/k4cell\/tree\/main\/official-k4v/);
+assert.match(officialPage, /github\.com\/magicknight\/k4cell\/tree\/34a7aa92d2badc20d292a01a6be4770b1631ebb8\/official-k4v/);
+assert.match(officialPage, /PUBLICATION_RECEIPT_v1\.json/);
 assert.doesNotMatch(Buffer.concat([officialPayload, officialSignature]).toString("utf8"),
   /BEGIN PGP (?:PRIVATE|SECRET) KEY BLOCK/);
 

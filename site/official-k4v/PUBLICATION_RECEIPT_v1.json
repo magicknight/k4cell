@@ -1,0 +1,35 @@
+{
+  "schema": "K4V-OFFICIAL-NO-MINT-PUBLICATION-RECEIPT-v1",
+  "first_live_observed_at_utc": "2026-08-30T10:37:33Z",
+  "canonical_url": "https://k4cell.com/official-k4v/",
+  "source_repository": "https://github.com/magicknight/k4cell",
+  "first_publication_commit": "34a7aa92d2badc20d292a01a6be4770b1631ebb8",
+  "pages_ci_run": "https://github.com/magicknight/k4cell/actions/runs/33306903830",
+  "pages_ci_state": "SUCCESS",
+  "live_http_state": "PASS_200_CANONICAL_HTTPS",
+  "live_artifacts": {
+    "page_sha256": "35943aa313993432b35048efa992c0799231ca2edc3ca42248ef4f602583c3da",
+    "machine_status_sha256": "a10206b644e75a5214ad6684f68c1e8ccb21434720d52d483d75d60cecb6beae",
+    "payload_sha256": "3d972bdaec125196f5629485d1bec3f80b4c64c234d547903051c73172063a15",
+    "signature_sha256": "83447c16556ba4f68c04c295fefa8924b2e07d5115f5c08e7498c7c39775fd36",
+    "public_key_sha256": "6d3fe9aedf22c0677b4c1cab877fb838abbbf9feb34d7315c40b76e6cb3bdc67"
+  },
+  "verification": {
+    "payload_matches_signing_host_bytes": true,
+    "signature_matches_signing_host_bytes": true,
+    "goodsig_key_id": "48D9A06D3C49431F",
+    "validsig_signing_subkey_fingerprint": "0427411FA4820FDA5EBFB79B48D9A06D3C49431F",
+    "validsig_primary_fingerprint": "C74953F60AD573F54A3FD06C72213914E4860F47",
+    "cryptographic_result": "PASS"
+  },
+  "launch_boundary": {
+    "launched": false,
+    "official_mint": null,
+    "official_contract": null,
+    "official_presale": null,
+    "official_whitelist": null,
+    "official_payment_wallet": null,
+    "tge_date": null,
+    "mainnet_authorized": false
+  }
+}
