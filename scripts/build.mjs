@@ -243,10 +243,8 @@ const brandMark = `<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true
 <path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
 <circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg>`;
 
-const sectionHead = (number, kicker, h2, intro) => `<div class="section-head">
-<span class="section-number">${esc(number)} / ${esc(kicker)}</span>
-<div><h2>${h2}</h2>${intro ? `<p class="section-intro">${intro}</p>` : ""}</div>
-</div>`;
+const sectionHead = (number, kicker, h2, intro) => `<span class="section-number">${esc(number)} / ${esc(kicker)}</span>
+<h2>${h2}</h2>${intro ? `<p class="section-intro">${intro}</p>` : ""}`;
 
 const heroRow = ledger.gaussian.find((row) => row.id === "mu_e");
 
@@ -309,7 +307,8 @@ const renderExplain = (copy) => {
       `<a href="${links.targets}">$1 $2</a>`);
 
   const row = (r) => `<article class="xrow${r.lead ? " xlead" : ""}">
-<div class="xhead"><span class="xn">${esc(r.n)}</span><h3>${esc(r.h3)}</h3><span class="xtags">${chips(r.tags)}</span></div>
+<h3 class="xhead"><span class="xn">${esc(r.n)}</span>${esc(r.h3)}</h3>
+<p class="xtags">${chips(r.tags)}</p>
 <p class="xbody">${r.body}</p>
 <dl class="xmeta">
 <div><dt>${esc(x.ridesOnLabel)}</dt><dd>${linkCodes(r.ridesOn)}</dd></div>
