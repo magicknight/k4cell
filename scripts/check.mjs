@@ -31,6 +31,7 @@ const required = [
   "provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt",
   "provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt.asc",
   "provenance/tests/VERIFICATION.md",
+  "provenance/SCIENCE_VALIDATION_PUBLIC_COMMUNICATION_BOUNDARY_v1.md",
   "official-k4v/index.html",
   "official-k4v/official-k4v.v1.json",
   "official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt",
@@ -347,6 +348,16 @@ assert.equal(status.science.full_scientific_reproduction_package, "OPEN");
 assert.equal(status.science.public_review_pdf_sha256, ledger.artifact.sha256);
 assert.equal(status.science.carved_submissions.length, 2);
 assert.equal(status.public_science.season, "NOT_STARTED");
+assert.equal(status.public_science.protocol, "REVISION_IN_PROGRESS_D0076");
+assert.equal(status.public_science.scientific_validation.public_participation_direct_weight, 0);
+assert.equal(status.public_science.scientific_validation.prediction_registry, "OPEN");
+assert.deepEqual(status.public_science.public_communication.purpose,
+  ["COMMUNICATION", "RESEARCH_SUPPORT", "SEPARATE_SPECULATIVE_DEMAND"]);
+assert.equal(status.public_science.public_communication.cards, "12_DRAFT");
+assert.equal(status.public_science.public_communication.campaign, "NOT_STARTED");
+assert.equal(status.public_science.public_communication.payment_or_wallet_collection_authorized, false);
+assert.match(status.public_science.start_gate.twelve_card_and_metrics_hash_freeze,
+  /^SUPERSEDED_BY_D0076/);
 assert.match(status.public_science.start_gate.public_review_status_sync, /^PASS@f739333/);
 assert.equal(status.public_science.start_gate.founder_signed_no_official_mint, "PASS");
 assert.equal(status.public_science.start_gate.canonical_https_source_graph,

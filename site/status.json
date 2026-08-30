@@ -30,13 +30,35 @@
     ]
   },
   "public_science": {
-    "protocol": "FROZEN_DESIGN",
+    "protocol": "REVISION_IN_PROGRESS_D0076",
     "season": "NOT_STARTED",
+    "scientific_validation": {
+      "public_participation_direct_weight": 0,
+      "route": [
+        "PAPERS",
+        "PROFESSIONAL_CRITICISM",
+        "INDEPENDENT_DERIVATION_OR_REPRODUCTION",
+        "FOUNDER_SIGNED_PREREGISTERED_PREDICTIONS",
+        "EXPERIMENT_OR_OBSERVATION_COMPARISON"
+      ],
+      "prediction_registry": "OPEN",
+      "boundary_path": "/provenance/SCIENCE_VALIDATION_PUBLIC_COMMUNICATION_BOUNDARY_v1.md"
+    },
+    "public_communication": {
+      "purpose": [
+        "COMMUNICATION",
+        "RESEARCH_SUPPORT",
+        "SEPARATE_SPECULATIVE_DEMAND"
+      ],
+      "cards": "12_DRAFT",
+      "campaign": "NOT_STARTED",
+      "payment_or_wallet_collection_authorized": false
+    },
     "start_gate": {
       "public_review_status_sync": "PASS@f7393338360c0bb972a5c662f744175f9ecdf9e7",
       "founder_signed_no_official_mint": "PASS",
       "canonical_https_source_graph": "PASS@34a7aa92d2badc20d292a01a6be4770b1631ebb8",
-      "twelve_card_and_metrics_hash_freeze": "OPEN"
+      "twelve_card_and_metrics_hash_freeze": "SUPERSEDED_BY_D0076 / REPLACEMENT_PROTOCOL_OPEN"
     }
   },
   "founder_identity": {
