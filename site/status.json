@@ -1,18 +1,33 @@
 {
   "schema": "K4CELL-PUBLIC-STATUS-v1",
   "recorded_at_utc": "2026-08-29",
-  "artifact_status": "PRELAUNCH_PREVIEW_NOINDEX",
+  "artifact_status": "PUBLISHED",
   "intended_canonical_domain": "k4cell.com",
-  "canonical_live": false,
   "science": {
     "state": "CANDIDATE_NOT_INDEPENDENTLY_ESTABLISHED",
     "public_review": "2.0-public-review",
     "public_review_frozen_at": "2026-07-08",
     "public_review_commit": "36becf6d6941fc5e51fb7897a93a6b8443f100ba",
     "public_status_commit": "f7393338360c0bb972a5c662f744175f9ecdf9e7",
+    "public_review_pdf_sha256": "727d7c1fd690655a7a487afd66ba39b12f5b0eae5a622e2a224005a02d27c479",
     "peer_reviewed": false,
+    "monograph_under_journal_review": false,
     "full_physical_realization": "OPEN",
-    "full_scientific_reproduction_package": "OPEN"
+    "full_scientific_reproduction_package": "OPEN",
+    "carved_submissions": [
+      {
+        "id": "CQG-116665",
+        "journal": "Classical and Quantum Gravity",
+        "submitted": "2026-07-15",
+        "status": "AWAITING_REFEREE_REPORTS"
+      },
+      {
+        "id": "JGP13432",
+        "journal": "Journal of Geometry and Physics",
+        "submitted": "2026-07-21",
+        "status": "UNDER_REVIEW"
+      }
+    ]
   },
   "public_science": {
     "protocol": "FROZEN_DESIGN",

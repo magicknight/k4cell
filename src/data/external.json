@@ -1,0 +1,40 @@
+{
+  "schema": "K4CELL-EXTERNAL-STATUS-v1",
+  "recorded_at_utc": "2026-08-29",
+  "note": "Journal status for the two papers carved out of the monograph. The monograph itself is not under journal review. Every field here is copied from the submission portals; nothing is inferred.",
+
+  "monograph": {
+    "peerReviewed": false,
+    "underJournalReview": false,
+    "arxiv": null
+  },
+
+  "submissions": [
+    {
+      "id": "CQG-116665",
+      "journal": "Classical and Quantum Gravity",
+      "publisher": "IOP",
+      "title": "Conditional Einstein–Yang–Mills Field Equations from the Quantum Geometric Tensor of a Finite SU(3) Substrate",
+      "submitted": "2026-07-15",
+      "status": "AWAITING_REFEREE_REPORTS",
+      "priorSubmission": {
+        "journal": "Physical Review D",
+        "id": "DU14259",
+        "submitted": "2026-07-05",
+        "outcome": "DESK_REJECT",
+        "outcomeDate": "2026-07-10",
+        "outcomeNote": "editorial screening; not sent to referees"
+      }
+    },
+    {
+      "id": "JGP13432",
+      "journal": "Journal of Geometry and Physics",
+      "publisher": "Elsevier",
+      "title": "The Quantum Geometric Tensor on Complex Grassmannians: Trace-Locked Cartan Blocks and Yang–Mills Pullbacks",
+      "submitted": "2026-07-21",
+      "statusDate": "2026-08-11",
+      "status": "UNDER_REVIEW",
+      "priorSubmission": null
+    }
+  ]
+}

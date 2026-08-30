@@ -1,233 +1,478 @@
+import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import en from "../src/copy/en.js";
+import zh from "../src/copy/zh.js";
+
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const out = join(root, "site");
 const assets = join(root, "src", "assets");
 const provenance = join(root, "provenance");
+
+const ledger = JSON.parse(await readFile(join(root, "src", "data", "ledger.json"), "utf8"));
+const external = JSON.parse(await readFile(join(root, "src", "data", "external.json"), "utf8"));
+
 const publicReviewCommit = "36becf6d6941fc5e51fb7897a93a6b8443f100ba";
 const publicStatusCommit = "f7393338360c0bb972a5c662f744175f9ecdf9e7";
+const repo = "https://github.com/magicknight/k4-cell-framework-public-review";
 
 const links = {
-  repository: "https://github.com/magicknight/k4-cell-framework-public-review",
-  pdf: `https://github.com/magicknight/k4-cell-framework-public-review/blob/${publicReviewCommit}/K4_Cell_Framework_v2.0-public-review.pdf`,
-  chineseReadme: `https://github.com/magicknight/k4-cell-framework-public-review/blob/${publicReviewCommit}/README.zh-CN.md`,
-  conceptDoi: "https://doi.org/10.5281/zenodo.18892076",
-  targets: `https://github.com/magicknight/k4-cell-framework-public-review/blob/${publicStatusCommit}/REVIEW_TARGETS.md`,
-  checksums: `https://github.com/magicknight/k4-cell-framework-public-review/blob/${publicReviewCommit}/CHECKSUMS.txt`,
-  errata: `https://github.com/magicknight/k4-cell-framework-public-review/blob/${publicStatusCommit}/ERRATA.md`,
-  discussions: "https://github.com/magicknight/k4-cell-framework-public-review/discussions",
-  issues: "https://github.com/magicknight/k4-cell-framework-public-review/issues/new/choose",
+  repository: repo,
+  pdf: `${repo}/blob/${publicReviewCommit}/K4_Cell_Framework_v2.0-public-review.pdf`,
+  conceptDoi: `https://doi.org/${ledger.artifact.conceptDoi}`,
+  targets: `${repo}/blob/${publicStatusCommit}/REVIEW_TARGETS.md`,
+  checksums: `${repo}/blob/${publicStatusCommit}/CHECKSUMS.txt`,
+  errata: `${repo}/blob/${publicStatusCommit}/ERRATA.md`,
+  discussions: `${repo}/discussions`,
+  issues: `${repo}/issues/new/choose`,
   vaults: "https://github.com/magicknight/k4v-research-funding-vaults/tree/e1afead138fbf56956b298ebae7a97a8ae9ad956",
   contact: "mailto:zhihua@k4cell.com",
+  orcid: "https://orcid.org/0000-0001-6027-6883",
 };
 
-const content = {
-  en: {
-    htmlLang: "en",
-    dir: "en",
-    alternateDir: "zh",
-    languageLabel: "中文",
-    title: "K4 Cell — Can Four Quantum Sites Grow Into Spacetime?",
-    description: "Enter the K4 Cell: a finite quantum object, an ambitious candidate route toward spacetime, and a public invitation to inspect what survives.",
-    noMint: "K4V has not launched · no official mint, presale, whitelist, or payment wallet exists",
-    nav: ["Beauty", "Research reality", "Public season", "Participate"],
-    eyebrow: "K4 CELL PUBLIC SCIENCE · PRELAUNCH PREVIEW",
-    hero: "Four sites. One audacious question.",
-    lede: "Can a four-site quantum cell become a seed of spacetime? Turn the cell, follow the candidate route, and see exactly what is established, supported, and still open.",
-    enter: "Enter the cell",
-    realityCta: "See the research reality",
-    truth: "Unfinished. Publicly reviewable. Designed to be challenged.",
-    cellTitle: "Interactive K4 tetrahedral cell",
-    cellDesc: "Four equivalent sites connected by all six pairwise relations. Drag or use arrow keys to rotate. Press space to pause or resume motion.",
-    modes: [
-      ["sites", "4 sites", "Four sites: small enough to hold in one thought."],
-      ["relations", "6 relations", "Six relations: every pair is connected; nothing is isolated."],
-      ["symmetry", "No centre", "Rotate the cell. The viewpoint changes; the complete relation does not."],
-    ],
-    pause: "Pause motion",
-    resume: "Resume motion",
-    hint: "Drag · arrow keys rotate · space pauses",
-    stats: [["4", "equivalent sites"], ["6", "pairwise relations"], ["81", "basis states at the starting cell"]],
-    beautyTitle: "The smallest complete conversation.",
-    beautyIntro: "K4 is the complete graph on four sites: every site meets every other. Give each site three local basis states and the finite starting space has 3⁴ = 81 basis states. This exact object invites a dangerous question: how much coherent physics can such a small relational seed carry?",
-    beautyCards: [
-      ["4", "Sites", "No site is declared the centre. Labels are handles for us, not privileges for the geometry."],
-      ["6", "Relations", "Every pair is connected. The starting structure lives not at isolated points, but between them."],
-      ["81", "Starting space", "Three local states on each of four sites give 3⁴ basis states before dynamics and constraints are applied."],
-    ],
-    realityTitle: "A bold route, with every bridge visible.",
-    realityIntro: "Beauty is the invitation, not the verdict. The public surface separates exact finite structure, model-internal construction, and open physical realization so a missing bridge cannot masquerade as a theorem—and cannot erase what survives.",
-    statusCards: [
-      ["established", "ESTABLISHED", "Finite starting object", "Four sites, six edges, and the 81-state starting basis are exact within the declared finite model.", "SCOPE · finite/model-internal; not experimental confirmation"],
-      ["supported", "SUPPORTED", "Candidate geometric route", "The programme develops quantum-geometric constructions and typed comparison protocols. Public calculations and diagnostics can support a route without establishing nature's realization of it.", "SCOPE · manuscript construction and diagnostics"],
-      ["open", "OPEN", "Physical realization", "The faithful continuum and Lorentzian carrier, coefficient matching, full scientific reproduction, and independent expert review remain open interfaces.", "MAIN BRIDGE · finite K4 substrate → faithful physical realization"],
-    ],
-    route: [
-      ["K₄ + SU(3)", "finite candidate substrate"],
-      ["State geometry", "Fisher / Berry structure"],
-      ["Emergent geometry", "conditional construction"],
-      ["Multi-cell carriers", "gluing and continuum interfaces"],
-      ["Typed readouts", "comparison and falsification surfaces"],
-    ],
-    realityNote: "Public-review v2.0 is a frozen 2026-07-08 historical review object, not settled physics. Later confirmed corrections belong in the public errata; the PDF bytes must never be silently replaced.",
-    readArtifact: "Read the frozen manuscript",
-    seasonTitle: "Twenty-eight days inside the cell.",
-    seasonIntro: "The first season is designed before it is measured: twelve bilingual cards, three recurring lanes, one public record. It begins only after the Founder-signed no-mint identity and canonical HTTPS source graph are live.",
-    weeks: [
-      ["Week 1", "Meet the Cell", ["Beauty · four sites and six relations", "Reality · what K4 is and is not", "Participation · explain the cell in one sentence"]],
-      ["Week 2", "Map the Claims", ["Beauty · a dependency route", "Reality · established, supported, open", "Participation · verify a frozen artifact"]],
-      ["Week 3", "Research in Public", ["Beauty · a living graph", "Reality · what an erratum changes", "Participation · find the first broken bridge"]],
-      ["Week 4", "Open Cell Week", ["Beauty · what research time could open", "Reality · attention is not evidence", "Participation · one focused challenge"]],
-    ],
-    seasonGate: "Preregistered target: at least 25 unrelated human participants, 10 seven-day returners, 5 accepted non-scientific contributions, and exactly 30 qualified demand responses. Likes and views do not close the gate.",
-    participateTitle: "Do not just believe it. Touch the route.",
-    participateIntro: "Choose the depth that fits your time. A clear question, a failed check, or the first exact broken dependency is more valuable than applause.",
-    paths: [
-      ["2 minutes", "Explore one beautiful idea", "Turn the cell and learn the invariants that survive every viewpoint.", "#beauty"],
-      ["15 minutes", "Follow one claim to its edge", "Open the frozen review object and keep its later errata beside it.", links.pdf],
-      ["1 hour+", "Try to break something real", "Choose a focused target. Report the first exact failure, missing assumption, or incompatible convention.", links.targets],
-    ],
-    participationNote: "Participation never determines scientific truth by vote. No wallet is requested, and no token access, whitelist place, or financial reward is promised.",
-    sourcesTitle: "One source graph, several ways in.",
-    sourcesIntro: "Every public claim must lead back to a dated artifact, an evidence state, and an exact place where criticism can land.",
-    sourceCards: [
-      ["FROZEN ARTIFACT", "Public-review PDF", "The 2026-07-08 review snapshot, pinned to its public commit.", links.pdf],
-      ["VERSION RECORD", "Concept DOI", "A stable scholarly identifier that resolves to the current archived record.", links.conceptDoi],
-      ["CORRECTIONS", "Public errata", "Confirmed changes are appended without replacing historical PDF bytes.", links.errata],
-      ["OPEN REVIEW", "Focused targets", "Precise questions for readers who cannot audit the full monograph.", links.targets],
-    ],
-    fundingTitle: "Funding infrastructure is a separate layer.",
-    fundingText: "The open K4V vault repository tests funding-vault engineering. It does not reproduce the K4 scientific theory, establish any physical claim, or authorize a token launch.",
-    fundingLink: "Inspect the engineering boundary",
-    footer: "K4 is an unfinished candidate framework under public review. Full physical realization and a full scientific reproduction package remain open. K4V has not launched.",
-    contact: "Contact",
-  },
-  zh: {
-    htmlLang: "zh-Hans",
-    dir: "zh",
-    alternateDir: "en",
-    languageLabel: "English",
-    title: "K4 Cell——四点量子单元能否长成时空？",
-    description: "走进 K4 单元：一个有限量子对象，一条通向时空的大胆候选路线，以及一份检验什么能够存活的公开邀请。",
-    noMint: "K4V 尚未发行 · 不存在官方 mint、预售、白名单或收款钱包",
-    nav: ["几何之美", "研究实况", "公开季", "参与"],
-    eyebrow: "K4 单元公开科学 · 上线前预览",
-    hero: "四个点，一个大胆问题。",
-    lede: "一个四点量子单元，能否成为时空的种子？转动它，沿着候选路线前进，看看哪些已经建立、哪些得到支持、哪些仍然开放。",
-    enter: "进入 K4 单元",
-    realityCta: "查看研究实况",
-    truth: "尚未完成。公开可评阅。欢迎精确挑战。",
-    cellTitle: "可交互的 K4 四面体单元",
-    cellDesc: "四个等价站点由全部六条成对关系连接。拖动或使用方向键旋转，按空格暂停或恢复。",
-    modes: [
-      ["sites", "4 个点", "四个点：小到足以被一次完整地把握。"],
-      ["relations", "6 条关系", "六条关系：每一对点都相连，没有任何点被孤立。"],
-      ["symmetry", "无特权中心", "转动单元：视角在变化，完全连接关系不变。"],
-    ],
-    pause: "暂停运动",
-    resume: "恢复运动",
-    hint: "拖动 · 方向键旋转 · 空格暂停",
-    stats: [["4", "个等价站点"], ["6", "条成对关系"], ["81", "个起始单元基矢态"]],
-    beautyTitle: "最小的完整对话。",
-    beautyIntro: "K4 是四个点上的完全图：每个点都与其余三个相连。若每个站点有三个局域基态，有限起始空间就有 3⁴ = 81 个基矢态。这个精确对象会引出一个危险而迷人的问题：如此小的关系种子，能承载多少连贯物理？",
-    beautyCards: [
-      ["4", "站点", "没有一个点被宣布为中心。标签只是我们握住结构的把手，不是几何赋予它的特权。"],
-      ["6", "关系", "每一对点都相连。起始结构不在孤立的点上，而在点与点之间。"],
-      ["81", "起始空间", "四个站点各有三个局域态，在施加动力学和约束前得到 3⁴ 个基矢态。"],
-    ],
-    realityTitle: "大胆路线，每座桥都保持可见。",
-    realityIntro: "美是邀请，不是判决。公开界面将精确有限结构、模型内部构造和开放物理实现分开呈现：缺失的桥不能伪装成定理，也不能抹去仍然成立的部分。",
-    statusCards: [
-      ["established", "已建立", "有限起始对象", "四个站点、六条边和 81 维起始基底，在声明的有限模型范围内精确成立。", "范围 · 有限／模型内部；不是实验确认"],
-      ["supported", "获支持", "候选几何路线", "研究计划发展量子几何构造和类型化比较协议。公开计算与诊断可以支持路线，却不能建立自然界一定如此实现。", "范围 · 手稿构造与诊断"],
-      ["open", "开放", "物理实现", "忠实的连续与 Lorentzian 载体、系数匹配、完整科学复现和独立专家评阅仍是开放接口。", "主开放桥 · 有限 K4 基底 → 忠实物理实现"],
-    ],
-    route: [
-      ["K₄ + SU(3)", "有限候选基底"],
-      ["态空间几何", "Fisher / Berry 结构"],
-      ["涌现几何", "条件性构造"],
-      ["多单元载体", "粘合与连续接口"],
-      ["类型化读出", "比较与证伪表面"],
-    ],
-    realityNote: "公开评阅 v2.0 是 2026-07-08 冻结的历史评阅对象，不是已经定论的物理。后来确认的修订属于公开勘误；PDF 字节绝不能被静默替换。",
-    readArtifact: "阅读冻结手稿",
-    seasonTitle: "在 K4 单元里的二十八天。",
-    seasonIntro: "第一季先设计、后测量：十二张双语核心卡、三条持续内容线、一份公开记录。只有 Founder 签名的 no-mint 身份与 canonical HTTPS 来源图上线后才开始计时。",
-    weeks: [
-      ["第 1 周", "认识单元", ["美 · 四点与六条关系", "实况 · K4 是什么、不是什么", "参与 · 用一句话解释单元"]],
-      ["第 2 周", "展开主张地图", ["美 · 一条依赖路线", "实况 · 已建立、获支持、开放", "参与 · 核验冻结工件"]],
-      ["第 3 周", "公开研究过程", ["美 · 一张活依赖图", "实况 · 勘误改变了什么", "参与 · 找出第一座断桥"]],
-      ["第 4 周", "开放单元周", ["美 · 研究时间能打开什么", "实况 · 注意力不是证据", "参与 · 一个聚焦挑战"]],
-    ],
-    seasonGate: "预注册目标：至少 25 名无关真人、10 名七日回访者、5 项获接受的非科学贡献，以及恰好 30 份合格需求响应。点赞和浏览量不能关闭此门。",
-    participateTitle: "不要只是相信。亲手触碰这条路线。",
-    participateIntro: "按你的时间选择深度。一个清楚的问题、一次失败核验，或第一处精确断裂的依赖，都比掌声更有价值。",
-    paths: [
-      ["2 分钟", "探索一个美丽想法", "转动单元，理解在每个视角下都保持不变的结构。", "#beauty"],
-      ["15 分钟", "沿一条主张走到边界", "打开冻结评阅对象，并把后来公开的勘误放在旁边。", links.pdf],
-      ["1 小时以上", "尝试击破一个真实节点", "选择一个聚焦问题，报告第一处精确失败、缺失假设或不相容约定。", links.targets],
-    ],
-    participationNote: "参与不能通过投票决定科学真假。这里不索取钱包，也不承诺代币权限、白名单名额或财务回报。",
-    sourcesTitle: "一个来源图，多种进入方式。",
-    sourcesIntro: "每项公开主张都必须回到带日期的工件、证据状态，以及批评能够精确落下的位置。",
-    sourceCards: [
-      ["冻结工件", "公开评阅 PDF", "2026-07-08 的评阅快照，固定到其公开提交。", links.pdf],
-      ["版本记录", "概念 DOI", "稳定的学术标识，解析到当前归档记录。", links.conceptDoi],
-      ["修订", "公开勘误", "确认的变化以追加方式记录，不替换历史 PDF 字节。", links.errata],
-      ["公开评阅", "聚焦评阅问题", "为无法审阅整本专著的读者准备的精确问题。", links.targets],
-    ],
-    fundingTitle: "资金基础设施属于另一层。",
-    fundingText: "公开的 K4V 金库仓库检验资金金库工程。它不复现 K4 科学理论，不建立任何物理主张，也不授权发币。",
-    fundingLink: "核查工程边界",
-    footer: "K4 是一个处于公开评阅中的未完成候选框架。完整物理实现与完整科学复现包仍然开放。K4V 尚未发行。",
-    contact: "联系",
-  },
-};
-
-const escapeAttribute = (value) => value
+const esc = (value) => String(value)
   .replaceAll("&", "&amp;")
   .replaceAll('"', "&quot;")
   .replaceAll("<", "&lt;")
   .replaceAll(">", "&gt;");
 
-const brandMark = `
-  <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-    <path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
-    <circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/>
-  </svg>`;
+/* ------------------------------------------------------------------ *
+ * Numeric integrity: recompute what the page prints, and refuse to    *
+ * build if the recomputation disagrees with the stored value.         *
+ * ------------------------------------------------------------------ */
 
-const renderPage = (lang, copy) => {
-  const alternate = content[copy.alternateDir];
-  const navIds = ["beauty", "reality", "season", "participate"];
-  const modeButtons = copy.modes.map(([mode, label, caption], index) =>
-    `<button type="button" data-mode="${mode}" data-caption="${escapeAttribute(caption)}" aria-pressed="${index === 0}">${label}</button>`
-  ).join("");
-  const statusCards = copy.statusCards.map(([state, tag, title, text, scope]) => `
-    <article class="status-card">
-      <span class="tag ${state}">${tag}</span>
-      <h3>${title}</h3>
-      <p>${text}</p>
-      <p class="scope-line">${scope}</p>
-    </article>`).join("");
-  const route = copy.route.map(([title, text]) => `<li><strong>${title}</strong>${text}</li>`).join("");
-  const beauty = copy.beautyCards.map(([glyph, title, text]) => `
-    <article class="beauty-card"><div class="glyph">${glyph}</div><div><h3>${title}</h3><p>${text}</p></div></article>`).join("");
-  const weeks = copy.weeks.map(([week, title, bullets]) => `
-    <article class="season-card">
-      <span class="week">${week}</span>
-      <div><h3>${title}</h3><ul>${bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul></div>
-    </article>`).join("");
-  const paths = copy.paths.map(([time, title, text, href]) => `
-    <a class="path" href="${href}">
-      <span class="time">${time}</span><h3>${title}</h3><p>${text}</p>
-    </a>`).join("");
-  const sourceCards = copy.sourceCards.map(([type, title, text, href]) => `
-    <a class="source-card" href="${href}">
-      <span class="source-type">${type}</span><div><h3>${title}</h3><p>${text}</p></div>
-    </a>`).join("");
+const resolvedDigitsOf = (measured, sigma) =>
+  Math.floor(Math.log10(Math.abs(Number(measured)) / sigma)) + 1;
+
+const pullOf = (predicted, measured, sigma) =>
+  Math.abs((Number(predicted) - Number(measured)) / sigma);
+
+for (const row of ledger.gaussian) {
+  const resolved = resolvedDigitsOf(row.measured, row.sigma);
+  assert.equal(resolved, row.resolvedDigits,
+    `${row.id}: resolved digits recompute to ${resolved}, stored ${row.resolvedDigits}`);
+  if (!row.noPull) {
+    const pull = pullOf(row.predicted, row.measured, row.sigma);
+    assert.ok(Math.abs(pull - row.pull) <= Math.max(5e-4, row.pull * 0.02),
+      `${row.id}: pull recomputes to ${pull}, stored ${row.pull}`);
+  }
+}
+
+const lambdaRow = ledger.gaussian.find((row) => row.id === "lambda");
+assert.equal(lambdaRow.pullDisplay, "0.9 σ", "the Lambda row must print the published 0.9 sigma");
+assert.ok(Math.abs(pullOf(lambdaRow.predicted, lambdaRow.measured, lambdaRow.sigma) - 0.92) < 0.01);
+
+const machine = ledger.machine;
+assert.equal(
+  machine.leanCertified + machine.provedCoreOnly + machine.needsLeanNode + machine.proseEmpiricalOpen,
+  machine.rows, "Lean sign-off buckets must sum to the row total");
+const notCertified = machine.rows - machine.leanCertified;
+assert.equal(notCertified, 44,
+  `ledger.machine: ${machine.rows} - ${machine.leanCertified} = ${notCertified}, but the 2026-07-08 release records 44 non-certified rows`);
+
+/* The bucket figures are printed twice — as data in the bar keys and as prose in
+   machine.figures. Pin the prose to the data so the two cannot drift apart. */
+for (const copy of [en, zh]) {
+  for (const value of [machine.rows, machine.leanCertified, machine.provedCoreOnly,
+    machine.needsLeanNode, machine.proseEmpiricalOpen, machine.modules]) {
+    assert.ok(copy.machine.figures.includes(String(value)),
+      `${copy.dir}: machine.figures no longer prints ${value}`);
+  }
+  for (const axiom of machine.axioms) {
+    assert.ok(copy.machine.figures.includes(axiom), `${copy.dir}: machine.figures omits ${axiom}`);
+  }
+}
+
+/* A missing copy key would otherwise print the literal string "undefined" on the
+   live page. Fail the build instead. */
+const rowIds = [...ledger.gaussian, ...ledger.diagnostics, ...ledger.bounds].map((row) => row.id);
+for (const copy of [en, zh]) {
+  for (const id of rowIds) {
+    assert.ok(copy.ledger.types[id], `${copy.dir}: ledger.types is missing "${id}"`);
+  }
+  for (const key of Object.keys(copy.ledger.types)) {
+    assert.ok(rowIds.includes(key), `${copy.dir}: ledger.types has a stale key "${key}"`);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * The 81 basis states, enumerated at build time.                      *
+ * ------------------------------------------------------------------ */
+
+const EDGES = [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]];
+const VERTS = [[19, 5], [4, 31], [34, 31], [19, 21]];
+
+const states = [];
+for (let index = 0; index < 81; index += 1) {
+  const word = [
+    Math.floor(index / 27) % 3,
+    Math.floor(index / 9) % 3,
+    Math.floor(index / 3) % 3,
+    index % 3,
+  ];
+  const counts = [0, 0, 0];
+  for (const colour of word) counts[colour] += 1;
+  const signature = [...counts].sort((a, b) => b - a).join(",");
+  const mono = EDGES.filter(([a, b]) => word[a] === word[b]);
+  states.push({ index, word, signature, mono });
+}
+
+assert.equal(states.length, 81);
+const monoTotal = states.reduce((sum, state) => sum + state.mono.length, 0);
+assert.equal(monoTotal, 162, "total same-colour edges over all 81 states must be 162");
+assert.equal(monoTotal / 81, 2, "mean same-colour edges per state must be exactly 2");
+assert.equal(states.filter((state) => state.mono.length === 0).length, 0, "no state may be collision-free");
+
+const classCensus = new Map();
+for (const state of states) {
+  const entry = classCensus.get(state.signature) ?? { states: 0, mono: state.mono.length };
+  entry.states += 1;
+  classCensus.set(state.signature, entry);
+}
+assert.deepEqual(
+  [...classCensus.entries()].map(([key, value]) => [key, value.states, value.mono]).sort(),
+  [["2,1,1", 36, 1], ["2,2,0", 18, 2], ["3,1,0", 24, 3], ["4,0,0", 3, 6]]);
+
+const renderGrid = (label) => {
+  const cells = states.map((state, index) => {
+    const dots = state.word
+      .map((colour, site) => `<circle cx="${VERTS[site][0]}" cy="${VERTS[site][1]}" r="3.4" class="q${colour}"/>`)
+      .join("");
+    const monoLines = state.mono
+      .map(([a, b]) => `<line x1="${VERTS[a][0]}" y1="${VERTS[a][1]}" x2="${VERTS[b][0]}" y2="${VERTS[b][1]}" class="me"/>`)
+      .join("");
+    const x = (index % 9) * 40;
+    const y = Math.floor(index / 9) * 40;
+    return `<g class="st" data-sig="${state.signature}" transform="translate(${x} ${y})"><use href="#tet"/>${monoLines}${dots}</g>`;
+  }).join("");
+
+  const skeleton = EDGES
+    .map(([a, b]) => `<line x1="${VERTS[a][0]}" y1="${VERTS[a][1]}" x2="${VERTS[b][0]}" y2="${VERTS[b][1]}"/>`)
+    .join("");
+
+  return `<svg class="grid81" viewBox="-2 -2 364 364" role="img" aria-label="${esc(label)}">
+<defs><g id="tet" class="te">${skeleton}</g></defs>${cells}</svg>`;
+};
+
+/* ------------------------------------------------------------------ *
+ * The digit ruler.                                                    *
+ * ------------------------------------------------------------------ */
+
+const splitNumber = (text) => {
+  const match = String(text).match(/^(-?)(\d+)(?:\.(\d+))?(?:e([+-]?\d+))?$/i);
+  assert.ok(match, `unparseable numeric string: ${text}`);
+  return {
+    sign: match[1] ?? "",
+    whole: match[2],
+    fraction: match[3] ?? "",
+    exponent: match[4] ? Number(match[4]) : null,
+  };
+};
+
+const digitCells = (text, resolved, mode) => {
+  const parts = splitNumber(text);
+  const chars = [];
+  let significant = 0;
+  let seenNonZero = parts.whole !== "0";
+
+  for (const character of parts.whole) {
+    if (!seenNonZero && character !== "0") seenNonZero = true;
+    chars.push({ character, index: seenNonZero ? significant++ : null });
+  }
+  if (parts.fraction) {
+    chars.push({ point: true });
+    for (const character of parts.fraction) {
+      if (!seenNonZero && character !== "0") seenNonZero = true;
+      chars.push({ character, index: seenNonZero ? significant++ : null });
+    }
+  }
+
+  const cells = chars.map((cell) => {
+    if (cell.point) return `<span class="dp">.</span>`;
+    let state = "d-flat";
+    if (mode !== "flat" && cell.index !== null) {
+      state = cell.index < resolved ? "d-lit" : mode === "measured" ? "d-flat" : "d-ghost";
+    }
+    const cut = mode !== "flat" && cell.index === resolved ? " d-cut" : "";
+    return `<span class="${state}${cut}">${cell.character}</span>`;
+  });
+
+  const exponent = parts.exponent === null
+    ? ""
+    : `<span class="dx">&#215;10<sup>${parts.exponent < 0 ? "&#8722;" : ""}${Math.abs(parts.exponent)}</sup></span>`;
+
+  return `${parts.sign ? `<span class="d-flat">${parts.sign}</span>` : ""}${cells.join("")}${exponent}`;
+};
+
+const ruler = (row, copy, options = {}) => {
+  const mode = row.noPull ? "flat" : "predicted";
+  const approx = row.predictedApproximate ? `<span class="d-flat">&#8776;</span>` : "";
+  const exact = row.predictedExact ? `<span class="dexact">= ${esc(row.predictedExact)}</span>` : "";
+  /* An exact rational continues past the last resolved digit, so its tail carries
+     the cut marker that digitCells() cannot place. */
+  const tail = row.predictedExact
+    ? `<span class="d-ghost${mode === "flat" ? "" : " d-cut"}">000</span><span class="dinf">&#8230;&#8734;</span>` : "";
+  const sigmaText = row.sigmaNote ? `&#177;${esc(row.sigmaNote)}` : `&#177;${row.sigma}`;
+
+  return `<div class="ruler${options.hero ? " ruler-hero" : ""}">
+<div class="rrow"><span class="rlab">${esc(copy.hero.rulerComputed)}</span><span class="rnum">${approx}${digitCells(row.predicted, row.resolvedDigits, mode)}${tail}${exact}</span></div>
+<div class="rrow"><span class="rlab">${esc(copy.hero.rulerMeasured)}</span><span class="rnum">${digitCells(row.measured, row.resolvedDigits, "measured")}<span class="dsig">${sigmaText}</span></span></div>
+${row.noPull ? "" : `<p class="rcut">${esc(copy.hero.rulerCut.replace("{n}", String(row.resolvedDigits)))}</p>`}
+</div>`;
+};
+
+const pullBar = (value, max = 4) => {
+  assert.ok(Number.isFinite(value), `pullBar needs a number, received ${value}`);
+  const width = Math.min(1, value / max) * 300;
+  /* The row already prints its pull as text in .lpull, so the bar is decoration
+     for assistive technology rather than a second, unlocalized announcement. */
+  return `<svg class="pullbar" viewBox="0 0 300 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><rect x="0" y="4" width="300" height="2" class="pb-track"/><rect x="0" y="1" width="${Math.max(width, 1).toFixed(1)}" height="8" class="pb-fill${value >= 3 ? " pb-bad" : ""}"/></svg>`;
+};
+
+/* Chinese takes a full-width colon; English a half-width one plus a space. */
+const colon = (copy) => (copy.dir === "zh" ? "：" : ": ");
+
+/* ------------------------------------------------------------------ *
+ * Page fragments.                                                     *
+ * ------------------------------------------------------------------ */
+
+const brandMark = `<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+<path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
+<circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg>`;
+
+const sectionHead = (number, kicker, h2, intro) => `<div class="section-head">
+<span class="section-number">${esc(number)} / ${esc(kicker)}</span>
+<div><h2>${h2}</h2>${intro ? `<p class="section-intro">${intro}</p>` : ""}</div>
+</div>`;
+
+const heroRow = ledger.gaussian.find((row) => row.id === "mu_e");
+
+const renderObject = (copy) => {
+  const beats = copy.object.beats.map((beat) => `<article class="beat">
+<span class="beat-n">${esc(beat.n)}</span>
+<div><span class="tag ${beat.state}">${esc(beat.stateLabel)}</span><h3>${esc(beat.h3)}</h3><p>${beat.body}</p></div>
+</article>`).join("");
+
+  const classes = [...classCensus.entries()]
+    .sort((a, b) => b[1].states - a[1].states)
+    .map(([signature, value]) => `<button type="button" class="qfilter" data-sig="${signature}" aria-pressed="false"><strong>${value.states}</strong><span>${esc(copy.object.classLabels[signature])}</span><em>${value.mono} ${esc(copy.object.classMono)}</em></button>`).join("");
+
+  return `<section id="object" class="object"><div class="shell">
+${sectionHead(copy.object.number, copy.object.kicker, copy.object.h2, copy.object.intro)}
+<div class="beats">${beats}</div>
+<div class="tagkey"><h3>${esc(copy.object.tagKeyTitle)}</h3><dl>${copy.object.tagKey.map(([state, label, gloss]) =>
+  `<div><dt><span class="tag ${state}">${esc(label)}</span></dt><dd>${esc(gloss)}</dd></div>`).join("")}</dl></div>
+<p class="counts">${esc(copy.object.countsCaption)}</p>
+<div class="grid-block">
+<div class="grid-copy">
+<h3>${esc(copy.object.gridTitle)}</h3>
+<p>${esc(copy.object.gridIntro)}</p>
+<div class="qfilters" role="group" aria-label="${esc(copy.object.gridFilterLabel)}">
+<button type="button" class="qfilter" data-sig="all" aria-pressed="true"><strong>81</strong><span>${esc(copy.object.gridFilterAll)}</span><em>&nbsp;</em></button>
+${classes}</div>
+<p class="qmean"><span>${esc(copy.object.gridMeanLabel)}</span><strong>${esc(copy.object.gridMeanValue)}</strong><em>${esc(copy.object.gridMeanNote)}</em></p>
+<button type="button" class="button qsweep" data-done="${esc(copy.object.gridSweepDone)}">${esc(copy.object.gridSweep)}</button>
+<p class="qlive" data-live aria-live="polite">${esc(copy.object.gridSweepResult)}</p>
+<p class="caveat">${esc(copy.object.gridCaveat)}</p>
+</div>
+<figure class="grid-figure">${renderGrid(copy.object.gridTitle)}</figure>
+</div>
+</div></section>`;
+};
+
+const renderLedger = (copy) => {
+  const gaussian = ledger.gaussian.map((row) => {
+    const conditional = row.interfaces.length
+      ? ` <span class="cond">${esc(copy.ledger.conditionalOn)} ${row.interfaces.join(", ")}</span>` : "";
+    return `<article class="lrow" data-row="${row.id}">
+<div class="lhead"><h3>${esc(row.symbol)}</h3><span class="lpull">${esc(row.pullDisplay)}</span></div>
+<p class="lstate">${esc(copy.ledger.darkLabel)}</p>
+${ruler(row, copy)}
+${row.noPull ? `<p class="lnote">${esc(copy.ledger.noPullNote)}</p>` : pullBar(row.pull)}
+${row.predictedExact ? `<p class="lnote">${esc(copy.ledger.exactNote)}</p>` : ""}
+<p class="ltype">${esc(copy.ledger.types[row.id])}${conditional}</p>
+</article>`;
+  }).join("");
+
+  const diagnostics = ledger.diagnostics.map((row) => `<article class="lrow lrow-diag${row.worst ? " lrow-worst" : ""}" data-row="${row.id}">
+<div class="lhead"><h3>${esc(row.symbol)}</h3><span class="lpull">${esc(row.equivalent)}</span></div>
+<p class="ldiag"><span>${esc(copy.ledger.colComputed)}</span> <code>${esc(row.predicted)}</code></p>
+<p class="ldiag"><span>${esc(copy.ledger.colMeasured)}</span> <code>${esc(row.measured)}</code></p>
+${pullBar(Number.parseFloat(row.equivalent))}
+<p class="ltype">${esc(copy.ledger.types[row.id])}</p>
+</article>`).join("");
+
+  const bounds = ledger.bounds.map((row) => `<article class="lrow lrow-bound" data-row="${row.id}">
+<div class="lhead"><h3>${esc(row.symbol)}</h3><span class="lpull lpull-open">&#8595;</span></div>
+<p class="ldiag"><span>${esc(copy.ledger.colComputed)}</span> <code>${row.predictedApproximate ? "&#8776; " : ""}${esc(row.predicted)}</code></p>
+<p class="ltype">${esc(copy.ledger.types[row.id])}</p>
+</article>`).join("");
+
+  return `<section id="ledger" class="ledger"><div class="shell">
+${sectionHead(copy.ledger.number, copy.ledger.kicker, copy.ledger.h2, copy.ledger.intro)}
+<div class="legend"><strong>${esc(copy.ledger.legendTitle)}</strong> ${esc(copy.ledger.legend)}</div>
+<h3 class="lane">${esc(copy.ledger.laneGaussian)}</h3>
+<div class="lgrid">${gaussian}</div>
+<h3 class="lane lane-cut">${esc(copy.ledger.laneDiagnostic)}</h3>
+<p class="lane-note">${esc(copy.ledger.laneDiagnosticNote)}</p>
+<div class="lgrid">${diagnostics}</div>
+<h3 class="lane lane-cut">${esc(copy.ledger.laneBounds)}</h3>
+<p class="lane-note">${esc(copy.ledger.laneBoundsNote)}</p>
+<div class="lgrid">${bounds}</div>
+<p class="lane-note">${esc(copy.ledger.noScore)}</p>
+<p class="lane-note">${esc(copy.ledger.censusNote)} <a href="${links.pdf}">${esc(copy.ledger.censusAuthority)}</a></p>
+<p class="lane-note">${esc(copy.ledger.measuredNote)}</p>
+</div></section>`;
+};
+
+const renderRoute = (copy) => {
+  const stations = copy.route.stations.map(([title, sub, state], index) =>
+    `<li class="station" data-state="${state}"><span class="st-n">${String(index + 1).padStart(2, "0")}</span><strong>${esc(title)}</strong><span class="st-sub">${esc(sub)}</span></li>`).join("");
+
+  const gaps = copy.route.gaps.map(([code, description, carries]) => {
+    const rows = carries.length
+      ? `${esc(copy.route.gapCarries)}${colon(copy)}${carries.map((id) => `<code>${esc(ledger.gaussian.find((row) => row.id === id).symbol)}</code>`).join(" ")}`
+      : esc(copy.route.gapCarriesNothing);
+    return `<article class="gap" data-carries="${carries.join(" ")}" data-code="${esc(code)}">
+<span class="gap-code">${esc(code)}</span><p>${esc(description)}</p><p class="gap-carries">${rows}</p></article>`;
+  }).join("");
+
+  return `<section id="route" class="route"><div class="shell">
+${sectionHead(copy.route.number, copy.route.kicker, copy.route.h2, copy.route.intro)}
+<ol class="stations">${stations}</ol>
+<p class="main-bridge"><span class="tag open">${esc(copy.route.mainBridgeLabel)}</span> <code>${esc(copy.route.mainBridge)}</code></p>
+<div class="gaps">${gaps}</div>
+<div class="killswitch">
+<button type="button" class="button" data-killswitch><span data-kill-on>${esc(copy.route.killSwitch)}</span><span data-kill-off hidden>${esc(copy.route.killSwitchReset)}</span></button>
+<p class="killswitch-note">${esc(copy.route.killSwitchCaption)}</p>
+</div>
+</div></section>`;
+};
+
+const renderKill = (copy) => {
+  const cards = copy.kill.cards.map((card) => `<article class="kcard">
+<h3>${esc(card.h3)}</h3>
+<p class="kclaim">${esc(card.claim)}</p>
+<p class="kthreshold">${esc(card.threshold)}</p>
+${card.note ? `<p class="knote">${esc(card.note)}</p>` : ""}
+<p class="kwhere">${esc(card.where)}</p>
+</article>`).join("");
+
+  return `<section id="kill" class="kill"><div class="shell">
+${sectionHead(copy.kill.number, copy.kill.kicker, copy.kill.h2, copy.kill.intro)}
+<div class="kgrid">${cards}</div>
+<p class="stamp">${esc(copy.kill.stamp)}${colon(copy)}${ledger.recorded_at_utc}</p>
+</div></section>`;
+};
+
+const renderNotDerived = (copy) => {
+  const items = copy.notDerived.items.map((item) => `<li>${item}</li>`).join("");
+  const submissions = external.submissions.map((entry) => {
+    const statusText = entry.status === "UNDER_REVIEW"
+      ? copy.notDerived.submissionsUnderReview
+      : copy.notDerived.submissionsAwaiting;
+    const prior = entry.priorSubmission
+      ? `<p class="sub-prior">${esc(copy.notDerived.submissionsPrior)} <em>${esc(entry.priorSubmission.journal)}</em> (${entry.priorSubmission.submitted}) &#183; ${esc(copy.notDerived.submissionsDeskReject)} (${entry.priorSubmission.outcomeDate})</p>`
+      : "";
+    return `<article class="sub"><span class="sub-id">${esc(entry.id)}</span>
+<h4>${esc(entry.title)}</h4>
+<p class="sub-meta"><em>${esc(entry.journal)}</em> &#183; ${esc(copy.notDerived.submissionsSubmitted)} ${entry.submitted} &#183; <strong>${esc(statusText)}</strong></p>
+${prior}</article>`;
+  }).join("");
+
+  return `<section id="not-derived" class="not-derived"><div class="shell">
+${sectionHead(copy.notDerived.number, copy.notDerived.kicker, copy.notDerived.h2, "")}
+<p class="stamp">${esc(copy.notDerived.updated)} ${ledger.recorded_at_utc}</p>
+<ol class="nd-list">${items}</ol>
+<h3 class="sub-title">${esc(copy.notDerived.submissionsTitle)}</h3>
+<p class="section-intro">${esc(copy.notDerived.submissionsIntro)}</p>
+<div class="subs">${submissions}</div>
+<p class="lane-note">${esc(copy.notDerived.submissionsNoArxiv)}</p>
+</div></section>`;
+};
+
+const renderMachine = (copy) => {
+  const total = machine.rows;
+  const segments = [
+    ["leanCertified", machine.leanCertified, "seg-a"],
+    ["provedCoreOnly", machine.provedCoreOnly, "seg-b"],
+    ["needsLeanNode", machine.needsLeanNode, "seg-c"],
+    ["proseEmpiricalOpen", machine.proseEmpiricalOpen, "seg-d"],
+  ];
+  let cursor = 0;
+  const rects = segments.map(([, count, cls]) => {
+    const x = (cursor / total) * 900;
+    const width = (count / total) * 900;
+    cursor += count;
+    return `<rect x="${x.toFixed(2)}" y="0" width="${Math.max(width, 1.5).toFixed(2)}" height="34" class="${cls}"/>`;
+  }).join("");
+
+  const keys = segments.map(([key, count, cls]) =>
+    `<li><span class="key ${cls}"></span><code>${esc(copy.machine.barLabels[key])}</code> <strong>${count}</strong></li>`).join("");
+
+  return `<section id="machine" class="machine"><div class="shell">
+${sectionHead(copy.machine.number, copy.machine.kicker, copy.machine.h2, "")}
+<p class="mfigures">${copy.machine.figures}</p>
+<svg class="mbar" viewBox="0 0 900 34" preserveAspectRatio="none" role="img" aria-label="${esc(copy.machine.barAria.replace("{total}", String(total)).replace("{certified}", String(machine.leanCertified)).replace("{open}", String(notCertified)))}">${rects}</svg>
+<ul class="mkeys">${keys}</ul>
+<p class="mnote">${esc(copy.machine.barNote)}</p>
+<div class="meaning"><p>${copy.machine.meaning}</p></div>
+</div></section>`;
+};
+
+const renderVerify = (copy) => {
+  const items = copy.verify.links.map(([label, note, key]) => {
+    const href = key === "statusJson" ? "../status.json"
+      : key === "siteSums" ? "../SITE_SHA256SUMS.txt" : links[key];
+    return `<li><a href="${href}"><strong>${esc(label)}</strong><span>${esc(note)}</span></a></li>`;
+  }).join("");
+
+  return `<section id="verify" class="verify"><div class="shell">
+${sectionHead(copy.verify.number, copy.verify.kicker, copy.verify.h2, "")}
+<p class="section-intro">${esc(copy.verify.checksumIntro)}</p>
+<pre class="sha" tabindex="0" role="group" aria-label="${esc(copy.verify.checksumLabel)}"><code>sha256sum K4_Cell_Framework_v2.0-public-review.pdf
+${ledger.artifact.sha256}</code></pre>
+<p class="frozen">${esc(copy.verify.frozen)}</p>
+<ul class="vlinks">${items}</ul>
+<p class="lane-note">${esc(copy.verify.buildNote)}</p>
+<div class="defect">${esc(copy.verify.artifactDefect)}</div>
+</div></section>`;
+};
+
+const renderAttack = (copy) => {
+  const targets = copy.attack.targets.map(([label, note]) =>
+    `<li><a href="${links.targets}"><strong>${esc(label)}</strong><span>${esc(note)}</span></a></li>`).join("");
+  const depths = copy.attack.depths.map(([time, note]) =>
+    `<li><span class="depth-time">${esc(time)}</span>${esc(note)}</li>`).join("");
+  const person = copy.attack.personLines.map((line) => `<li>${esc(line)}</li>`).join("");
+
+  return `<section id="attack" class="attack"><div class="shell">
+${sectionHead(copy.attack.number, copy.attack.kicker, copy.attack.h2, copy.attack.intro)}
+<ul class="targets">${targets}</ul>
+<ul class="depths">${depths}</ul>
+<p class="section-cta"><a class="button primary" href="${links.issues}">${esc(copy.attack.issueCta)}</a> <a class="button" href="${links.discussions}">${esc(copy.attack.discussCta)}</a></p>
+<div class="person">
+<h3>${esc(copy.attack.personTitle)}</h3>
+<p class="person-name">${esc(copy.attack.personName)}</p>
+<ul>${person}</ul>
+<p class="person-links"><a href="${links.contact}">${esc(copy.attack.personContact)}</a> &#183; <a href="${links.orcid}">ORCID ${esc(copy.attack.personOrcid)}</a></p>
+</div>
+</div></section>`;
+};
+
+const renderPage = (copy) => {
+  const alternate = copy.alternateDir === "en" ? en : zh;
+  const nav = copy.nav.map(([id, label]) => `<a href="#${id}">${esc(label)}</a>`).join("");
+  const chips = copy.hero.chips.map(([label, value]) =>
+    `<div class="chip"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join("");
+  const actions = copy.hero.actions.map(([label, href], index) =>
+    `<a class="button${index === 0 ? " primary" : ""}" href="${href}">${esc(label)}</a>`).join("");
+  const statusItems = copy.statusLine.map((item) => item === copy.statusNotReviewed
+    ? `<a href="#not-derived">${esc(item)}</a>`
+    : `<span>${esc(item)}</span>`).join('<i aria-hidden="true">&#183;</i>');
 
   return `<!doctype html>
 <html lang="${copy.htmlLang}">
@@ -235,8 +480,8 @@ const renderPage = (lang, copy) => {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080a0f">
-  <meta name="description" content="${escapeAttribute(copy.description)}">
-  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="${esc(copy.description)}">
+  <meta name="robots" content="index,follow">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <link rel="canonical" href="https://k4cell.com/${copy.dir}/">
   <link rel="alternate" hreflang="en" href="https://k4cell.com/en/">
@@ -245,120 +490,158 @@ const renderPage = (lang, copy) => {
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/site.css">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="${escapeAttribute(copy.title)}">
-  <meta property="og:description" content="${escapeAttribute(copy.description)}">
+  <meta property="og:title" content="${esc(copy.title)}">
+  <meta property="og:description" content="${esc(copy.description)}">
   <meta property="og:url" content="https://k4cell.com/${copy.dir}/">
   <meta property="og:image" content="https://k4cell.com/assets/og-k4cell-${copy.dir}.png">
   <meta name="twitter:card" content="summary_large_image">
-  <title>${copy.title}</title>
+  <title>${esc(copy.title)}</title>
 </head>
 <body>
-  <a class="skip" href="#main">${lang === "en" ? "Skip to content" : "跳到正文"}</a>
-  <aside id="no-mint" class="no-mint" aria-label="K4V launch status">${copy.noMint}</aside>
+  <a class="skip" href="#main">${esc(copy.skip)}</a>
   <header class="site-header shell">
-    <a class="brand" href="#top" aria-label="K4 Cell home">${brandMark}<span>K4 CELL</span></a>
-    <nav class="site-nav" aria-label="${lang === "en" ? "Primary navigation" : "主导航"}">
-      ${copy.nav.map((label, index) => `<a href="#${navIds[index]}">${label}</a>`).join("")}
-      <a class="language-link" href="../${alternate.dir}/" hreflang="${alternate.htmlLang}">${copy.languageLabel}</a>
-    </nav>
+    <a class="brand" href="#top" aria-label="K4 Cell">${brandMark}<span>K4 CELL</span></a>
+    <nav class="site-nav" aria-label="${esc(copy.navLabel)}">${nav}</nav>
+    <a class="language-link" href="../${alternate.dir}/" hreflang="${alternate.htmlLang}">${esc(copy.languageLabel)}</a>
   </header>
+  <p class="statusline shell">${statusItems}</p>
   <main id="main">
     <div id="top" class="hero shell">
       <div class="hero-copy">
-        <p class="eyebrow">${copy.eyebrow}</p>
-        <h1>${copy.hero}</h1>
-        <p class="hero-lede">${copy.lede}</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#beauty">${copy.enter}<span aria-hidden="true">↓</span></a>
-          <a class="button" href="#reality">${copy.realityCta}</a>
-        </div>
-        <p class="truth-line">${copy.truth}</p>
+        <h1>${esc(copy.hero.h1)}</h1>
+        <p class="hero-lede">${copy.hero.lede}</p>
+        <p class="hero-body">${esc(copy.hero.body)}</p>
+        <div class="chips">${chips}</div>
+        <p class="hero-caveat">${esc(copy.hero.caveat)}</p>
+        <div class="hero-actions">${actions}</div>
+        <p class="hero-close">${esc(copy.hero.close)}</p>
       </div>
-      <figure class="cell-stage">
-        <svg id="cell-svg" viewBox="0 0 640 640" role="group" tabindex="0" aria-labelledby="cell-title cell-desc">
-          <title id="cell-title">${copy.cellTitle}</title><desc id="cell-desc">${copy.cellDesc}</desc>
-          <ellipse class="orbit" cx="320" cy="320" rx="250" ry="104" transform="rotate(-16 320 320)"/>
-          <ellipse class="orbit" cx="320" cy="320" rx="246" ry="88" transform="rotate(66 320 320)"/>
-          <text class="axis-label" x="61" y="331">K₄</text>
-          <g id="faces" aria-hidden="true"></g><g id="edges" aria-hidden="true"></g><g id="nodes"></g>
-        </svg>
-        <div class="stage-ui">
-          <div class="mode-row" role="group" aria-label="${lang === "en" ? "Cell view" : "单元视图"}">
-            ${modeButtons}
-            <button type="button" data-motion aria-pressed="false"><span data-motion-playing>${copy.pause}</span><span data-motion-paused hidden>${copy.resume}</span></button>
-          </div>
-          <p id="cell-caption" class="cell-caption" aria-live="polite">${copy.modes[0][2]}</p>
-          <p class="stage-hint">${copy.hint}</p>
-        </div>
+      <figure class="hero-figure">
+        ${ruler(heroRow, copy, { hero: true })}
+        <figcaption>${esc(copy.hero.rulerCaption)} &#183; <span class="ghost-key">${esc(copy.hero.rulerGhost)}</span></figcaption>
       </figure>
     </div>
-    <div class="stats shell" aria-label="K4 cell counts">${copy.stats.map(([number, label]) => `<div class="stat"><strong>${number}</strong><span>${label}</span></div>`).join("")}</div>
-
-    <section id="beauty" class="shell">
-      <div class="section-head"><span class="section-number">01 / BEAUTY</span><div><h2>${copy.beautyTitle}</h2><p class="section-intro">${copy.beautyIntro}</p></div></div>
-      <div class="beauty-grid">${beauty}</div>
-    </section>
-
-    <section id="reality" class="reality"><div class="shell">
-      <div class="section-head"><span class="section-number">02 / RESEARCH REALITY</span><div><h2>${copy.realityTitle}</h2><p class="section-intro">${copy.realityIntro}</p></div></div>
-      <div class="status-grid">${statusCards}</div>
-      <ol class="route" aria-label="${lang === "en" ? "Candidate research route" : "候选研究路线"}">${route}</ol>
-      <p class="reality-note">${copy.realityNote}</p>
-      <p class="section-cta"><a class="button primary" href="${links.pdf}">${copy.readArtifact}<span aria-hidden="true">↗</span></a></p>
+    ${renderObject(copy)}
+    ${renderLedger(copy)}
+    <section id="check-it" class="check-it"><div class="shell">
+      ${sectionHead(copy.checkIt.number, copy.checkIt.kicker, copy.checkIt.h2, "")}
+      <div class="check-grid">
+        <div>
+          <p class="check-body">${esc(copy.checkIt.body)}</p>
+          <p class="check-counter">${copy.checkIt.counter}</p>
+        </div>
+        <div class="division">
+          <ol class="steps" data-step="${esc(copy.checkIt.stepButton)}" data-reset="${esc(copy.checkIt.resetButton)}"><li>0.2</li><li>0.22</li><li>0.225</li><li>0.2250</li><li>0.22500</li><li>0.225000<span class="dinf">&#8230;&#8734;</span></li></ol>
+          <p class="check-measured"><span>${esc(copy.checkIt.measuredLabel)}</span><code>0.22501 &#177; 0.00068</code></p>
+          <p class="check-contains">${esc(copy.checkIt.containsLabel)}</p>
+        </div>
+      </div>
     </div></section>
-
-    <section id="season" class="season"><div class="shell">
-      <div class="section-head"><span class="section-number">03 / 28-DAY SEASON</span><div><h2>${copy.seasonTitle}</h2><p class="section-intro">${copy.seasonIntro}</p></div></div>
-      <div class="season-grid">${weeks}</div><p class="season-gate">${copy.seasonGate}</p>
+    <section id="inputs" class="inputs"><div class="shell">
+      ${sectionHead(copy.inputs.number, copy.inputs.kicker, copy.inputs.h2, "")}
+      <div class="input-cols">
+        <div class="col-closed">
+          <span class="tag established">${esc(copy.inputs.closedTag)}</span>
+          <h3>${esc(copy.inputs.closedTitle)}</h3>
+          <p>${esc(copy.inputs.closedBody)}</p>
+          <p>${esc(copy.inputs.closedBody2)}</p>
+        </div>
+        <div class="col-open">
+          <span class="tag open">${esc(copy.inputs.openTag)}</span>
+          <h3>${esc(copy.inputs.openTitle)}</h3>
+          <ol>${copy.inputs.openItems.map((item) => `<li>${esc(item)}</li>`).join("")}</ol>
+        </div>
+      </div>
+      <p class="invitation">${esc(copy.inputs.invitation)} <a href="${links.issues}">${esc(copy.inputs.invitationCta)}</a></p>
     </div></section>
-
-    <section id="participate" class="shell">
-      <div class="section-head"><span class="section-number">04 / PARTICIPATION</span><div><h2>${copy.participateTitle}</h2><p class="section-intro">${copy.participateIntro}</p></div></div>
-      <div class="participation-grid">${paths}</div><p class="participation-note">${copy.participationNote}</p>
-    </section>
-
-    <section id="sources" class="sources shell">
-      <div class="section-head"><span class="section-number">05 / SOURCES</span><div><h2>${copy.sourcesTitle}</h2><p class="section-intro">${copy.sourcesIntro}</p></div></div>
-      <div class="source-grid">${sourceCards}</div>
-      <div class="reality-note"><strong>${copy.fundingTitle}</strong> ${copy.fundingText} <a href="${links.vaults}">${copy.fundingLink}</a>.</div>
-    </section>
+    ${renderRoute(copy)}
+    ${renderKill(copy)}
+    ${renderNotDerived(copy)}
+    ${renderMachine(copy)}
+    ${renderVerify(copy)}
+    ${renderAttack(copy)}
   </main>
-  <footer><div class="footer-row shell"><p>${copy.footer}</p><nav aria-label="Footer"><a href="${links.conceptDoi}">DOI</a><a href="${links.repository}">GitHub</a><a href="${links.discussions}">Discussion</a><a href="${links.contact}">${copy.contact}</a></nav></div></footer>
-  <script src="../assets/cell.js" defer></script>
+  <footer><div class="footer-row shell">
+    <div>
+      <p>${esc(copy.footer.line)}</p>
+      <p class="footer-sub">${esc(copy.footer.funding)} <a href="${links.vaults}">${esc(copy.fundingLinkLabel)}</a></p>
+      <p class="footer-sub no-mint">${esc(copy.footer.noMint)} &#183; <a href="notice/">${esc(copy.dir === "zh" ? "声明" : "Notice")}</a></p>
+    </div>
+    <nav aria-label="${esc(copy.footerNavLabel)}">${copy.footer.nav.map(([label, key]) => {
+      const href = key === "statusJson" ? "../status.json" : key === "notice" ? "notice/" : links[key];
+      return `<a href="${href}">${esc(label)}</a>`;
+    }).join("")}</nav>
+  </div></footer>
+  <script src="../assets/app.js" defer></script>
 </body>
 </html>`;
 };
+
+const renderNotice = (copy) => `<!doctype html>
+<html lang="${copy.htmlLang}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080a0f">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="${esc(copy.notice.h1)}">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="canonical" href="https://k4cell.com/${copy.dir}/notice/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <title>${esc(copy.notice.title)}</title>
+</head>
+<body><main class="notice-page"><div class="notice-inner">
+${brandMark}
+<h1>${esc(copy.notice.h1)}</h1>
+${copy.notice.body.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}
+<p class="notice-contact">${esc(copy.notice.contactLine)} <a href="${links.contact}">zhihua@k4cell.com</a></p>
+<p class="hero-actions"><a class="button primary" href="../">${esc(copy.notice.back)}</a><a class="button" href="../../status.json">status.json</a></p>
+</div></main></body>
+</html>`;
 
 const rootPage = `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#080a0f"><meta name="robots" content="noindex,nofollow,noarchive">
-  <meta name="description" content="K4 Cell Public Science — choose English or 简体中文.">
+  <meta name="theme-color" content="#080a0f"><meta name="robots" content="index,follow">
+  <meta name="description" content="${esc(en.description)}">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <link rel="canonical" href="https://k4cell.com/"><link rel="alternate" hreflang="en" href="https://k4cell.com/en/"><link rel="alternate" hreflang="zh-Hans" href="https://k4cell.com/zh/"><link rel="alternate" hreflang="x-default" href="https://k4cell.com/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/site.css">
-  <title>K4 Cell Public Science</title>
+  <title>K4 Cell &#8212; ${esc(en.gate.h1)}</title>
 </head>
-<body><main class="language-gate"><div class="language-gate-inner">${brandMark}<p class="eyebrow">K4 CELL PUBLIC SCIENCE</p><h1>Inside the K4 Cell.</h1><p>One finite geometry. A universe-scale question. An open test.<br>一个有限几何，一个宇宙尺度问题，一场公开检验。</p><div class="hero-actions"><a class="button primary" href="en/">English</a><a class="button" href="zh/">简体中文</a></div><p class="truth-line">K4V has not launched · K4V 尚未发行</p></div></main></body></html>`;
+<body><main class="language-gate"><div class="language-gate-inner">${brandMark}
+<p class="eyebrow">K4 CELL</p><h1>${esc(en.gate.h1)}</h1>
+<p>${esc(en.gate.line)}<br>${esc(en.gate.lineZh)}</p>
+<div class="hero-actions"><a class="button primary" href="en/">English</a><a class="button" href="zh/">简体中文</a></div>
+<p class="gate-num"><code>m_&#956;/m_e = ${esc(heroRow.predicted)}</code><span>computed &#183; 0 continuous parameters &#183; the experiment resolves ${heroRow.resolvedDigits} of these digits &#183; conditional on E8, an open interface</span></p>
+</div></main></body></html>`;
 
-const notFound = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><link rel="stylesheet" href="./assets/site.css"><title>Not found · K4 Cell</title></head><body><main class="language-gate"><div class="language-gate-inner"><p class="eyebrow">404 / OPEN ROUTE</p><h1>This path is not part of the current cell.</h1><div class="hero-actions"><a class="button primary" href="./">Return to K4 Cell</a></div></div></main></body></html>`;
+const notFound = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/site.css"><title>Not found &#183; K4 Cell</title></head><body><main class="language-gate"><div class="language-gate-inner"><p class="eyebrow">${esc(en.notFound.kicker)}</p><h1>${esc(en.notFound.h1)}</h1><div class="hero-actions"><a class="button primary" href="/">${esc(en.notFound.back)}</a></div></div></main></body></html>`;
 
 const status = {
   schema: "K4CELL-PUBLIC-STATUS-v1",
-  recorded_at_utc: "2026-08-29",
-  artifact_status: "PRELAUNCH_PREVIEW_NOINDEX",
+  recorded_at_utc: ledger.recorded_at_utc,
+  artifact_status: "PUBLISHED",
   intended_canonical_domain: "k4cell.com",
-  canonical_live: false,
   science: {
     state: "CANDIDATE_NOT_INDEPENDENTLY_ESTABLISHED",
-    public_review: "2.0-public-review",
-    public_review_frozen_at: "2026-07-08",
+    public_review: ledger.artifact.version,
+    public_review_frozen_at: ledger.artifact.frozen,
     public_review_commit: publicReviewCommit,
     public_status_commit: publicStatusCommit,
+    public_review_pdf_sha256: ledger.artifact.sha256,
     peer_reviewed: false,
+    monograph_under_journal_review: false,
     full_physical_realization: "OPEN",
     full_scientific_reproduction_package: "OPEN",
+    carved_submissions: external.submissions.map((entry) => ({
+      id: entry.id,
+      journal: entry.journal,
+      submitted: entry.submitted,
+      status: entry.status,
+    })),
   },
   public_science: {
     protocol: "FROZEN_DESIGN",
@@ -367,7 +650,7 @@ const status = {
       public_review_status_sync: `PASS@${publicStatusCommit}`,
       founder_signed_no_official_mint: "OPEN",
       canonical_https_source_graph: "OPEN",
-      twelve_card_and_metrics_hash_freeze: "OPEN"
+      twelve_card_and_metrics_hash_freeze: "OPEN",
     },
   },
   founder_identity: {
@@ -388,26 +671,37 @@ const status = {
   },
 };
 
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${["", "en/", "zh/", "en/notice/", "zh/notice/"].map((path) =>
+  `  <url><loc>https://k4cell.com/${path}</loc><lastmod>${ledger.recorded_at_utc}</lastmod></url>`).join("\n")}
+</urlset>
+`;
+
 await rm(out, { recursive: true, force: true });
-await mkdir(join(out, "en"), { recursive: true });
-await mkdir(join(out, "zh"), { recursive: true });
-await mkdir(join(out, "assets"), { recursive: true });
-await mkdir(join(out, "provenance"), { recursive: true });
+for (const directory of ["en/notice", "zh/notice", "assets", "provenance"]) {
+  await mkdir(join(out, directory), { recursive: true });
+}
 await cp(assets, join(out, "assets"), { recursive: true });
 await cp(provenance, join(out, "provenance"), { recursive: true });
+
 await writeFile(join(out, "index.html"), rootPage);
-await writeFile(join(out, "en", "index.html"), renderPage("en", content.en));
-await writeFile(join(out, "zh", "index.html"), renderPage("zh", content.zh));
+await writeFile(join(out, "en", "index.html"), renderPage(en));
+await writeFile(join(out, "zh", "index.html"), renderPage(zh));
+await writeFile(join(out, "en", "notice", "index.html"), renderNotice(en));
+await writeFile(join(out, "zh", "notice", "index.html"), renderNotice(zh));
 await writeFile(join(out, "404.html"), notFound);
 await writeFile(join(out, "status.json"), `${JSON.stringify(status, null, 2)}\n`);
-await writeFile(join(out, "robots.txt"), "User-agent: *\nDisallow: /\n");
+await writeFile(join(out, "ledger.json"), `${JSON.stringify(ledger, null, 2)}\n`);
+await writeFile(join(out, "robots.txt"), "User-agent: *\nAllow: /\n\nSitemap: https://k4cell.com/sitemap.xml\n");
+await writeFile(join(out, "sitemap.xml"), sitemap);
+await writeFile(join(out, "CNAME"), "k4cell.com\n");
 await writeFile(join(out, "_headers"), `/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
   X-Frame-Options: DENY
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
-  X-Robots-Tag: noindex, nofollow, noarchive
 
 /assets/*
   Cache-Control: public, max-age=3600
@@ -429,8 +723,6 @@ const walk = async (directory) => {
 const checksumLines = [];
 for (const file of (await walk(out)).sort()) {
   const bytes = await readFile(file);
-  const digest = createHash("sha256").update(bytes).digest("hex");
-  const relative = file.slice(out.length + 1);
-  checksumLines.push(`${digest}  ${relative}`);
+  checksumLines.push(`${createHash("sha256").update(bytes).digest("hex")}  ${file.slice(out.length + 1)}`);
 }
 await writeFile(join(out, "SITE_SHA256SUMS.txt"), `${checksumLines.join("\n")}\n`);
