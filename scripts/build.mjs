@@ -12,6 +12,7 @@ const out = join(root, "site");
 const assets = join(root, "src", "assets");
 const provenance = join(root, "provenance");
 const officialK4v = join(root, "official-k4v");
+const predictions = join(root, "predictions");
 
 const ledger = JSON.parse(await readFile(join(root, "src", "data", "ledger.json"), "utf8"));
 const external = JSON.parse(await readFile(join(root, "src", "data", "external.json"), "utf8"));
@@ -2534,7 +2535,17 @@ const status = {
         "FOUNDER_SIGNED_PREREGISTERED_PREDICTIONS",
         "EXPERIMENT_OR_OBSERVATION_COMPARISON",
       ],
-      prediction_registry: "OPEN",
+      prediction_registry: "FOUNDATION_PASS / ENTRIES_0 / PREREGISTERED_0",
+      prediction_registry_path: "/predictions/",
+      observability_inventory: {
+        scope: "PUBLIC_LEDGER_11_ROWS_ONLY",
+        retrospective: 11,
+        prediction_candidate: 0,
+        not_yet_observable: 0,
+        registry_eligible: 0,
+        global_k4_coverage: false,
+        paper_level_inventory: "OPEN",
+      },
       boundary_path: "/provenance/SCIENCE_VALIDATION_PUBLIC_COMMUNICATION_BOUNDARY_v1.md",
     },
     public_communication: {
@@ -2585,7 +2596,7 @@ const status = {
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${["", "en/", "zh/", "en/notice/", "zh/notice/", "official-k4v/"].map((path) =>
+${["", "en/", "zh/", "en/notice/", "zh/notice/", "official-k4v/", "predictions/"].map((path) =>
   `  <url><loc>https://k4cell.com/${path}</loc><lastmod>${ledger.recorded_at_utc}</lastmod></url>`).join("\n")}
 </urlset>
 `;
@@ -2597,6 +2608,7 @@ for (const directory of ["en/notice", "zh/notice", "assets", "provenance"]) {
 await cp(assets, join(out, "assets"), { recursive: true });
 await cp(provenance, join(out, "provenance"), { recursive: true });
 await cp(officialK4v, join(out, "official-k4v"), { recursive: true });
+await cp(predictions, join(out, "predictions"), { recursive: true });
 
 await writeFile(join(out, "index.html"), rootPage);
 await writeFile(join(out, "en", "index.html"), renderPage(en));

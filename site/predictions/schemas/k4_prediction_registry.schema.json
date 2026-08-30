@@ -1,0 +1,495 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://k4cell.com/schemas/k4-prediction-registry-v1.json",
+  "title": "K4 signed prediction registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "artifact_status",
+    "recorded_at_utc",
+    "official_mint",
+    "mainnet_authorized",
+    "founder",
+    "signing_policy",
+    "entries",
+    "next_acceptance"
+  ],
+  "properties": {
+    "schema": { "const": "K4-PREDICTION-REGISTRY-v1" },
+    "artifact_status": {
+      "enum": ["OPEN_EMPTY_REGISTRY", "ACTIVE_REGISTRY"]
+    },
+    "recorded_at_utc": { "$ref": "#/$defs/utc_timestamp" },
+    "official_mint": { "type": "null" },
+    "mainnet_authorized": { "const": false },
+    "founder": { "$ref": "#/$defs/founder" },
+    "signing_policy": { "$ref": "#/$defs/signing_policy" },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/prediction_entry" }
+    },
+    "next_acceptance": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "git_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{40}$"
+    },
+    "utc_timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "nullable_string": {
+      "type": ["string", "null"]
+    },
+    "nullable_sha256": {
+      "anyOf": [
+        { "$ref": "#/$defs/sha256" },
+        { "type": "null" }
+      ]
+    },
+    "nullable_commit": {
+      "anyOf": [
+        { "$ref": "#/$defs/git_commit" },
+        { "type": "null" }
+      ]
+    },
+    "nullable_timestamp": {
+      "anyOf": [
+        { "$ref": "#/$defs/utc_timestamp" },
+        { "type": "null" }
+      ]
+    },
+    "founder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "email",
+        "primary_fingerprint",
+        "signing_subkey_fingerprint"
+      ],
+      "properties": {
+        "name": { "const": "Zhihua Liang" },
+        "email": { "const": "zhihua@k4cell.com" },
+        "primary_fingerprint": {
+          "const": "C74953F60AD573F54A3FD06C72213914E4860F47"
+        },
+        "signing_subkey_fingerprint": {
+          "const": "0427411FA4820FDA5EBFB79B48D9A06D3C49431F"
+        }
+      }
+    },
+    "signing_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signature_format",
+        "required_payload_fields",
+        "registration_rule",
+        "retrospective_rule"
+      ],
+      "properties": {
+        "signature_format": { "const": "OPENPGP_ARMORED_DETACHED" },
+        "required_payload_fields": {
+          "const": [
+            "prediction_id",
+            "theory_artifact_sha256",
+            "observable",
+            "target_dataset_or_release",
+            "knowledge_cutoff_utc",
+            "prediction_exact_text",
+            "nuisance_parameters",
+            "analysis_recipe",
+            "analysis_code_sha256",
+            "falsifier"
+          ]
+        },
+        "registration_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retrospective_rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "prediction_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prediction_id",
+        "title",
+        "state",
+        "provenance_class",
+        "theory",
+        "derivation",
+        "observable",
+        "target",
+        "prediction",
+        "nuisance_parameters",
+        "analysis",
+        "falsifier",
+        "registration",
+        "comparison",
+        "supersession",
+        "epistemic_boundary"
+      ],
+      "properties": {
+        "prediction_id": {
+          "type": "string",
+          "pattern": "^K4-PRED-[0-9]{4}$"
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "state": {
+          "enum": [
+            "DRAFT",
+            "PREREGISTERED",
+            "DATA_AVAILABLE",
+            "COMPARED",
+            "SUPERSEDED"
+          ]
+        },
+        "provenance_class": {
+          "enum": [
+            "RETROSPECTIVE",
+            "PREDICTION_CANDIDATE",
+            "NOT_YET_OBSERVABLE"
+          ]
+        },
+        "theory": { "$ref": "#/$defs/theory" },
+        "derivation": { "$ref": "#/$defs/derivation" },
+        "observable": { "$ref": "#/$defs/observable" },
+        "target": { "$ref": "#/$defs/target" },
+        "prediction": { "$ref": "#/$defs/prediction" },
+        "nuisance_parameters": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nuisance_parameter" }
+        },
+        "analysis": { "$ref": "#/$defs/analysis" },
+        "falsifier": { "$ref": "#/$defs/falsifier" },
+        "registration": { "$ref": "#/$defs/registration" },
+        "comparison": { "$ref": "#/$defs/comparison" },
+        "supersession": { "$ref": "#/$defs/supersession" },
+        "epistemic_boundary": { "$ref": "#/$defs/epistemic_boundary" }
+      }
+    },
+    "theory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository_url",
+        "commit_sha",
+        "artifact_path",
+        "artifact_sha256",
+        "paper_doi",
+        "paper_url"
+      ],
+      "properties": {
+        "repository_url": { "type": "string", "format": "uri" },
+        "commit_sha": { "$ref": "#/$defs/git_commit" },
+        "artifact_path": { "type": "string", "minLength": 1 },
+        "artifact_sha256": { "$ref": "#/$defs/sha256" },
+        "paper_doi": { "$ref": "#/$defs/nullable_string" },
+        "paper_url": {
+          "anyOf": [
+            { "type": "string", "format": "uri" },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "derivation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_native",
+        "status",
+        "dependencies",
+        "open_bridges"
+      ],
+      "properties": {
+        "source_native": { "type": "boolean" },
+        "status": { "enum": ["OPEN", "SUPPORTED", "ESTABLISHED"] },
+        "dependencies": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "open_bridges": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "observable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "symbol",
+        "definition",
+        "kind",
+        "unit",
+        "domain",
+        "evaluation_time_or_scale"
+      ],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "symbol": { "type": "string", "minLength": 1 },
+        "definition": { "type": "string", "minLength": 1 },
+        "kind": {
+          "enum": [
+            "SCALAR",
+            "INTERVAL",
+            "DISTRIBUTION",
+            "SHAPE",
+            "SIGN",
+            "COUNT",
+            "CORRELATION",
+            "FUNCTION"
+          ]
+        },
+        "unit": { "$ref": "#/$defs/nullable_string" },
+        "domain": { "type": "string", "minLength": 1 },
+        "evaluation_time_or_scale": { "type": "string", "minLength": 1 }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "experiment_or_survey",
+        "dataset_or_release",
+        "official_source_url",
+        "knowledge_cutoff_utc",
+        "target_data_public_at_cutoff",
+        "registration_before_target_analysis",
+        "expected_availability_utc"
+      ],
+      "properties": {
+        "experiment_or_survey": { "type": "string", "minLength": 1 },
+        "dataset_or_release": { "type": "string", "minLength": 1 },
+        "official_source_url": { "type": "string", "format": "uri" },
+        "knowledge_cutoff_utc": { "$ref": "#/$defs/utc_timestamp" },
+        "target_data_public_at_cutoff": { "type": "boolean" },
+        "registration_before_target_analysis": { "type": "boolean" },
+        "expected_availability_utc": { "$ref": "#/$defs/nullable_timestamp" }
+      }
+    },
+    "prediction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "representation",
+        "exact_text",
+        "value",
+        "uncertainty_or_tolerance",
+        "parameter_free",
+        "model_parameters"
+      ],
+      "properties": {
+        "representation": {
+          "enum": [
+            "SCALAR",
+            "INTERVAL",
+            "DISTRIBUTION",
+            "SHAPE",
+            "SIGN",
+            "COUNT",
+            "CORRELATION",
+            "FUNCTION"
+          ]
+        },
+        "exact_text": { "type": "string", "minLength": 1 },
+        "value": {},
+        "uncertainty_or_tolerance": { "type": "string", "minLength": 1 },
+        "parameter_free": { "type": "boolean" },
+        "model_parameters": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    },
+    "nuisance_parameter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "allowed_values_or_range", "treatment", "source"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "allowed_values_or_range": { "type": "string", "minLength": 1 },
+        "treatment": {
+          "enum": ["FIXED", "PROFILED", "MARGINALIZED", "NONE"]
+        },
+        "source": { "type": "string", "minLength": 1 }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recipe",
+        "code_repository_url",
+        "code_commit",
+        "code_sha256",
+        "covariance_or_likelihood_source",
+        "test_statistic",
+        "multiple_testing_policy"
+      ],
+      "properties": {
+        "recipe": { "type": "string", "minLength": 1 },
+        "code_repository_url": {
+          "anyOf": [
+            { "type": "string", "format": "uri" },
+            { "type": "null" }
+          ]
+        },
+        "code_commit": { "$ref": "#/$defs/nullable_commit" },
+        "code_sha256": { "$ref": "#/$defs/nullable_sha256" },
+        "covariance_or_likelihood_source": { "type": "string", "minLength": 1 },
+        "test_statistic": { "type": "string", "minLength": 1 },
+        "multiple_testing_policy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "falsifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement", "rule_type", "machine_rule", "decision_threshold"],
+      "properties": {
+        "statement": { "type": "string", "minLength": 1 },
+        "rule_type": {
+          "enum": [
+            "THRESHOLD",
+            "INTERVAL",
+            "LIKELIHOOD",
+            "SHAPE",
+            "SIGN",
+            "EXCLUSION",
+            "CUSTOM"
+          ]
+        },
+        "machine_rule": { "type": "string", "minLength": 1 },
+        "decision_threshold": { "type": "string", "minLength": 1 }
+      }
+    },
+    "registration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "payload_sha256",
+        "signature_sha256",
+        "signed_at_utc",
+        "primary_fingerprint",
+        "signing_subkey_fingerprint"
+      ],
+      "properties": {
+        "payload_sha256": { "$ref": "#/$defs/nullable_sha256" },
+        "signature_sha256": { "$ref": "#/$defs/nullable_sha256" },
+        "signed_at_utc": { "$ref": "#/$defs/nullable_timestamp" },
+        "primary_fingerprint": {
+          "anyOf": [
+            { "$ref": "#/$defs/fingerprint" },
+            { "type": "null" }
+          ]
+        },
+        "signing_subkey_fingerprint": {
+          "anyOf": [
+            { "$ref": "#/$defs/fingerprint" },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "dataset_url",
+        "data_retrieved_at_utc",
+        "analysis_commit",
+        "result",
+        "statistic",
+        "report_path",
+        "report_sha256"
+      ],
+      "properties": {
+        "state": {
+          "enum": ["NOT_AVAILABLE", "READY", "COMPARED", "SUPERSEDED"]
+        },
+        "dataset_url": { "$ref": "#/$defs/nullable_string" },
+        "data_retrieved_at_utc": { "$ref": "#/$defs/nullable_timestamp" },
+        "analysis_commit": { "$ref": "#/$defs/nullable_commit" },
+        "result": {
+          "type": ["string", "null"],
+          "enum": [
+            null,
+            "SUPPORTED",
+            "TENSION",
+            "FALSIFIED_AS_STATED",
+            "INCONCLUSIVE"
+          ]
+        },
+        "statistic": { "$ref": "#/$defs/nullable_string" },
+        "report_path": { "$ref": "#/$defs/nullable_string" },
+        "report_sha256": { "$ref": "#/$defs/nullable_sha256" }
+      }
+    },
+    "supersession": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supersedes_prediction_id",
+        "superseded_by_prediction_id",
+        "change_reason"
+      ],
+      "properties": {
+        "supersedes_prediction_id": {
+          "type": ["string", "null"],
+          "pattern": "^K4-PRED-[0-9]{4}$"
+        },
+        "superseded_by_prediction_id": {
+          "type": ["string", "null"],
+          "pattern": "^K4-PRED-[0-9]{4}$"
+        },
+        "change_reason": { "$ref": "#/$defs/nullable_string" }
+      }
+    },
+    "epistemic_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scientific_scope",
+        "public_attention_direct_weight",
+        "funding_signal_direct_weight",
+        "token_market_direct_weight",
+        "whole_theory_confirmed"
+      ],
+      "properties": {
+        "scientific_scope": { "type": "string", "minLength": 1 },
+        "public_attention_direct_weight": { "const": 0 },
+        "funding_signal_direct_weight": { "const": 0 },
+        "token_market_direct_weight": { "const": 0 },
+        "whole_theory_confirmed": { "const": false }
+      }
+    }
+  }
+}

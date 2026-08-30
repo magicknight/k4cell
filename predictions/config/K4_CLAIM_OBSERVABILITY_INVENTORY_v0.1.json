@@ -1,0 +1,203 @@
+{
+  "schema": "K4-CLAIM-OBSERVABILITY-INVENTORY-v1",
+  "artifact_status": "INITIAL_PUBLIC_LEDGER_SCOPE",
+  "recorded_at_utc": "2026-08-30T15:46:29Z",
+  "source": {
+    "repository_url": "https://github.com/magicknight/k4cell",
+    "commit_sha": "5ac0ca2b6263207d2854e1ea1f6ea9090fac7e87",
+    "path": "src/data/ledger.json",
+    "sha256": "dd9e70d0a17c4d50956811fe5e036d623be4c56f30438a86403c1af46715ecd5"
+  },
+  "scope": {
+    "description": "Exactly the eleven numeric/comparison rows currently exposed in the public K4 Cell ledger. This is not an inventory of every K4 claim or paper.",
+    "total_rows": 11,
+    "global_k4_coverage": false
+  },
+  "classification_policy": {
+    "classes": [
+      "RETROSPECTIVE",
+      "PREDICTION_CANDIDATE",
+      "NOT_YET_OBSERVABLE"
+    ],
+    "rule": "A row already juxtaposed with public measurements, diagnostics or bounds at this inventory cutoff is RETROSPECTIVE. It cannot enter the signed Prediction Registry without a distinct future observable, target release, frozen analysis and falsifier."
+  },
+  "claims": [
+    {
+      "claim_id": "K4-OBS-0001",
+      "source_row_id": "lambda",
+      "source_lane": "GAUSSIAN",
+      "observable": "Λ_eff ℓ_*²",
+      "predicted_text": "2.93e-122",
+      "observed_or_constraint_text": "2.89e-122",
+      "uncertainty_text": "4.335e-124; ledger also prints 1.5%",
+      "classification": "RETROSPECTIVE",
+      "reason": "The public ledger already displays the proposed value beside the measured value and uncertainty at the inventory cutoff.",
+      "interfaces": ["E6"],
+      "review_targets": ["Target B"],
+      "registry_eligible": false,
+      "next_bridge": "Derive a distinct out-of-sample cosmological observable and freeze its future dataset, covariance or likelihood, analysis and falsifier before inspection."
+    },
+    {
+      "claim_id": "K4-OBS-0002",
+      "source_row_id": "mb_ms",
+      "source_lane": "GAUSSIAN",
+      "observable": "m_b/m_s",
+      "predicted_text": "53.97",
+      "observed_or_constraint_text": "53.94",
+      "uncertainty_text": "0.12",
+      "classification": "RETROSPECTIVE",
+      "reason": "The public ledger already displays the proposed value beside the measured value and uncertainty at the inventory cutoff.",
+      "interfaces": [],
+      "review_targets": ["Target B"],
+      "registry_eligible": false,
+      "next_bridge": "Identify a future flavour observable or release that follows from the same source-native derivation without selection from its target data."
+    },
+    {
+      "claim_id": "K4-OBS-0003",
+      "source_row_id": "ckm_j",
+      "source_lane": "GAUSSIAN",
+      "observable": "CKM J",
+      "predicted_text": "approximately 3.085e-5",
+      "observed_or_constraint_text": "3.08e-5",
+      "uncertainty_text": "1.3e-06",
+      "classification": "RETROSPECTIVE",
+      "reason": "The approximate proposed value and measured value are both public before this inventory and therefore cannot constitute a new preregistration.",
+      "interfaces": ["E8"],
+      "review_targets": ["Target C"],
+      "registry_eligible": false,
+      "next_bridge": "Close or explicitly carry E8, then name a future flavour-data release and freeze the observable and analysis before inspection."
+    },
+    {
+      "claim_id": "K4-OBS-0004",
+      "source_row_id": "lambda_c",
+      "source_lane": "GAUSSIAN",
+      "observable": "λ_C",
+      "predicted_text": "0.225 = 9/40",
+      "observed_or_constraint_text": "0.22501",
+      "uncertainty_text": "0.00068",
+      "classification": "RETROSPECTIVE",
+      "reason": "The exact rational, measured value and uncertainty are already juxtaposed in the public ledger at the inventory cutoff.",
+      "interfaces": ["E8"],
+      "review_targets": ["Target 8"],
+      "registry_eligible": false,
+      "next_bridge": "Derive a new source-native observable downstream of the same mechanism and target a future release without reading the target analysis."
+    },
+    {
+      "claim_id": "K4-OBS-0005",
+      "source_row_id": "mu_e",
+      "source_lane": "GAUSSIAN",
+      "observable": "m_μ/m_e",
+      "predicted_text": "206.768282688691",
+      "observed_or_constraint_text": "206.7682827",
+      "uncertainty_text": "4.6e-06",
+      "classification": "RETROSPECTIVE",
+      "reason": "The high-precision proposed and measured values are already public together; digit agreement is compatibility evidence, not an out-of-sample prediction registered here.",
+      "interfaces": ["E8"],
+      "review_targets": ["Target 5", "Target 6"],
+      "registry_eligible": false,
+      "next_bridge": "Produce a distinct future precision observable with fixed analysis and no target-data selection, while disclosing the E8 dependency."
+    },
+    {
+      "claim_id": "K4-OBS-0006",
+      "source_row_id": "sin2w",
+      "source_lane": "GAUSSIAN",
+      "observable": "sin²θ_W(M_Z)",
+      "predicted_text": "0.231219995",
+      "observed_or_constraint_text": "0.23122",
+      "uncertainty_text": "6e-05",
+      "classification": "RETROSPECTIVE",
+      "reason": "The proposed value, measured value and uncertainty are already public at the inventory cutoff, with E3 and E8 still named interfaces.",
+      "interfaces": ["E3", "E8"],
+      "review_targets": [],
+      "registry_eligible": false,
+      "next_bridge": "Close or explicitly condition on E3/E8 and identify a future electroweak observable or release before preregistration."
+    },
+    {
+      "claim_id": "K4-OBS-0007",
+      "source_row_id": "alpha_s",
+      "source_lane": "GAUSSIAN",
+      "observable": "α_s(M_Z)",
+      "predicted_text": "approximately 0.1180",
+      "observed_or_constraint_text": "0.1180",
+      "uncertainty_text": "0.0009",
+      "classification": "RETROSPECTIVE",
+      "reason": "The approximate comparison was published after the target quantity was already known and is explicitly shown without a pull score.",
+      "interfaces": ["E5"],
+      "review_targets": [],
+      "registry_eligible": false,
+      "next_bridge": "Derive a future-scale or independent QCD observable, freeze the running/matching prescription and target release before inspection."
+    },
+    {
+      "claim_id": "K4-OBS-0008",
+      "source_row_id": "bao_scale",
+      "source_lane": "DIAGNOSTIC",
+      "observable": "c/(H₀ r_d)",
+      "predicted_text": "30.135",
+      "observed_or_constraint_text": "χ² = 34.40 / 13; 3.28 σ_eq",
+      "uncertainty_text": null,
+      "classification": "RETROSPECTIVE",
+      "reason": "The BAO diagnostic and its tension statistic are already computed from public comparison data at the inventory cutoff.",
+      "interfaces": [],
+      "review_targets": [],
+      "registry_eligible": false,
+      "next_bridge": "Freeze a distinct future BAO or cosmology release, official covariance/likelihood, nuisance freedom and tension falsifier before analysis."
+    },
+    {
+      "claim_id": "K4-OBS-0009",
+      "source_row_id": "bao_shape",
+      "source_lane": "DIAGNOSTIC",
+      "observable": "BAO shape",
+      "predicted_text": "frozen K4 CPL curve",
+      "observed_or_constraint_text": "shape-only comparison; 0.44 σ_eq",
+      "uncertainty_text": null,
+      "classification": "RETROSPECTIVE",
+      "reason": "The shape-only result is already a completed comparison with public data, not a preregistration against a future release.",
+      "interfaces": [],
+      "review_targets": [],
+      "registry_eligible": false,
+      "next_bridge": "Hash the exact curve and comparison code against a named future survey release before its target analysis is inspected."
+    },
+    {
+      "claim_id": "K4-OBS-0010",
+      "source_row_id": "sum_mnu",
+      "source_lane": "BOUND",
+      "observable": "Σ m_ν",
+      "predicted_text": "approximately 0.059 eV",
+      "observed_or_constraint_text": null,
+      "uncertainty_text": null,
+      "classification": "RETROSPECTIVE",
+      "reason": "The value is already public as a bound-oriented ledger row and no future experiment, release, likelihood or falsifier is frozen.",
+      "interfaces": [],
+      "review_targets": [],
+      "registry_eligible": false,
+      "next_bridge": "Name a future neutrino or cosmology dataset, freeze the likelihood and exclusion criterion, and show the value is source-native rather than selected from existing bounds."
+    },
+    {
+      "claim_id": "K4-OBS-0011",
+      "source_row_id": "m_bb",
+      "source_lane": "BOUND",
+      "observable": "m_ββ",
+      "predicted_text": "3.69 meV",
+      "observed_or_constraint_text": null,
+      "uncertainty_text": null,
+      "classification": "RETROSPECTIVE",
+      "reason": "The value is already public as a bound-oriented ledger row and no future experiment, release, response model or falsifier is frozen.",
+      "interfaces": [],
+      "review_targets": [],
+      "registry_eligible": false,
+      "next_bridge": "Specify a future neutrinoless-double-beta target, detector response and exclusion/discovery rule before the target result is inspected."
+    }
+  ],
+  "summary": {
+    "retrospective": 11,
+    "prediction_candidate": 0,
+    "not_yet_observable": 0,
+    "registry_eligible": 0
+  },
+  "next_acceptance": [
+    "extend the inventory beyond the eleven public ledger rows to the paper-level claim graph",
+    "identify one to three genuinely source-native candidate observables not selected from target data",
+    "verify live experiment and dataset release conditions before changing any candidate to a registry DRAFT",
+    "keep the signed Prediction Registry empty until a candidate passes the full validator"
+  ]
+}

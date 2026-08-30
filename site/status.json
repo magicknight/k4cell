@@ -41,7 +41,17 @@
         "FOUNDER_SIGNED_PREREGISTERED_PREDICTIONS",
         "EXPERIMENT_OR_OBSERVATION_COMPARISON"
       ],
-      "prediction_registry": "OPEN",
+      "prediction_registry": "FOUNDATION_PASS / ENTRIES_0 / PREREGISTERED_0",
+      "prediction_registry_path": "/predictions/",
+      "observability_inventory": {
+        "scope": "PUBLIC_LEDGER_11_ROWS_ONLY",
+        "retrospective": 11,
+        "prediction_candidate": 0,
+        "not_yet_observable": 0,
+        "registry_eligible": 0,
+        "global_k4_coverage": false,
+        "paper_level_inventory": "OPEN"
+      },
       "boundary_path": "/provenance/SCIENCE_VALIDATION_PUBLIC_COMMUNICATION_BOUNDARY_v1.md"
     },
     "public_communication": {

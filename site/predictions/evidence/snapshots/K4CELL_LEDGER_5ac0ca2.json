@@ -1,0 +1,167 @@
+{
+  "schema": "K4CELL-LEDGER-v1",
+  "recorded_at_utc": "2026-08-29",
+  "source": "k4-cell-framework-public-review/README.md, RELEASE_NOTES.md, ERRATA.md and REVIEW_TARGETS.md at commit f7393338360c0bb972a5c662f744175f9ecdf9e7; the v2.0-public-review PDF is frozen at commit 36becf6d6941fc5e51fb7897a93a6b8443f100ba (2026-07-08) and unchanged since",
+  "note": "Every numeric string below is copied verbatim from the public-review repository. resolvedDigits and pull are recomputed at build time and asserted against the stored values; the build fails if they drift.",
+
+  "gaussian": [
+    {
+      "id": "lambda",
+      "symbol": "Λ_eff ℓ_*²",
+      "predicted": "2.93e-122",
+      "measured": "2.89e-122",
+      "sigma": 4.335e-124,
+      "sigmaNote": "1.5%",
+      "resolvedDigits": 2,
+      "pull": 0.92,
+      "pullDisplay": "0.9 σ",
+      "pullDisplayNote": "printed as published; the raw ratio is 0.92",
+      "interfaces": ["E6"],
+      "targets": ["Target B"]
+    },
+    {
+      "id": "mb_ms",
+      "symbol": "m_b/m_s",
+      "predicted": "53.97",
+      "measured": "53.94",
+      "sigma": 0.12,
+      "resolvedDigits": 3,
+      "pull": 0.25,
+      "pullDisplay": "0.25 σ",
+      "interfaces": [],
+      "targets": ["Target B"]
+    },
+    {
+      "id": "ckm_j",
+      "symbol": "CKM J",
+      "predicted": "3.085e-5",
+      "predictedApproximate": true,
+      "measured": "3.08e-5",
+      "sigma": 1.3e-6,
+      "resolvedDigits": 2,
+      "pull": 0.038,
+      "pullDisplay": "0.04 σ",
+      "interfaces": ["E8"],
+      "targets": ["Target C"]
+    },
+    {
+      "id": "lambda_c",
+      "symbol": "λ_C",
+      "predicted": "0.225",
+      "predictedExact": "9/40",
+      "measured": "0.22501",
+      "sigma": 0.00068,
+      "resolvedDigits": 3,
+      "pull": 0.0147,
+      "pullDisplay": "0.015 σ",
+      "interfaces": ["E8"],
+      "targets": ["Target 8"]
+    },
+    {
+      "id": "mu_e",
+      "symbol": "m_μ/m_e",
+      "predicted": "206.768282688691",
+      "measured": "206.7682827",
+      "sigma": 4.6e-6,
+      "resolvedDigits": 8,
+      "agreeDigits": 9,
+      "pull": 0.00246,
+      "pullDisplay": "0.002 σ",
+      "interfaces": ["E8"],
+      "targets": ["Target 5", "Target 6"]
+    },
+    {
+      "id": "sin2w",
+      "symbol": "sin²θ_W(M_Z)",
+      "predicted": "0.231219995",
+      "measured": "0.23122",
+      "sigma": 6e-5,
+      "resolvedDigits": 4,
+      "pull": 0.0000833,
+      "pullDisplay": "< 0.01 σ",
+      "interfaces": ["E3", "E8"],
+      "targets": []
+    },
+    {
+      "id": "alpha_s",
+      "symbol": "α_s(M_Z)",
+      "predicted": "0.1180",
+      "predictedApproximate": true,
+      "measured": "0.1180",
+      "sigma": 9e-4,
+      "resolvedDigits": 3,
+      "noPull": true,
+      "pullDisplay": "—",
+      "interfaces": ["E5"],
+      "targets": []
+    }
+  ],
+
+  "diagnostics": [
+    {
+      "id": "bao_scale",
+      "symbol": "c/(H₀ r_d)",
+      "predicted": "30.135",
+      "measured": "χ² = 34.40 / 13",
+      "equivalent": "3.28 σ_eq",
+      "worst": true
+    },
+    {
+      "id": "bao_shape",
+      "symbol": "BAO shape",
+      "predicted": "frozen K4 CPL curve",
+      "measured": "shape-only comparison",
+      "equivalent": "0.44 σ_eq"
+    }
+  ],
+
+  "bounds": [
+    {
+      "id": "sum_mnu",
+      "symbol": "Σ m_ν",
+      "predicted": "0.059 eV",
+      "predictedApproximate": true
+    },
+    {
+      "id": "m_bb",
+      "symbol": "m_ββ",
+      "predicted": "3.69 meV"
+    }
+  ],
+
+  "census": {
+    "primary": 31,
+    "companion": 20,
+    "structuralProfiles": 1,
+    "structuralProfileName": "κ₄(r)"
+  },
+
+  "machine": {
+    "asOfRelease": "2026-07-08",
+    "rows": 771,
+    "leanCertified": 727,
+    "provedCoreOnly": 19,
+    "needsLeanNode": 4,
+    "proseEmpiricalOpen": 21,
+    "modules": 313,
+    "axioms": ["propext", "Classical.choice", "Quot.sound"]
+  },
+
+  "artifact": {
+    "version": "2.0-public-review",
+    "frozen": "2026-07-08",
+    "pages": 1003,
+    "sha256": "727d7c1fd690655a7a487afd66ba39b12f5b0eae5a622e2a224005a02d27c479",
+    "conceptDoi": "10.5281/zenodo.18892076",
+    "archivedV1Doi": "10.5281/zenodo.20314752",
+    "archivedV1Date": "2026-05-20",
+    "archivedV1Pages": 973
+  },
+
+  "cell": {
+    "sites": 4,
+    "edges": 6,
+    "localStates": 3,
+    "basisStates": 81
+  }
+}

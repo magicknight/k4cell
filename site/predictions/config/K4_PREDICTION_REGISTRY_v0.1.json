@@ -1,0 +1,37 @@
+{
+  "schema": "K4-PREDICTION-REGISTRY-v1",
+  "artifact_status": "OPEN_EMPTY_REGISTRY",
+  "recorded_at_utc": "2026-08-30T15:46:29Z",
+  "official_mint": null,
+  "mainnet_authorized": false,
+  "founder": {
+    "name": "Zhihua Liang",
+    "email": "zhihua@k4cell.com",
+    "primary_fingerprint": "C74953F60AD573F54A3FD06C72213914E4860F47",
+    "signing_subkey_fingerprint": "0427411FA4820FDA5EBFB79B48D9A06D3C49431F"
+  },
+  "signing_policy": {
+    "signature_format": "OPENPGP_ARMORED_DETACHED",
+    "required_payload_fields": [
+      "prediction_id",
+      "theory_artifact_sha256",
+      "observable",
+      "target_dataset_or_release",
+      "knowledge_cutoff_utc",
+      "prediction_exact_text",
+      "nuisance_parameters",
+      "analysis_recipe",
+      "analysis_code_sha256",
+      "falsifier"
+    ],
+    "registration_rule": "PREREGISTERED requires exact canonical payload bytes, a Founder detached signature, a full signing-subkey and primary fingerprint match, target data not public at the knowledge cutoff, source-native derivation, frozen nuisance freedom, analysis code and a predeclared falsifier.",
+    "retrospective_rule": "Any comparison selected from or constructed after inspecting the target data is RETROSPECTIVE and belongs in the observability inventory, never as a preregistered prediction entry."
+  },
+  "entries": [],
+  "next_acceptance": [
+    "inventory current public numerical claims as RETROSPECTIVE, PREDICTION_CANDIDATE or NOT_YET_OBSERVABLE",
+    "select the strongest one to three source-native candidate observables",
+    "verify live target dataset and release conditions before adding any PREREGISTERED entry",
+    "Founder signs only a non-empty canonical prediction payload that passes the validator"
+  ]
+}

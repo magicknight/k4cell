@@ -38,6 +38,15 @@ const required = [
   "official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt.asc",
   "official-k4v/VERIFY.md",
   "official-k4v/PUBLICATION_RECEIPT_v1.json",
+  "predictions/index.html",
+  "predictions/README.md",
+  "predictions/schemas/k4_prediction_registry.schema.json",
+  "predictions/schemas/k4_claim_observability_inventory.schema.json",
+  "predictions/config/K4_PREDICTION_REGISTRY_v0.1.json",
+  "predictions/config/K4_CLAIM_OBSERVABILITY_INVENTORY_v0.1.json",
+  "predictions/validate_prediction_registry.py",
+  "predictions/test_prediction_registry.py",
+  "predictions/evidence/snapshots/K4CELL_LEDGER_5ac0ca2.json",
   "status.json",
   "ledger.json",
   "season-01.json",
@@ -79,6 +88,9 @@ const officialSignaturePath = `${officialPayloadPath}.asc`;
 const officialPayload = await readFile(officialPayloadPath);
 const officialSignature = await readFile(officialSignaturePath);
 const publicationReceipt = JSON.parse(await readFile(join(site, "official-k4v", "PUBLICATION_RECEIPT_v1.json"), "utf8"));
+const predictionPage = await readFile(join(site, "predictions", "index.html"), "utf8");
+const predictionRegistry = JSON.parse(await readFile(join(site, "predictions", "config", "K4_PREDICTION_REGISTRY_v0.1.json"), "utf8"));
+const observabilityInventory = JSON.parse(await readFile(join(site, "predictions", "config", "K4_CLAIM_OBSERVABILITY_INVENTORY_v0.1.json"), "utf8"));
 
 const both = `${english}\n${chinese}`;
 
@@ -332,7 +344,7 @@ assert.match(chinese, /hreflang="en"/);
 assert.match(rootPage, /href="en\/"/);
 assert.match(rootPage, /href="zh\/"/);
 
-for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage]) {
+for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage, predictionPage]) {
   assert.doesNotMatch(page, /<script(?![^>]*\bsrc=)/i, "no inline script (CSP forbids it)");
   assert.doesNotMatch(page, /<style\b/i, "no inline style element (CSP forbids it)");
   assert.doesNotMatch(page, /\sstyle="/i, "no inline style attribute (CSP forbids it)");
@@ -350,7 +362,18 @@ assert.equal(status.science.carved_submissions.length, 2);
 assert.equal(status.public_science.season, "NOT_STARTED");
 assert.equal(status.public_science.protocol, "REVISION_IN_PROGRESS_D0076");
 assert.equal(status.public_science.scientific_validation.public_participation_direct_weight, 0);
-assert.equal(status.public_science.scientific_validation.prediction_registry, "OPEN");
+assert.equal(status.public_science.scientific_validation.prediction_registry,
+  "FOUNDATION_PASS / ENTRIES_0 / PREREGISTERED_0");
+assert.equal(status.public_science.scientific_validation.prediction_registry_path, "/predictions/");
+assert.deepEqual(status.public_science.scientific_validation.observability_inventory, {
+  scope: "PUBLIC_LEDGER_11_ROWS_ONLY",
+  retrospective: 11,
+  prediction_candidate: 0,
+  not_yet_observable: 0,
+  registry_eligible: 0,
+  global_k4_coverage: false,
+  paper_level_inventory: "OPEN",
+});
 assert.deepEqual(status.public_science.public_communication.purpose,
   ["COMMUNICATION", "RESEARCH_SUPPORT", "SEPARATE_SPECULATIVE_DEMAND"]);
 assert.equal(status.public_science.public_communication.cards, "12_DRAFT");
@@ -407,6 +430,20 @@ assert.equal(publicationReceipt.verification.validsig_primary_fingerprint,
   "C74953F60AD573F54A3FD06C72213914E4860F47");
 assert.equal(publicationReceipt.launch_boundary.official_mint, null);
 assert.equal(publicationReceipt.launch_boundary.mainnet_authorized, false);
+assert.equal(predictionRegistry.artifact_status, "OPEN_EMPTY_REGISTRY");
+assert.deepEqual(predictionRegistry.entries, []);
+assert.equal(predictionRegistry.official_mint, null);
+assert.equal(predictionRegistry.mainnet_authorized, false);
+assert.equal(observabilityInventory.scope.total_rows, 11);
+assert.equal(observabilityInventory.scope.global_k4_coverage, false);
+assert.equal(observabilityInventory.summary.retrospective, 11);
+assert.equal(observabilityInventory.summary.prediction_candidate, 0);
+assert.equal(observabilityInventory.summary.registry_eligible, 0);
+assert.ok(observabilityInventory.claims.every((claim) =>
+  claim.classification === "RETROSPECTIVE" && claim.registry_eligible === false));
+assert.match(predictionPage, /Preregistered predictions: zero/);
+assert.match(predictionPage, /预注册预测：零/);
+assert.match(predictionPage, /public attention, funding support and token interest have zero direct/i);
 assert.equal(officialStatus.openpgp.payload_sha256,
   createHash("sha256").update(officialPayload).digest("hex"));
 assert.equal(officialStatus.openpgp.signature_sha256,
@@ -452,6 +489,26 @@ try {
 } finally {
   await rm(verificationHome, { recursive: true, force: true });
 }
+
+/* Cold-run the exact dependency-free registry validator and semantic tests that
+   the static site publishes. A copied JSON artifact is not accepted merely
+   because Node can parse it. */
+const { stdout: predictionValidationText } = await execFileAsync("python3", [
+  "-B", join(site, "predictions", "validate_prediction_registry.py"),
+]);
+const predictionValidation = JSON.parse(predictionValidationText);
+assert.equal(predictionValidation.valid, true);
+assert.equal(predictionValidation.registry.registry_state, "EMPTY");
+assert.equal(predictionValidation.registry.preregistered_or_later_count, 0);
+assert.equal(predictionValidation.inventory.claim_count, 11);
+assert.equal(predictionValidation.inventory.classification_counts.RETROSPECTIVE, 11);
+assert.equal(predictionValidation.inventory.registry_eligible_count, 0);
+await execFileAsync("python3", [
+  "-B", "-m", "unittest", "discover",
+  "-s", join(site, "predictions"),
+  "-p", "test_prediction_registry.py",
+]);
+
 assert.equal(status.k4v.launched, false);
 assert.equal(status.k4v.official_mint, null);
 assert.equal(status.k4v.mainnet_authorized, false);

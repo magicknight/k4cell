@@ -28,7 +28,11 @@ different channels and must never be combined into one number. Traffic,
 funding, media attention and token interest do not establish K4 science.
 
 The previous public-participation thresholds are non-gating diagnostics, not
-scientific-validation requirements. The next scientific construction is a
-signed K4 Prediction Registry. The communication/funding campaign remains
-`NOT_STARTED`; no payment, wallet, presale, whitelist, TGE or mainnet action is
-authorized.
+scientific-validation requirements. The Prediction Registry foundation is now
+published at [`/predictions/`](../predictions/): strict schemas, validator,
+tests and exactly eleven frozen public-ledger rows classified `RETROSPECTIVE`.
+The registry has zero entries and zero preregistered predictions. Paper-level
+inventory and the first source-native candidate remain open.
+
+The communication/funding campaign remains `NOT_STARTED`; no payment, wallet,
+presale, whitelist, TGE or mainnet action is authorized.
