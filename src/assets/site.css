@@ -84,30 +84,71 @@ code { font-family: var(--mono); }
 
 /* ---------- hero ---------- */
 
-.hero {
+/* ---------- hero band: plate, scrim, copy, glyph, receipt rail ---------- */
+
+.hero-band { position: relative; isolation: isolate; min-height: min(78vh, 44rem); overflow: hidden; }
+.hero-plate { position: absolute; z-index: 0; inset: 0; margin: 0; }
+.hero-plate img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block; }
+/* The baked-in darkening is tuned for one crop; object-fit moves it. This scrim
+   is what actually guarantees the measured contrast — keep it in lockstep with
+   the alpha() ramp in tools/hero_plate.py. */
+.hero-band::after {
+  content: ""; position: absolute; z-index: 1; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(100deg, rgba(5,7,12,.97) 0%, rgba(5,7,12,.94) 30%, rgba(5,7,12,.60) 52%, rgba(5,7,12,.16) 78%, rgba(5,7,12,.32) 100%),
+    linear-gradient(to top, rgba(5,7,12,.96) 0%, rgba(5,7,12,.90) 14%, rgba(5,7,12,0) 26%);
+}
+.plate-tag {
+  position: absolute; z-index: 3; top: 1rem; right: 1rem;
+  padding: 0.28rem 0.6rem; border: 1px solid var(--line); border-radius: 0.4rem;
+  background: rgba(5, 7, 12, 0.8); color: var(--muted);
+  font: 650 0.6rem var(--mono); letter-spacing: 0.08em;
+}
+.hero-inner { position: relative; z-index: 2; padding-block: clamp(1rem, 2.4vw, 1.8rem) clamp(1rem, 2vw, 1.6rem); }
+/* Anything wider pushes the receipt rail below the fold and the composition dies. */
+h1 { max-width: 26ch; margin: 0; font: 500 clamp(2.05rem, 4.2vw, 3.3rem)/1.05 var(--serif); letter-spacing: -0.03em; text-wrap: balance; }
+html[lang="zh-Hans"] h1 { letter-spacing: 0; }
+.hero-deck { max-width: 46rem; margin: 0.75rem 0 0; color: var(--paper); font-size: clamp(1.05rem, 1.7vw, 1.32rem); }
+.hero-fine { max-width: 52rem; margin: 0.5rem 0 0; color: var(--muted); font: 0.72rem/1.6 var(--mono); }
+.k4-card {
+  position: absolute; z-index: 2; right: 2rem; top: 3rem; width: 13rem;
+  padding: 1.1rem; border: 1px solid var(--line); border-radius: 1rem;
+  background: rgba(5, 7, 12, 0.72); text-align: center;
+}
+.k4-glyph { width: 100%; height: auto; display: block; }
+.k4-glyph path { fill: rgba(105, 230, 199, 0.05); stroke: rgba(244, 240, 229, 0.42); stroke-width: 0.8; }
+.k4-glyph line { stroke: rgba(244, 240, 229, 0.42); stroke-width: 0.8; }
+.k4-glyph line.collide { stroke: var(--amber); stroke-width: 1.8; }
+.k4-glyph .c-mint { fill: var(--mint); }
+.k4-glyph .c-violet { fill: var(--violet); }
+.k4-glyph .c-amber { fill: var(--amber); }
+.k4-card p { margin: 0.8rem 0 0; color: var(--muted); font: 0.66rem/1.6 var(--mono); }
+.k4-card span { display: block; margin-top: 0.3rem; color: var(--amber); }
+.hero-rail {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 4rem); align-items: center;
-  padding-block: clamp(2.5rem, 6vw, 5.5rem);
+  gap: 1.5rem; align-items: end; margin-top: clamp(0.7rem, 1.4vw, 1rem);
+  padding-top: 0.8rem; border-top: 1px solid var(--line);
 }
-h1 {
-  max-width: 15ch; margin: 0;
-  font: 500 clamp(2.6rem, 6vw, 5rem)/1.02 var(--serif);
-  letter-spacing: -0.04em; text-wrap: balance;
-}
+.rail-notes p { margin: 0 0 0.25rem; font: 0.72rem/1.6 var(--mono); }
+.rn-lead { color: var(--muted); }
+.rn-ghost { color: var(--violet); }
+.rn-tag { color: var(--amber); }
+.hero-foot { padding-block: 1.5rem 0; }
+.plate-note { max-width: 62rem; margin: 0; color: var(--dim); font: 0.72rem/1.7 var(--mono); }
+.plate-note a { color: var(--amber); }
 .hero-lede {
-  max-width: 40rem; margin: 1.6rem 0 0;
+  max-width: 47rem; margin: 0.85rem 0 0;
   font-size: clamp(1.02rem, 1.5vw, 1.2rem); color: #d3d8e2; text-wrap: pretty;
 }
 .hero-lede strong { color: var(--mint); font-family: var(--mono); font-weight: 600; letter-spacing: -0.01em; }
-.hero-body { max-width: 40rem; margin: 1rem 0 0; color: var(--muted); font-size: 0.98rem; }
+.hero-body { max-width: 47rem; margin: 0.7rem 0 0; color: var(--muted); font-size: 0.98rem; }
 .hero-caveat {
-  max-width: 40rem; margin: 1.2rem 0 0; padding-left: 0.9rem;
+  max-width: 62rem; margin: 1.2rem 0 0; padding-left: 0.9rem;
   border-left: 2px solid var(--amber); color: var(--muted); font-size: 0.88rem;
 }
-.hero-close { margin: 1.4rem 0 0; color: var(--dim); font: 0.78rem/1.6 var(--mono); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.6rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.9rem; }
 
-.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.9rem; }
 .chip {
   border: 1px solid var(--line); border-radius: 0.6rem; padding: 0.5rem 0.75rem;
   background: rgba(255, 255, 255, 0.03);
@@ -140,8 +181,9 @@ h1 {
   font-family: var(--mono); font-variant-numeric: tabular-nums;
   font-size: 1.05rem; letter-spacing: 0.01em; word-break: break-all;
 }
-.ruler-hero .rnum { font-size: clamp(1.3rem, 3.4vw, 2.3rem); }
-.ruler-hero .rlab { flex-basis: 100%; }
+.ruler-hero .rnum { font-size: clamp(1.1rem, 2.3vw, 1.6rem); }
+.ruler-hero .rlab { flex-basis: 4.5rem; }
+@media (max-width: 560px) { .ruler-hero .rlab { flex-basis: 100%; } }
 .d-lit { color: var(--mint); }
 .d-ghost { color: var(--violet); opacity: 0.85; }
 .d-flat { color: var(--muted); }
@@ -438,6 +480,31 @@ footer nav { display: flex; flex-wrap: wrap; gap: 1rem; }
   .tagkey dl { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 900px) {
+  .k4-card { display: none; }
+  .hero-rail { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+@media (max-width: 719px) {
+  /* Ratio is necessary but not sufficient over a high-frequency texture. Rather
+     than offsetting the copy by a magic number that breaks at some width, the
+     plate joins the flow: everything after it is below it by construction. */
+  .hero-band { min-height: 0; overflow: visible; }
+  .hero-plate { position: relative; inset: auto; height: 19rem; }
+  .hero-plate img { object-position: 50% 82%; }
+  /* No copy sits over the plate on mobile, so the scrim only needs to carry the
+     tag and fade the band into the page. */
+  .hero-band::after {
+    inset: 0 0 auto 0; height: 19rem;
+    background:
+      linear-gradient(180deg, rgba(5,7,12,.72) 0%, rgba(5,7,12,.10) 22%, rgba(5,7,12,0) 55%),
+      linear-gradient(to top, var(--ink) 0, rgba(8,10,15,0) 4rem);
+  }
+  .hero-inner { padding-top: 1.2rem; }
+  .hero-fine { color: var(--muted); }
+  .plate-tag { top: 0.75rem; right: 0.75rem; }
+}
+
 @media (max-width: 820px) {
   .site-header { flex-wrap: wrap; padding-bottom: 0.6rem; }
   .site-nav { order: 3; flex-basis: 100%; flex-wrap: wrap; gap: 0.5rem 1rem; }
@@ -469,6 +536,8 @@ footer nav { display: flex; flex-wrap: wrap; gap: 1rem; }
 }
 
 @media (forced-colors: active) {
+  .k4-glyph path, .k4-glyph line { stroke: CanvasText; }
+  .k4-glyph circle { fill: CanvasText; }
   .d-lit, .d-ghost, .d-flat { color: CanvasText; }
   .te line, .st .me { stroke: CanvasText; }
   .pb-fill, .pb-track, .seg-a, .seg-b, .seg-c, .seg-d { fill: CanvasText; }

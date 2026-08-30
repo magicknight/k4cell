@@ -250,6 +250,17 @@ const sectionHead = (number, kicker, h2, intro) => `<div class="section-head">
 
 const heroRow = ledger.gaussian.find((row) => row.id === "mu_e");
 
+/* The pigeonhole argument, drawn: three colours across four points force a
+   repeat, and the amber edge is the pair that must collide. It is an emblem in
+   a framed card — never an object located in the field behind it, which would
+   assert the main open bridge. */
+const k4Glyph = `<svg class="k4-glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+<path d="M16 3 4 24h24Z"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
+<line class="collide" x1="16" y1="3" x2="16" y2="18"/>
+<circle class="c-mint" cx="16" cy="3" r="2.4"/><circle class="c-violet" cx="4" cy="24" r="2.4"/>
+<circle class="c-amber" cx="28" cy="24" r="2.4"/><circle class="c-mint" cx="16" cy="18" r="2.4"/></svg>`;
+
+
 const renderObject = (copy) => {
   const beats = copy.object.beats.map((beat) => `<article class="beat">
 <span class="beat-n">${esc(beat.n)}</span>
@@ -493,7 +504,7 @@ const renderPage = (copy) => {
   <meta property="og:title" content="${esc(copy.title)}">
   <meta property="og:description" content="${esc(copy.description)}">
   <meta property="og:url" content="https://k4cell.com/${copy.dir}/">
-  <meta property="og:image" content="https://k4cell.com/assets/og-k4cell-${copy.dir}.png">
+  <meta property="og:image" content="https://k4cell.com/assets/og-k4cell-${copy.dir}.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <title>${esc(copy.title)}</title>
 </head>
@@ -506,20 +517,36 @@ const renderPage = (copy) => {
   </header>
   <p class="statusline shell">${statusItems}</p>
   <main id="main">
-    <div id="top" class="hero shell">
-      <div class="hero-copy">
+    <div id="top" class="hero-band">
+      <figure class="hero-plate" aria-describedby="plate-note">
+        <picture>
+          <source media="(max-width: 719px)" srcset="../assets/hero-web-port.webp" width="1080" height="1440">
+          <img src="../assets/hero-web-land.webp" width="1920" height="1080" alt="${esc(copy.hero.plateAlt)}" decoding="async" fetchpriority="high">
+        </picture>
+        <figcaption class="plate-tag">${esc(copy.hero.plateTag)}</figcaption>
+      </figure>
+      <div class="hero-inner shell">
         <h1>${esc(copy.hero.h1)}</h1>
+        <p class="hero-deck">${esc(copy.hero.deck)}</p>
         <p class="hero-lede">${copy.hero.lede}</p>
+        <p class="hero-fine">${esc(copy.hero.fineprint)}</p>
         <p class="hero-body">${esc(copy.hero.body)}</p>
         <div class="chips">${chips}</div>
-        <p class="hero-caveat">${esc(copy.hero.caveat)}</p>
         <div class="hero-actions">${actions}</div>
-        <p class="hero-close">${esc(copy.hero.close)}</p>
+        <aside class="k4-card">${k4Glyph}<p>${esc(copy.hero.glyphLegendA)}<span>${esc(copy.hero.glyphLegendB)}</span></p></aside>
+        <div class="hero-rail">
+          ${ruler(heroRow, copy, { hero: true })}
+          <div class="rail-notes">
+            <p class="rn-lead">${esc(copy.hero.railLead)}</p>
+            <p class="rn-ghost">${esc(copy.hero.rulerGhost)}</p>
+            <p class="rn-tag">${esc(copy.hero.railTag)}</p>
+          </div>
+        </div>
       </div>
-      <figure class="hero-figure">
-        ${ruler(heroRow, copy, { hero: true })}
-        <figcaption>${esc(copy.hero.rulerCaption)} &#183; <span class="ghost-key">${esc(copy.hero.rulerGhost)}</span></figcaption>
-      </figure>
+    </div>
+    <div class="shell hero-foot">
+      <p class="plate-note" id="plate-note">${esc(copy.hero.plateNoteA)}<a href="#ledger">${esc(copy.hero.plateNoteLink)}</a>${esc(copy.hero.plateNoteB)}</p>
+      <p class="hero-caveat">${esc(copy.hero.caveat)}</p>
     </div>
     ${renderObject(copy)}
     ${renderLedger(copy)}

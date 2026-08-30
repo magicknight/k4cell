@@ -17,7 +17,7 @@ export default {
   footerNavLabel: "Footer",
   fundingLinkLabel: "Inspect the funding-vault repository",
 
-  title: "No continuous parameter to fit — the K4 Cell Framework",
+  title: "Nobody knows why the universe runs on these numbers — K4 Cell Framework",
   description:
     "A finite four-site quantum object with no continuous free parameters, and the measured constants it is claimed to reproduce. Every number carries its evidence state, its open interfaces, and a way to check it.",
 
@@ -32,20 +32,33 @@ export default {
   statusNotReviewed: "not peer reviewed",
 
   hero: {
-    h1: "There is no continuous parameter here to fit.",
+    h1: "Nobody knows why the universe runs on these numbers.",
+    deck:
+      "This work is an attempt to compute them instead — off one finite object, with no dial to turn.",
     lede:
-      "The muon comes out <strong>206.768282688691</strong> times heavier than the electron. Measured: 206.7682827(46). In the Standard Model this ratio is not derived — it is measured, written down, and used.",
+      "There are about twenty of them. They set the size of an atom and the rate the universe is flying apart. Physics measures each one — the electron's mass, how strongly light grips charge, how much of the sky is dark matter — writes it into the equations by hand, and moves on.",
+    fineprint:
+      "19 in the minimal Standard Model; 26 to 28 once neutrino masses are included, depending on whether neutrinos are Dirac or Majorana. Cosmology adds its own.",
     body:
-      "The first eight significant digits are identical, and eight is every digit the experiment resolves. The framework then commits seven more that nobody can currently test. No knob was turned, because there is no continuous parameter in the framework to turn. The freedom that remains is discrete — which embedding, which channel — and those are the open questions listed further down.",
+      "A calculation with no dial to turn cannot be rescued when it is wrong. So this page prints its worst row next to its best, numbers its own open gaps, and names the measurement that would end it. The freedom that remains here is discrete — which embedding, which channel — and those are the open questions listed further down.",
     caveat:
-      "It does depend on this: the map that carries the object's few ingredients into the full particle content of the Standard Model. That map is not proved. The author lists it as open in his own published errata — entry E8. Until it closes, the muon number above is a conditional claim, not a finished derivation.",
+      "The row above is conditional. It depends on a map from the object's few ingredients into the full particle content of the Standard Model, and that map is not proved — the author lists it as open in his own published errata, entry E8. The cosmological-constant problem is not solved here, and nothing on this page claims it is. Not peer reviewed: two carved-out papers are under review (CQG-116665, JGP13432); the 1003-page monograph is not submitted and is not on arXiv.",
     chips: [
-      ["pull", "0.002 σ"],
-      ["continuous fitted parameters", "0"],
-      ["status", "CONDITIONAL — depends on E8, an interface the author lists as open"],
+      ["continuous parameters fitted", "0"],
+      ["best row · worst row", "0.002 σ · 3.28 σ_eq"],
+      ["open interfaces, the author's own numbering", "5, plus one main bridge"],
     ],
-    close:
-      "Zero continuous parameters. Five open interfaces the author numbered himself, plus one main bridge standing empty. All of it is on this page, and the worst row is two screens down.",
+    plateTag: "CONCEPT ART · NOT AN OBSERVATION · NOT THIS FRAMEWORK'S OUTPUT",
+    plateAlt:
+      "Concept art: a dark field of violet and mint filaments, nodes and voids, in the shape of cosmic large-scale structure. Generated from a fixed random seed; not an observation.",
+    plateNoteA:
+      "A picture of an idea, not a picture of the sky. It was generated on the author's machine from a fixed random seed by a Zel'dovich toy model — the textbook first-order approximation that produces filaments, nodes and voids. No telescope data is shown, nothing in it was fitted, and no quantity from this framework enters it. Between the smallest length physics can name and the farthest thing we can see is about 61 factors of ten; this framework's single cosmological comparison sits at the far end of that span, and it is ",
+    plateNoteLink: "the worst row on this page",
+    plateNoteB: ".",
+    railTag: "CONDITIONAL on E8, an interface the author lists as open",
+    railLead: "m_μ/m_e · the experiment resolves 8 of these digits",
+    glyphLegendA: "four points · three colours · six links",
+    glyphLegendB: "one pair must always collide",
     actions: [
       ["See every number, worst first", "#ledger"],
       ["First, what is the object?", "#object"],

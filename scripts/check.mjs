@@ -17,6 +17,8 @@ const required = [
   "assets/site.css",
   "assets/app.js",
   "assets/favicon.svg",
+  "assets/hero-web-land.webp",
+  "assets/hero-web-port.webp",
   "provenance/README.md",
   "provenance/K4V_FOUNDER_OPENPGP_KEY_v1.asc",
   "provenance/K4V_FOUNDER_OPENPGP_FINGERPRINT_v1.txt",
@@ -115,6 +117,52 @@ for (const [name, page] of [["en", english], ["zh", chinese]]) {
 
 const stateCount = (english.match(/class="st" data-sig=/g) ?? []).length;
 assert.equal(stateCount, 81, "exactly 81 basis states must be rendered");
+
+/* ---- the concept-art plate: present, sized, and honestly labelled ---- */
+
+/* srcset is not covered by the link walker, so pin the portrait source too. */
+for (const [name, page] of [["en", english], ["zh", chinese]]) {
+  assert.match(page, /srcset="\.\.\/assets\/hero-web-port\.webp"/, `${name}: portrait plate not referenced`);
+  assert.match(page, /src="\.\.\/assets\/hero-web-land\.webp"/, `${name}: landscape plate not referenced`);
+  assert.match(page, /class="ruler ruler-hero"/, `${name}: the hero ruler must stay server-rendered`);
+  assert.ok(page.indexOf("data-row=") > page.indexOf('id="ledger"'),
+    `${name}: no data-row may appear before the ledger section`);
+}
+
+/* All three clauses of the label ship, in both languages. A picture of a toy
+   simulation must never read as an observation, nor as this framework's output. */
+assert.match(english, /NOT AN OBSERVATION/);
+assert.match(chinese, /不是观测/);
+assert.match(english, /NOT THIS FRAMEWORK'S OUTPUT/i);
+assert.match(chinese, /也不是本框架的计算结果/);
+assert.match(english, /A picture of an idea, not a picture of the sky/);
+assert.match(chinese, /这是一幅关于想法的图，不是一幅天空的照片/);
+
+/* The refusal that stops a cosmic image from implying a cosmic result. */
+assert.match(english, /The cosmological-constant problem is not solved here/);
+assert.match(chinese, /这里没有解决宇宙学常数问题/);
+
+/* The parameter count may never appear without its convention hedge. */
+assert.match(english, /26 to 28 once neutrino masses are included/);
+assert.match(chinese, /26 到 28 个/);
+
+/* "Planck length" must not appear on the first screen: l_* = l_P is a
+   normalisation, not a result, and printing it beside the glyph would assert
+   the main open bridge. */
+assert.doesNotMatch(both, /Planck length/i);
+assert.doesNotMatch(both, /普朗克长度/);
+
+/* og:image lives in a content= attribute the link walker never visits. */
+for (const dir of ["en", "zh"]) {
+  await access(join(site, "assets", `og-k4cell-${dir}.jpg`));
+}
+assert.match(english, /og:image" content="https:\/\/k4cell\.com\/assets\/og-k4cell-en\.jpg"/);
+assert.match(chinese, /og:image" content="https:\/\/k4cell\.com\/assets\/og-k4cell-zh\.jpg"/);
+
+for (const [name, path] of [["land", "hero-web-land.webp"], ["port", "hero-web-port.webp"]]) {
+  const details = await stat(join(site, "assets", path));
+  assert.ok(details.size < (name === "land" ? 160_000 : 180_000), `${path} has grown past its budget`);
+}
 
 /* ---- honesty pairs: every claim carries its counterpart ---- */
 
