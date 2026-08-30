@@ -1,0 +1,3 @@
+# OpenPGP armor and detached signatures are frozen evidence bytes. Do not let
+# platform line-ending conversion change their published SHA-256 receipts.
+*.asc binary

@@ -1,11 +1,15 @@
 import assert from "node:assert/strict";
+import { execFile } from "node:child_process";
 import { createHash } from "node:crypto";
-import { access, readFile, readdir, stat } from "node:fs/promises";
+import { access, mkdtemp, readFile, readdir, rm, stat } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
+import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const site = join(root, "site");
+const execFileAsync = promisify(execFile);
 
 const required = [
   "index.html",
@@ -21,7 +25,12 @@ const required = [
   "assets/hero-web-port.webp",
   "provenance/README.md",
   "provenance/K4V_FOUNDER_OPENPGP_KEY_v1.asc",
+  "provenance/K4V_FOUNDER_OPENPGP_KEY_v2.asc",
   "provenance/K4V_FOUNDER_OPENPGP_FINGERPRINT_v1.txt",
+  "provenance/K4V_FOUNDER_OPENPGP_FINGERPRINT_v2.txt",
+  "provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt",
+  "provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt.asc",
+  "provenance/tests/VERIFICATION.md",
   "status.json",
   "ledger.json",
   "season-01.json",
@@ -49,7 +58,13 @@ const ledger = JSON.parse(await readFile(join(site, "ledger.json"), "utf8"));
 const season = JSON.parse(await readFile(join(site, "season-01.json"), "utf8"));
 const checksumText = await readFile(join(site, "SITE_SHA256SUMS.txt"), "utf8");
 const founderPublicKey = await readFile(join(site, "provenance", "K4V_FOUNDER_OPENPGP_KEY_v1.asc"), "utf8");
+const founderPublicKeyV2 = await readFile(join(site, "provenance", "K4V_FOUNDER_OPENPGP_KEY_v2.asc"), "utf8");
 const founderFingerprint = await readFile(join(site, "provenance", "K4V_FOUNDER_OPENPGP_FINGERPRINT_v1.txt"), "utf8");
+const founderFingerprintV2 = await readFile(join(site, "provenance", "K4V_FOUNDER_OPENPGP_FINGERPRINT_v2.txt"), "utf8");
+const founderTestPayloadPath = join(site, "provenance", "tests", "SERVER_SIGNING_SUBKEY_TEST_v1.txt");
+const founderTestSignaturePath = `${founderTestPayloadPath}.asc`;
+const founderTestPayload = await readFile(founderTestPayloadPath);
+const founderTestSignature = await readFile(founderTestSignaturePath);
 
 const both = `${english}\n${chinese}`;
 
@@ -288,9 +303,44 @@ assert.equal(status.public_science.season, "NOT_STARTED");
 assert.match(status.public_science.start_gate.public_review_status_sync, /^PASS@f739333/);
 assert.equal(status.public_science.start_gate.founder_signed_no_official_mint, "OPEN");
 assert.equal(status.founder_identity.fingerprint, "C74953F60AD573F54A3FD06C72213914E4860F47");
+assert.equal(status.founder_identity.signing_subkey_fingerprint, "0427411FA4820FDA5EBFB79B48D9A06D3C49431F");
+assert.equal(status.founder_identity.server_subkey_test_signature, "PASS");
+assert.equal(status.founder_identity.server_subkey_test_signed_at_utc, "2026-08-30T09:53:46Z");
+assert.equal(
+  createHash("sha256").update(founderTestPayload).digest("hex").toUpperCase(),
+  status.founder_identity.server_subkey_test_payload_sha256);
+assert.equal(
+  createHash("sha256").update(founderTestSignature).digest("hex").toUpperCase(),
+  status.founder_identity.server_subkey_test_signature_sha256);
 assert.match(founderPublicKey, /BEGIN PGP PUBLIC KEY BLOCK/);
 assert.doesNotMatch(founderPublicKey, /PRIVATE KEY/);
+assert.match(founderPublicKeyV2, /BEGIN PGP PUBLIC KEY BLOCK/);
+assert.doesNotMatch(founderPublicKeyV2, /PRIVATE KEY/);
 assert.match(founderFingerprint, /fingerprint=C74953F60AD573F54A3FD06C72213914E4860F47/);
+assert.match(founderFingerprintV2, /signing_subkey_fingerprint=0427411FA4820FDA5EBFB79B48D9A06D3C49431F/);
+assert.match(founderFingerprintV2, /server_subkey_test_signature=PASS/);
+assert.doesNotMatch(founderFingerprintV2, /windows_full_backup|secret_subkey_package/);
+
+/* Verify the detached signature cryptographically in an isolated keyring. The
+   GOODSIG key ID is useful to humans, but VALIDSIG is the acceptance object:
+   it binds the complete signing-subkey fingerprint to the primary fingerprint. */
+const verificationHome = await mkdtemp(join(tmpdir(), "k4cell-gpg-"));
+try {
+  await execFileAsync("gpg", [
+    "--homedir", verificationHome, "--batch", "--import",
+    join(site, "provenance", "K4V_FOUNDER_OPENPGP_KEY_v2.asc"),
+  ]);
+  const { stdout: gpgStatus } = await execFileAsync("gpg", [
+    "--homedir", verificationHome, "--batch", "--status-fd", "1", "--verify",
+    founderTestSignaturePath, founderTestPayloadPath,
+  ]);
+  assert.match(gpgStatus,
+    /\[GNUPG:\] GOODSIG 48D9A06D3C49431F Zhihua Liang <zhihua@k4cell\.com>/);
+  assert.match(gpgStatus,
+    /\[GNUPG:\] VALIDSIG 0427411FA4820FDA5EBFB79B48D9A06D3C49431F .* C74953F60AD573F54A3FD06C72213914E4860F47/);
+} finally {
+  await rm(verificationHome, { recursive: true, force: true });
+}
 assert.equal(status.k4v.launched, false);
 assert.equal(status.k4v.official_mint, null);
 assert.equal(status.k4v.mainnet_authorized, false);
