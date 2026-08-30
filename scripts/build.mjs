@@ -11,6 +11,7 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const out = join(root, "site");
 const assets = join(root, "src", "assets");
 const provenance = join(root, "provenance");
+const officialK4v = join(root, "official-k4v");
 
 const ledger = JSON.parse(await readFile(join(root, "src", "data", "ledger.json"), "utf8"));
 const external = JSON.parse(await readFile(join(root, "src", "data", "external.json"), "utf8"));
@@ -713,13 +714,13 @@ const status = {
     season: "NOT_STARTED",
     start_gate: {
       public_review_status_sync: `PASS@${publicStatusCommit}`,
-      founder_signed_no_official_mint: "OPEN",
-      canonical_https_source_graph: "OPEN",
+      founder_signed_no_official_mint: "PASS",
+      canonical_https_source_graph: "SIGNED_ARTIFACTS_PUBLISHED / LIVE_REVERIFY_PENDING",
       twelve_card_and_metrics_hash_freeze: "OPEN",
     },
   },
   founder_identity: {
-    state: "PRIMARY_AND_SIGNING_SUBKEY_PUBLICLY_ANCHORED / SERVER_SUBKEY_TEST_PASS",
+    state: "PRIMARY_AND_SIGNING_SUBKEY_PUBLICLY_ANCHORED / FOUNDER_NO_MINT_SIGNATURE_PASS",
     uid: "Zhihua Liang <zhihua@k4cell.com>",
     algorithm: "Ed25519",
     fingerprint: "C74953F60AD573F54A3FD06C72213914E4860F47",
@@ -732,6 +733,13 @@ const status = {
     server_subkey_test_signature_path: "/provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt.asc",
     server_subkey_test_payload_sha256: "32E1165F280EA1E4D225BBACCDB07987D17354745E694013239C0BFA824E0838",
     server_subkey_test_signature_sha256: "AF453B85021C1980C25BE0247482FDBEBC5B37F2424BB960EEBA5BD86AB99E47",
+    official_no_mint_signature: "PASS",
+    official_no_mint_issued_at_utc: "2026-08-30T10:05:26Z",
+    official_no_mint_signed_at_utc: "2026-08-30T10:30:37Z",
+    official_no_mint_path: "/official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt",
+    official_no_mint_signature_path: "/official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt.asc",
+    official_no_mint_payload_sha256: "3D972BDAEC125196F5629485D1BEC3F80B4C64C234D547903051C73172063A15",
+    official_no_mint_signature_sha256: "83447C16556BA4F68C04C295FEFA8924B2E07D5115F5C08E7498C7C39775FD36",
   },
   k4v: {
     launched: false,
@@ -746,7 +754,7 @@ const status = {
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${["", "en/", "zh/", "en/notice/", "zh/notice/"].map((path) =>
+${["", "en/", "zh/", "en/notice/", "zh/notice/", "official-k4v/"].map((path) =>
   `  <url><loc>https://k4cell.com/${path}</loc><lastmod>${ledger.recorded_at_utc}</lastmod></url>`).join("\n")}
 </urlset>
 `;
@@ -757,6 +765,7 @@ for (const directory of ["en/notice", "zh/notice", "assets", "provenance"]) {
 }
 await cp(assets, join(out, "assets"), { recursive: true });
 await cp(provenance, join(out, "provenance"), { recursive: true });
+await cp(officialK4v, join(out, "official-k4v"), { recursive: true });
 
 await writeFile(join(out, "index.html"), rootPage);
 await writeFile(join(out, "en", "index.html"), renderPage(en));

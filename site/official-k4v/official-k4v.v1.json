@@ -1,0 +1,48 @@
+{
+  "schema": "K4V-OFFICIAL-NO-MINT-v1",
+  "artifact_status": "PUBLISHED_CANONICAL_HTTPS",
+  "signature_status": "PASS_FOUNDER_OPENPGP",
+  "canonical_url": "https://k4cell.com/official-k4v/",
+  "founder": {
+    "name": "Zhihua Liang",
+    "email": "zhihua@k4cell.com",
+    "project": "K4 Cell Framework",
+    "primary_fingerprint": "C74953F60AD573F54A3FD06C72213914E4860F47",
+    "signing_subkey_fingerprint": "0427411FA4820FDA5EBFB79B48D9A06D3C49431F"
+  },
+  "statement": {
+    "issued_at_utc": "2026-08-30T10:05:26Z",
+    "signed_at_utc": "2026-08-30T10:30:37Z",
+    "en": "K4V has not launched. There is no official mint address, token contract, presale, whitelist, payment wallet, or TGE date. Any token currently using the K4V name or symbol is unofficial.",
+    "zh": "K4V 尚未发行。目前不存在官方 mint 地址、代币合约、预售、白名单、收款钱包或 TGE 日期。任何当前使用 K4V 名称或符号的代币均非官方 K4V。",
+    "future_identity_rule": "If a launch is ever approved, the complete official address will be published at the canonical origin and through the signed Founder/K4 source graph.",
+    "authorization_boundary": "This attestation authorizes no mint, sale, payment, wallet, whitelist, TGE, or mainnet transaction.",
+    "science_boundary": "This attestation makes no scientific claim and does not upgrade the review status of the K4 Cell Framework."
+  },
+  "openpgp": {
+    "algorithm": "Ed25519",
+    "payload_path": "K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt",
+    "payload_sha256": "3d972bdaec125196f5629485d1bec3f80b4c64c234d547903051c73172063a15",
+    "signature_path": "K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt.asc",
+    "signature_sha256": "83447c16556ba4f68c04c295fefa8924b2e07d5115f5c08e7498c7c39775fd36",
+    "public_key_path": "/provenance/K4V_FOUNDER_OPENPGP_KEY_v2.asc",
+    "verification_path": "VERIFY.md"
+  },
+  "launch_state": {
+    "launched": false,
+    "official_mint": null,
+    "official_contract": null,
+    "official_presale": null,
+    "official_whitelist": null,
+    "official_payment_wallet": null,
+    "tge_date": null,
+    "mainnet_authorized": false
+  },
+  "publication": {
+    "statement_publication_authorized_by_founder_signature": true,
+    "first_live_at_utc": null,
+    "first_live_receipt": null,
+    "source_repository": "https://github.com/magicknight/k4cell",
+    "source_commit": null
+  }
+}

@@ -1,6 +1,6 @@
 # K4 Cell Founder provenance
 
-> State: `FOUNDER PRIMARY + SIGNING SUBKEY PUBLICLY ANCHORED / SERVER SUBKEY TEST PASS`
+> State: `FOUNDER PRIMARY + SIGNING SUBKEY PUBLICLY ANCHORED / OFFICIAL NO-MINT SIGNATURE PASS`
 
 The dedicated Founder OpenPGP identity is:
 
@@ -39,7 +39,11 @@ verifiable from:
 Secret keys, backup receipts, passphrases, and key-storage details are outside
 this public artifact.
 
-This successful test does not claim that the K4V no-mint payload has already
-been signed or published. A detached official signature, exact official payload
-bytes, canonical page, and two-way source links remain separate acceptance
-conditions.
+The Founder subsequently signed the frozen official no-mint payload with the
+same signing subkey. The canonical statement, exact payload, detached signature,
+machine-readable status, and verification instructions are published at
+[`/official-k4v/`](../official-k4v/).
+
+That signature establishes the Founder-authenticated K4V identity statement. It
+does not authorize a mint, sale, payment, wallet, whitelist, TGE, or mainnet
+transaction, and it does not establish any scientific claim.

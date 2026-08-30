@@ -31,6 +31,11 @@ const required = [
   "provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt",
   "provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt.asc",
   "provenance/tests/VERIFICATION.md",
+  "official-k4v/index.html",
+  "official-k4v/official-k4v.v1.json",
+  "official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt",
+  "official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt.asc",
+  "official-k4v/VERIFY.md",
   "status.json",
   "ledger.json",
   "season-01.json",
@@ -65,6 +70,12 @@ const founderTestPayloadPath = join(site, "provenance", "tests", "SERVER_SIGNING
 const founderTestSignaturePath = `${founderTestPayloadPath}.asc`;
 const founderTestPayload = await readFile(founderTestPayloadPath);
 const founderTestSignature = await readFile(founderTestSignaturePath);
+const officialPage = await readFile(join(site, "official-k4v", "index.html"), "utf8");
+const officialStatus = JSON.parse(await readFile(join(site, "official-k4v", "official-k4v.v1.json"), "utf8"));
+const officialPayloadPath = join(site, "official-k4v", "K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt");
+const officialSignaturePath = `${officialPayloadPath}.asc`;
+const officialPayload = await readFile(officialPayloadPath);
+const officialSignature = await readFile(officialSignaturePath);
 
 const both = `${english}\n${chinese}`;
 
@@ -284,7 +295,7 @@ assert.match(chinese, /hreflang="en"/);
 assert.match(rootPage, /href="en\/"/);
 assert.match(rootPage, /href="zh\/"/);
 
-for (const page of [english, chinese, rootPage, noticeEn, noticeZh]) {
+for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage]) {
   assert.doesNotMatch(page, /<script(?![^>]*\bsrc=)/i, "no inline script (CSP forbids it)");
   assert.doesNotMatch(page, /<style\b/i, "no inline style element (CSP forbids it)");
   assert.doesNotMatch(page, /\sstyle="/i, "no inline style attribute (CSP forbids it)");
@@ -301,7 +312,8 @@ assert.equal(status.science.public_review_pdf_sha256, ledger.artifact.sha256);
 assert.equal(status.science.carved_submissions.length, 2);
 assert.equal(status.public_science.season, "NOT_STARTED");
 assert.match(status.public_science.start_gate.public_review_status_sync, /^PASS@f739333/);
-assert.equal(status.public_science.start_gate.founder_signed_no_official_mint, "OPEN");
+assert.equal(status.public_science.start_gate.founder_signed_no_official_mint, "PASS");
+assert.match(status.public_science.start_gate.canonical_https_source_graph, /^SIGNED_ARTIFACTS_PUBLISHED/);
 assert.equal(status.founder_identity.fingerprint, "C74953F60AD573F54A3FD06C72213914E4860F47");
 assert.equal(status.founder_identity.signing_subkey_fingerprint, "0427411FA4820FDA5EBFB79B48D9A06D3C49431F");
 assert.equal(status.founder_identity.server_subkey_test_signature, "PASS");
@@ -319,7 +331,38 @@ assert.doesNotMatch(founderPublicKeyV2, /PRIVATE KEY/);
 assert.match(founderFingerprint, /fingerprint=C74953F60AD573F54A3FD06C72213914E4860F47/);
 assert.match(founderFingerprintV2, /signing_subkey_fingerprint=0427411FA4820FDA5EBFB79B48D9A06D3C49431F/);
 assert.match(founderFingerprintV2, /server_subkey_test_signature=PASS/);
+assert.match(founderFingerprintV2, /no_mint_payload_signature=PASS/);
 assert.doesNotMatch(founderFingerprintV2, /windows_full_backup|secret_subkey_package/);
+assert.equal(status.founder_identity.official_no_mint_signature, "PASS");
+assert.equal(status.founder_identity.official_no_mint_signed_at_utc, "2026-08-30T10:30:37Z");
+assert.equal(
+  createHash("sha256").update(officialPayload).digest("hex").toUpperCase(),
+  status.founder_identity.official_no_mint_payload_sha256);
+assert.equal(
+  createHash("sha256").update(officialSignature).digest("hex").toUpperCase(),
+  status.founder_identity.official_no_mint_signature_sha256);
+assert.equal(officialStatus.artifact_status, "PUBLISHED_CANONICAL_HTTPS");
+assert.equal(officialStatus.signature_status, "PASS_FOUNDER_OPENPGP");
+assert.equal(officialStatus.launch_state.launched, false);
+assert.equal(officialStatus.launch_state.official_mint, null);
+assert.equal(officialStatus.launch_state.official_payment_wallet, null);
+assert.equal(officialStatus.launch_state.tge_date, null);
+assert.equal(officialStatus.launch_state.mainnet_authorized, false);
+assert.equal(officialStatus.openpgp.payload_sha256,
+  createHash("sha256").update(officialPayload).digest("hex"));
+assert.equal(officialStatus.openpgp.signature_sha256,
+  createHash("sha256").update(officialSignature).digest("hex"));
+assert.match(officialPayload.toString("utf8"), /^K4V FOUNDER NO-OFFICIAL-MINT ATTESTATION v1\n/);
+assert.match(officialPayload.toString("utf8"), /official_mint=NONE/);
+assert.match(officialPayload.toString("utf8"), /authorization_boundary=This attestation authorizes no mint/);
+assert.doesNotMatch(officialPayload.toString("utf8"), /LOCAL_DRAFT|UNSIGNED/);
+assert.match(officialPage, /K4V has not launched/);
+assert.match(officialPage, /K4V 尚未发行/);
+assert.match(officialPage, /3d972bdaec125196f5629485d1bec3f80b4c64c234d547903051c73172063a15/);
+assert.match(officialPage, /83447c16556ba4f68c04c295fefa8924b2e07d5115f5c08e7498c7c39775fd36/);
+assert.match(officialPage, /github\.com\/magicknight\/k4cell\/tree\/main\/official-k4v/);
+assert.doesNotMatch(Buffer.concat([officialPayload, officialSignature]).toString("utf8"),
+  /BEGIN PGP (?:PRIVATE|SECRET) KEY BLOCK/);
 
 /* Verify the detached signature cryptographically in an isolated keyring. The
    GOODSIG key ID is useful to humans, but VALIDSIG is the acceptance object:
@@ -337,6 +380,14 @@ try {
   assert.match(gpgStatus,
     /\[GNUPG:\] GOODSIG 48D9A06D3C49431F Zhihua Liang <zhihua@k4cell\.com>/);
   assert.match(gpgStatus,
+    /\[GNUPG:\] VALIDSIG 0427411FA4820FDA5EBFB79B48D9A06D3C49431F .* C74953F60AD573F54A3FD06C72213914E4860F47/);
+  const { stdout: officialGpgStatus } = await execFileAsync("gpg", [
+    "--homedir", verificationHome, "--batch", "--status-fd", "1", "--verify",
+    officialSignaturePath, officialPayloadPath,
+  ]);
+  assert.match(officialGpgStatus,
+    /\[GNUPG:\] GOODSIG 48D9A06D3C49431F Zhihua Liang <zhihua@k4cell\.com>/);
+  assert.match(officialGpgStatus,
     /\[GNUPG:\] VALIDSIG 0427411FA4820FDA5EBFB79B48D9A06D3C49431F .* C74953F60AD573F54A3FD06C72213914E4860F47/);
 } finally {
   await rm(verificationHome, { recursive: true, force: true });

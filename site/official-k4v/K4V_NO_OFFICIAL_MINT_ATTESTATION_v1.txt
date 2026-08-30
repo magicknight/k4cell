@@ -1,0 +1,22 @@
+K4V FOUNDER NO-OFFICIAL-MINT ATTESTATION v1
+artifact_type=FOUNDER_ATTESTATION
+issued_at_utc=2026-08-30T10:05:26Z
+founder=Zhihua Liang
+email=zhihua@k4cell.com
+project=K4 Cell Framework
+canonical_origin=https://k4cell.com
+canonical_path=/official-k4v/
+public_key_url=https://k4cell.com/provenance/K4V_FOUNDER_OPENPGP_KEY_v2.asc
+primary_fingerprint=C74953F60AD573F54A3FD06C72213914E4860F47
+required_signing_subkey_fingerprint=0427411FA4820FDA5EBFB79B48D9A06D3C49431F
+official_mint=NONE
+official_contract=NONE
+official_presale=NONE
+official_whitelist=NONE
+official_payment_wallet=NONE
+tge_date=NONE
+statement_en=K4V has not launched. There is no official mint address, token contract, presale, whitelist, payment wallet, or TGE date. Any token currently using the K4V name or symbol is unofficial.
+statement_zh=K4V 尚未发行。目前不存在官方 mint 地址、代币合约、预售、白名单、收款钱包或 TGE 日期。任何当前使用 K4V 名称或符号的代币均非官方 K4V。
+future_identity_rule=If a launch is ever approved, the complete official address will be published at the canonical origin and through the signed Founder/K4 source graph.
+authorization_boundary=This attestation authorizes no mint, sale, payment, wallet, whitelist, TGE, or mainnet transaction.
+science_boundary=This attestation makes no scientific claim and does not upgrade the review status of the K4 Cell Framework.
