@@ -1,0 +1,86 @@
+{
+ "zh": {
+  "whys": {
+   "rows": [
+    {
+     "n": "09",
+     "scale": "早期宇宙 · 暴胀那一瞬",
+     "q": "暴胀非得为它发明一种场不可吗？它又怎么自己停下来？",
+     "answer": "宇宙诞生后极短的一瞬里，空间指数式地膨胀过一次。标准做法是为此专门发明一个场，再给它画一条势能曲线，形状和斜率都靠手调。这里没有这个场。把元胞拼成的格点精确解出基态：格点是 4 × 4 的方格网，首尾相接成一个环面，一共 16 个点。这个基态里，496 组键对的二维截面曲率只取六个值，像六级台阶。五级是负曲率，只有一级是正曲率，就是最短程（相邻两点之间）的那一级。这个基态沿着自己内置的时钟往前走。书里把宇宙时间等同于这个时钟。站在正曲率那一级上，空间就指数膨胀——这就是暴胀。它自己会停：曲率一从正变负（内部参数 κ₄ 跨过 −1 这条临界线），落到下一级台阶，暴胀就结束了。作者称之为一次几何相变，不需要另加一个场来把宇宙重新加热。\n膨胀有多快，台阶本身不给：哈勃标度是拿理论里唯一的那个能标 3 × 10¹⁵ GeV 除以 √3 得来的，约 1.7 × 10¹⁵ GeV。有了这个标度，再假定暴胀一停就立即再加热，标准的视界穿越公式给出约 51 个 e 倍，也就是尺度放大 e⁵¹ 倍。暴胀期终点的一个简单极点，再给出原初涨落强弱随尺度变化的斜率，也就是谱指数：n_s = 1 − 2/N，N 取上面那 51，得 49/51 = 0.961。这个 1 − 2/N 的形式，与最常见的平台型暴胀模型相同。普朗克卫星测得 0.9649 ± 0.0042，相差 1 个标准差。正曲率台阶的存在是闭合的。把穿过它读成暴胀，还有 51 这个数，都要先认下一条选定的分支。原初引力波有多强不在其中：那是在一条选定的转移归一化约定下读出的，专著自己把它列为条件性的分支选择面。",
+     "tags": [
+      "conditional"
+     ],
+     "rides": "作者选定的那条分支——正曲率那一级所在的“德西特岛”，以及定下 3 × 10¹⁵ GeV 的那条标度线（与第 11 条是同一条）。哈勃标度来自一步选定：把岛的曲率半径认作那个能标的倒数，不是曲率台阶算出来的。51 这个数还假定暴胀一停就立即再加热。正曲率台阶本身的存在不靠这些。原初引力波有多强，依赖一条选定的转移归一化约定，专著把它列为条件性的分支选择面。",
+     "check": "宇宙学一章与附录 J（Read_cosmo）：“K4 基底含有一座德西特紫外岛”（闭合）；“K4 德西特岛穿越即宇宙学暴胀分支”（条件性）；“由重整化深度给出 e 倍数”（条件性，Δ_RH = 0）；4 × 4 环面基态的六条 κ₄ 轨道表；同一节的张量谱一段，把 r ~ 3 × 10⁻⁷ 列为条件性的分支选择面。评阅靶点 6。",
+     "lead": "在这个框架里，暴胀不必另发明一种场；台阶上有一级是正曲率，掉下去暴胀就停。"
+    },
+    {
+     "n": "10",
+     "scale": "一切尺度 · 实验室与整个宇宙",
+     "q": "为什么物质多于反物质？时间为什么只朝一个方向走？",
+     "answer": "定律对 +i 和 −i 完全对称，宇宙却只能住在其中一边，就像磁铁冷却时自发选定南北极。哪一边是物质，这个理论不预言。作者逐层证明过：他写下的七类结构，逐一都分不出这两面；取向不由任何写进来的数据携带。所以哪面朝上不是定理能给的，是历史，是自发选定的真空数据。它预言的是，同一次选定会在四个深度上各回响一次：实验室里中微子振荡的 CP 相位（一个角度，决定中微子和反中微子振荡起来差多少；框架内只能是 +90° 或 −90°），早期宇宙里轻子与反轻子的失衡，物质压倒反物质，以及由此标记的宇宙时间方向。最后这一条，指的只是“物质多于反物质”所体现的时间不对称，不是熵增的箭头。四声回响出自同一次选定。所以实验室里量到的符号，必须和天上看到的符号扣得上：sign(sin δ_CP) × sign(η_B) = −1。式子里 δ_CP 是那个 CP 相位，η_B 是宇宙里多出来的物质有多少。这个宇宙是物质做的，于是 sin δ_CP 必须为负：δ_CP = 270°，也就是上面那个 −90°，换成实验界惯用的报法。目前全局拟合（把各家实验的数据合在一起拟合）的最佳值约 214°，落在负的一侧，离 270° 约 1.6 σ；同一份拟合把 +90° 排除在外，但还不能定案。Hyper-K 2027 年起测，DUNE 2029 年起测。哪一家测出正值，整条链就断了。",
+     "tags": [
+      "conditional"
+     ],
+     "rides": "每一环都是不同深度上的一次条件性读出。+i 与 −i 分得开：表示论那一半闭合。CP 相位只能是 ±90°：闭合。轻子失衡：要先选定重中微子的能标和洗出因子（失衡最后还剩下多少）。符号锁：在它自己划定的范围里闭合，至于是哪一边，由“宇宙里物质多于反物质”这个观测挑出来。多出来的物质有多少，框架也给出 8.7 × 10⁻¹¹，观测是 (8.7 ± 0.06) × 10⁻¹¹，但这一步比符号锁低一级。CP 朝哪一边，作者自己列成一条公开评阅的靶点（靶点 C）。",
+     "check": "实真空一章：i 涌现定理；紫外/红外 δ_CP 定理；“自发取向”注记（七类结构逐层都分不出两面，已由机器逐条核验）。附录 J（Read_cosmo）：由 PMNS Berry 相位给出轻子生成的定理；时间之箭推论。附录 K（Read_int）：重子–Dirac 符号锁定理，sign(sin δ_CP)·sign(η_B) = −1。实验一侧：预言一章 PMNS 状态段，NuFIT 6.0 最佳值 δ/π ≈ 1.19。",
+     "lead": "哪一边是物质，理论不预言；它预言的是同一次选择在四个地方留下同一个符号。"
+    },
+    {
+     "n": "11",
+     "scale": "一切尺度 · 那些常数本身",
+     "q": "十九个数，怎么变成一个，再变成零个？",
+     "answer": "标准模型像一台有十九个旋钮的收音机，每一个都得靠实验去拧。这个框架说，不带单位的那些不是旋钮，是元胞代数里的分数：三个中微子混合角的正弦平方是 1/45、32/105、4/7，Cabibbo 参数是 9/40，直接读出，不拟合。剩下的只有一个带单位的能标，约 3 × 10¹⁵ GeV。这是十九变一。\n然后是一变零。理论记着两本账。一本记在格点上：每个元胞四个角，各带一份色荷，4 除以 3 余 1。另一本记在连续时空里。标准模型里有一种叫量子反常的效应，留着理论就自相矛盾，必须彼此抵消干净。要抵消干净，带电轻子那两行必须一起挪。挪的量是整数 −5，以 1/6 为单位。（超荷一共七行，每一代的七类场各占一行。）两条独立条件各自给出这同一个 −5；第三条只要求这两行挪得一样多。−5 除以 3 也余 1（−6 能被 3 整除，−5 比它多 1，所以余 1）。两个余数相同，本身不稀奇。作者自己就把它叫作平凡的同余（数学里的“平凡”指不用费力就看得出来，没有内容）。定理的内容是：它们不是巧合，而是同一个五维对象投下的两个影子。这一步的机制说到底只有一句话：一条自洽条件，把最后一个还能连续变化的量钉成一个整数。把这个整数换成 3 × 10¹⁵ GeV，还要再走两步选定的路：一个跑动系数（力的强弱随能量漂移得多快），以及每个元胞六个邻居的蜂窝；换别的邻居数，能标会在 10¹²–10¹⁷ GeV 之间移动。普朗克质量仍然只当单位用，不是算出来的。“十九变一”是全书的账本陈述，不是定理；只有“一变零”有定理支撑。",
+     "tags": [
+      "conditional"
+     ],
+     "rides": "“十九变一”是一条账本陈述，不是定理。“一变零”闭合在两处：mod 3 的余数算术，以及把两本账认作同一个五维对象的两个影子。但这两处都先要认下两条点名的假设（Spin/no-Pin、对称性拓扑场论的积结构），还有一条选定的分支——重的那一层怎么和日常物理分开。从这个整数走到 3 × 10¹⁵ GeV，还要经过跑动系数 b₀ = 25/3 和六邻蜂窝这两步选定。普朗克质量只当单位用，不是算出来的。把元胞里那套左右手粒子等同于完整的标准模型，是一条点名的开放接口（E8）。“十九”不含中微子质量，把中微子质量算进来是 26 到 28 个。",
+     "check": "宇宙学一章定理 7.6（K4 反常统一：mod-3 约化闭合；典范 SymTFT/配边识别闭合）、定理 7.7（K4 解耦，b₀ = 25/3）、定理 7.10（Wilson–Berry 裸耦合归一，条件性）；反常统一附录的配边支架定理；K4 元胞一章的手征反常敷层定理（δ = −5 只作用于带电轻子那一支）；Λ_K4 随邻居数 z 变化的表。评阅靶点 D 与 8。",
+     "lead": "框架说：不带单位的常数都是分数，只剩一个带单位的能标；最后那点还能连续变化的自由，被一条自洽条件钉成一个整数。"
+    }
+   ]
+  }
+ },
+ "en": {
+  "whys": {
+   "rows": [
+    {
+     "n": "09",
+     "scale": "the early universe · the instant of inflation",
+     "q": "Does inflation need a field invented for it, and how does it stop on its own?",
+     "answer": "In its first instant the universe expanded exponentially. The usual move is to invent a field for the job and tune the shape and slope of its energy curve by hand. This framework has no such field. Solve exactly for the lowest-energy state of the lattice that the cells tile — a 4 × 4 grid that wraps round at its edges, 16 sites in all — and the curvature of its 496 bond-pair sections takes only six values, like six steps: five negative, one positive, the shortest-range one, between nearest neighbours. The state advances along its own built-in clock, and the book identifies cosmic time with that clock; while it stands on the positive step, space expands exponentially. That is inflation. It ends on its own: the moment the curvature turns from positive to negative (the internal parameter κ₄ crosses −1) and drops to the next step, inflation stops. The author calls it a geometric phase transition; no second field is needed to reheat the universe afterwards.\nHow fast it expands, the step does not say: the expansion rate (the Hubble scale) is taken to be the theory’s one energy scale, 3 × 10¹⁵ GeV, divided by √3 — about 1.7 × 10¹⁵ GeV. From that scale, assuming reheating is immediate, the standard horizon-crossing formula gives about 51 e-folds (space stretched by a factor of e⁵¹). A simple pole at the end of the epoch then gives the tilt of the primordial ripples, n_s = 1 − 2/N = 49/51 = 0.961 with N = 51 (the same form as the commonest plateau models), against the Planck satellite’s 0.9649 ± 0.0042, one standard deviation apart. The existence of the positive step is closed. Reading the crossing as inflation, and the number 51, hold only on the branch the author selects; the strength of primordial gravitational waves rests on a further choice again, a selected transfer normalisation, which the book itself types as a conditional branch-selection surface.",
+     "tags": [
+      "conditional"
+     ],
+     "rides": "The selected branch on which the positive step — the book’s de Sitter island — is read as inflation, and the scale line that fixes 3 × 10¹⁵ GeV (the same line as question 11). The Hubble scale comes from identifying the island’s curvature radius with the inverse of that scale: a choice, not something the curvature step produces; the e-fold count of 51 assumes reheating is immediate. The positive step itself depends on none of this. The strength of primordial gravitational waves rides on a selected transfer normalisation, which the book types as a conditional branch-selection surface.",
+     "check": "Cosmology chapter and Appendix J (Read_cosmo): “K4 substrate contains a de Sitter UV island” (closed); “K4 dS-island traversal is the cosmological inflationary branch” (conditional); “e-folds from RG depth” (conditional, Δ_RH = 0); the six-orbit κ₄ table for the 4 × 4 torus ground state; the tensor passage of the same section, which types r ~ 3 × 10⁻⁷ as a conditional branch-selection surface. Review Target 6.",
+     "lead": "In this framework inflation needs no invented field: the object has one positive-curvature step, and inflation ends when the curvature drops off it."
+    },
+    {
+     "n": "10",
+     "scale": "every scale · laboratory and cosmos",
+     "q": "Why is there more matter than antimatter, and why does time run one way?",
+     "answer": "The law is perfectly symmetric between +i and −i, yet the universe can only live on one side — the way a magnet, cooling, spontaneously picks its north. Which side is matter, the theory does not predict. The author proves, layer by layer, that the seven kinds of structure he writes down cannot tell the two sides apart, and that no datum installed anywhere carries the orientation; which side the universe settled on is therefore history rather than theorem — the vacuum picked a side on its own, what the book calls spontaneously selected vacuum data. What the theory does predict is that the one selection echoes at four depths: the CP phase of neutrino oscillations in the laboratory (an angle that sets how differently neutrinos and antineutrinos oscillate; here it can only be +90° or −90°), the imbalance of leptons and antileptons in the early universe, matter winning over antimatter, and the direction of cosmic time that this marks (meaning only the time asymmetry that “more matter than antimatter” exhibits, not the arrow of rising entropy). The four echoes come from one selection, so the sign measured in the laboratory and the sign seen in the sky must match: sign(sin δ_CP) × sign(η_B) = −1, where δ_CP is that neutrino phase and η_B the leftover matter. This is a matter universe, so sin δ_CP must be negative: δ_CP = 270°, the −90° option written the way experiments quote it. Today’s best fit to all the world’s data is about 214°, on the negative side, about 1.6 σ from 270°, with +90° excluded by the same fit — leaning the right way, not decided. A positive value from the neutrino experiments Hyper-K (from 2027) or DUNE (from 2029) breaks the chain of four echoes.",
+     "tags": [
+      "conditional"
+     ],
+     "rides": "Each link is conditional, and each sits at a different depth: the +i/−i distinction (the representation-theory half is closed), the ±90° phase (closed), the lepton imbalance (rides on the heavy-neutrino scale and a washout factor — how much of the imbalance survives), the sign lock (closed inside the range it is proved in, with the branch picked by the observed matter excess). The framework also gives the size of the excess, 8.7 × 10⁻¹¹ against the observed (8.7 ± 0.06) × 10⁻¹¹ — a claim one tier below the sign lock. Which way the phase points is the author’s own open review question (Target C).",
+     "check": "Real-vacuum chapter: the i-emergence theorem; the UV/IR δ_CP theorem; the “spontaneous orientation” remark (seven kinds of structure, none able to tell the two sides apart, checked item by item by machine). Appendix J (Read_cosmo): the leptogenesis-from-PMNS-Berry theorem; the arrow-of-time corollary. Appendix K (Read_int): the baryon–Dirac sign-lock theorem, sign(sin δ_CP)·sign(η_B) = −1. Experimental side: the PMNS status paragraph of the predictions chapter, NuFIT 6.0 best fit δ/π ≈ 1.19.",
+     "lead": "Which side is matter, the theory does not predict; what it predicts is that one selection leaves the same sign in four different places."
+    },
+    {
+     "n": "11",
+     "scale": "every scale · the constants themselves",
+     "q": "Nineteen numbers, then one, then none — how?",
+     "answer": "The Standard Model is a radio with nineteen dials, each set only by experiment. This framework says the ones with no units are not dials but fractions from the cell’s algebra — the sines squared of the three neutrino mixing angles are 1/45, 32/105 and 4/7, the Cabibbo parameter is 9/40 — read off, not fitted. What is left is one scale with units, about 3 × 10¹⁵ GeV. Nineteen to one.\nThen one to zero. The theory keeps two ledgers. One on the lattice: four corners per cell, each carrying one unit of colour charge; four divided by three leaves one. One in continuous spacetime: the Standard Model carries quantum anomalies, book-keeping that must add up to zero or the theory contradicts itself, and for it to add up the two charged-lepton rows among the seven hypercharges (one row per kind of field in a generation) must shift together by the integer −5, in sixths — a value two independent conditions each give, with a third requiring only that the two rows shift alike. And −5 divided by three also leaves one (−6 is the multiple of three, −5 is one past it). Equal remainders are not by themselves remarkable: the author himself calls the match trivial, in the mathematician’s sense of seen at a glance, carrying no content. The theorem’s content is that they are not a coincidence but two shadows of one five-dimensional object. The mechanism, stated plainly: one consistency condition pins the last continuously variable quantity to a whole number. Turning that integer into 3 × 10¹⁵ GeV takes two further selected steps: a running coefficient (how fast a force’s strength drifts with energy), and a honeycomb with six neighbours per cell; other neighbour counts move the scale across 10¹²–10¹⁷ GeV. The Planck mass stays a unit of measurement, not a computed result. “Nineteen to one” is a tally kept across the whole book, not a theorem; only “one to zero” is theorem-backed.",
+     "tags": [
+      "conditional"
+     ],
+     "rides": "Nineteen to one is a ledger statement, not a theorem. One to zero is closed in two places: the mod-3 remainder arithmetic, and the identification of the two ledgers as shadows of one five-dimensional object. Both stand on two named assumptions about what type that object is (Spin/no-Pin, a product structure in the symmetry topological field theory) and on a selected branch for how the heavy layer separates from everyday physics. The route from the integer to 3 × 10¹⁵ GeV runs through the running coefficient b₀ = 25/3 and the six-neighbour honeycomb. The Planck mass is kept as the unit, not derived. Identifying the cell’s left- and right-handed particle content with the full Standard Model is a named open interface (E8). “Nineteen” excludes neutrino masses — 26 to 28 once neutrino masses are included.",
+     "check": "Cosmology chapter, Theorem 7.6 (K4 anomaly unification: closed mod-3 reduction, closed canonical SymTFT/bordism identification), Theorem 7.7 (K4 decoupling, b₀ = 25/3), Theorem 7.10 (Wilson–Berry bare-coupling normalisation, conditional); the bordism scaffold theorem in the anomaly-unification appendix; the chiral-anomaly-dressing theorem in the K4-cell chapter (δ = −5 acts only on the charged-lepton branch); the Λ_K4-versus-coordination table. Review Targets D and 8.",
+     "lead": "The framework says the constants with no units are fractions, leaving one scale with units; the last freedom that could still vary continuously is what one consistency condition pins to a whole number."
+    }
+   ]
+  }
+ }
+}

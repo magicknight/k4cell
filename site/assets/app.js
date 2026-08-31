@@ -22,6 +22,68 @@
   };
   const isOff = (button) => button.getAttribute("aria-disabled") === "true";
 
+  const still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------------------------------------------------------------- *
+   * The hero readout lights its resolved digits one at a time.        *
+   * Without JavaScript, and under reduced motion, they are simply lit *
+   * from the start: the class that dims them is added here, never     *
+   * shipped in the HTML.                                              *
+   * ---------------------------------------------------------------- */
+
+  const heroRuler = $(".hero-ruler .ruler-hero");
+  if (heroRuler && !still && "IntersectionObserver" in window) {
+    const lit = $$(".d-lit", heroRuler);
+    heroRuler.classList.add("reveal");
+    const lightAll = () => { for (const digit of lit) digit.classList.add("on"); };
+    const reveal = new IntersectionObserver((entries, self) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        self.disconnect();
+        lit.forEach((digit, index) => {
+          window.setTimeout(() => digit.classList.add("on"), 40 * index);
+        });
+      }
+    }, { threshold: 0.25 });
+    reveal.observe(heroRuler);
+    /* A reader who lands on an anchor far below never trips the observer, and
+       a dimmed readout is worse than an unanimated one. Light it anyway. */
+    window.setTimeout(lightAll, 4000);
+  } else if (heroRuler) {
+    for (const digit of $$(".d-lit", heroRuler)) digit.classList.add("on");
+  }
+
+  /* ---------------------------------------------------------------- *
+   * Which section am I in. The nav marks it with aria-current, which  *
+   * the stylesheet renders in the foreground colour — never in the    *
+   * accent, which means "number" and nothing else.                    *
+   * ---------------------------------------------------------------- */
+
+  const navLinks = $$(".site-nav a[href^='#']");
+  if (navLinks.length && "IntersectionObserver" in window) {
+    const byId = new Map(navLinks.map((link) => [link.getAttribute("href").slice(1), link]));
+    const seen = new Set();
+    const mark = () => {
+      let current = null;
+      for (const [id, link] of byId) if (seen.has(id)) { current = link; break; }
+      for (const link of navLinks) {
+        if (link === current) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      }
+    };
+    const spy = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) seen.add(entry.target.id);
+        else seen.delete(entry.target.id);
+      }
+      mark();
+    }, { rootMargin: "-20% 0px -60% 0px" });
+    for (const id of byId.keys()) {
+      const section = document.getElementById(id);
+      if (section) spy.observe(section);
+    }
+  }
+
   /* ---------------------------------------------------------------- *
    * The 81 basis states.                                              *
    * ---------------------------------------------------------------- */
@@ -41,10 +103,18 @@
       }
     };
 
+    /* Read the button's own parts, in its own order, with a pause between
+       them. Flattening textContent ran the count into the label — the reset
+       button announced "81 all 81" — and now that the reset carries no count
+       of its own, an empty spacer would still be read as part of the label. */
+    const say = (button) => [...button.children]
+      .map((part) => part.textContent.replace(/\s+/g, " ").trim())
+      .filter(Boolean).join(", ");
+
     for (const button of filters) {
       button.addEventListener("click", () => {
         applyFilter(button.dataset.sig);
-        announce(button.textContent.replace(/\s+/g, " ").trim());
+        announce(say(button));
       });
     }
 

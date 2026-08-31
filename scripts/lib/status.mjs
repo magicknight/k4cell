@@ -1,0 +1,71 @@
+import { external, ledger } from "./data.mjs";
+import { publicReviewCommit, publicStatusCommit } from "./links.mjs";
+
+/* status.json, verbatim. Every hex string and timestamp below is a pin on a
+   signed artefact that the build copies untouched; check/integrity.mjs
+   recomputes the SHA-256s and runs gpg --verify against them. Never retype. */
+export const status = {
+  schema: "K4CELL-PUBLIC-STATUS-v1",
+  recorded_at_utc: ledger.recorded_at_utc,
+  artifact_status: "PUBLISHED",
+  intended_canonical_domain: "k4cell.com",
+  science: {
+    state: "CANDIDATE_NOT_INDEPENDENTLY_ESTABLISHED",
+    public_review: ledger.artifact.version,
+    public_review_frozen_at: ledger.artifact.frozen,
+    public_review_commit: publicReviewCommit,
+    public_status_commit: publicStatusCommit,
+    public_review_pdf_sha256: ledger.artifact.sha256,
+    peer_reviewed: false,
+    monograph_under_journal_review: false,
+    full_physical_realization: "OPEN",
+    full_scientific_reproduction_package: "OPEN",
+    carved_submissions: external.submissions.map((entry) => ({
+      id: entry.id,
+      journal: entry.journal,
+      submitted: entry.submitted,
+      status: entry.status,
+    })),
+  },
+  public_science: {
+    protocol: "FROZEN_DESIGN",
+    season: "NOT_STARTED",
+    start_gate: {
+      public_review_status_sync: `PASS@${publicStatusCommit}`,
+      founder_signed_no_official_mint: "PASS",
+      canonical_https_source_graph: "PASS@34a7aa92d2badc20d292a01a6be4770b1631ebb8",
+      twelve_card_and_metrics_hash_freeze: "OPEN",
+    },
+  },
+  founder_identity: {
+    state: "PRIMARY_AND_SIGNING_SUBKEY_PUBLICLY_ANCHORED / FOUNDER_NO_MINT_SIGNATURE_PASS",
+    uid: "Zhihua Liang <zhihua@k4cell.com>",
+    algorithm: "Ed25519",
+    fingerprint: "C74953F60AD573F54A3FD06C72213914E4860F47",
+    signing_subkey_fingerprint: "0427411FA4820FDA5EBFB79B48D9A06D3C49431F",
+    signing_subkey_expires_at_utc: "2028-08-29",
+    public_key_path: "/provenance/K4V_FOUNDER_OPENPGP_KEY_v2.asc",
+    server_subkey_test_signature: "PASS",
+    server_subkey_test_signed_at_utc: "2026-08-30T09:53:46Z",
+    server_subkey_test_payload_path: "/provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt",
+    server_subkey_test_signature_path: "/provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt.asc",
+    server_subkey_test_payload_sha256: "32E1165F280EA1E4D225BBACCDB07987D17354745E694013239C0BFA824E0838",
+    server_subkey_test_signature_sha256: "AF453B85021C1980C25BE0247482FDBEBC5B37F2424BB960EEBA5BD86AB99E47",
+    official_no_mint_signature: "PASS",
+    official_no_mint_issued_at_utc: "2026-08-30T10:05:26Z",
+    official_no_mint_signed_at_utc: "2026-08-30T10:30:37Z",
+    official_no_mint_path: "/official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt",
+    official_no_mint_signature_path: "/official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt.asc",
+    official_no_mint_payload_sha256: "3D972BDAEC125196F5629485D1BEC3F80B4C64C234D547903051C73172063A15",
+    official_no_mint_signature_sha256: "83447C16556BA4F68C04C295FEFA8924B2E07D5115F5C08E7498C7C39775FD36",
+  },
+  k4v: {
+    launched: false,
+    official_mint: null,
+    presale: null,
+    whitelist: null,
+    payment_wallet: null,
+    tge_date: null,
+    mainnet_authorized: false,
+  },
+};

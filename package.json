@@ -5,7 +5,9 @@
   "type": "module",
   "description": "Bilingual public-science surface for the K4 Cell Framework.",
   "scripts": {
+    "copy": "node scripts/assemble-copy.mjs",
     "build": "node scripts/build.mjs",
+    "preview": "node scripts/build-previews.mjs",
     "check": "node scripts/check.mjs",
     "test": "npm run build && npm run check"
   },

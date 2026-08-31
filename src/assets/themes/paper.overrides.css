@@ -1,0 +1,59 @@
+/* THEME paper — the one thing a token cannot say.
+ *
+ * A palette can give a name a different colour. It cannot give a name two
+ * colours in two places, and this page has two grounds: the paper, and §06,
+ * which inverts. Inverting is the point — that section says what would end
+ * the framework — and on a light page it means the section goes dark, a far
+ * stronger move than it was on a dark one. So everything drawn on the plate
+ * has to be re-inked.
+ *
+ * Almost none of it needs a rule. --hair, --hair-2, --panel, --hatch and
+ * --k-off are alphas of one mid grey that is lighter than the plate and
+ * darker than the paper, so the same declaration draws a light rule on paper
+ * and a dark-plate rule here. --alert and --alert-lt are already chosen
+ * against the plate; they occur nowhere else. --hair-3 lands at 4.9:1 here,
+ * which is what the grade chip's border wants (a border answers to the 3:1
+ * bar, not the 4.5:1 one). What is left is ink: no colour clears 4.5:1 on
+ * both grounds at once — 3.98:1 is the ceiling for any single value — so the
+ * four ink steps, and only those four, are remapped.
+ *
+ * Each is remapped TO ANOTHER TOKEN, never to a colour of its own: no hex
+ * here, nothing to keep in sync, nothing for check/budgets.mjs to find
+ * outside the token block. The device it spells out is that the plate is the
+ * page printed in its own paper. */
+
+/* @media screen, because a PRINTER paints no background unless the reader
+   turns "background graphics" on — and it is off by default in every browser.
+   With the plate gone, ink remapped to the page's own paper prints white on
+   white, and the one section that says how the framework dies comes out blank.
+   Measured, not assumed: a PDF printed with backgrounds off put the six card
+   titles at 1.02:1 against the paper, the running ink at 1.12:1, the
+   qualifier at 1.84:1 and the labels and fold-outs at 3.26:1. So the
+   inversion is a screen device. On paper §06 is not inverted at all — it
+   inherits the ordinary four ink steps, and site-body.css's print block drops
+   the plate and hands the warning back to the rule down the left edge. */
+@media screen {
+
+.sec-kill {
+  /* headline ink: the brightest paper on the site        17.6:1 */
+  --fg-0: var(--card);
+  /* running ink: the page's own ground, inverted         14.7:1 */
+  --fg-1: var(--bg-0);
+  /* the qualifier: the palette's light solid grey         9.0:1 */
+  --fg-2: var(--rule-2);
+  /* the apparatus — labels, dates, the fold-outs          5.1:1 */
+  --fg-3: var(--rule-3);
+  /* --panel-2 is the one value in this palette that does not invert: on
+     paper a box that is on is lifted toward white, and a white lift on
+     this plate would be a hole punched in it. Here the lifted panel is
+     simply the ordinary one. Nothing in §06 reaches for it today — the
+     hovered button, the lit gap and the dials are all on paper — so this
+     line is here to keep that true when something does. */
+  --panel-2: var(--panel);
+  /* --link is deliberately NOT remapped. §06 carries no anchor, and a
+     value invented for one that does not exist is a value nobody would
+     look at again. If a link is ever written into the falsifier section
+     it needs a line here: this theme's --link reads 2.1:1 on the plate. */
+}
+
+}

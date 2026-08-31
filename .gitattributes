@@ -1,3 +1,9 @@
 # OpenPGP armor and detached signatures are frozen evidence bytes. Do not let
 # platform line-ending conversion change their published SHA-256 receipts.
 *.asc binary
+
+# The social cards carry their provenance stamp in the JPEG's own comment
+# marker, and provenance/HERO_PLATE_PROVENANCE.md publishes its SHA-256. Git
+# detects these as binary on its own; saying so is one line and removes the
+# question on a platform configured to convert line endings.
+*.jpg binary

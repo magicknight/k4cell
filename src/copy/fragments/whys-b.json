@@ -1,0 +1,222 @@
+{
+ "zh": {
+  "whys": {
+   "rows": [
+    {
+     "n": "05",
+     "scale": "10⁻³⁵ m · 元胞的回路",
+     "q": "量子力学里的虚数单位从哪里来？",
+     "answer": "在最底层，宇宙的引擎里没有 <em>i</em>。只要坐标选对，描述一个元胞的那张数表，每一个数都是实数。<em>i</em> 是从几何里来的。元胞的四个角连成一条闭合回路，回路上有一个再自然不过的动作：把每个角上的东西，都挪到下一个角上。挪四次回到原样，所以在这个动作真正转动的那部分图样上，挪一次就是四分之一圈。四分之一圈有一条性质，握着方向盘就能验证：连转两次正好是掉头，也就是乘 −1。一个做两次等于乘 −1 的动作，自己就是 −1 的平方根——这就是 <em>i</em>。它不是写进方程的，是把圈闭合起来之后走出来的：每走一步乘一次 <em>i</em>，走满四步回到原点。闭合的是这一步的数学。还差最后一步没有接上。这个四分之一圈是局部的，要认定它就是推动整个演化、整张网络共用的那一个 <em>i</em>。",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "这条定理自己条件性的那一半：把局部的四分之一圈认定成推动演化、整张网络共用的那一个 i。把这个 i 算出来的那一半（专著里的表示引理）已经闭合，不依赖任何接口。",
+     "check": "实真空一章“K4 上 i 的涌现：三种成分”及其表示引理；回路闭合那一段；实验 074，虚数单位的 Z₄ 定位。专著把定理写在四个元胞拼成的闭合方格上，数值证书与自举定理用的是一个元胞的四个角（格点），两者代数相同。机器一侧核验的是标量四次根核心与 2 × 2 块。",
+     "figure": "imaginary",
+     "lead": "i 不是写进方程的：绕这个对象的四个角走两步，正好落在 −1 上。"
+    },
+    {
+     "n": "06",
+     "scale": "10⁻¹⁸ m · 每一代的七类场",
+     "q": "电荷为什么偏偏是那几个古怪的分数？",
+     "answer": "标准模型每一代物质，连同希格斯和右手中微子，一共七类场。每一类带一个数，叫超荷；弱作用那边还有一个标签，叫弱同位旋。两个合起来，电荷就算得出来：电子的 −1、上夸克的 +2/3，都是这么来的。这七个数是一串怪分数：1/6、2/3、−1/3、−1/2、−1、0、1/2。统统乘以 6，就成了 (1, 4, −2, −3, −6, 0, 3)，全是整数。把四面体元胞首尾拼成一个环，环上的几何自己给出一把整数尺子，刻度只有七格，从 −2 到 +4；在这个机制里，七格已经是最少的。其中五格直接对上标准模型的五个数：−2、0、+1、+3、+4。剩下两格，−1 和 +2，住着两种带电轻子；它们坐在元胞拼接的缝上，几何只说一句话：这两个数要一起挪，挪同一个整数。挪多少？用教科书里的老规矩。第一条，反常必须相消（一种量子效应，在七行上必须正好互相抵消，否则理论自相矛盾）：算出 −5。第二条，中微子必须能从希格斯得到质量：算出也是 −5。第三条，电子必须能从希格斯得到质量：这一条不给数值，只要求两个轻子挪得一样多。于是 δ = −5：−1 挪成 −6，+2 挪成 −3，正是标准模型的两个轻子数。这两个数已经落在那把七格尺子之外。整个过程没有用到任何粒子的名字——夸克双重态、上、下、轻子双重态、电子、右手中微子、希格斯——这些名字是最后才贴上去的标签。说这七行就是时空上的七类粒子，是作者自己列为开放的一步。",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "七行里没有粒子的名字。把它们真正对上标准模型的七类场（含希格斯与右手中微子），是作者自己列为开放的接口（E8）。整数本身不依赖它。",
+     "check": "多元胞一章“带类型标准模型积的匿名载体唯一性”；逼出 δ = −5 的手征反常敷层定理（证明里写明：两条条件各自定出 −5，第三条只定均匀性）；“最小七格格点”定理；P2P/F2F 物种分类引理。评阅靶点 8。",
+     "figure": "hypercharge",
+     "lead": "标准模型那七个古怪的电荷分数，乘以六，个个都是整数；这串整数是几何逼出来的。"
+    },
+    {
+     "n": "07",
+     "scale": "10⁻¹⁵ m · 中子",
+     "q": "强相互作用为什么不破坏 CP？为什么不需要轴子？",
+     "answer": "强相互作用的理论里天生带着一个角度，叫 θ。它像一个旋钮，原则上可以停在 0 到 360 度之间的任何位置。θ 管的就是 CP 对称：把粒子全换成反粒子、再照一次镜子，看规律是不是还一样。θ 只要不是零，中子就会像小电池一样一头正一头负。实验测下来，这个角比一整圈的一百亿分之一还小。主流的答案是另外引入一种粒子，叫轴子，像一根弹簧把旋钮拉回零；人们找了四十多年，还没找到。在这个框架里不需要弹簧。四面体照镜子还是四面体，只不过两个角对调了位置；角上的编号本来就不是物理量，对调编号不改变任何物理。可它把真空里“打结的方向”翻了过来，等于把 θ 变成 −θ。一个角要等于自己的负值，只有 0 和 180 度两个可能：旋钮其实是个开关。在这个框架里，开关停在“关”上，靠的是它选中的那条真空分支是实的。坐标选对以后，那张数表里一个 <em>i</em> 都没有。这个对称性不是外加的，是四面体自带的。角度还有另一半藏在夸克质量的相位里，由另一条独立的论证关掉。有两件事要说清楚：弱相互作用里的 CP 破坏——K 介子、B 介子衰变里看到的那点——并没有跟着一起消失；而实验目前只给出上限，所以这一条是“还没被证伪”，不是“已被证实”。哪天真的找到强相互作用要的那种轴子（QCD 轴子），这个框架选定的这条分支就出局。IAXO 预计 2029 年出第一批数据。",
+     "tags": [
+      "closed",
+      "bound"
+     ],
+     "rides": "框架选中的那条真空分支（真空是实的）。角度的另一半藏在夸克质量的相位里，由另一条独立的论证关掉，量子修正也不会把它重新推大。和实验对照这一侧只有一个单边限：低于所有上限只表示还没被检验，不表示已被证实。",
+     "check": "K4 元胞一章“θ_QCD 的拓扑禁戒”，配量子几何张量厄米性的强 CP 定理；实真空一章“真空为实 ⇒ θ = 0”推论与“轴子非必需”推论；预言一章分支选择检验 1（IAXO、ALPHA）。",
+     "lead": "四面体照镜子还是四面体，那个能破坏 CP 的旋钮因此只能停在零上，不必另加一种粒子。"
+    },
+    {
+     "n": "08",
+     "scale": "一切尺度 · 引力与规范力",
+     "q": "引力与规范力，为什么是同一个几何读了两遍？",
+     "answer": "想象在球面上走一圈回到原点，身上带着两件仪器。一个计步器，记下走了多远；一个傅科摆，出发时朝北摆，回来时摆动的方向却偏了一个角，尽管从没碰过它。计步器读的是距离，摆读的是“回到原处却转了一个角”。这个对象的量子基态，在它的“设置空间”（各个耦合常数的取值）里走的时候，也随身带着这两件仪器。而且它们不是两件东西，是同一块几何的两面，打包成一个复数：实部是计步器，虚部是傅科摆。这个复数叫量子几何张量（Provost–Vallée, 1980）。这套理论的新招不是这个拆分，而是在一个只有 81 个态的有限对象上，把两面都追到底。实部量两个态有多可分辨，读出来是距离，也就是度规：引力活在这一面上。虚部量的是另一件事：带着一支内部的箭头绕一圈回来，它转了多少。读出来是曲率。描述强力、弱力、电磁力的那类场——杨–米尔斯型的场——活在这一面上。两面出自同一个张量，是定理。这个框架押下的赌注在下一步：两面的动力学也因此一起出来。爱因斯坦方程和杨–米尔斯方程出自同一个源头，而不是并排粘在一起。这一步写成一个条件性的方程组，前提逐条写明；作者拆出去投稿的那篇论文，标题就叫“条件性爱因斯坦–杨–米尔斯场方程”。",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "写成条件性方程组的那一步，依赖四件作者自己列为开放的事：\n- 弱作用和电磁那一层怎么接上来（E3）。\n- 四个方向一样的几何怎么变成三个空间加一个时间，以及引力最基本的那一块（E7）。\n- 引力波那种无质量的自旋二激发，至今没有造出来（E11）。\n- 响应展开里更高阶的那些项：推出来的只是领头的一组方程。这一条在接口表上没有自己的编号。\n两面出自同一个张量的那一步，不依赖任何接口。",
+     "check": "Grassmann 流形那一章：量子几何张量（Provost–Vallée, 1980）的对称/反对称拆分，及其反对称引理；Einstein–Yang–Mills 基底方程（专著里的标题限定词已由勘误 E4 收窄）；拆出的论文 CQG-116665 在审。评阅靶点 1 与 2。",
+     "lead": "同一块几何有两面：引力从一面读出，其余的力从另一面读出。"
+    }
+   ]
+  },
+  "imaginary": {
+   "kicker": "图 2",
+   "title": "虚数单位从哪里来",
+   "aTitle": "实的引擎，闭合的回路",
+   "aSub": "出发点全是实的：一个实的基底，加上推动它的那张数表（行话叫哈密顿量）——里面每个数都是实数，没有 i。",
+   "aNote": "虚线是元胞另外两条边，不在这条回路上。每挪一步，累积的相位（它转过的角）就乘一次 i；挪满四步回到 +1。",
+   "startLabel": "起点",
+   "realLabel": "实",
+   "imagLabel": "虚",
+   "halfLabel": "走到一半：恰好是 −1",
+   "closeLabel": "第四步回到 +1：回路闭合，走满一圈没有相位",
+   "bTitle": "元胞的时钟：转 2π/n",
+   "bSub": "这个单位必须真的是复结构——它的平方必须真的等于 −1。",
+   "verdictOk": "四分之一圈：平方恰好落在 −1 上",
+   "verdictNo": "三分之一圈：差 60°，落不到 −1",
+   "bNote": "四分之一圈的平方是 −1；三分之一圈不是。所以 n = 4。机器一侧：配套模块用另一条判据排除了所有 n ≥ 5。",
+   "caption": "引擎是实的：只要坐标选对，描述一个元胞的那张数表里没有 <em>i</em>。<em>i</em> 是走出来的——元胞的四个角连成一条闭合回路，每走一步乘一次 <em>i</em>，走满四步回到原点。用作者自己的话说：“复数量子力学，是闭合一个二维回路所付的几何代价。”这个单位就是元胞的时钟，转 2π/n；四分之一圈的平方是 −1，三分之一圈不是，所以 n = 4，这也是这个对象有四个角的原因。",
+   "tierClosed": "闭合 · 算出 i 的那一半",
+   "tierCond": "条件性 · 认定成同一个 i",
+   "ridesOnLabel": "前提：",
+   "ridesOn": "这条定理自己条件性的那一半：把这个局部的四分之一圈认定成推动演化、整张网络共用的那一个 i。把 i 算出来的那一半已经闭合。",
+   "drawnLabel": "作图依据：",
+   "drawnFrom": "图中的回路是元胞自身 {edges} 条边里的 {loop} 条，虚线是余下的两条。两个时钟的平方在构建时重新计算：从 n = {lo} 到 n = {hi}，只有 n = {n} 的平方落在 −1 上；对不上，构建就停。",
+   "checkLabel": "去查：",
+   "checkAt": "实真空一章“K4 上 i 的涌现：三种成分”及其表示引理；回路闭合那一段；实验 074，虚数单位的 Z₄ 定位。专著把定理写在四个元胞拼成的闭合方格上，数值证书与自举定理用的是一个元胞的四个角（格点），两者代数相同。机器一侧核验的是标量四次根核心与 2 × 2 块。"
+  },
+  "hypercharge": {
+   "kicker": "图 3",
+   "title": "七个分数，乘以六",
+   "colFrac": "标准模型超荷",
+   "colOp": "× 6",
+   "colInt": "逼出来的整数",
+   "colName": "名字（最后才贴上）",
+   "intNoteB": "由两条独立条件各自定出",
+   "note": "七行是每一代的七类场，含希格斯和右手中微子。五个整数直接落在环的七格尺子上；另外两个来自剩下的两格（−1 和 +2），两格一起挪 −5。这个 −5 由两条独立条件各自定出，第三条只要求两者挪得一样多。挪完的 −3 和 −6 已经在七格尺子之外。",
+   "caption": "把标准模型的七个超荷乘以六，得到的正是环上七个匿名行逼出来的那串整数，顺序一致。整数由反常相消逼出，外加一个整数提升 {delta}；这个提升由两条独立条件各自定出，第三条只要求两行挪得一样多。名字用灰色排，和算式之间隔着一道断口：它们是最后才贴上去的，推导中没有任何一个方程用到它们。",
+   "tierClosed": "闭合 · 整数",
+   "tierCond": "条件性 · 名字",
+   "ridesOnLabel": "断口",
+   "ridesOn": "整数是被逼出来的；名字不是——要靠一条作者自己列为开放的接口（E8）才贴得上去。图上那道断口画的就是这条界线。",
+   "intNoteA": "反常相消 · 整数提升 {delta}",
+   "nameNoteA": "是最后才贴上去的",
+   "nameNoteB": "推导中没有任何一个方程用到它们",
+   "idxNote": "01–07 是环上七个匿名行，只按它们所处的位置和所带的东西标记，不贴任何粒子名。",
+   "ariaA": "第 06 行：标准模型的七个超荷 ",
+   "ariaB": "，各乘以六，依次等于环上七个匿名行被逼到的整数 ",
+   "ariaC": "。粒子名（",
+   "ariaD": "）与算式之间隔着一道断口，为事后附加，推导中未用到。",
+   "narrowNote": "每行下方缩进的灰字是粒子名——是最后才贴上去的；推导中没有任何一个方程用到它们。"
+  }
+ },
+ "en": {
+  "whys": {
+   "rows": [
+    {
+     "n": "05",
+     "scale": "10⁻³⁵ m · the cell’s loop",
+     "q": "Where does the imaginary unit of quantum mechanics come from?",
+     "answer": "Down in the engine that runs the universe there is no <em>i</em>: written in the right basis, the table of numbers that runs one cell is real through and through. The <em>i</em> comes from geometry. The cell’s four corners close into a loop, and the loop has one natural move — shift everything one corner along. Four shifts bring you home, so on the part of the pattern this move actually rotates, one shift is a quarter turn. A quarter turn has a property you can check on a steering wheel: do it twice and you have turned around, which is multiplication by −1. Anything that squares to −1 is, by definition, <em>i</em>. It was never written into the equations; it appears once the loop is closed, each step multiplying by <em>i</em> and four steps bringing you back to the start. What is closed is the mathematics of that step. What the author leaves open is the last stretch: that this local quarter turn is the one <em>i</em> that drives the dynamics and is shared by the whole network.",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "The theorem’s own conditional half: that the local quarter turn is the one i that drives the dynamics and is shared by the whole network. The representation half — that the shift really does act as a quarter turn, one that squares to −1 — is closed and rides on no interface.",
+     "check": "“Emergence of i on K4 from three ingredients” and its Representation Lemma, real-vacuum chapter; the loop-closing passage; Experiment 074, the Z₄ location of the imaginary unit. The monograph states the theorem for a closed square of four cells; the numerical certificate and the bootstrap theorem use the four corners (sites) of one cell; the algebra is the same. Machine side: the scalar fourth-root core and the 2 × 2 block.",
+     "figure": "imaginary",
+     "lead": "i was not written into the equations. Walk two steps round the object’s four corners and you land exactly on −1."
+    },
+    {
+     "n": "06",
+     "scale": "10⁻¹⁸ m · seven fields per generation",
+     "q": "Why are the charges the odd fractions they are?",
+     "answer": "Each generation of Standard-Model matter, together with the Higgs and a right-handed neutrino, has seven kinds of field. Each carries a number called hypercharge; combine it with weak isospin and out comes the electric charge: the electron’s −1, the up quark’s +2/3. The seven are an odd list of fractions: 1/6, 2/3, −1/3, −1/2, −1, 0, 1/2. Multiply them by 6 and they become (1, 4, −2, −3, −6, 0, 3), every one an integer. Glue tetrahedral cells into a closed ring and the ring’s geometry produces an integer ruler of its own with exactly seven marks, −2 to +4; within this mechanism, seven is provably the fewest. Five marks match five of those integers directly: −2, 0, +1, +3, +4. The other two, −1 and +2, are where the two charged leptons start; they sit on the seams where cells are glued, and the geometry says only one thing about them — both must shift, and by the same integer. By how much? The rules are the textbook ones. The anomaly must cancel (a quantum effect that has to cancel exactly across the seven rows, or the theory contradicts itself): that demands −5. The neutrino must be able to get a mass from the Higgs: that demands −5 as well. The electron’s mass term fixes no number, only that both leptons shift alike. So δ = −5: −1 becomes −6 and +2 becomes −3, the Standard Model’s two lepton values, both now outside the seven-mark ruler. No particle name enters anywhere; the names — quark doublet, up, down, lepton doublet, electron, right-handed neutrino, Higgs — are labels attached at the end. That these seven rows of numbers are the seven kinds of particle in spacetime is a step the author himself lists as open.",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "Matching the seven anonymous rows — seven numbers with no particle names attached — to the Standard Model’s seven kinds of field (Higgs and right-handed neutrino included) is an interface the author himself lists as open (E8). The integers do not depend on it.",
+     "check": "“Anonymous carrier uniqueness for the typed SM product”, multi-cell chapter; the chiral-anomaly-dressing theorem that forces δ = −5, whose proof states that two conditions each fix −5 and the third fixes only uniformity; the minimal seven-value lattice theorem; the P2P/F2F species-classification lemma. Review Target 8.",
+     "figure": "hypercharge",
+     "lead": "Multiply the Standard Model’s seven odd charge fractions by six and every one is a whole number — and the geometry forces exactly that list."
+    },
+    {
+     "n": "07",
+     "scale": "10⁻¹⁵ m · the neutron",
+     "q": "Why does the strong force show no CP violation, and why is no axion needed?",
+     "answer": "The theory of the strong force comes with an angle, θ, that could in principle be anything from 0 to 360 degrees: a dial. θ governs CP symmetry — swap every particle for its antiparticle, look in a mirror, and ask whether the laws still read the same. If θ is not zero the neutron becomes a tiny battery, one end positive and one negative; experiment says the angle is under one ten-billionth of a full turn. The standard answer brings in another particle, the axion, a spring that pulls the dial back to zero; forty years of searching has not found it. Here no spring is needed. A tetrahedron in a mirror is still a tetrahedron with two corners swapped, and the corner labels were never physical, so swapping them changes no physics — yet it reverses the direction of every knot the vacuum can tie, turning θ into −θ. An angle equal to its own negative has two options, 0 or 180 degrees: the dial was a switch all along. The switch sits on “off” because the vacuum branch this framework selects is the real one: in the right basis its table of numbers carries no <em>i</em> at all. The symmetry is not added by hand; it is the tetrahedron’s own. The angle’s other half, hidden in the phase of the quark masses, is switched off by a separate argument. Two things to be clear about: the CP violation of the weak force — the kind seen in kaon and B-meson decays — is not erased along with it; and experiment so far gives only an upper limit, so this claim is “not yet refuted”, not “confirmed”. A detected axion of the kind the strong force would need (a QCD axion) would put the world outside this branch. IAXO expects first data around 2029.",
+     "tags": [
+      "closed",
+      "bound"
+     ],
+     "rides": "The choice of the real-vacuum branch. The other half of the physical angle — the phase of the quark masses — and its stability under quantum corrections are closed by a separate argument of their own. On the comparison side this is a bound: below every current limit means untested, not confirmed.",
+     "check": "“Topological prohibition of θ_QCD”, K4-cell chapter, with the quantum-geometric-tensor Hermiticity strong-CP theorem; the real-vacuum chapter’s corollaries “real vacuum ⇒ θ = 0” and “no axion required”; branch-selection Test 1 in the predictions chapter (IAXO, ALPHA).",
+     "lead": "A tetrahedron in a mirror is still a tetrahedron, so the dial that could break CP can only sit at zero: no new particle needed."
+    },
+    {
+     "n": "08",
+     "scale": "every scale · gravity and the gauge forces",
+     "q": "Why are gravity and the gauge forces one geometry read twice?",
+     "answer": "Imagine walking a closed loop on a sphere carrying two instruments. A pedometer records how far you walked. A Foucault pendulum that was swinging north when you set out is found, on your return, swinging in a different plane, though you never touched it. The pedometer reads distance; the pendulum reads “came back to the same place, yet turned”. When this object’s quantum ground state walks through its “settings space” (the values of its couplings), it carries both instruments too — not two things but two faces of one geometry, packed into a single complex number: real part the pedometer, imaginary part the pendulum. That number is the quantum geometric tensor (Provost and Vallée, 1980). What is new here is not the split but following both faces to the end on one finite object of 81 states. The real face measures how distinguishable two states are and reads as distance, a metric: gravity lives on this face. The imaginary face measures how far an internal arrow turns when carried round a loop and reads as curvature: the Yang–Mills-type fields that describe the strong, weak and electromagnetic forces live on this face. That both faces come off one tensor is a theorem. The bet this framework places is the next step: that their dynamics therefore arrive together, Einstein’s equations and the Yang–Mills equations from one source rather than glued side by side. That step is written as a conditional system with its conditions listed one by one; the paper drawn from it is titled “Conditional Einstein–Yang–Mills Field Equations”.",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "The step written as a conditional system rides on four things the author lists as open:\n- The step up to the weak and electromagnetic forces (E3).\n- The passage from a geometry with four alike directions to three of space and one of time, together with the most basic piece of gravity, which is classified rather than built (E7).\n- The massless spin-two excitation that gravitational waves are made of, not yet constructed (E11).\n- A tower of higher-order response terms: what is derived is the leading system only. This one carries no interface number of its own.\nThe step that both faces come off one tensor rides on no interface.",
+     "check": "The symmetric/antisymmetric split of the quantum geometric tensor (Provost and Vallée, 1980) and its antisymmetry lemma, Grassmannian chapter; the Einstein–Yang–Mills substrate equations, whose title qualifier in the monograph is narrowed by erratum E4; the paper drawn from it, CQG-116665, under review. Review Targets 1 and 2.",
+     "lead": "One geometry with two faces: gravity is read off one of them, the other forces off the other."
+    }
+   ]
+  },
+  "imaginary": {
+   "kicker": "Fig. 2",
+   "title": "Where the imaginary unit comes from",
+   "aTitle": "A real engine, a closed loop",
+   "aSub": "Start from a real substrate and the real, symmetric table of numbers that runs it (a Hamiltonian) — no i anywhere.",
+   "aNote": "Dashed: the cell’s other two links, which this loop does not use. Every step multiplies the accumulated phase — the angle it has turned through — by i once more; four steps bring it back to +1.",
+   "startLabel": "start",
+   "realLabel": "real",
+   "imagLabel": "imaginary",
+   "halfLabel": "halfway round: exactly −1",
+   "closeLabel": "fourth step, back to +1: the loop closes, and a full circuit carries no phase at all",
+   "bTitle": "The cell’s clock: a rotation by 2π/n",
+   "bSub": "The unit must be a genuine complex structure — it must really square to −1.",
+   "verdictOk": "A quarter turn: its square lands exactly on −1",
+   "verdictNo": "A third of a turn: its square misses −1 by 60°",
+   "bNote": "A quarter turn squares to −1; a third of a turn does not. So n = 4. Machine side: a companion module rules out every n ≥ 5 by a different count.",
+   "caption": "The engine is real: written in the right basis, the table of numbers that runs one cell has no <em>i</em> in it. The <em>i</em> is walked into existence — the cell’s four corners close into a loop, each step multiplies by <em>i</em>, and four steps bring you back to the start. In the author’s words: “complex quantum mechanics is the geometric price of closing a two-dimensional loop.” That unit is the cell’s clock, a rotation by 2π/n; a quarter turn squares to −1 and a third of a turn does not, so n = 4, which is also why the object has four corners.",
+   "tierClosed": "Closed · the representation half",
+   "tierCond": "Conditional · identification and gluing",
+   "ridesOnLabel": "rides on",
+   "ridesOn": "The theorem’s own conditional half: that this local quarter turn is the one i that drives the dynamics and is shared by the whole network. The representation half — that the shift really does act as a quarter turn — is closed.",
+   "drawnLabel": "drawn from",
+   "drawnFrom": "The loop is {loop} of the cell’s own {edges} links and the dashed ones are the other two; both clocks are squared at build time — over n = {lo} to n = {hi}, only n = {n} lands on −1, and the build stops if that ever changes.",
+   "checkLabel": "check it at",
+   "checkAt": "“Emergence of i on K4 from three ingredients” and its Representation Lemma, real-vacuum chapter; the loop-closing passage; Experiment 074, the Z₄ location of the imaginary unit. The monograph states the theorem for a closed square of four cells; the numerical certificate and the bootstrap theorem use the four corners (sites) of one cell; the algebra is the same. Machine side: the scalar fourth-root core and the 2 × 2 block."
+  },
+  "hypercharge": {
+   "kicker": "Fig. 3",
+   "title": "Seven fractions, times six",
+   "colFrac": "Standard-Model hypercharge",
+   "colOp": "× 6",
+   "colInt": "Forced integer",
+   "colName": "Name (attached afterwards)",
+   "intNoteB": "each of two independent conditions fixes it",
+   "note": "The seven rows are the seven kinds of field in one generation, Higgs and right-handed neutrino included. Five integers sit directly on the ring’s seven-mark ruler; the other two come from the two remaining marks (−1 and +2), shifted together by −5, a number fixed twice over by two independent conditions, with a third condition requiring only that both shift alike. The shifted −3 and −6 lie outside the seven marks.",
+   "caption": "Multiply the Standard Model’s seven hypercharges by six and you get the list the ring’s seven anonymous rows are forced to, in order. The integers come from anomaly cancellation together with one integer lift, {delta}; two independent conditions each fix that value, and a third requires only that both lepton rows shift alike. The names are set in grey and a break separates them from the arithmetic: they are attached afterwards, and no equation in the derivation uses them.",
+   "tierClosed": "Closed · the integers",
+   "tierCond": "Conditional · the names",
+   "ridesOnLabel": "the break",
+   "ridesOn": "The integers are forced; the names are not — they are attached only through an interface the author lists as open (E8). The break drawn in the plate is that boundary.",
+   "intNoteA": "anomaly cancellation · integer lift {delta}",
+   "nameNoteA": "attached afterwards",
+   "nameNoteB": "no equation in the derivation uses them",
+   "idxNote": "01–07 are the ring’s seven anonymous rows, labelled only by where they sit and what they carry.",
+   "ariaA": "Row 06: the Standard Model’s seven hypercharges ",
+   "ariaB": ", each multiplied by six, equal in order the integers ",
+   "ariaC": " that the ring’s seven anonymous rows are forced to. The particle names (",
+   "ariaD": ") are separated from the arithmetic by a break, attached afterwards and used by no equation in the derivation.",
+   "narrowNote": "The indented grey line under each row is the particle name — attached afterwards; no equation in the derivation uses them."
+  }
+ }
+}

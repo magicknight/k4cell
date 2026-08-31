@@ -1,0 +1,239 @@
+/* ==================================================================== *
+ * THEME: paper — C · paper light.                                      *
+ *                                                                      *
+ * A theme is ONE `:root{…}` block and nothing else. Only that block    *
+ * reaches assets/site.css; everything here does not, so the long-form  *
+ * reasoning lives up here and the block below stays as tight as the    *
+ * shipping palette's.                                                  *
+ * ==================================================================== *
+ *
+ * REGISTER. A scientific monograph — Quanta, Nature, a well-set physics
+ * book — and not the old silver-grey audit cover. Warm paper, near-black
+ * ink, generous air, one accent spent on numbers. Everything the rewrite
+ * fixed about hierarchy is untouched: the display headline with its
+ * numerals in the accent, the digit ruler as the hero object, the large
+ * coloured tetrahedron, the scale spine, the hue-free tier chips, red
+ * only in the falsifier section. For physicists and science journalists
+ * a light ground is the higher-credibility default; the page is asked to
+ * look like a page, and the "K4V has not launched" notice reads as a
+ * notice rather than as a landing page.
+ *
+ * THE FOUR FAULTS THIS PALETTE ANSWERS
+ *
+ * 1. THE GROUND. #f4f2ec, not #fff: pure white is as harsh as pure
+ *    black, and this page is 31 694 px tall. Body ink sits at 11.9:1 —
+ *    past AAA, and 28 % softer than the 16.4:1 this ground would allow —
+ *    so thirty screens do not read as printer's black on bleached
+ *    stock. Halation is a light-on-dark effect; the ceiling that forced
+ *    the dark theme's caution is simply not here, which is why the
+ *    apparatus grey can sit at 5.03:1 instead of the 4.55:1 the dark
+ *    ground left it at, and the four ranks 5.0 / 7.1 / 11.9 / 16.4 are
+ *    all separately visible.
+ *
+ * 2. THE PANELS. On the dark theme a panel was 7/255 off its ground and
+ *    the instrument frame nearly vanished. Here the panel fill is a grey
+ *    scrim 10/255 below the paper and it carries a real hairline, so a
+ *    boxed aside is a box and the notched-label frame is a frame.
+ *
+ * 3. ONE HUE, TWO MEANINGS. --fact keeps the amber; that meaning is the
+ *    same in every theme, and its honest light-ground translation is the
+ *    ochre a book would print. --c2 is what moves — off the ochre it
+ *    shared with the accent, onto a dark wine. The three site colours are
+ *    arbitrary categorical labels; the accent is not, and the accent
+ *    lands ON the 81-grid whenever the sweep lights an edge, which is
+ *    exactly where the old collision was worst. Nothing on this page is
+ *    amber-on-near-black.
+ *
+ * 4. THREE COLOURS AT ONE LIGHTNESS. The first cut of this palette set
+ *    the three site colours at very nearly one luminance so that no dot
+ *    would outrank another. That is a weaker principle than “the figure
+ *    survives being printed”, and it cost more than it bought: 0.008 of
+ *    relative luminance between them, which is nothing under greyscale,
+ *    a photocopy or forced-colors, and dE00 6.2 between the teal and the
+ *    rose under deuteranopia, which is one colour. They are now ordered
+ *    by lightness; see the --c1/--c2/--c3 note below.
+ *
+ * TWO MECHANISMS TO KNOW BEFORE CHANGING A VALUE
+ *
+ * A. THE SCRIMS INVERT FOR FREE. --hair, --hair-2, --panel, --panel-2*,
+ *    --hatch and --k-off are alphas of ONE mid grey, #7d7566, which is
+ *    lighter than the falsifier plate and darker than the paper. The
+ *    same declaration therefore draws a light rule on paper and a
+ *    dark-plate rule inside #kill, and the inversion needs no override
+ *    for any of them. (*--panel-2 is the exception; see below.)
+ *
+ * B. WHAT A SCRIM CANNOT DO IS INK. No single colour clears 4.5:1 on
+ *    both grounds — the ceiling for any one value against both is
+ *    3.98:1 — so four names, and only four, are remapped for the plate
+ *    in themes/paper.overrides.css, each to another token in this
+ *    block. That file is the whole of the escape hatch.
+ *
+ * MEASURED IN THE BROWSER, compositing every translucent layer (WCAG 2)
+ *
+ *   on the paper ground #f4f2ec
+ *     --fg-0 16.44   --fg-1 (body) 11.89   --fg-2 7.13   --fg-3 5.03
+ *     --text-3 7.13  --fact 5.45  --link 7.68
+ *     --c1 3.55  --c2 8.80  --c3 5.16  --fact-hi 7.05
+ *     (a site colour is a graphical object and answers to 3:1; --c3 is
+ *      also text and clears 4.5)
+ *   on --bg-1, the topbar / status line / footer band
+ *     --fg-3 4.68  (the dimmest text anywhere on the page)
+ *   on a --panel box over the paper
+ *     --fg-1 10.85  --fg-2 6.51  --fg-3 4.59
+ *   on the falsifier plate, measured inside a card (#211f19, the tighter
+ *   of the two grounds there)
+ *     --fg-0 17.61  --fg-1 14.72  --fg-2 8.97  --fg-3 5.05
+ *     --alert-lt 7.06
+ *
+ *   Every text token clears 4.5:1 in every place it is painted. The one
+ *   pairing that does not is --fg-3 on --bg-3, at 3.88:1: that is the
+ *   label of a PRIMARY BUTTON THAT HAS SWITCHED ITSELF OFF, which WCAG
+ *   1.4.3 exempts as an inactive component and which the page does not
+ *   currently render at all (the two soft-disabled controls are plain
+ *   buttons on the page ground, at 5.03:1). It is left dim on purpose:
+ *   an off control should look off.
+ *
+ *   --alert is at the both-grounds ceiling, 4.02:1 on paper and 3.98:1
+ *   on the plate, and is never text — it is an edge, and an edge answers
+ *   to the 3:1 bar.
+ * ==================================================================== */
+
+:root {
+  /* Without this the browser paints dark scrollbars and dark form
+     controls onto a light page. Not a custom property, so the name-set
+     gate does not cover it: a light theme must say it itself. */
+  color-scheme: light;
+
+  /* ground: five steps of a warm paper; nothing is pure white.
+     --bg-1 is the page's furniture — topbar, status line, footer — a
+     half-step down, so the reading column stays the brightest thing on
+     the screen. --bg-kill is the site's one dark ground: the page's own
+     ink, not black, because §06 is the page printed solid. */
+  --bg-0:#f4f2ec; --bg-1:#edeae1; --bg-2:#e5e1d6; --bg-3:#dbd6c9; --bg-kill:#191712;
+
+  /* the two panel fills do opposite jobs, which is the light ground's
+     grammar: --panel tints a box DOWN into the paper (a journal's boxed
+     aside) and inverts for free; --panel-2 marks a box that is ON — a
+     lit gap, a hovered button, the top of a dial — and on paper "on" is
+     LIGHTER, so it lifts toward white and is the one value here that
+     cannot invert. paper.overrides.css hands it back to --panel in #kill. */
+  --panel: rgba(125,117,102,.08); --panel-2: rgba(255,255,255,.72);
+
+  /* hairlines: the page is still one device pixel, and on paper the
+     pixel is light. --hair-3 is SOLID, not a scrim, because it is the
+     only hairline that must read as an EDGE — button border, chip
+     border, the instrument frame's corner ticks — and 3.3:1 is the price. */
+  --hair: rgba(125,117,102,.22); --hair-2: rgba(125,117,102,.36); --hair-3:#8b8578;
+
+  /* ink: warm off-black, so it belongs to the paper rather than sitting
+     on it. --fg-1 runs the text, --fg-0 steps up for a heading or the
+     one sentence a section is about, --fg-2 is the qualifier, --fg-3 the
+     apparatus. 16.4 / 11.9 / 7.1 / 5.0 against the ground. */
+  --fg-0:#16140f; --fg-1:#332f28; --fg-2:#565046; --fg-3:#6c675b;
+
+  /* ONE accent, and it means FACT: a digit, a pull, a score, the bet.
+     The dark theme's pale amber has no light-ground twin, so it is the
+     ochre a book prints: dark enough to be read at 14 px, warm enough to
+     stay the only warm thing on the page. --fact-hi is the WORST row's
+     pull bar, so on paper it goes darker, not lighter — here more
+     emphasis is more ink. --fact-glow was a dark-ground device and is
+     switched off rather than faked, which a transparent shadow does. */
+  --fact:#8f5407; --fact-hi:#7c4304; --fact-dk:#6b3903; --fact-glow: transparent;
+
+  /* links get their own colour, so the accent never means "click". */
+  --link:#1a4f7a; --link-dk:#123a5c;
+
+  /* the warning colour, allowed in .sec-kill and nowhere else — which is
+     the one DARK ground here, so both are chosen against it. --alert is
+     only ever an edge, and its edge is the seam between the paper above
+     and the plate below, so it has to hold on both: 4.02 / 3.98, the
+     ceiling for any single value. --alert-lt is the plate's red ink. */
+  --alert:#d24634; --alert-lt:#f0907f;
+
+  /* the figures' warm line: a cut, a hole, a 3 sigma rule. Not a
+     warning — which is why it is the accent and not --alert. */
+  --cut: var(--fact); --cut-lt: var(--fact-hi);
+
+  /* three site colours. They encode a colour class, never an evidence
+     tier. Teal / wine / violet: three hues 60-130 degrees apart AND --
+     the part that carries the weight -- three genuinely different
+     lightnesses: 3.55 : 8.80 : 5.16 against the ground, with 0.075 of
+     relative luminance between the closest pair. grid81.mjs draws all
+     three classes as the same r=3.4 disc, so hue is the only other
+     channel there; set at ONE lightness (which is where this palette
+     started, at 0.008) the three dots survive neither greyscale, nor a
+     photocopy, nor forced-colors, nor a deuteranope -- measured, they
+     collapsed to dE00 6.2, which is one colour. Ordered by lightness
+     they hold at 19.2 in the worst of protanopia / deuteranopia /
+     tritanopia. The wine is the DARKEST on purpose: red is the channel
+     protanopes and deuteranopes lose, so it is the one that has to be
+     carried by value. It also keeps the second colour off the hue it
+     used to share with the accent. --c3 does double duty as the figures'
+     CONDITIONAL tier, so it is the one of the three that must also read
+     as text -- 5.16:1, and 53 degrees off --link, where the palette's
+     first violet was 39. */
+  --c1:#418d75; --c2:#752745; --c3:#7a4fb8;
+  --c1-lt:#78c4a9; --c2-lt:#da7597; --c3-lt:#ae8ee6;
+  --c1-dk:#386455; --c2-dk:#5a0c2e; --c3-dk:#542d87;
+
+  /* the glyph: the collided pair is drawn in the FOREGROUND colour.
+     Never in the accent — the accent is spent on digits. */
+  --k-hit: var(--fg-0); --k-off: rgba(125,117,102,.34);
+
+  /* the hero's field behind the object. On the dark ground these were
+     three faint coloured lights; three low-alpha hues over cream do not
+     read as light, they read as a stain. So the field inverts with the
+     ground: three overlapping WHITES that lay the object on a disc of
+     the brightest stock on the site and let it fade back into the paper.
+     The hatch stays a mid grey at 42 %: fill / hatch / dash is the whole
+     tier system and it has to survive greyscale with no hue helping. */
+  --orb-1: rgba(255,255,255,.80); --orb-2: rgba(255,255,255,.55); --orb-3: rgba(255,253,247,.95);
+  --hatch: rgba(125,117,102,.42);
+
+  /* the names the server-rendered figures ask for. They were authored
+     dark-on-light, so this is the ground they were drawn for: --fig-bg
+     is the page ground itself, because it is a PUNCH-OUT (an open route
+     node, a hop circle) and a hole must be the colour behind it.
+     --rule is NOT --hair, which is what the dark theme aliases it to: a
+     page rule sits between two blocks of type and should be quiet, while
+     a figure's axis, ring, bracket and table rule are the drawing's own
+     structure with nothing around them to be quiet against. */
+  --fig-bg: var(--bg-0); --fig-fg: var(--fg-0);
+  --text: var(--fg-0); --text-2: var(--fg-1); --text-3: var(--fg-2);
+  --rule: rgba(125,117,102,.30);
+  /* --rule-2, --rule-3, --paper-hi and --card are the palette's spares:
+     nothing on the paper ground reads any of them, and they carry the
+     names because the figure contract requires them. They are spent
+     where the palette needs neutrals that read on a DARK ground — the
+     falsifier plate's ink, in paper.overrides.css — which is why the
+     inversion introduces no colour of its own. --rule-3 is a shade
+     lighter than the --hair-3 it otherwise duplicates: the plate's cards
+     carry the --panel scrim, and against THAT ground --hair-3 measures
+     4.49:1 while this measures 5.05:1. */
+  --rule-2:#c4bfb1; --rule-3:#948e80;
+  --paper-hi:#faf8f3; --card:#fffdf7;
+  --accent: var(--link); --accent-dk: var(--link-dk);
+  --ground: var(--bg-0);
+
+  /* type stacks — system only; the CSP forbids a linked font. Identical
+     to the dark theme: this pass is a palette, and two grounds have to
+     be compared under one typography, not two. */
+  --han-serif: "Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
+  --han: "PingFang SC","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  --lat: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans","PingFang SC","Noto Sans CJK SC",sans-serif;
+  --sans: var(--han);
+  --fig: "Iowan Old Style",Palatino,"Palatino Linotype",Georgia,"Liberation Serif","Times New Roman",serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono","Noto Sans Mono CJK SC",monospace;
+
+  --t-display: clamp(1.8rem,3.2vw,2.85rem);
+  --t-title: clamp(1.5rem,2.8vw,2.3rem);
+  --t-ask: clamp(1.2rem,1.8vw,1.5rem);
+  --t-lead: 1.0625rem; --t-body: 1rem; --t-small: .875rem;
+  --t-micro: .8125rem; --t-nano: .6875rem;
+  --t-score: clamp(2.6rem,7vw,5rem);
+
+  --lh-tight: 1.14; --lh-head: 1.34; --lh-read: 1.85;
+  --col-read: 40rem;
+  --shell: min(100% - 2.5rem, 46rem);
+  --rail: 10rem;
+}

@@ -1,0 +1,132 @@
+{
+ "zh": {
+  "whys": {
+   "number": "04",
+   "kicker": "十一个为什么",
+   "h2": "一次旅行：从四个点到宇宙。",
+   "intro": "下面十一件事，在这个框架里本来就不可能是别的样子。全部从同一个四点对象上读出。排序按证据有多稳，不按有多惊人。第 01 条和第 04 条只讲这个有限对象本身，不必先相信框架，就能自己去查。第 02、03 条数出来的那一半同样闭合；落到时空上的那一半，要经过作者列为开放的接口。",
+   "scaleLabelA": "10⁻³⁵ m · 一个元胞",
+   "scaleLabelB": "10²⁶ m · 可观测宇宙",
+   "scaleNote": "尺度带只标每条答案落在自然界的哪一段，不标框架算出了什么。带子最左端那个长度是元胞自己的长度单位，是定下来的标度，不是算出来的结果。",
+   "ridesLabel": "前提",
+   "checkLabel": "去查",
+   "rows": [
+    {
+     "n": "01",
+     "q": "这个对象为什么有四个角？",
+     "answer": "<em>i</em> 有一条硬性质：平方等于 −1，做两次等于掉头。这个元胞会自己长出一个 <em>i</em>：沿四个角连成的回路走一步，就是它的时钟。框架把这一步认定为那个单位本身。回路上有 n 个角，走一步就转 360°/n；要“走两步正好掉头”，就是 2 × 360°/n = 180°，只有 n = 4 解得出来。三个角，两步转 240°，不是掉头；五个角，144°，也不是。只有四个角，一步恰好是掉头的一半。元胞有四个角，是因为 <em>i</em> 的阶是四：做四次回到原地。这不是修辞，是一道除法。颜色数由同一个定理的另外几款定下：必须是奇数，至少是三，又得少于角数。奇数这一条是作者自己的判据：偶数会混进一个不分左右的元素。若有第四种颜色，四个角各穿一色，对象就只剩一个孤零零的完美答案，长不出代。奇数、至少三、小于四：只剩三。颜色数与角数的所有搭配里，只剩 (3, 4)。",
+     "tags": [
+      "closed"
+     ],
+     "rides": "不依赖任何开放接口。它有一个适用范围：作者自己划定的一类对象——图上每点一个“三档”式的基本开关，只有两两相互作用。再加上框架唯一的那条设定：这样的元胞存在，并铺成点阵。这一类划得多宽，作者自己列为评阅靶点。",
+     "check": "元胞自举定理第 (i) 款，K4 元胞一章；评阅靶点 A。机器一侧：四分之一圈的时钟平方等于 −I，三阶时钟可证不行（CellBootstrapFixedPoint）。另一个模块用不同的判据排除所有 n ≥ 5：这样的时钟带多于一对复特征值（CellBootstrapClockUniqueness）。Lean 核验的是这些算术条款，零 sorry；“这些条款在物理上必需”是专著的论证，不是机器的。",
+     "scale": "10⁻³⁵ m · 元胞",
+     "lead": "四个角，因为四分之一圈转两次正好掉头，而乘以 −1 就是掉头。"
+    },
+    {
+     "n": "02",
+     "q": "物质为什么有三代？",
+     "answer": "这个元胞一共有 81 种基本状态：四个角，每个角三种颜色，3 × 3 × 3 × 3。把它的能量算出来——一个 81 行 81 列的矩阵，笔记本电脑一秒钟的事。81 个态自己分成四层：15、45、12、9，一个不多，一个不少。最底下那层是 9 个态，排出来正好是个九宫格。三行的“三”来自颜色。三列的“三”来自四个角可以互相调换。角一旦可以互换，位置上就只剩三个独立方向：四减一等于三。那三列，就是三代物质。物理学家拉比当年看见 μ 子，问“谁点的这道菜”。答案是没有谁点，九宫格本来就有三列。同一套算术还说：三列里一列落单，两列成对，正是一代重、两代轻的格局。它只给格局，不给质量。数到“三”是定理。把这三列真正落实为时空上的三代夸克和轻子，是作者自己列为开放的一组具名接口。",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "计数本身不依赖任何开放接口。把这个“三”真正落实成时空里的三代粒子、把匿名的七行真正对上标准模型七种粒子——这一组具名映射作者自己列为开放（E8，四条）。",
+     "check": "“由 Schur–Weyl 对偶给出的味世代”定理，K4 元胞一章，配“色与味：不作范畴混同”一则注记；数值证书：实验 071（精确对角化，简并度按能级从低到高为 9、12、45、15）。严格说，三列住在 S₄ 的 [2,1,1] Specht 模里：它是标准模 [3,1] 再配一次符号翻转，维数同为三。一重二轻的格局出自质量保护引理。开放的一侧是勘误 E8 列出的四条具名映射：世代扩张、完整正规嵌入、实分支保持、48 行流符号满射。另受 E10 约束；评阅靶点 8 与 10。",
+     "scale": "10⁻¹⁸ m · 三代粒子",
+     "lead": "这个对象最低那层正好三列。三是数出来的，不是设的；落到真粒子上是另一步。"
+    },
+    {
+     "n": "03",
+     "q": "时空为什么是四维？",
+     "answer": "一个光滑的地球仪有三种独立的转法。在它上面按一枚图钉：绕穿过图钉那根轴转，图钉不动；另外两种转法会把它挪走。图钉能去的所有地方就是地球表面，二维：3 − 1 = 2。现在把地球仪换成这个元胞。它也有自己的转法，转的是内部的对称，一共八种。基态就是那枚图钉：恰好四种转法不动它，另外四种把它挪开。基态能去的所有地方，是一个 8 − 4 = 4 维的空间。把每一处的这四个挪法拼成一张连续的底面，那张底面就是时空。此时时间还没登场，四个方向长得一模一样。随后基态自带的一台钟（行话叫模流）在它走得动的地方从四条里挑出一条，把它的尺子反过来。那一条就是时间：3 + 1，不是 4 + 1。另一条路从下面顶住：物质与反物质那一点不对称，也就是夸克混合里的 CP 破坏。按这个框架的写法，这一点不对称本身就要四个方向才装得下。四个角和四个维度是两个不同的四：一个是整数的算术，一个是连续对称的减法，各有各的出生证。框架再把这两个四拴在同一根轴上——这是框架的一条认定，不是巧合。",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "从八种转法减到四种（行话叫 SU(3) 破缺到 U(2)），这一步是元胞内部的事，是闭合的。在这台钟给出时间之前，四个方向长得一样，都是欧氏的。从欧氏几何转到带时间的洛伦兹几何，以及引力这一项本身怎么在一开始进来，是作者列为开放的接口（E7）。",
+     "check": "K4 元胞一章“四维时空是拓扑必然”一节：拓扑必然性定理（8 − 4 = 4 的陪集计数）与 Berry 形式的 CP 阻碍定理（(2,2) 形式在低于四维时恒为零），专著里两条都标为闭合；“D = 4 的四重选出”是一则注记，不是定理。时间那一步：模流 Wick 转动引理与“模时间不是第五维”注记，在正则坐标卡上闭合；机器一侧只把给定的号差原样返回。Lean：陪集算术有核心证明，CP² 几何未形式化；CP 阻碍那一条，机器只把“Jarlskog 不为零则至少四维”当前提收下再交回，不是独立核验。勘误 E7；评阅靶点 2 与 3。",
+     "scale": "一切尺度 · 时空",
+     "lead": "八种转法减去动不了基态的四种，剩下四个方向；框架把这四个方向认作时空。"
+    },
+    {
+     "n": "04",
+     "q": "这个对象的其余部分，为什么也不是选出来的？",
+     "answer": "不只是那个“四”。在作者划定的那一类对象里，元胞的每一项结构都是自洽性逼出来的：四个角、三种颜色、两两相连的完全图、只让两端对调颜色的相互作用、每条线一样强，还有“求异”的符号。没有一条用到实验量出来的数。符号那一条可以在纸上试。把规则反过来，改成“求同”：每条线都希望两端相同。难题一瞬间消失：四个角全穿红就行，81 种状态里有 3 种一条线都不违规，对象不再需要任何量子叠加。可是代价立刻来了。最底下那层有 15 个态，却只排成一列：四个角谁跟谁换都没区别，于是没有第二列，也就没有“代”。那个把“轮转一格”变成 <em>i</em> 的时钟，转起来跟没转一样。一个不再较劲的宇宙，什么都长不出来。所以“求异”不是作者的口味，是唯一能长出东西的符号。两条各自独立的算法停在同一个答案上：一条看时钟转不转得动，一条看三角形上的三种颜色能不能凑成中性。框架只设定了一句话：这样的元胞存在，而且铺成点阵。其余的结构，是定理。",
+     "tags": [
+      "closed"
+     ],
+     "rides": "不依赖任何开放接口。适用范围与第 01 条相同：作者划定的那一类对象，加上唯一的设定——这样的元胞存在，并铺成点阵。",
+     "check": "元胞自举定理全部五款及其后的注记，K4 元胞一章；评阅靶点 A。机器一侧：五个 Lean 模块，零 sorry，公理不超出数学库三条标准逻辑公理；图的那一款在全部 64 个带标号图上穷举核验；符号那一款核验的是两条路线上的能级不等式（CellBootstrapSignNormalisation）。模块自带的三个诚实标记（不动点表述、算术极小性、图的选择）仍标为开放。定理最后那句“读出即闭合”的话，勘误 E10 已经把它收窄。",
+     "scale": "10⁻³⁵ m · 元胞",
+     "lead": "四个点、三种颜色、六条线、“求异”那条规则，没有一条是挑出来的。"
+    }
+   ]
+  }
+ },
+ "en": {
+  "whys": {
+   "number": "04",
+   "kicker": "Eleven whys",
+   "h2": "One journey: from four points to the universe.",
+   "intro": "Eleven things that, inside this framework, could not have been otherwise. All of them are read off the same four-point object. They are ordered by how solid the evidence is, not by how surprising they are. Rows 01 and 04 are about the finite object alone; you can check them yourself without taking the framework on trust. In rows 02 and 03 the counting half is closed in the same way, but the half that lands on spacetime runs through interfaces the author lists as open.",
+   "scaleLabelA": "10⁻³⁵ m · one cell",
+   "scaleLabelB": "10²⁶ m · the observable universe",
+   "scaleNote": "The strip marks where each answer lives in nature, not what the framework computes. The length at its left-hand end is the cell’s own unit of length: a scale that is set, not a result that is derived.",
+   "ridesLabel": "rides on",
+   "checkLabel": "Where to check",
+   "rows": [
+    {
+     "n": "01",
+     "q": "Why does the object have four corners?",
+     "answer": "<em>i</em> has one non-negotiable property: it squares to −1, so doing it twice is a U-turn. This cell grows an <em>i</em> of its own: its clock is the loop through the four corners, and one step round that loop is taken to be the unit itself. With n corners a step turns through 360°/n, and two steps must make exactly a U-turn: 2 × 360°/n = 180°, whose only solution is n = 4. Three corners turn 240° in two steps, five turn 144°: no U-turn either way. The cell has four corners because <em>i</em> has order four — do it four times and you are back where you started. Not a slogan, a division. Other clauses of the same theorem fix the number of colours: it must be odd (an even number lets in an element that cannot tell left from right — the author’s own criterion), at least three, and fewer than the corners. Give it a fourth colour, one per corner, and the object has one lonely perfect answer with no generations in it. Odd, at least three, fewer than four: of every (colours, corners) pair, only (3, 4) survives.",
+     "tags": [
+      "closed"
+     ],
+     "rides": "Nothing open. It has a scope: the class of objects the author marks out himself — one three-setting elementary switch per point of a graph, pairwise interactions only — plus the framework’s single postulate, that such cells exist in lattices. How wide that class is, he lists as one of his own review targets.",
+     "check": "The cell-bootstrap theorem, clause (i), K4-cell chapter; review Target A. Machine side: the quarter-turn clock squares to −I and a three-fold clock provably cannot (CellBootstrapFixedPoint). A companion module excludes every n ≥ 5 by a different count: such clocks carry more than one complex pair (CellBootstrapClockUniqueness). Lean certifies those arithmetic clauses, zero sorry; that the clauses are physically necessary is the monograph’s argument, not the machine’s.",
+     "scale": "10⁻³⁵ m · the cell",
+     "lead": "The object has four corners because a quarter turn done twice is a U-turn — and turning around is exactly what multiplying by −1 does."
+    },
+    {
+     "n": "02",
+     "q": "Why are there three generations of matter?",
+     "answer": "The cell has 81 basic states: four corners, three colours at each, 3 × 3 × 3 × 3. Work out its energies — an 81-by-81 matrix, a second on a laptop — and they sort into four floors, 15, 45, 12, 9, with nothing left over. The ground floor holds 9, laid out as a 3 × 3 grid: the three rows are colour, and the three columns come from the corners being interchangeable, since swapping them freely leaves only three independent directions, four minus one. Those three columns are the three generations of matter. When the muon turned up, the physicist I. I. Rabi asked, “Who ordered that?” Nobody did: the ground floor was always three columns wide. The same arithmetic says one column stands alone and two come as a pair — one heavy generation and two light ones. It fixes the shape, not the masses. Counting to three is a theorem; carrying those three columns onto spacetime as three families of quarks and leptons is a set of named interfaces the author himself lists as open.",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "The count itself: nothing open. Turning that “three” into three generations of particles on spacetime, and matching the anonymous seven rows to the Standard Model’s seven kinds of particle, is a set of four named maps the author lists as open (E8).",
+     "check": "“Flavour generations from Schur–Weyl duality”, K4-cell chapter, with the remark “Colour vs flavour: no category confusion”; numerical certificate Experiment 071 (exact diagonalisation, degeneracies 9, 12, 45, 15 from the ground floor up). Strictly, the three columns live in the [2,1,1] Specht module of S₄: the standard module [3,1] with one sign twist attached, same dimension three. The one-heavy-two-light shape is the mass-protection lemma. The open side is the four named maps of erratum E8: global generation extension, full normal embedding, real physical-branch preservation, 48-row current-symbol surjectivity. Bounded also by E10; review Targets 8 and 10.",
+     "scale": "10⁻¹⁸ m · three generations",
+     "lead": "The object’s lowest level is three columns wide. That three is counted, not put in; landing it on real particles is a further step."
+    },
+    {
+     "n": "03",
+     "q": "Why does spacetime have four dimensions?",
+     "answer": "A smooth globe can be turned in three independent ways. Stick a pin in it: the turn about the pin’s axis leaves it where it is, the other two move it, and every place the pin can go makes up the surface, two-dimensional: 3 − 1 = 2. Now replace the globe with this cell. It too can be turned, in eight independent ways, and the ground state is the pin: exactly four of those turns leave it alone, four move it. Every place the ground state can go is an 8 − 4 = 4-dimensional space; stitch those local nudges together from place to place and that continuous space is spacetime. Time has not entered yet: the four directions look exactly alike. Then the ground state’s own clock (the jargon is modular flow) picks one of the four, wherever that clock runs, and flips the sign of its ruler. That one is time: 3 + 1, not 4 + 1. A second route props the answer up from below. The small asymmetry between matter and antimatter — CP violation in quark mixing — is, in the form this framework gives it, a four-direction quantity, and a universe with fewer dimensions has no room to hold it. The four corners and the four dimensions are two different fours: one whole-number arithmetic, the other a subtraction of continuous symmetries. Two birth certificates, then one axle — and that axle is the framework’s stated identification, not a coincidence.",
+     "tags": [
+      "closed",
+      "conditional"
+     ],
+     "rides": "The step that cuts the eight turns down to the four that leave the ground state alone — SU(3) broken down to U(2) — is internal, and closed. Until that clock supplies time, the four dimensions are Euclidean: all four alike, none of them yet time. The passage from there to a world that has a time direction (Euclidean to Lorentzian), and how gravity itself enters at the start, are interfaces the author lists as open (E7).",
+     "check": "“Four spacetime dimensions as topological necessity”, K4-cell chapter: the topological-necessity theorem (the 8 − 4 = 4 coset count) and the Berry-form CP obstruction theorem (a (2,2) form vanishes identically below four dimensions), both marked closed in the monograph; the “fourfold selection of D = 4” is a remark, not a theorem. The time step: the modular-flow Wick-rotation lemma and the “modular time is not a fifth dimension” remark, closed on the regular chart; the machine side only returns the supplied signature. Lean: the coset arithmetic has a proved core, the CP² geometry is not formalised, and on the CP obstruction the machine only takes in “Jarlskog ≠ 0 ⇒ at least four dimensions” as a premise and hands it back — not an independent check. Erratum E7; review Targets 2 and 3.",
+     "scale": "every scale · spacetime",
+     "lead": "Eight ways to turn the object; four leave its lowest state alone. Four directions are left, and the framework reads those as spacetime."
+    },
+    {
+     "n": "04",
+     "q": "Why was nothing else about the object chosen either?",
+     "answer": "It is not only the four. Within the class of objects the author marks out, every structural feature of the cell is forced by consistency: four corners, three colours, the complete graph, an interaction that simply swaps the two ends, one strength shared by every link, and the sign that says “differ”. No experimental number enters any clause. The sign you can test on paper. Reverse the rule to “agree”, so every link wants its two ends alike, and the problem vanishes: all four corners wear red, 3 of the 81 states break no link, and no quantum superposition is needed. The price arrives immediately. The bottom floor now has 15 states in a single column — swapping corners changes nothing, so there is no second column and no “generation” — and the clock that turned “rotate one step” into <em>i</em> now turns as if it had not turned at all. A universe that has stopped straining grows nothing. So “differ” is not the author’s taste: it is the one sign under which anything grows, and two independent calculations — one reading the clock, one reading whether three colours on a triangle can make a neutral — stop at the same answer. The framework assumes one sentence and no more: such cells exist, and in lattices. The rest of their structure is a theorem.",
+     "tags": [
+      "closed"
+     ],
+     "rides": "Nothing open. Same scope as row 01: the class the author marks out, plus the one postulate — that such cells exist in lattices.",
+     "check": "The cell-bootstrap theorem, all five clauses, and the remark that follows it, K4-cell chapter; review Target A. Machine side: five Lean modules, zero sorry, no axioms beyond the three standard logical axioms of the mathematics library; the graph clause exhaustively checked on all 64 labelled graphs; for the sign clause, what is certified is the energy-level inequalities along both routes (CellBootstrapSignNormalisation). Three honesty flags inside those modules (fixed-point formulation, arithmetic minimality, graph choice) are still marked open by the author. Erratum E10 narrows the “readout closes it” sentence that ends the theorem.",
+     "scale": "10⁻³⁵ m · the cell",
+     "lead": "Four points, three colours, six links, the rule that says “differ”: not one of them was chosen."
+    }
+   ]
+  }
+ }
+}

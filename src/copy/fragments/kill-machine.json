@@ -1,0 +1,300 @@
+{
+ "zh": {
+  "kill": {
+   "number": "06",
+   "kicker": "怎么证伪",
+   "h2": "这套理论把自己的死法写在了前面。",
+   "intro": "有旋钮的理论怎么都死不了——测出什么，拧一下就对上了。这套理论没有旋钮。所以一旦对不上，只有两个动作：在推导里找出一处真正的错误并公开更正，或者承认它完了。下面六张卡，从手稿列出的检验里挑出来。每一张都写明：谁来测，哪一年，怎么算输，输掉哪一层。",
+   "thresholdLabel": "怎么算输",
+   "whereLabel": "谁来测",
+   "whenLabel": "哪一年",
+   "gradeLabel": "输掉什么",
+   "noteLabel": "现状",
+   "checkLabel": "去查",
+   "gradeIntro": "输掉的不一样多。分三级：",
+   "gradeKey": [
+    [
+     "ends",
+     "整套框架结束",
+     "没有分支可退，也没有哪一步没接上的地方可赖。倒序的中微子质量、正号的 CP 相位，属于这一级。"
+    ],
+    [
+     "architecture",
+     "力的架构要重搭",
+     "找到 QCD 轴子，或者看到质子衰变，属于这一级：要换一套根本不同的规范架构。"
+    ],
+    [
+     "branch",
+     "选定的那条分支出局",
+     "算出那个数的那条分支出局；更宽的框架不一定跟着完。无中微子双 β 衰变偏离点值、混合角 θ₂₃ 落到下卦限，属于这一级。"
+    ]
+   ],
+   "cards": [
+    {
+     "h3": "中微子的质量顺序",
+     "claim": "三种中微子谁重谁轻，这套理论是算出来的，不是填进去的。三个质量里有两个挨得很近：理论把这对近邻放在下面，落单的那个放在上面——这就是正常序；在它选定的分支上，最轻的那个质量恰好为零。倒序，也就是近邻在上面，模型内直接排除了：不是不利，是不允许。",
+     "threshold": "倒序一旦确认，框架结束。",
+     "where": "JUNO · DUNE · Hyper-K",
+     "when": "2026–2035",
+     "grade": "ends",
+     "note": "JUNO 的首批结果在 2026 年内；DUNE 从 2029 年起。目前全局拟合略偏向正常序，偏得不多，还不算判决。",
+     "check": "正常序在 c_R = 1 的跷跷板分支上推出；倒序排除定理见宇宙学读出附录。评阅靶点 6。"
+    },
+    {
+     "h3": "CP 相位的符号",
+     "claim": "中微子和反中微子的行为不必一样，差多少由一个相位定，它叫 CP 相位。在这套理论里，它只能是 +90° 或 −90°。取哪一个，由宇宙里物质多于反物质这件事锁定：实验室里量到的符号，必须和天上看到的符号扣得上，sign(sin δ_CP) × sign(η_B) = −1，η_B 就是宇宙留下的那点物质。这个宇宙是物质做的，所以 sin δ_CP 必须为负。",
+     "threshold": "测出正号，框架被证伪。",
+     "where": "DUNE · Hyper-K",
+     "when": "2027–2035",
+     "grade": "ends",
+     "note": "哪一面是物质，理论不推。作者逐层证明了：定律分不出物质和反物质哪一面是哪一面。所以这个宇宙落在物质这一面，是一段历史，不是定理。定理是两个符号之间的那条关系，DUNE 和 Hyper-K 要测的就是它。目前全局拟合的最佳值约 214°，落在负的那一半；理论要的 270° 离它约 1.6 σ，没有排除，也没有定案。",
+     "check": "重子—狄拉克符号锁定定理，内部观察者附录；自发取向注记，实真空一章。评阅靶点 C。"
+    },
+    {
+     "h3": "θ₂₃ 的卦限",
+     "claim": "第二、三代中微子混得有多深，由一个角定，它叫 θ₂₃。它的 sin² 算出来是 4/7，落在上卦限——也就是大于 1/2 的那一半。",
+     "threshold": "若下卦限被确定，与之矛盾。",
+     "where": "DUNE · Hyper-K",
+     "when": "2027–2035",
+     "grade": "branch",
+     "note": "卦限今天还悬着。目前全局拟合的最佳点落在下卦限（含超级神冈大气数据）；上卦限的解仍在允许范围内。两个解都活着，数据还没有替这一条说话。",
+     "check": "伴随载体符号选择引理；预言一章的 PMNS 表。评阅靶点 6。"
+    },
+    {
+     "h3": "无中微子双 β 衰变",
+     "claim": "这套理论里中微子是自己的反粒子。所以原子核偶尔会只放出两个电子，一个中微子都不放。这种衰变有多快，理论这一边只由一个数定：m_ββ。理论给的不是一个区间，是一颗钉子，3.69 meV。",
+     "threshold": "1.5 meV 处出现信号，那正是相反的符号选择给出的值，这一串符号就选错了；远高于 10 meV，这条中微子分支出局。目前低于所有上限——还没被检验，不是已被证实。",
+     "where": "LEGEND-1000 · nEXO",
+     "when": "2030 年代",
+     "grade": "branch",
+     "note": "今天的上限是 28 到 122 meV，离这颗钉子还远。下一代要探到 1 到 10 meV 那一层。核物理里那块算不准的因子（核矩阵元）会把这根线抹宽一些。",
+     "check": "马约拉纳相位发射定理，宇宙学读出附录；预言 P2，预言一章。"
+    },
+    {
+     "h3": "宇宙学常数",
+     "claim": "用这个框架自己的长度单位 ℓ_* 来量，宇宙学常数就成了一个不带单位的纯数 Λ ℓ_*²。算出 2.93 × 10⁻¹²²；观测 2.89 × 10⁻¹²²，误差 1.5%。差 0.9 σ，中间没有拧过任何连续参数。",
+     "threshold": "Λ 一旦测到 0.5%，中心值又不动，这点差距就是 2.6 σ——精度本身就把这条对照排除掉。",
+     "where": "下一代宇宙学巡天与 CMB 实验",
+     "when": "2030 年代",
+     "grade": "branch",
+     "note": "这一行是条件性的。它站在选定的分支上；长度单位 ℓ_* 是留着当单位用的，不是算出来的。书里算出来的是一个几何量，说的是几何怎么响应；把它等同于天文学家测到的那个 Λ，这一步还没闭合。这里没有解决宇宙学常数问题。",
+     "check": "勘误 E6；评阅靶点 B；Λ 门比较注记，宇宙学读出附录。"
+    },
+    {
+     "h3": "弱混合角",
+     "claim": "电磁力与弱力的配比。理论算到 0.231219995；实验 0.23122 ± 0.00006。前 4 位对上，后面 5 位是理论替未来写的。",
+     "threshold": "实验一旦把误差收紧、中心值又挪开，这里没有旋钮可拧；能松动的只有它依赖的那两条开放接口。",
+     "where": "精密电弱测量（Z 极点）",
+     "when": "无排定的判决日期",
+     "grade": "branch",
+     "note": "这一行也是条件性的：它依赖两条作者列为开放的接口。一条是把这两样配料真的认作电磁力和弱力；一条是把元胞的内容嵌进完整的标准模型。输掉的是整条电弱链——这个框架算出的、关于这两种力的每一个数。",
+     "check": "勘误 E3、E8；评阅靶点 8；多单元一章，源头值 3/13 与剪切量 1/936。"
+    }
+   ],
+   "moreTitle": "手稿还列了三处，本站没有做成卡：",
+   "more": [
+    [
+     "QCD 轴子",
+     "不需要轴子。找到一个，就要换一套根本不同的规范架构。",
+     "IAXO · ALPHA",
+     "2029 年起",
+     "architecture"
+    ],
+    [
+     "质子衰变",
+     "质子绝对稳定。看到一例，同样要重搭架构。",
+     "Hyper-K · DUNE",
+     "2027–2035",
+     "architecture"
+    ],
+    [
+     "原初引力波",
+     "这类波的强度 r 一旦测到 10⁻³ 以上，选定的暴胀分支出局。",
+     "CMB-S4 · LiteBIRD",
+     "2030 年代",
+     "branch"
+    ]
+   ],
+   "today": "今天这六项没有一项已经把它判死，也没有一项已经把它证实。中微子的三张卡里，两张的现有数据略偏向它，一张略偏向反面；剩下三张要么还没测到，要么实验还不够精。“没有判死”只是还活着，不是赢了。",
+   "decade": "十年之约：2026–2035。质量顺序、CP 符号、θ₂₃ 卦限，这三张卡会先有判决。"
+  },
+  "machine": {
+   "number": "07",
+   "kicker": "机器",
+   "h2": "机器核验了什么，没核验什么。",
+   "lead": "771 条带标签的定理行，727 条通过 Lean 4 核验。零 sorry，零项目公理——这套理论自己没有加过一条公理；只用数学库的三条标准逻辑公理：propext、Classical.choice、Quot.sound。",
+   "what": "Lean 4 是一个非常严格的证明检查器。把定理翻译成它能逐步核对的语言；任何一步缺了凭证，整个文件就编译不过。程序员有个偷懒的词叫 sorry，意思是“这一步先欠着”；这个语料库里一个都没有。它不看审稿人的直觉，也不看作者的自信。手稿里 771 条带标签的条目（定理、引理、命题、推论、定义、附注），逐条送进了这道门。2026-07-08 冻结时的账目：727 条已核验；19 条只核验了核心；4 条还没写出对应的 Lean 条目；21 条是文字或经验性陈述，仍开放。整个语料库 313 个模块。物理假设只有一条：这样的元胞存在。这一条明写成定义数据，不藏在公理里。",
+   "meaning": "“已核验”的意思是账目干净，不是物理正确。核验断言的是逻辑结构，不是自然界。所谓“已核验”，是说 Lean 里那条陈述和手稿里那条文字陈述逻辑上是一回事，细到它自己说明的那一层为止。证书就是机器给每条定理开出的那张凭据。多数证书到某一步就停。数学库里还没有的那一小块分析（一个聚类界、一个连续极限），写成一条点名的假设。它摆在明处，不藏在暗处。把一个错的陈述核验一遍，它还是那个错的陈述。这些陈述描述的世界对不对，要看上面那张表。剩下的 44 行没有核验，逐行标明了原因。",
+   "barTitle": "四桶数字，加起来 771。",
+   "barLabels": {
+    "leanCertified": "已核验",
+    "provedCoreOnly": "只核验了核心",
+    "needsLeanNode": "Lean 里还没有",
+    "proseEmpiricalOpen": "文字或经验性陈述，开放"
+   },
+   "barCodes": {
+    "leanCertified": "lean_certified",
+    "provedCoreOnly": "proved_core_only",
+    "needsLeanNode": "needs_lean_node",
+    "proseEmpiricalOpen": "prose_empirical_open"
+   },
+   "bucketsPlain": {
+    "leanCertified": "Lean 里的陈述与手稿里的陈述，在它声明的细致程度上逻辑等价，编译通过。",
+    "provedCoreOnly": "核心结论过了机器，外围的表述还没有逐字对上。",
+    "needsLeanNode": "手稿里有，Lean 里还没有写出对应的条目。",
+    "proseEmpiricalOpen": "本来就是文字论证或经验比较，不是机器能核的东西；标为开放。"
+   },
+   "barNote": "44 行没有核验，逐行标注了原因，分三类。",
+   "asOf": "以 2026-07-08 冻结版为准。"
+  }
+ },
+ "en": {
+  "kill": {
+   "number": "06",
+   "kicker": "How to falsify it",
+   "h2": "This theory wrote down its own ways to die, in advance.",
+   "intro": "A theory with dials never dies: whatever the experiment reads, a turn of a dial fits it. This one has no dials. So after a miss there are only two moves: find a genuine mistake in the derivation and publish the correction, or say it is over. The six cards below are this site’s pick from the places the manuscript lists where it can break. Each names who measures, which years, what counts as a miss, and what is lost.",
+   "thresholdLabel": "What counts as a miss",
+   "whereLabel": "Who measures",
+   "whenLabel": "Which years",
+   "gradeLabel": "What is lost",
+   "noteLabel": "Where it stands",
+   "checkLabel": "Where to check",
+   "gradeIntro": "Not every miss costs the same. Three grades:",
+   "gradeKey": [
+    [
+     "ends",
+     "the whole framework ends",
+     "No branch to retreat to, and no unfinished join to the Standard Model to blame. An inverted neutrino ordering or a positive CP sign belongs here."
+    ],
+    [
+     "architecture",
+     "the architecture of the forces has to be rebuilt",
+     "A detected QCD axion or an observed proton decay belongs here: a fundamentally different gauge architecture would be needed."
+    ],
+    [
+     "branch",
+     "the selected branch is out",
+     "The branch the number was read on is out; a wider framework does not automatically go with it. A double-beta signal off the point value, or the mixing angle θ₂₃ in the lower octant, belongs here."
+    ]
+   ],
+   "cards": [
+    {
+     "h3": "Neutrino mass ordering",
+     "claim": "Which of the three neutrinos is heaviest is computed here, not put in by hand. Two of the three lie close together in mass; the theory puts that close pair at the bottom and the odd one on top — the normal ordering — and on the branch it selects, the lightest of all is exactly massless. The inverted ordering, close pair on top, is not disfavoured inside the model: it is excluded.",
+     "threshold": "A confirmed inverted ordering ends the framework.",
+     "where": "JUNO · DUNE · Hyper-K",
+     "when": "2026–2035",
+     "grade": "ends",
+     "note": "JUNO’s first results are due in 2026; DUNE from 2029. Today’s global fit leans weakly toward normal ordering — weakly, and not a verdict.",
+     "check": "Normal ordering derived on the c_R = 1 seesaw branch; the inverted-ordering exclusion theorem, cosmology readout appendix. Review Target 6."
+    },
+    {
+     "h3": "The sign of the CP phase",
+     "claim": "Neutrinos and antineutrinos need not behave alike; one number, the CP phase δ_CP, says by how much they differ. Here it can only be +90° or −90°, and the sky settles which: this universe is made of matter, not antimatter. The sign measured in a laboratory and the sign of that leftover matter are locked together — sign(sin δ_CP) × sign(η_B) = −1, with η_B the matter the universe kept — so sin δ_CP must be negative.",
+     "threshold": "A measured positive sign falsifies the framework.",
+     "where": "DUNE · Hyper-K",
+     "when": "2027–2035",
+     "grade": "ends",
+     "note": "The theory does not derive which side came out as matter: step by step, the law is proved blind to the two, so which one this universe got is a historical fact, not a theorem. What is a theorem is the relation between the two signs, and that relation is what DUNE and Hyper-K will test. Today’s global best fit is about 214°, on the negative side; the 270° the theory needs sits about 1.6 σ from it, neither excluded nor decided.",
+     "check": "The baryon–Dirac sign-lock theorem, internal-observer appendix; the spontaneous-orientation remark, real-vacuum chapter. Review Target C."
+    },
+    {
+     "h3": "The θ₂₃ octant",
+     "claim": "How strongly the second and third kinds of neutrino blend is set by one angle, θ₂₃. Its sin² comes out 4/7, in the upper octant — the half above 1/2.",
+     "threshold": "A lower octant, once settled, contradicts it.",
+     "where": "DUNE · Hyper-K",
+     "when": "2027–2035",
+     "grade": "branch",
+     "note": "The octant is still open today. The current global best fit, with Super-Kamiokande atmospheric data, sits in the lower octant; the upper-octant solution remains allowed. Both are alive, and the data do not yet speak for this one.",
+     "check": "The adjoint-carrier sign-selection lemma; the PMNS table in the predictions chapter. Review Target 6."
+    },
+    {
+     "h3": "Neutrinoless double beta decay",
+     "claim": "Here the neutrino is its own antiparticle, so a nucleus will occasionally emit two electrons and nothing else — no neutrinos at all. On the theory side the rate is set by one number, m_ββ. And the theory gives no range: one point, nailed down at 3.69 meV.",
+     "threshold": "A signal at 1.5 meV — the value the opposite sign choice would give — falsifies the chain of signs this number rests on; one far above 10 meV puts this neutrino branch out. Today the prediction sits below every limit: untested, not confirmed.",
+     "where": "LEGEND-1000 · nEXO",
+     "when": "2030s",
+     "grade": "branch",
+     "note": "Today’s limits reach 28 to 122 meV, still far above the prediction. The next generation aims at the 1 to 10 meV layer; uncertainty in the nuclear matrix elements, how strongly a given nucleus responds, will smear that line somewhat.",
+     "check": "The Majorana-phase emission theorem, cosmology readout appendix; prediction P2, predictions chapter."
+    },
+    {
+     "h3": "The cosmological constant",
+     "claim": "Measured in the framework’s own unit of length, ℓ_*, the cosmological constant becomes a pure number, Λ ℓ_*². Computed: 2.93 × 10⁻¹²². Observed: 2.89 × 10⁻¹²², to ±1.5%. A 0.9 σ gap, with no continuous parameter turned.",
+     "threshold": "A Λ measurement at 0.5% with the same central value turns that gap into 2.6 σ — and this comparison is then excluded on precision alone.",
+     "where": "next-generation surveys and CMB experiments",
+     "when": "2030s",
+     "grade": "branch",
+     "note": "This line is conditional. It stands on a selected branch, and ℓ_* is a unit kept as an input, not something the theory computes. What is computed is a geometric quantity — how the geometry responds — and identifying it with the Λ astronomers measure is a step the author lists as not closed. The cosmological-constant problem is not solved here.",
+     "check": "Erratum E6; Review Target B; the Λ-gate comparison remark, cosmology readout appendix."
+    },
+    {
+     "h3": "The weak mixing angle",
+     "claim": "The proportion in which electromagnetism and the weak force are mixed. Computed 0.231219995; measured 0.23122 ± 0.00006. Four digits match; the five behind them are the theory’s, written for a future measurement.",
+     "threshold": "If the measurement sharpens and moves, there is nothing here to turn; the only things that could give are the two open joins it rides on.",
+     "where": "precision electroweak (Z pole)",
+     "when": "no verdict date scheduled",
+     "grade": "branch",
+     "note": "This line is conditional too: it rides on two joins the author lists as open — that the two ingredients really are electromagnetism and the weak force, and that what the cell contains can be embedded in the full Standard Model. What would be lost is the whole electroweak chain, every number the framework computes about those two forces.",
+     "check": "Errata E3 and E8; Review Target 8; multi-cell chapter, the source value 3/13 and the 1/936 shear."
+    }
+   ],
+   "moreTitle": "Three more places it can break, listed in the manuscript but not made into cards here:",
+   "more": [
+    [
+     "QCD axion",
+     "No axion is needed. Find one, and the architecture of the forces has to be rebuilt.",
+     "IAXO · ALPHA",
+     "from 2029",
+     "architecture"
+    ],
+    [
+     "Proton decay",
+     "The proton is absolutely stable. One event, and the architecture has to be rebuilt as well.",
+     "Hyper-K · DUNE",
+     "2027–2035",
+     "architecture"
+    ],
+    [
+     "Primordial gravitational waves",
+     "A detection at r ≳ 10⁻³, where r measures how strong those waves are, puts the selected inflation branch out.",
+     "CMB-S4 · LiteBIRD",
+     "2030s",
+     "branch"
+    ]
+   ],
+   "today": "None of the six has killed it today, and none has confirmed it. Of the three neutrino cards, present data lean its way on two and the other way on one; of the remaining three, one is out of reach and two wait on sharper experiments. “Not killed” means alive, not vindicated.",
+   "decade": "Ten years, on the calendar: 2026–2035. Mass ordering, the CP sign and the θ₂₃ octant are the three that get decided first, inside that window."
+  },
+  "machine": {
+   "number": "07",
+   "kicker": "The machine",
+   "h2": "What the machine checked, and what it did not.",
+   "lead": "771 labelled theorem rows, 727 of them certified in Lean 4. Zero sorry, and no axioms of its own; only the mathematical library’s three standard logical axioms: propext, Classical.choice, Quot.sound.",
+   "what": "Lean 4 is a proof checker, and a very strict one: restate a theorem in a language it can check step by step, and if any step is missing its justification the whole file refuses to compile. Programmers have a word for skipping a step, sorry, meaning “I owe you this one”; this corpus contains none. It does not consult a referee’s intuition or the author’s confidence. The manuscript’s 771 labelled entries (theorems, lemmas, propositions, corollaries, definitions, remarks) were each put to that gate. The tally, frozen on 2026-07-08: 727 certified; 19 with only the core checked; 4 with no matching entry written in Lean yet; 21 that are prose or empirical statements and stay open. The Lean corpus runs to 313 modules. There is one physical assumption — that such a cell exists — and it enters as part of the definition, written out in the open, not as a hidden axiom.",
+   "meaning": "“Certified” means the bookkeeping is clean, not that the physics is right. Certification is a claim about logical structure. It is not an empirical claim about nature. What it says is that the statement in Lean and the written statement in the manuscript are logically the same thing, at the level of detail the statement itself declares. Most certificates stop at a named input: the small piece of analysis the library does not yet have — a bound on clustering, a continuum limit — is written into the statement as an explicit hypothesis, in plain view rather than buried. A machine-checked proof of the wrong statement is still a proof of the wrong statement. Whether those statements describe the world correctly is what the table above is for. The remaining 44 rows are not certified, and each is labelled with the reason.",
+   "barTitle": "Four buckets, adding to 771.",
+   "barLabels": {
+    "leanCertified": "certified",
+    "provedCoreOnly": "core checked only",
+    "needsLeanNode": "no Lean entry yet",
+    "proseEmpiricalOpen": "prose or empirical, open"
+   },
+   "barCodes": {
+    "leanCertified": "lean_certified",
+    "provedCoreOnly": "proved_core_only",
+    "needsLeanNode": "needs_lean_node",
+    "proseEmpiricalOpen": "prose_empirical_open"
+   },
+   "bucketsPlain": {
+    "leanCertified": "The Lean statement and the manuscript statement are logically equivalent at the declared level of detail, and it compiles.",
+    "provedCoreOnly": "The core conclusion passed the machine; the surrounding wording is not yet matched word for word.",
+    "needsLeanNode": "In the manuscript, but with nothing written to match it in Lean yet.",
+    "proseEmpiricalOpen": "A prose argument or an empirical comparison by nature, not something a machine can check; marked open."
+   },
+   "barNote": "44 rows are not certified. Each carries a label saying why, in one of three kinds.",
+   "asOf": "As of the 2026-07-08 frozen release."
+  }
+ }
+}

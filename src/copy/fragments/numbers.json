@@ -1,0 +1,194 @@
+{
+ "zh": {
+  "figures": {
+   "ruler": {
+    "figWord": "图",
+    "stop": "。",
+    "axisName": "有效数字位",
+    "axisNameShort": "位",
+    "pointLabel": "小数点",
+    "condPrefix": "条件性 · ",
+    "resolvedSpan": "实验分辨得到的 {n} 位",
+    "tailSpan": "等着被检验的 {n} 位",
+    "cutLabel": "实验分辨到此为止 · 第 {n} 位",
+    "sigmaSpan": "实验误差棒 {s}，从第 {k} 位起盖住每一位",
+    "resolvedTall": [
+     "实验分辨的 {n} 位"
+    ],
+    "tailTall": [
+     "等着被检验的 {n} 位"
+    ],
+    "sigmaTall": [
+     "从第 {k} 位起",
+     "盖住每一位"
+    ],
+    "altA": "逐位对照图：m_μ/m_e 的算出值有 15 位有效数字，实测值分辨到第 8 位，前 8 位全部相同。第 9 位起的每一位，目前还没有实验能检验；实测值自己的误差棒 ±0.0000046 盖住了那一整段。",
+    "altB": "同一套逐位对照用在 λ_C 与 sin²θ_W 上：两行共用一根有效数字位轴，切口分别落在第 3 位与第 4 位之后。",
+    "capA": "A：{sym}。算出 {N} 位有效数字；那道分界线标着“{cut}”，越过它的每一位，都是{ghost}。虚线括号画的是实测值自己的误差棒 {s}：从第 {k} 位起，它盖住了这次比较里剩下的一切。比较能有多细，由实验决定，不由理论决定。",
+    "capB": "B：同一套记法用在另外两行上，两行共用一根位轴。切口跟着实验走，不跟着理论走。λ_C 是{exact}，所以它每一位都写得出一个数字。",
+    "capCond": "这三行的计算，在手稿里都是闭合的定理。条件出在下一步：把元胞里的两个激发当成真实的电子和 μ 子，把分数当成标准模型里那个参数。这一步作者自己列为开放（E8）。sin²θ_W 还多欠一步：从基底走到弱作用和电磁（E3）。所以这三行都按条件性读。",
+    "capSource": "数值取自 ledger.json。有效数字有几位、实验分辨到第几位、误差棒从第几位起盖住，都在构建时重算一遍；对不上，构建就失败。"
+   }
+  },
+  "ledger": {
+   "sigma": {
+    "figNumber": "图 5",
+    "figTitle": "十一行放在同一根 σ 刻度上。",
+    "laneKeys": [
+     "A",
+     "B",
+     "C"
+    ],
+    "noDigits": "不承诺位数",
+    "bandTag": "通常意义上的吻合",
+    "ruleTag": "必须解释",
+    "keyTitle": "图例",
+    "keyPull": "可比的 pull，画在它自己的值上",
+    "keyCond": "外环：这一行还依赖一条列为开放的接口",
+    "keyDiag": "由 χ² 换算的等效 σ，和 A 道的 pull 不是一种数",
+    "keyBand": "0 到 1 σ 的带",
+    "keyRule": "3 σ 线",
+    "noneTag": "还没被检验，不是已被证实",
+    "keyNone": "这一道不画任何吻合度",
+    "ariaLead": "十一行画在同一根 σ 刻度上。",
+    "ariaOff": "不在刻度上，这一行不承诺位数",
+    "ariaWorst": "唯一越过 3 σ 线的一行"
+   },
+   "number": "05",
+   "kicker": "那些数",
+   "h2": "有公开对照对象的十一行。最好的一行和最差的一行印在同一张表上。",
+   "intro": "这十一行，今天都有公开的实验数字可以对；其余的清单在手稿表格里。先说怎么数：一个 σ 就是实验自己的一根误差棒，算出的值离实测值有几根误差棒，就说差几个 σ。差得最小的一行是 sin²θ_W，不到 0.01 σ。对得最深的一行是 μ 子与电子的质量比：实验能分辨的 8 位一位不差，差 0.002 σ。最差的一行是宇宙标准尺的绝对长度。早期宇宙的声波在星系分布上留下一把固定长度的尺子，缩写 BAO；这一行比的就是它有多长。χ² = 34.40，13 个自由度，相当于 3.28 σ_eq。它和最好的那两行印在同一张表、同一根刻度上，只是离零远得多。13 个点合起来的 χ²，和单行的 pull，是两种不同的数。",
+   "laneGaussian": "可比的 pull",
+   "laneDiagnostic": "由 χ² 换算的等效 σ · 和 A 道的 pull 不是一种数",
+   "laneDiagnosticNote": "这两行比的是宇宙标准尺。早期宇宙的声波在星系分布上留下一把固定长度的尺子，DESI 在 13 个距离上量了它。第一行比整根尺子的绝对长度，第二行只比形状。形状那一行 0.44 σ_eq，对得很好；差的是整根尺子的长度。13 个距离合起来算一个 χ²，再换算成等效的 σ；这是另一种数，不能和上面几行一起平均。",
+   "laneBounds": "单边：目前只有上限，还测不到点值",
+   "laneBoundsNote": "给的是一个具体的点值，不是一个区间，落在现有每一条上限之下。低于上限的意思是还没被检验，不是已被证实。",
+   "colComputed": "算出",
+   "colMeasured": "实测",
+   "colPull": "pull",
+   "colType": "类型",
+   "colState": "状态",
+   "legendTitle": "怎么读一行",
+   "legend": "pull 是算出的值与实测值之差，用实验自己的误差棒做单位来数；差一个误差棒就是 1 σ。小于 1 σ 是通常意义上的吻合；3 σ 左右就必须解释。两把尺子只能比到刻度较粗的那一把为止。多数行里，刻度粗的是实验那一把。竖线标出实验分辨到此为止。线左边的位数实验分辨得到，可以核对；线右边理论多写的位数，是它开出去的支票。要等实验的刻度变细才能兑现，也可能兑现不了。",
+   "exactNote": "精确分数，每一位都已经定死",
+   "noPullNote": "框架在这一行不承诺位数。它交出的是一条尺度线：强力变得足够强的那条线。要换算成 Z 玻色子质量处的小数，还得按强力自己的标准算法（QCD 跑动）走一遍。这一次刻度粗的是理论那把尺子，所以本站不印 pull。手稿自己印的是 ≈ 0 σ，本站选了更严的读法。把夸克粘在一起的那种力，本身还是单独搭出来的（E5）。",
+   "censusNote": "完整清单有 31 项主预言、20 项配套读出、1 组稀有 B_s 衰变的比对行，以及 1 条结构性的宇宙学廓线 κ₄(r)。",
+   "censusAuthority": "每一行的当前状态以手稿表格为准。",
+   "measuredNote": "实测值和误差棒，都抄自公开评阅仓库里的对照表，2026-07-08 冻结版；算出的那一列取自同一版。本站没有独立溯源。要核，先从这一步核起。",
+   "noScore": "没有总分，以后也不会有。三道里的数是三种不同的数；把它们平均，等于把三样东西加起来当一样东西。",
+   "lambdaNote": "这一行由两块拼成。第一块：几何响应量等于 3π 除以宇宙视界的熵，熵从元胞的结构里数出来。第二块：指数的尾巴，是 m_b/m_s 那个分数除以 64。同一个 92,633 在这套理论里出现在三处——m_b/m_s 这一行、电磁耦合的强度里，还有这条尾巴。作者称之为结构上的一致，不是一个推出另一个。这一行站在一个选定的分支上；普朗克质量是保留的单位，不是算出来的。作者自己的勘误也指出，冻结版里几何响应量和物理的 Λ 还没有分清。这里没有解决宇宙学常数问题。",
+   "types": {
+    "lambda": "宇宙学常数 · 从视界的熵数出来，由两块拼成",
+    "mb_ms": "底夸克与奇夸克的质量比 · 分数读出 5,000,000/92,633，冻结版按 53.97 印",
+    "ckm_j": "夸克世界里物质与反物质的差别 · 只算大小，不推符号",
+    "lambda_c": "夸克代与代之间的混合幅度 · 精确分数 9/40",
+    "mu_e": "μ 子与电子的质量比 · 按实验室自己的提取规则算到底",
+    "sin2w": "电磁力与弱力的配比 · 源头 3/13，按固定规则换算到 Z 质量处的值",
+    "alpha_s": "强力的强度 · 交出的是一条尺度线，不是位数",
+    "bao_scale": "宇宙标准尺的绝对长度 · 13 个距离一起比",
+    "bao_shape": "宇宙标准尺随距离怎么变 · 只比形状，不比绝对长度",
+    "sum_mnu": "三种中微子的质量之和 · 选定的一支：最轻的那个恰好为零；带绝对质量单位",
+    "m_bb": "只放出两个电子、不放中微子的那种衰变，快慢由它定（无中微子双 β 衰变）· 一颗钉子，不是一个区间"
+   },
+   "conditionalOn": "依赖",
+   "darkLabel": "先算出来，再去对实测值 · 这一行还依赖哪条开放接口，写在末尾"
+  }
+ },
+ "en": {
+  "figures": {
+   "ruler": {
+    "figWord": "Fig.",
+    "stop": ".",
+    "axisName": "significant digit",
+    "axisNameShort": "digit",
+    "pointLabel": "decimal point",
+    "condPrefix": "Conditional · ",
+    "resolvedSpan": "{n} digits the experiment resolves",
+    "tailSpan": "{n} digits waiting to be tested",
+    "cutLabel": "experiment stops here · digit {n}",
+    "sigmaSpan": "error bar {s} covers every digit from {k} on",
+    "resolvedTall": [
+     "{n} digits",
+     "the experiment resolves"
+    ],
+    "tailTall": [
+     "{n} digits waiting",
+     "to be tested"
+    ],
+    "sigmaTall": [
+     "covers every digit",
+     "from {k} on"
+    ],
+    "altA": "Digit-by-digit comparison: the computed value of m_mu over m_e carries 15 significant digits; the measurement resolves the first 8, and all 8 agree. From the ninth digit on no experiment can yet check, and the measurement’s own error bar of plus or minus 0.0000046 covers that whole stretch.",
+    "altB": "The same digit-by-digit comparison for lambda_C and sin squared theta_W on one shared digit axis; the cut falls after digit 3 and digit 4 respectively.",
+    "capA": "A: {sym}. The framework computes {N} significant digits; the cut rule reads “{cut}”, and the digits past it are {ghost}. The dashed bracket marks the measurement’s own error bar, {s}: from digit {k} on it covers everything that is left to compare. How fine the comparison can be is set by the experiment, not by the theory.",
+    "capB": "B: the same notation on two more rows, sharing one digit axis. The cut moves with the experiment, not with the theory. λ_C is {exact}. So it writes a digit at every position.",
+    "capCond": "The computation on all three rows is a closed theorem in the manuscript. The condition sits in the next step: taking the cell’s two excitations to be the real electron and muon, and the fraction to be the Standard Model’s own parameter. That step the author himself lists as open (E8). sin²θ_W owes one more open step, the lift from the substrate into the weak force and electromagnetism (E3). So all three rows are read as conditional.",
+    "capSource": "Values from ledger.json. The digit counts, the resolved-digit cut and the digit from which the error bar starts covering are recomputed at build time; if they disagree, the build fails."
+   }
+  },
+  "ledger": {
+   "sigma": {
+    "figNumber": "Fig. 5",
+    "figTitle": "Eleven rows on one σ scale.",
+    "laneKeys": [
+     "A",
+     "B",
+     "C"
+    ],
+    "noDigits": "commits no digits",
+    "bandTag": "ordinary agreement",
+    "ruleTag": "must be explained",
+    "keyTitle": "Key",
+    "keyPull": "a comparable pull, plotted at its own value",
+    "keyCond": "ring: this row also depends on an interface listed as open",
+    "keyDiag": "a σ-equivalent converted from a χ², not the same kind of number as a pull",
+    "keyBand": "the 0–1 σ band",
+    "keyRule": "the 3 σ line",
+    "noneTag": "untested, not confirmed",
+    "keyNone": "no agreement number is drawn in this lane",
+    "ariaLead": "Eleven rows on one shared σ scale.",
+    "ariaOff": "off the scale; this row commits no digits",
+    "ariaWorst": "the only row past the 3 σ line"
+   },
+   "number": "05",
+   "kicker": "The numbers",
+   "h2": "The eleven rows that can be checked against something public. The best row and the worst row are printed on the same table.",
+   "intro": "These eleven are the rows with a public number to be checked against today; the rest of the census is in the manuscript tables. First, how the gaps are counted: one σ is one of the experiment’s own error bars, and a row is so many σ off when the computed value sits that many bars from the measured one. The smallest gap is on sin²θ_W, under 0.01 σ. The row that agrees over the most digits is the muon-to-electron mass ratio: all 8 digits the experiment resolves match, 0.002 σ off. The worst row is the absolute length of the cosmic standard ruler. Sound waves in the early universe left a ruler of fixed length in the distribution of galaxies, abbreviated BAO, and this row compares how long that ruler is. χ² = 34.40 on 13 degrees of freedom, 3.28 σ_eq. It is printed on the same table and the same scale as the best rows, far further from zero. A χ² over 13 points and a single row’s pull are two different kinds of number.",
+   "laneGaussian": "Comparable pulls",
+   "laneDiagnostic": "σ-equivalents converted from a χ² · a different kind of number from a pull",
+   "laneDiagnosticNote": "These two rows compare the cosmic standard ruler. Sound waves in the early universe left a ruler of fixed length in the distribution of galaxies, and DESI measured it at 13 distances. The first row compares the ruler’s absolute length, the second only its shape. The shape row comes in at 0.44 σ_eq and fits well; what is off is the whole length of the ruler. The 13 distances go into one χ², which is then converted to an equivalent σ; that is a different kind of number and does not average with the rows above.",
+   "laneBounds": "One-sided: upper limits only, not yet measured",
+   "laneBoundsNote": "Each is given as a single number rather than a range, and it sits below every current limit. Below a limit means untested, not confirmed.",
+   "colComputed": "computed",
+   "colMeasured": "measured",
+   "colPull": "pull",
+   "colType": "type",
+   "colState": "state",
+   "legendTitle": "How to read a row",
+   "legend": "A pull is the gap between the computed value and the measured one, counted in the experiment’s own error bar: one error bar is 1 σ. Under 1 σ is ordinary agreement; around 3 σ has to be explained. Two rulers can only be compared down to the coarser one, and on most rows the coarser ruler is the experiment’s. The vertical rule marks where the experiment stops resolving. The digits to its left are the ones the experiment can resolve, and therefore check; the digits the theory writes to the right of it are a cheque it has signed, to be cashed — or bounced — the day the experiment’s ruler gets finer.",
+   "exactNote": "an exact fraction — every digit is already fixed",
+   "noPullNote": "The framework commits no digits on this row. What it hands over is a scale line: the line where the strong force becomes strong. The decimal at the Z-boson mass follows only after the strong force’s own standard calculation, QCD running. Here the coarser ruler is the theory’s, so this site prints no pull; the manuscript itself prints ≈ 0 σ, and the site chose the stricter reading. And the force that glues quarks together is still built separately in this theory (E5).",
+   "censusNote": "The full census is 31 primary predictions, 20 companion readouts, 1 set of rows for rare B_s decays, and 1 structural cosmology profile, κ₄(r).",
+   "censusAuthority": "The manuscript tables are the authority on each row’s current status.",
+   "measuredNote": "Measured values and error bars are transcribed from the public-review repository’s comparison table, frozen 2026-07-08; the computed column comes from the same frozen edition. This site does not source them independently. That transcription is the first thing to check.",
+   "noScore": "There is no total score, and there will not be one. The three lanes hold three different kinds of number; averaging them would add up three unlike things and call the result one number.",
+   "lambdaNote": "This row is put together from two pieces. First: the geometric response quantity is 3π divided by the entropy of the cosmic horizon, an entropy counted from the cell’s structure. Second: the tail of the exponent is the m_b/m_s fraction divided by 64. The same 92,633 turns up in three places in this theory — the m_b/m_s row, the strength of the electromagnetic coupling, and that tail. The author calls this a structural agreement, not a derivation of one from the other. The row stands on a selected branch, with the Planck mass kept as a unit rather than derived; the author’s own erratum notes that the frozen edition has not yet separated the geometric response quantity from the physical Λ. The cosmological-constant problem is not solved here.",
+   "types": {
+    "lambda": "cosmological constant · counted from the horizon’s entropy, put together from two pieces",
+    "mb_ms": "bottom-to-strange quark mass ratio · read out as 5,000,000/92,633; the frozen release prints 53.97",
+    "ckm_j": "how differently matter and antimatter behave among quarks · magnitude only, sign not derived",
+    "lambda_c": "mixing between quark generations · the exact fraction 9/40",
+    "mu_e": "muon-to-electron mass ratio · run through the same protocol the lab uses to extract it",
+    "sin2w": "electromagnetic-to-weak mixing · source value 3/13, converted by a fixed rule to the value at the Z mass",
+    "alpha_s": "strength of the strong force · a scale line, not digits",
+    "bao_scale": "absolute length of the cosmic standard ruler · 13 distances at once",
+    "bao_shape": "how the standard ruler’s length changes with distance · shape only, not absolute length",
+    "sum_mnu": "sum of the three neutrino masses · on the selected branch the lightest is exactly zero; carries an absolute mass unit",
+    "m_bb": "sets the rate of a decay that emits two electrons and no neutrinos (neutrinoless double-beta decay) · a nail, not a range"
+   },
+   "conditionalOn": "conditional on",
+   "darkLabel": "computed first, then compared · any open interface this row still depends on is named at the end"
+  }
+ }
+}

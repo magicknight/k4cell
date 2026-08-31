@@ -1,0 +1,398 @@
+{
+ "zh": {
+  "htmlLang": "zh-Hans",
+  "dir": "zh",
+  "alternateDir": "en",
+  "languageLabel": "English",
+  "skip": "跳到正文",
+  "navLabel": "主导航",
+  "footerNavLabel": "页脚导航",
+  "title": "一个只有四个点的对象——K4 单元框架",
+  "description": "一个只有四个点的有限量子对象，零个连续拟合参数，十一个“为什么”。μ 子和电子的质量比算到第 15 位，实验检验到第 8 位。每一条主张带着它的证据等级。未经同行评议，公开评阅中。",
+  "nav": [
+   [
+    "object",
+    "这个对象"
+   ],
+   [
+    "whys",
+    "十一个为什么"
+   ],
+   [
+    "numbers",
+    "那些数"
+   ],
+   [
+    "kill",
+    "怎么证伪"
+   ],
+   [
+    "deeper",
+    "更深"
+   ]
+  ],
+  "brand": {
+   "name": "K4 单元",
+   "tagline": "一个只有四个点的对象 · 公开评阅中"
+  },
+  "hero": {
+   "eyebrow": "K4 单元 · 公开评阅中",
+   "h1a": "一个只有四个点的对象，把 μ 子和电子的质量比算到了第 15 位。",
+   "h1b": "实验只能检验前 8 位。前 8 位全对。",
+   "sub": "标准模型没有错。它只是还没被算出来。",
+   "rulerLabel": "m_μ/m_e · 算出的值与实测值，逐位对照",
+   "rulerComputed": "算出",
+   "rulerMeasured": "实测",
+   "rulerCut": "实验分辨到此为止 · 第 {n} 位",
+   "rulerGhost": "等着被检验的位",
+   "rulerAlt": "逐位对照图。m_μ/m_e 的算出值是 206.768282688691，共 15 位有效数字。实测值 206.7682827 只分辨到第 8 位。前 8 位全部相同；越过分界线还有 7 位，等着被检验。",
+   "tierChip": "条件性 · 依赖一条作者自己列为开放的接口",
+   "bet": "如果中微子的质量顺序测出来是倒的，这一页就作废。",
+   "betNote": "JUNO 正在测。Hyper-K、DUNE 随后。",
+   "actions": [
+    [
+     "看这个对象",
+     "#object"
+    ],
+    [
+     "怎么证伪",
+     "#kill"
+    ]
+   ],
+   "byline": [
+    "梁植华 · 物理学博士（南方卫理公会大学，2012）· 清华大学物理学学士（2003）",
+    "ATLAS 合作组 2006–2012（H→WW 分析）· INFN 卡利亚里 / CERN LHCb 2024–2026",
+    "专著 1003 页，2026-07-08 冻结 · 未经同行评议 · 两篇拆出的论文在审"
+   ],
+   "glyphA": "四个点、六条线、三种颜色",
+   "glyphB": "每条线都想让两端不同，总有一对撞在一起",
+   "glyphAlt": "动画：一个四面体，四个顶点各着一色，只有三种颜色，六条棱。每一帧都至少有一条棱两端同色，那条棱在闪。这不是空间里的形状，只是画出哪两个点之间有一条规则。"
+  },
+  "why": {
+   "number": "01",
+   "kicker": "二十来个数",
+   "h2": "没有人知道，宇宙为什么偏偏用这些数。",
+   "lede": "这样的数一共大约二十个。它们定下了一个原子有多大，也定下了宇宙散开得有多快。物理学把每一个都量出来（电子的质量、光抓住电荷的力气、天上有多少暗物质），再用手写进方程，然后接着往下算。",
+   "contrast": "标准模型有二十来个旋钮，每一个都由实验拧到位。这里一个都没有。",
+   "contrastNote": "所谓二十来个：最简标准模型是 19 个；把中微子质量算进来是 26 到 28 个，取决于中微子是狄拉克型还是马约拉纳型。宇宙学还要另外加一批。",
+   "noKnob": "一个没有旋钮可拧的计算，错了就是错了，回不了头。这里说的是连续的旋钮。剩下的自由是离散的：走哪条分支、把算出的数安到哪个测量量上、按哪条通道读数。每一条都写在明处，各自挂着作者列为开放的接口。",
+   "dials": [
+    [
+     "m_e",
+     "电子有多重"
+    ],
+    [
+     "α",
+     "光抓住电荷的力气"
+    ],
+    [
+     "m_μ",
+     "μ 子有多重"
+    ],
+    [
+     "θ_C",
+     "夸克在代与代之间串门的幅度"
+    ],
+    [
+     "sin²θ_W",
+     "电磁力与弱力的配比"
+    ],
+    [
+     "α_s",
+     "强力有多强"
+    ],
+    [
+     "θ_QCD",
+     "强力破不破坏 CP"
+    ],
+    [
+     "Λ",
+     "宇宙散开得有多快"
+    ]
+   ]
+  },
+  "object": {
+   "number": "02",
+   "kicker": "这个对象",
+   "h2": "四个点，六条线，三种颜色，一条规则。",
+   "intro": "下面的每一个数，都从这一个对象上读出来：单个的它，和许多个粘在一起的它。它长这样，分三步，90 秒讲完。",
+   "beats": [
+    {
+     "n": "1",
+     "h3": "对象本身",
+     "tag": "closed",
+     "body": "四个点，每一对都连起来，正好六条线——图论里管这张图叫 K₄。每个点上放一个很小的量子开关，只有三档，不妨叫它三种颜色。每条线只提一个要求：两端最好不同。两端同色，这条线就记一次账。关键在下一步：三种颜色分给四个点，想让每两个点都不同色，办不到。总有一对撞在一起。而四个点两两相连，撞在一起的那一对之间一定有一条线。于是账躲不掉：不管四个点怎么配色，总有一条线要记账。这笔账最后怎么结，第三步再说。先记住两件事。第一，这四个点不是空间里的四个位置；空间在这套理论里是后来才长出来的。第二，宇宙不是一个四面体，而是许多个粘在一起；怎么粘，是作者标为条件性的一步。"
+    },
+    {
+     "n": "2",
+     "h3": "只有关系算数",
+     "tag": "closed",
+     "body": "设想四个人合唱一个和弦。你听到的东西不在任何一个人的嗓子里；一个孤零零的长音不是和弦。四个人一起升调，和弦不变，因为能听见的只有音程。这里一样，而且更彻底：没有哪个点“真的是红”。有意义的只是两点之间的关系：同不同色，以及叠成了哪种关系。把四个点的颜色一起换掉，能量、能级的整个阶梯、理论从它身上读出的每一个数，都不变。而且不只是换名字：把红和绿按任意比例调成两种新颜色，只要四个点一起调，照样什么都不变。这种连续的“一起转”，是后面长出规范场的种子——规范场就是电磁力、强力这类力背后的那种场。那是后面的事。把这种场真正对上强力里的那种“色”，是作者列为开放的一步。规则里没有一项提到某一个点：六项，每项管一对。"
+    },
+    {
+     "n": "3",
+     "h3": "基态永不安定",
+     "tag": "closed",
+     "body": "经典世界只能二选一：这条线撞色，或者那条线撞色，总得有一条倒霉。最好的排法也要记一次账。量子世界会一件经典世界不会的事：把不同的画面带着正负号叠在一起。规则给每条线打分，其实是在问一句话：“把你两端对调，会怎样？”经典画面里，同色得 +1，不同色得 0。量子态却可以把两端叠成一种“一对调就变号”的关系。这种关系得负分，比“不同”更进一步。能量最低的那个态，也就是基态，正是这么叠出来的。它只用那 36 幅“只撞一次”的画面，总账 −2，比最老实的经典排法低了整整三个单位。这不是把倒霉摊薄；摊薄的混合仍然是 +1。而这样的基态不止一个，是九个：9 = 3 × 3，三种颜色，乘以给四个点贴标签的三种独立方式。九个合起来看，六条线完全对称，每条各摊 −1/3；单挑其中一个来看，六条线各不相同。撞色始终在，只是这一整层谁也不偏袒。后一个“三”，就是“三代”的出处。所谓三代，是说基本粒子有三套几乎一模一样、只是一套比一套重的家族。把这个“三”真正落成时空里的三代粒子，作者列为开放的一步。九个态从此不在 81 幅画面里的任何一幅上，也永远不会挑一幅。这个对象定不下来，不是因为它在动，而是因为它拒绝选。"
+    }
+   ],
+   "forced": "这个对象的形状不是选出来的。四个点、三种颜色、每两个点都连上、六条线用同一条规则、规则偏向两端不同——在作者自己划定的那一类对象里，每一条都是自洽性逼出来的定理。设定的只有一条：这样的元胞排成的点阵存在，也就是许多个这样的四点单元粘在一起。四个点，因为 i 是四分之一圈。i 就是中学里那个“平方等于 −1”的数；换成几何的说法，它是转四分之一圈：转两次正好掉头，也就是乘以 −1。三个点一格是三分之一圈，五个点一格是五分之一圈，转两次都掉不了头。三种颜色，因为按作者自己的一条判据，颜色的种数得是奇数、至少是三、又比点数少。这一类划得多宽，作者自己挂出来给人审。闭合；核心条款经证明检查器 Lean 核过，没有一步欠着（零 sorry）。",
+   "forcedTier": "closed",
+   "twoMinutes": "数一数：四个点、六条线、三种颜色——你已经复现了上面那条定理的图论部分。",
+   "gridTitle": "全部 81 幅画面",
+   "gridIntro": "81 幅，少到可以整个印出来。下面是加上规则之前的每一幅画面，画成四面体，一个点一种颜色。粗线表示两端同色。",
+   "gridFilterAll": "全部 81 幅",
+   "gridFilterLabel": "按配色筛选",
+   "gridSweep": "找一幅没有重复颜色的画面",
+   "gridSweepDone": "已扫过全部 81 幅。没有一幅不含同色的线；每一幅至少有一条粗线。",
+   "gridSweepResult": "81 幅里 0 幅。四个点、三种颜色，必然有两个点同色；而每一对点之间都有线，那条线就一定存在。个个都想跟邻居反着来，却怎么也排不开，物理学管这个叫阻挫。阻挫不是假设，是算术。",
+   "gridMeanLabel": "同色线的条数，对全部 81 幅取平均",
+   "gridMeanValue": "恰好是 2",
+   "gridMeanNote": "= 6 条线 × 1/3",
+   "gridCaveat": "这 81 幅是加上规则之前的画面。基态不是其中任何一幅：它是带正负号的叠加，共九个，见第三步。这里没有推导出任何物理。它只说清这个对象一共有多少幅基本画面，并说明阻挫是结构性的。",
+   "classLabels": {
+    "2,1,1": "一种颜色出现两次",
+    "2,2,0": "两种颜色各出现两次",
+    "3,1,0": "一种颜色出现三次",
+    "4,0,0": "四个点同色"
+   },
+   "classStates": "幅",
+   "classMono": "条同色线",
+   "countsCaption": "四个点、六条线、每点三种颜色：在加上规则之前，一共 3⁴ = 81 幅基本画面。"
+  },
+  "checkIt": {
+   "number": "03",
+   "kicker": "自己验一个",
+   "h2": "9 ÷ 40",
+   "body": "夸克在代与代之间串门的幅度，物理学里管它叫 Cabibbo 参数。在这套框架里，它读出来不是一个小数，而是一个精确分数：9/40。自己除一下：9 ÷ 40 = 0.225，一位不多一位不少；这个除法除得尽，再往下除只有零。实测值是 0.22501 ± 0.00068。你刚刚亲手核对了这份账本里的一行。",
+   "after": "9/40 是一个精确有理数，不是拧出来的小数。从 9/40 到“这就是 Cabibbo 参数”，中间还有一步嵌入：把这个分数安到一个测量量上。这一步作者列为开放的接口。",
+   "tierChip": "条件性 · 中间那步嵌入，作者列为开放",
+   "stepButton": "再往下除一位",
+   "resetButton": "重来",
+   "measuredLabel": "实测值及其误差棒",
+   "containsLabel": "0.225 落在误差棒之内",
+   "second": {
+    "h3": "3/13",
+    "body": "电磁力与弱力的配比，物理学里叫弱混合角。它的起点值是另一个分数：3/13——所谓起点值，是还没随能量跑起来之前的那个值。3/13 不是拿去跟实验值直接比的数。实验室那个读数是另一回事：从起点值出发，按一条写死的换算规则，算到 Z 玻色子那个能量上。换算规则里还有两处小修正，理论也一并算死了。走完是 0.231219995；实测 0.23122 ± 0.00006。前四位对上，后面五位是理论替未来写的。至于把配比里的那两样东西真的认作电磁力和弱力，是作者列为开放的两条接口。"
+   }
+  },
+  "tiers": {
+   "title": "每条主张带一个小标签，三档",
+   "key": [
+    [
+     "closed",
+     "闭合",
+     "数学上已经证完，但只在它自己划定的范围里；实验有没有证实是另一回事。"
+    ],
+    [
+     "conditional",
+     "条件性",
+     "推出来了，但前提是某一步开放的接口成立；它不依赖任何拟合参数。"
+    ],
+    [
+     "bound",
+     "界 · 检验",
+     "单边限或未来的判决面；低于所有上限只表示还没被检验，不表示已被证实。"
+    ]
+   ]
+  }
+ },
+ "en": {
+  "htmlLang": "en",
+  "dir": "en",
+  "alternateDir": "zh",
+  "languageLabel": "中文",
+  "skip": "Skip to content",
+  "navLabel": "Primary navigation",
+  "footerNavLabel": "Footer navigation",
+  "title": "An object with only four points — K4 Cell Framework",
+  "description": "One four-point quantum object, zero continuous fitted parameters, eleven whys. m_μ/m_e computed to 15 digits, checked to 8. Claims tiered. Not peer reviewed.",
+  "nav": [
+   [
+    "object",
+    "The object"
+   ],
+   [
+    "whys",
+    "Eleven whys"
+   ],
+   [
+    "numbers",
+    "The numbers"
+   ],
+   [
+    "kill",
+    "How to kill it"
+   ],
+   [
+    "deeper",
+    "Deeper"
+   ]
+  ],
+  "brand": {
+   "name": "K4 Cell",
+   "tagline": "An object with only four points · under public review"
+  },
+  "hero": {
+   "eyebrow": "K4 Cell · under public review",
+   "h1a": "An object with only four points computes the muon-to-electron mass ratio to 15 digits.",
+   "h1b": "Experiment can check only the first 8. All 8 agree.",
+   "sub": "The Standard Model is not wrong. It has simply not been computed yet.",
+   "rulerLabel": "m_μ/m_e · computed against measured, digit by digit",
+   "rulerComputed": "computed",
+   "rulerMeasured": "measured",
+   "rulerCut": "measurement stops resolving here · digit {n}",
+   "rulerGhost": "digits waiting to be checked",
+   "rulerAlt": "Digit-by-digit comparison. The computed m_μ/m_e is 206.768282688691, fifteen significant digits. The measured value, 206.7682827, resolves only the first 8. All 8 agree; seven more digits lie past the cut, waiting to be checked.",
+   "tierChip": "Conditional · rides on an interface the author himself lists as open",
+   "bet": "If the neutrino mass ordering turns out to be inverted, this page is void.",
+   "betNote": "JUNO is measuring it now. Hyper-K and DUNE follow.",
+   "actions": [
+    [
+     "See the object",
+     "#object"
+    ],
+    [
+     "How to kill it",
+     "#kill"
+    ]
+   ],
+   "byline": [
+    "Zhihua Liang · PhD in Physics (Southern Methodist University, 2012) · BSc in Physics (Tsinghua University, 2003)",
+    "ATLAS collaboration 2006–2012 (H→WW analysis) · INFN Cagliari / CERN LHCb 2024–2026",
+    "1003-page monograph, frozen 2026-07-08 · not peer reviewed · two papers carved out of it, under review"
+   ],
+   "glyphA": "Four points, six links, three colours",
+   "glyphB": "Every link wants its two ends to differ, and one pair always clashes",
+   "glyphAlt": "Animation: a tetrahedron, each of its four vertices in one of only three colours, six edges. In every frame at least one edge joins two vertices of the same colour, and that edge flickers. Not a shape in space; only a drawing of which points have a rule between them."
+  },
+  "why": {
+   "number": "01",
+   "kicker": "About twenty numbers",
+   "h2": "Nobody knows why the universe runs on the numbers it runs on.",
+   "lede": "There are about twenty of these numbers. They set the size of an atom and the rate the universe is flying apart. Physics measures each one — the electron’s mass, how strongly light grips charge, how much of the universe is dark matter — writes it into the equations by hand, and moves on.",
+   "contrast": "The Standard Model has about twenty dials, each turned into place by experiment. Here there are none.",
+   "contrastNote": "About twenty: 19 in the minimal Standard Model; 26 to 28 once neutrino masses are included, depending on whether neutrinos are Dirac or Majorana. Cosmology adds a batch of its own.",
+   "noKnob": "A calculation with no dial to turn is wrong when it is wrong; there is no way back. “Dial” here means a continuous one. The freedom that remains is discrete — which branch, which way a computed number is fastened onto a measured quantity, which channel to read on. Each of them is stated in the open, and each carries an interface the author lists as open.",
+   "dials": [
+    [
+     "m_e",
+     "how heavy the electron is"
+    ],
+    [
+     "α",
+     "how strongly light grips charge"
+    ],
+    [
+     "m_μ",
+     "how heavy the muon is"
+    ],
+    [
+     "θ_C",
+     "how far quarks stray between generations"
+    ],
+    [
+     "sin²θ_W",
+     "the recipe mixing electromagnetism and the weak force"
+    ],
+    [
+     "α_s",
+     "how strong the strong force is"
+    ],
+    [
+     "θ_QCD",
+     "whether the strong force breaks CP"
+    ],
+    [
+     "Λ",
+     "how fast the universe flies apart"
+    ]
+   ]
+  },
+  "object": {
+   "number": "02",
+   "kicker": "The object",
+   "h2": "Four points, six links, three colours, one rule.",
+   "intro": "Every number below is read off this one object — alone, and glued to many copies of itself. Here it is, in three steps, ninety seconds.",
+   "beats": [
+    {
+     "n": "1",
+     "h3": "The object itself",
+     "tag": "closed",
+     "body": "Four points, every pair joined: six links. Graph theory calls that the complete graph on four points, K₄. On each point sits a tiny quantum switch with three settings; call them three colours. Each link asks one thing: that its two ends differ. A link whose ends match is charged once. Now the key step: with only three colours, four points cannot all differ. Some pair always matches. And because every pair is joined, that matching pair has a link between them. So the rule can never be kept everywhere at once: however the four points are coloured, some link is charged. How that bill is finally settled comes in the third step. Two things to hold on to. First, the four points are not four places in space; space, in this theory, grows later. Second, the universe is not one tetrahedron but many of them glued together; how they glue is a step the author marks conditional."
+    },
+    {
+     "n": "2",
+     "h3": "Only the relations count",
+     "tag": "closed",
+     "body": "Think of four singers holding a chord. What you hear is in no single voice; a held note alone is not a chord. Transpose all four together and the chord does not change, because only the intervals are audible. Here it is the same, and it goes further: no point is really red. What carries meaning is the relation between two points — whether they match, and how the pair is combined. Swap every colour at once and the energy, the whole ladder of energy levels, and every number the theory reads from the object stay exactly as they were. And it is more than renaming: blend red and green in any proportion into two new colours, do it at all four points together, and still nothing changes. That continuous turning-together is the seed from which a gauge field grows further downstream, a gauge field being the kind of field that carries a force. That part comes later. Matching that field to the colour of the strong force is a step the author lists as open. Not one term of the rule names a single point: six terms, one per pair."
+    },
+    {
+     "n": "3",
+     "h3": "The ground state never settles",
+     "tag": "closed",
+     "body": "The classical world must choose: this link clashes, or that one. Some link has to lose, and even the best arrangement is charged +1. The quantum world can do one thing the classical world cannot: hold different pictures together with plus and minus signs. The rule scores a link by asking, in effect, “what happens if I swap your two ends?” In a classical picture a match scores +1 and a difference 0. A quantum state can hold the two ends in a combination that changes sign under the swap, and that relation scores below zero, one step beyond merely different. The lowest-energy state, the ground state, is built exactly so. It uses only the 36 pictures with a single clash, and the total is −2, three whole units below the best honest classical arrangement. This is not the loss spread thin; a spread-out mixture would still score +1. And there is not one such ground state but nine: 9 = 3 × 3, three colours times three independent ways of labelling the four points. Taken together, the nine treat the six links alike — each link carries −1/3; taken one at a time, no two links are alike. The clash is always there, and the ground level as a whole favours no link over another. That second three is where this framework’s three generations come from — the fact that the electron has two heavier copies, and each quark two more. Carrying that three onto spacetime is a step the author marks open. The object is then in none of the 81 pictures, and it never will pick one. It never settles, not because it is moving, but because it refuses to choose."
+    }
+   ],
+   "forced": "The shape of this object was not chosen. Four points, three colours, the complete graph, one coupling (one and the same strength on all six links), the antiferromagnetic sign (matching costs, differing is free) — within the class the framework states, each is a theorem forced by self-consistency. The one thing assumed is that a lattice of such cells exists: many of these four-point units glued together. Four points, because i — the number school defines by i² = −1 — is a quarter turn: turn twice and you are facing backwards, which is what multiplying by −1 does. With three points a step is a third of a turn, with five a fifth, and two steps of either never turn you around. Three colours, because on the author’s own criterion the number must be odd, at least three, and fewer than the points. How wide that stated class is, the author has put up for review himself. Closed; the core clauses are checked in Lean, a program that verifies a proof step by step. A step a proof leaves unproved has to be marked sorry; here there are none.",
+   "forcedTier": "closed",
+   "twoMinutes": "Count: four points, six links, three colours — you have just reproduced the graph-theory half of the theorem above.",
+   "gridTitle": "All 81 pictures",
+   "gridIntro": "There are only 81 — few enough to print every one. Below is every picture before the rule is applied, drawn as a tetrahedron with one colour per point. Thick lines join two points that share a colour.",
+   "gridFilterAll": "all 81",
+   "gridFilterLabel": "Filter by colour pattern",
+   "gridSweep": "Find a picture with no repeated colour",
+   "gridSweepDone": "Swept all 81 pictures. None is free of a same-colour link; every one shows at least one thick line.",
+   "gridSweepResult": "Zero out of 81. With four points and only three colours, two points must share a colour, and every pair is linked, so that link is there. Physicists have a name for a rule that cannot be kept everywhere at once: frustration. Here it is not an assumption. It is arithmetic.",
+   "gridMeanLabel": "Same-colour links per picture, averaged over all 81",
+   "gridMeanValue": "exactly 2",
+   "gridMeanNote": "= 6 links × 1/3",
+   "gridCaveat": "These 81 are the pictures before the rule is applied. The ground state is none of them: it is a superposition carrying plus and minus signs, and there are nine of those, as in the third step. No physics is derived here; these pictures only fix how many basic pictures the object has, and show that the frustration is structural.",
+   "classLabels": {
+    "2,1,1": "one colour twice",
+    "2,2,0": "two colours twice each",
+    "3,1,0": "one colour three times",
+    "4,0,0": "all four the same"
+   },
+   "classStates": "pictures",
+   "classMono": "· same-colour links",
+   "countsCaption": "Four points, six links, three colours per point: 3⁴ = 81 basic pictures before the rule is applied."
+  },
+  "checkIt": {
+   "number": "03",
+   "kicker": "Check one yourself",
+   "h2": "9 ÷ 40",
+   "body": "How far quarks stray between generations is what physics calls the Cabibbo parameter. In this framework it comes out not as a decimal but as an exact fraction: 9/40. Do the division. 9 ÷ 40 = 0.225, exactly; the division terminates, and past that point there are only zeros. The measured value is 0.22501 ± 0.00068. You have just checked one line of the table further down, by hand.",
+   "after": "9/40 is an exact rational, not a decimal that was tuned. Fastening it to a measured quantity — saying “this is the Cabibbo parameter” — is the step the author lists as open.",
+   "tierChip": "Conditional · the step onto a measured quantity, which the author lists as open",
+   "stepButton": "Carry the division one digit further",
+   "resetButton": "Start over",
+   "measuredLabel": "measured, with its error bar",
+   "containsLabel": "0.225 sits inside the bar",
+   "second": {
+    "h3": "3/13",
+    "body": "The recipe mixing electromagnetism and the weak force is what physics calls the weak mixing angle. Its value at the source — before any translation to laboratory conditions — is another fraction: 3/13. That 3/13 is not the number compared with experiment. What the lab reads is worked out from it by a fixed conversion rule, carried to the mass of the Z boson, and the two small terms in that rule are fixed by the theory as well. The result is 0.231219995; measured, 0.23122 ± 0.00006. Four digits match; the next five are written for the future. That the two ingredients in that recipe really are electromagnetism and the weak force rests on two interfaces the author lists as open."
+   }
+  },
+  "tiers": {
+   "title": "Every claim carries one small tag, in three tiers",
+   "key": [
+    [
+     "closed",
+     "Closed",
+     "Proved as mathematics, but only inside the scope it draws for itself; whether experiment has confirmed it is a separate question."
+    ],
+    [
+     "conditional",
+     "Conditional",
+     "Derived, provided one named open interface — one unfinished step in the derivation — holds; it depends on no fitted parameter."
+    ],
+    [
+     "bound",
+     "Bound · test",
+     "A one-sided limit, or a test the future will settle; sitting below every existing limit means untested, not confirmed."
+    ]
+   ]
+  }
+ }
+}

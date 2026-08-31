@@ -1,0 +1,406 @@
+{
+ "zh": {
+  "boundary": {
+   "number": "08",
+   "kicker": "边界",
+   "h2": "哪里是定理，哪里是缺口，哪里是赌注。",
+   "intro": "上面每一个数，都沿同一条路线走来。起点是四个点。中间是许多元胞粘成的那张网络，书里管它叫基底。终点是能跟实验对照的那一头。路上有几段还没有接上，作者自己给它们编了号。下面把整条路线画出来：断在哪里，就画成断的。这一节写给想自己核一遍的读者，也写给物理学家。",
+   "route": {
+    "number": "6",
+    "kicker": "这条路线",
+    "h2": "抽掉一座桥，看哪些数会熄灭。",
+    "h3": "抽掉一座桥，看哪些数会熄灭。",
+    "intro": "前四站是定理，画成实线：实线的一段，要么精确成立，要么在模型内部成立。后四站标着“条件性”：推得出来，但要等某个断口接上才算数。断开的一跨，是作者公开列为开放的接口，断口里的编号就是他勘误表上的编号。每个断口下面挂着的，是上面那张表里靠它撑着的行。路上一共画了五个断口：挂着数值行的四个，加上管目录和粘合的那一个。另外两个断口（E7、E11）落在第 06 站引力那一段，表里没有行挂在它们上面，它们只在下面的接口表里各占一句。",
+    "stations": [
+     [
+      "有限元胞",
+      "四个点、六条线、三种颜色",
+      "closed"
+     ],
+     [
+      "态的分层",
+      "81 个态自己分成四层，取最底下那层",
+      "closed"
+     ],
+     [
+      "量子几何张量",
+      "两个态有多容易分辨；绕一圈带回什么相位",
+      "closed"
+     ],
+     [
+      "拆成实部和虚部",
+      "一面量距离，一面管那几种力",
+      "closed"
+     ],
+     [
+      "长出来的几何",
+      "时空的曲率，还有那几种力的曲率",
+      "conditional"
+     ],
+     [
+      "引力与规范场的方程",
+      "最低阶的方程，上面还压着一串更高阶的修正",
+      "conditional"
+     ],
+     [
+      "多个元胞拼接",
+      "怎么拼，拼多了会不会变成连续的时空",
+      "conditional"
+     ],
+     [
+      "读出的三个去处",
+      "实验室、宇宙学、网络里面的观察者",
+      "conditional"
+     ]
+    ],
+    "gaps": [
+     [
+      "E3",
+      "从元胞走到弱作用和电磁，这一步要单独证明，不能默认是一回事",
+      [
+       "sin2w"
+      ]
+     ],
+     [
+      "E5",
+      "把夸克粘在一起的那种力，目前是另外搭上去的",
+      [
+       "alpha_s"
+      ]
+     ],
+     [
+      "E6",
+      "算出来的是一个几何响应量，把它认成物理的 Λ，这一步还没闭合",
+      [
+       "lambda"
+      ]
+     ],
+     [
+      "E8",
+      "把算出来的三代和七行真正对上时空里的粒子，这一步还开着",
+      [
+       "sin2w",
+       "lambda_c",
+       "mu_e",
+       "ckm_j"
+      ]
+     ],
+     [
+      "E10",
+      "目录与粘合：四层态凑不成一张封闭的乘法表",
+      []
+     ]
+    ],
+    "gapCarries": "挂着",
+    "gapCarriesNothing": "不挂任何数值行。这一条管的是四层的目录和粘合。",
+    "mainBridge": "有限 K4 基底 → 忠实物理实现",
+    "busLabel": "具名接口",
+    "mainBridgeLabel": "主开放桥",
+    "killSwitch": "把所有开放接口一起抽掉",
+    "killSwitchReset": "放回去，回到作者实际主张的样子",
+    "killSwitchCaption": "全部抽掉，剩下的是一个关于有限图的定理——真、经机器核验，但不是关于自然界的陈述。这是这个项目的下限，也是上面那些数被当靶子而不是当结论的原因。",
+    "figCaption": "图上那条链依次是八站：先四个实心站，再四个标着“条件性”的站。链上引出五个具名缺口，每个缺口挂着靠它撑着的数值行。缺口按缺口画——链断在哪里，图上就空在哪里，不用虚线补上。链正中那道最宽的空档是主开放桥，两端各有一道切面，谁也不跨过去。"
+   },
+   "interfaces": {
+    "h3": "七条开放接口，一条一句",
+    "items": [
+     [
+      "E3",
+      "从元胞走到弱作用和电磁的那一步，作者叫它电弱提升：这一步要单独证明，不能默认两边是一回事。"
+     ],
+     [
+      "E5",
+      "夸克身上的三种颜色本来就长在元胞里，但把颜色变成一种真正把夸克粘住的力，目前还是单独搭出来的一步，所以强耦合那一行交出的是一条尺度线，不是位数。"
+     ],
+     [
+      "E6",
+      "几何那一边算出来的 Λ，和该拿去跟天上对照的那个物理的 Λ，在书里是两个量；把前者认成后者，这一步还没有闭合，冻结版则把两者混在一起，作者自己列为勘误。"
+     ],
+     [
+      "E7",
+      "四个方向都一样的几何，要变成三个空间方向加一个时间方向，中间还差几步单独的对应；引力最基本的那一块也只是分了类，没有从零造出来。"
+     ],
+     [
+      "E8",
+      "算出来的“三”要真正变成时空里的三代粒子，匿名的七行要真正对上一代物质加上希格斯和右手中微子的那七类场——这一步作者自己列为开放。"
+     ],
+     [
+      "E10",
+      "对象的四层态，目前只是四堆各摆各的；它们能不能像粒子那样自由组合，还没有证明，靠这一点的结论目前都不算数。"
+     ],
+     [
+      "E11",
+      "引力波那种无质量的自旋二激发，在基底里还没有造出来；引力传播多快，目前只有一个上限。"
+     ]
+    ]
+   },
+   "notDerived": {
+    "h3": "哪些还没有推出来",
+    "items": [
+     "CP 破坏的<strong>符号</strong>不是推出来的。正负取哪一边，是真空自己挑的，理论只能照单收下。",
+     "<strong>把夸克粘在一起的那种力</strong>，目前还是单独搭出来的一步。凡是靠这种力才算得出的数，都要等这条接口接上才算数；强耦合那一行只比到刻度为止，不给位数。",
+     "<strong>电弱提升</strong>还没有证完。从元胞走到弱作用和电磁的那一步，作者把它单列成一条接口，不当作理所当然。",
+     "<strong>把三代落实成时空里的三代粒子，把匿名七行对上一代物质加希格斯和右手中微子的那七类场</strong>，再加上一路留在实物理的那条分支上，这几步都还是接口。",
+     "冻结的 PDF 把几何响应量 Λ_geo 和物理的 Λ_eff <strong>混在了一起</strong>。作者自己的勘误里写明了这一条。",
+     "对象的<strong>四层态</strong>不构成一张封闭的乘法表。凡是只靠这张表才成立的结论，目前都推不出来。",
+     "<strong>引力与规范场的动力学一起出来，是赌注，不是完成的推导。</strong>引力最基本的那一块只做了分类，没有重建；引力波那种无质量的自旋二激发，基底里还没有造出来。",
+     "引力自己定出的那个质量单位，叫<strong>普朗克质量</strong>；它是留下来当单位的，不是推出来的。理论算出来的都是比值，比值在拿到尺子之前就定死了；尺子只把比值换成公斤和秒。"
+    ],
+    "refs": [
+     [],
+     [
+      "E5"
+     ],
+     [
+      "E3"
+     ],
+     [
+      "E8"
+     ],
+     [
+      "E6"
+     ],
+     [
+      "E10"
+     ],
+     [
+      "E7",
+      "E11"
+     ],
+     []
+    ]
+   },
+   "inputs": {
+    "h3": "输入了什么",
+    "closed": "连续拟合参数：零个。可以连续拧的旋钮，这里一个都没有；剩下的自由是离散的，下一段一条条列出来。对象是死的：四个点，每点三个态，六条线上同一个耦合。连耦合的强弱都会在比值里约掉——上面那张表里，凡是能算 pull 的行，都是无量纲的数。有两行不是。三种中微子的质量之和，写作 Σm_ν；无中微子双 β 衰变的有效质量，写作 m_ββ。这两行用电子伏给出，带着一个绝对的质量标度，“约掉了”这句话盖不住它们。要找隐藏输入，那两行是第一处该看的地方。",
+    "closed2": "物理设定只有一条：这样的元胞存在，许多个能粘成一片。在它自己划定的那一类对象里，元胞的形状是推出来的定理，不是假设：四个点、三种颜色、完全图、同一个反铁磁耦合。这一类到底划多宽，本身就是一个评阅靶点。此外理论向你要的只有两样，都不能微调。一把尺子，告诉它一个能量单位有多大：那是单位，不是旋钮。几个非此即彼的选择：把算出来的结构按哪一种方式放进标准模型，走哪一条分支，一个数按哪一条写明的规则去读。每一个都白纸黑字列出，只能整个换，不能推一点点。",
+    "open": "还有哪里可能藏着没写明的选择。允许的读数类型有没有列全？对象的四层态能不能像粒子那样自由组合，还是只能各摆各的？有没有一部字典，在理论的每一块上都同样用得通？这几条机器核验都帮不上忙：证书核的是账目干净，不是自然界。最锋利的一条是作者自己提出来的：领头值上面压着一个小小的第二项。Λ 那一行、m_b/m_s 那一行，还有一条不在表内的实验室读出（电磁耦合的一个修正项），用的是同一个第二项，一字不差。这究竟是读数规则逼出来的，还是规则给通道留了挑选的余地？这是一个公开的评阅靶点。哪一行算出来的那一边偷偷用了实验测量值，这套说法就输了：指出是哪一行，在哪里。"
+   },
+   "submissions": {
+    "h3": "投稿状态",
+    "intro": "专著本身没有投过期刊，未经同行评议，也不在 arXiv 上。从中拆出的两篇论文在审。一篇 2026 年 7 月 15 日投给 <em>Classical and Quantum Gravity</em>，编号 CQG-116665，等待审稿报告。一篇 2026 年 7 月 21 日投给 <em>Journal of Geometry and Physics</em>，编号 JGP13432，审稿中。",
+    "underReview": "审稿中",
+    "awaiting": "等待审稿报告",
+    "submittedOn": "提交于",
+    "noArxiv": "专著不在 arXiv 上。",
+    "defect": "冻结的 2.0 版 PDF 有一处已知缺陷：标题页仍印着 1.0 版的版本行、日期和 DOI，正文与校验和都是 2.0 版的。这一条 2026 年 8 月 29 日记录在案，应追加进勘误，不悄悄换掉文件。",
+    "records": [
+     [
+      "CQG-116665",
+      "Classical and Quantum Gravity",
+      "2026-07-15",
+      "awaiting"
+     ],
+     [
+      "JGP13432",
+      "Journal of Geometry and Physics",
+      "2026-07-21",
+      "underReview"
+     ]
+    ]
+   }
+  }
+ },
+ "en": {
+  "boundary": {
+   "number": "08",
+   "kicker": "The boundary",
+   "h2": "Where the theorems stop, where the gaps are, where the bet is.",
+   "intro": "Every number above arrives by the same route. It starts at four points, runs through the network those cells make when they are joined — the book calls that the substrate — and ends at a comparison with experiment. Several stretches of that route are not yet joined, and the author numbers them himself. Below is the whole route, with its gaps drawn as gaps. This section is for readers who want to check, and for physicists.",
+   "route": {
+    "number": "6",
+    "kicker": "The route",
+    "h2": "Pull out a bridge and watch which numbers go dark.",
+    "h3": "Pull out a bridge and watch which numbers go dark.",
+    "intro": "The first four stations are theorems, and the bridges under them are drawn solid: a solid bridge is either exact or holds inside the model. The last four stations are marked conditional — derivable, but only once some gap is joined. A gap is a step the author has published as open. He calls such a step an interface, and the label in the gap is the number that correction carries in his own published errata. Under each gap hang the rows of the numbers table that rest on it. Five gaps are drawn: the four that carry rows, and the one that governs the catalogue of floors and the gluing. Two more, E7 and E11, fall at station 06, gravity; no row in the table hangs on them, and they appear only in the list of interfaces below.",
+    "stations": [
+     [
+      "The finite cell",
+      "four points, six links, three colours",
+      "closed"
+     ],
+     [
+      "Sorting the states",
+      "81 states fall into four floors; take the lowest floor",
+      "closed"
+     ],
+     [
+      "Quantum geometric tensor",
+      "how distinguishable two states are; what phase you pick up going once round a loop",
+      "closed"
+     ],
+     [
+      "Real and imaginary parts",
+      "one face measures distance, the other carries the forces",
+      "closed"
+     ],
+     [
+      "Geometry grown out of it",
+      "curvature of spacetime, curvature of the force fields",
+      "conditional"
+     ],
+     [
+      "Gravity and gauge equations",
+      "the leading equations, plus a tower of higher corrections above them",
+      "conditional"
+     ],
+     [
+      "Many cells joined",
+      "the rules for gluing them, and the step to a smooth spacetime",
+      "conditional"
+     ],
+     [
+      "Three ways to read a number off",
+      "in the laboratory, in cosmology, by an observer inside",
+      "conditional"
+     ]
+    ],
+    "gaps": [
+     [
+      "E3",
+      "the step up to the weak and electromagnetic forces still has to be proved, not assumed",
+      [
+       "sin2w"
+      ]
+     ],
+     [
+      "E5",
+      "the part of the strong force that binds quarks is still built separately",
+      [
+       "alpha_s"
+      ]
+     ],
+     [
+      "E6",
+      "what the geometry computes is a response quantity; taking it for the physical Λ is not closed",
+      [
+       "lambda"
+      ]
+     ],
+     [
+      "E8",
+      "three generations, and seven anonymous rows becoming real particles: these maps are still open",
+      [
+       "sin2w",
+       "lambda_c",
+       "mu_e",
+       "ckm_j"
+      ]
+     ],
+     [
+      "E10",
+      "the catalogue of floors, and the gluing: the four floors are not a closed multiplication table",
+      []
+     ]
+    ],
+    "gapCarries": "carries",
+    "gapCarriesNothing": "No numeric row hangs here. This gap governs the catalogue of floors and the gluing.",
+    "mainBridge": "finite K4 substrate → faithful physical realization",
+    "busLabel": "Named interfaces",
+    "mainBridgeLabel": "Main open bridge",
+    "killSwitch": "Pull every open interface at once",
+    "killSwitchReset": "Put them back: the author’s actual claim",
+    "killSwitchCaption": "Pull all of them, and what is left is a theorem about a finite graph — true, machine-checked, and not a statement about nature. That is the floor of this project, and it is why the numbers above are offered as targets rather than as conclusions.",
+    "figCaption": "The chain runs eight stations in order: four solid, then four marked conditional. Five named gaps hang off it, each carrying the numeric rows that lean on that gap. A gap is drawn as a gap — where the chain breaks the drawing is empty, not dashed over. The widest void, between the two cut faces at the middle of the chain, is the main open bridge; nothing spans it."
+   },
+   "interfaces": {
+    "h3": "Seven open interfaces, one sentence each",
+    "items": [
+     [
+      "E3",
+      "The step from the substrate up to the weak and electromagnetic forces is what the author calls the electroweak lift: it needs a proof of its own and cannot simply be assumed."
+     ],
+     [
+      "E5",
+      "The three colours a quark carries are already in the cell; what is still built separately is turning colour into a force that actually binds quarks, which is why the strong-coupling row compares scale only and commits to no digits."
+     ],
+     [
+      "E6",
+      "Two different Λs appear in the book: a response quantity the geometry computes, and the physical one that is set against the sky; treating the first as the second is a step that is not closed, and the frozen edition ran them together, which the author lists as his own erratum."
+     ],
+     [
+      "E7",
+      "Turning a geometry with four alike directions into three of space and one of time takes several separate maps of its own, and the most basic piece of gravity is only classified, not built from scratch."
+     ],
+     [
+      "E8",
+      "The computed three must actually become three generations of particles in spacetime, and the seven anonymous rows must actually match the fields of one Standard-Model generation together with the Higgs and the right-handed neutrino — seven kinds in all; the author himself lists this step as open."
+     ],
+     [
+      "E10",
+      "The object’s four floors of states are, for now, four separate pieces standing side by side; that they can combine freely the way particles do is unproved, and any conclusion that needs it does not yet count."
+     ],
+     [
+      "E11",
+      "The massless spin-two excitation that gravitational waves are made of has not been built inside the substrate; how fast gravity travels has, as things stand, only an upper limit."
+     ]
+    ]
+   },
+   "notDerived": {
+    "h3": "What is not derived",
+    "items": [
+     "The <strong>sign</strong> of CP violation is not derived. Which way it points is something the vacuum picked out for itself, and the theory takes it as given.",
+     "The <strong>part of the strong force that binds quarks</strong> is still a separate construction. Every number that belongs to that force waits on this interface; the strong-coupling row is a comparison of scale, not a finished derivation.",
+     "The <strong>electroweak lift</strong> is not finished. The step from the substrate up to the weak and electromagnetic forces is set down as an interface of its own, not taken for granted.",
+     "<strong>Three generations landing as three families of particles in spacetime, and seven anonymous rows matching the fields of one Standard-Model generation plus the Higgs and the right-handed neutrino</strong>, together with staying on the branch that is physically real, are still interfaces.",
+     "The frozen PDF <strong>runs together</strong> the geometric response Λ_geo and the physical Λ_eff. The author’s own erratum says so.",
+     "The object’s <strong>four floors of states</strong> do not form a closed multiplication table. Any conclusion that stands only on that table is, for now, not derived.",
+     "<strong>Gravity and the gauge dynamics arriving together is the bet, not a finished derivation.</strong> The most basic piece of gravity is classified rather than rebuilt, and the substrate’s own massless spin-two excitation has not been constructed.",
+     "The <strong>Planck mass</strong> — the mass unit gravity itself sets — is kept as the unit, not derived. Every ratio in the theory is fixed before the ruler is handed over; the ruler only converts ratios into kilograms and seconds."
+    ],
+    "refs": [
+     [],
+     [
+      "E5"
+     ],
+     [
+      "E3"
+     ],
+     [
+      "E8"
+     ],
+     [
+      "E6"
+     ],
+     [
+      "E10"
+     ],
+     [
+      "E7",
+      "E11"
+     ],
+     []
+    ]
+   },
+   "inputs": {
+    "h3": "What went in",
+    "closed": "Continuous fitted parameters: 0. There is no dial here that turns continuously; the freedom that remains is discrete, and the next paragraph lists it. The object is fixed: four points, three states at each point, one coupling on all six links. Even the strength of that coupling cancels out of a ratio — and in the table above, every row that has a pull is a dimensionless number. Two rows are not: the sum of the three neutrino masses (Σ m_ν) and the effective mass for neutrinoless double-beta decay (m_ββ) are given in eV, so they carry an absolute mass scale that the cancellation argument does not cover. Anyone hunting for a hidden input should start with those two rows.",
+    "closed2": "Physical postulate: one — that such cells exist and can be joined into a lattice. Within the class it states for itself, the cell’s own shape is a theorem rather than an assumption: four points, three colours, the complete graph, one antiferromagnetic coupling. How wide that class is drawn is itself a review target. Beyond that, the theory asks for two things, and neither can be fine-tuned. A ruler, to say how big one unit of energy is: that is a unit, not a dial. And a few either/or choices — which way the computed structure is placed inside the Standard Model, which branch to follow, and which written rule each number is read by. Each choice is written down in the open; each can be swapped whole, but none can be nudged a little.",
+    "open": "Where a hidden choice could still be hiding. Is the list of allowed ways of reading a number off the object complete? Can the four floors of states combine freely, the way particles do, or can they only sit side by side? Is there one dictionary that works the same way in every part of the theory? On none of these does the machine check help: a certificate says the bookkeeping is clean, not that nature works this way. The sharpest question, in the author’s own words, is about the small second term that rides on top of the leading value. That one term is shared, word for word, by the Λ row, the m_b/m_s row, and a laboratory quantity that is not in the table — a small correction to the electromagnetic coupling. Is the sharing forced by the rules for reading, or do the rules leave room to choose which term to take? That is an open review target. And if a measured value turns out to have slipped into the input side of any row, that is the disproof: say which row, and where."
+   },
+   "submissions": {
+    "h3": "Where the papers stand",
+    "intro": "The monograph itself has not been submitted to a journal, is not peer reviewed, and is not on arXiv. Two papers carved out of it are with journals now: one at <em>Classical and Quantum Gravity</em> (CQG-116665, submitted 2026-07-15), awaiting referee reports; one at the <em>Journal of Geometry and Physics</em> (JGP13432, submitted 2026-07-21), under review.",
+    "underReview": "under review",
+    "awaiting": "awaiting referee reports",
+    "submittedOn": "submitted",
+    "noArxiv": "The monograph is not on arXiv.",
+    "defect": "The frozen v2.0 PDF has one known defect: its title page still prints the v1.0 version line, date and DOI, while the body and the checksum are v2.0. Recorded 2026-08-29; it belongs in the errata, appended, and the file is never quietly replaced.",
+    "records": [
+     [
+      "CQG-116665",
+      "Classical and Quantum Gravity",
+      "2026-07-15",
+      "awaiting"
+     ],
+     [
+      "JGP13432",
+      "Journal of Geometry and Physics",
+      "2026-07-21",
+      "underReview"
+     ]
+    ]
+   }
+  }
+ }
+}

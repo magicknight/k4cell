@@ -1,0 +1,109 @@
+/* ==================================================================== *
+ * THEME: instrument — the shipping palette of k4cell.com.
+ *
+ * A theme is ONE `:root{…}` block and nothing else. The build
+ * (scripts/lib/theme.mjs) lifts that block out of this file and
+ * concatenates it between src/assets/site-head.css and
+ * src/assets/site-body.css to make assets/site.css. Anything in this
+ * file outside the block must be a comment — including this one, which
+ * is NOT emitted; only the block below reaches the stylesheet.
+ *
+ * A theme may change values. It may not change the set of custom
+ * property NAMES: the server-rendered figures ask for --c1/2/3 and
+ * their -lt twins, --fig-bg/--fig-fg, --text*, --rule*, --alert, --cut,
+ * --paper-hi, --card, --accent, --link and --fact, and a name that
+ * disappears takes a drawing with it. scripts/check/themes.mjs refuses
+ * the build if any theme's name set differs from this file's.
+ *
+ * The four rules in site-head.css bind every theme:
+ *   1. one meaning per colour — --fact is a NUMBER, --link is the only
+ *      colour that means "click", --alert means "this is how the
+ *      framework dies" and is confined to #kill, --cut is the figures'
+ *      warm line and is not a warning;
+ *   2. the three evidence tiers stay hue-free (fill / hatch / dash), so
+ *      they survive greyscale and forced-colors;
+ *   3. every colour is a token — a hex outside this block fails the
+ *      build;
+ *   4. --col-read is a cap, not a wish.
+ * Two names that must not collide in hue: --fact (meaning "number") and
+ * --c2 (one of the three site colours). In this theme they still do;
+ * that is the fault a new theme is expected to fix.
+ * ==================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ground: five steps of a blue-black; nothing is pure black */
+  --bg-0:#080a0f; --bg-1:#0d1117; --bg-2:#121822; --bg-3:#18202c; --bg-kill:#04060b;
+  --panel: rgba(255,255,255,.035); --panel-2: rgba(255,255,255,.062);
+
+  /* hairlines: the page is drawn in one device pixel */
+  --hair: rgba(214,222,232,.14); --hair-2: rgba(214,222,232,.28); --hair-3: rgba(214,222,232,.46);
+
+  /* type on the ground */
+  --fg-0:#f3f5f8; --fg-1:#d3d9e1; --fg-2:#9aa5b3; --fg-3:#6f7a89;
+
+  /* ONE accent, and it means FACT: a digit, a pull, a score, the bet */
+  --fact:#ffc857; --fact-hi:#ffe1a1; --fact-dk:#d9a43a; --fact-glow: rgba(255,200,87,.15);
+
+  /* links get their own colour, so the accent never means "click" */
+  --link:#7cc3ff; --link-dk:#4aa3ea;
+
+  /* the warning colour. Allowed inside #kill and nowhere else. */
+  --alert:#ff6b57; --alert-lt:#ff9d8f;
+
+  /* the figures' warm line: a cut, a hole, a 3 sigma rule. Not a warning. */
+  --cut: var(--fact); --cut-lt: var(--fact-hi);
+
+  /* three site colours. They encode a colour class, never an evidence tier. */
+  --c1:#3ddbc0; --c2:#f2b544; --c3:#b39cff;
+  --c1-lt:#7fe9d6; --c2-lt:#f7cd81; --c3-lt:#cbbcff;
+  --c1-dk:#1d6f63; --c2-dk:#a8701a; --c3-dk:#5b4a9c;
+
+  /* the glyph: the collided pair is drawn in the FOREGROUND colour. Never
+     in the accent — the accent is spent on digits, not on decoration. */
+  --k-hit: var(--fg-0); --k-off: rgba(214,222,232,.22);
+
+  /* the only light on the page that is not type: three faint fields behind
+     the object, and the hatch that marks the conditional tier */
+  --orb-1: rgba(61,219,192,.16); --orb-2: rgba(179,156,255,.16); --orb-3: rgba(242,181,68,.12);
+  --hatch: rgba(214,226,240,.17);
+
+  /* names the server-rendered figures ask for, given dark values here so the
+     drawings themselves need no edit */
+  --fig-bg: var(--bg-2); --fig-fg: var(--fg-0);
+  --text: var(--fg-0); --text-2: var(--fg-1); --text-3: var(--fg-2);
+  --rule: var(--hair); --rule-2: var(--hair-2); --rule-3: var(--fg-3);
+  --paper-hi: var(--panel); --card: var(--panel);
+  --accent: var(--link); --accent-dk: var(--link-dk);
+  --ground: var(--bg-0);
+
+  /* type stacks — system only; the CSP forbids a linked font. The Chinese
+     serif is a preference, not a load-bearing one: most Linux and Android
+     readers fall back to a sans, so hierarchy is carried by size, weight,
+     tracking and measure instead. */
+  --han-serif: "Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
+  --han: "PingFang SC","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  /* Latin first for the English page. A CJK face renders U+2019 and U+201C/D
+     at full width, so with --han in front every apostrophe on that page came
+     out with a space inside it (author’ s). The CJK faces stay at the tail of
+     the stack for the two Han strings the English page does carry. */
+  --lat: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans","PingFang SC","Noto Sans CJK SC",sans-serif;
+  /* --sans is "the running stack of this page"; every rule below asks for it,
+     and only the two lines under :root decide which one it is. */
+  --sans: var(--han);
+  --fig: "Iowan Old Style",Palatino,"Palatino Linotype",Georgia,"Liberation Serif","Times New Roman",serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono","Noto Sans Mono CJK SC",monospace;
+
+  --t-display: clamp(1.8rem,3.2vw,2.85rem);
+  --t-title: clamp(1.5rem,2.8vw,2.3rem);
+  --t-ask: clamp(1.2rem,1.8vw,1.5rem);
+  --t-lead: 1.0625rem; --t-body: 1rem; --t-small: .875rem;
+  --t-micro: .8125rem; --t-nano: .6875rem;
+  --t-score: clamp(2.6rem,7vw,5rem);
+
+  --lh-tight: 1.14; --lh-head: 1.34; --lh-read: 1.85;
+  --col-read: 40rem;
+  --shell: min(100% - 2.5rem, 46rem);
+  --rail: 10rem;
+}

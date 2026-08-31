@@ -1,0 +1,175 @@
+/* ==================================================================== *
+ * THEME: lifted — A · lifted dark.
+ *
+ * Same register as `instrument`: a dark, hairline-drawn readout. Two
+ * faults of that palette are fixed here, and nothing else moves — the
+ * 21 non-colour names (type stacks, sizes, line heights, widths) are
+ * byte-identical to instrument.css, so a diff of the two themes is a
+ * diff of the colour decisions and of nothing else.
+ *
+ * FAULT 1 — the ground was effectively black (#080a0f), body text sat
+ * at 13.9:1 over a 31 694 px page, and every elevated surface was a
+ * step of nothing: --panel was rgba(255,255,255,.035) over near-black,
+ * a WCAG step of 1.065:1 and +9 in 8-bit. The framed-module device the
+ * direction is named for did not read. Here the ground is #12161c, the
+ * top of the range the brief allows, body text is 10.3:1, and every
+ * surface step is at least doubled.
+ *
+ * FAULT 2 — --fact (a NUMBER) and --c2 (a site colour) were 3.4 deg
+ * apart in OKLCH hue: one hue, two meanings. They are now 47 deg apart.
+ * WHICH ONE MOVED, and why: BOTH, in opposite directions, because the
+ * hue wheel of this page is full — --link owns blue, --alert owns red,
+ * --c1 owns teal, --c3 owns violet — and a 3.4 deg collision cannot be
+ * opened wide enough by moving only one of the pair without landing it
+ * on top of a third meaning.
+ *   --fact  82.7 -> 99.7 deg: out of Bitcoin/Binance amber and into a
+ *           pale lemon. It stays warm and stays BRIGHTER than --link
+ *           (OKLab L .879 vs .794), so "fact" and "click" cannot blur,
+ *           but it is no longer the saturated-gold-on-near-black that
+ *           every token landing page uses. The glow that completed that
+ *           look (--fact-glow) is cut from .15 to .07.
+ *   --c2    79.3 -> 52.7 deg: gold to orange. --c2 had to move too, and
+ *           orange is where it belongs: it puts the three site colours
+ *           at 115/119/126 deg apart (they were 99/115/146), which is
+ *           the widest three-way split available once --c3 is pinned by
+ *           the figures. --c2 is 25 deg from --alert, but the two never
+ *           share a screen: --c2 is drawn only in the hero glyph and the
+ *           81-state grid (y = 3 709 on the Chinese page), --alert only
+ *           inside #kill (y = 20 525), and check/structure.mjs fails the
+ *           build if --alert is reached for outside a kill-scoped rule.
+ *
+ * Measured in the browser on the built page (WCAG 2.x, sRGB; effective
+ * background composited through every ancestor, not assumed):
+ *   body    --fg-1  #bcc4d1  on the ground   10.33:1
+ *   accent  --fact  #ecd96b  on the ground   12.71:1
+ *   --text-3 (= --fg-2)      on the ground    7.03:1
+ *   dimmest text --fg-3      on the ground    5.90:1  (was 4.55:1)
+ *   --link  #7cc3ff          on the ground    9.60:1
+ * 38 representative elements were measured across both pages; the
+ * lowest is .d-ghost, the untested tail of the hero readout, at
+ * 4.74:1 on --panel. Nothing on the page is below 4.5:1.
+ * ==================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* GROUND. #12161c — the top of the #0d1117…#12151a range, and the
+     single decision this theme is named for. White on it is 18.15:1, so
+     there is room for a body text at 10:1 that is still comfortably past
+     AAA; over thirty screens that is the difference between reading and
+     staring into a lamp. Nothing here is black and nothing is pure grey:
+     the whole ramp keeps one hue (OKLCH ~258 deg) so the steps read as
+     elevation rather than as a colour change.
+     bg-kill goes DOWN, not up — the falsifier section is the one place
+     the page is allowed to get graver than the page. */
+  --bg-0:#12161c; --bg-1:#1a1f28; --bg-2:#1f2632; --bg-3:#28303c; --bg-kill:#0b0e13;
+
+  /* ELEVATION. The panel is the framed module: .inst (the hero readout
+     and the long-division panel), the eleven ledger rows, the six
+     falsifier cards, the five gap cards, the tier key, the checksum
+     block. instrument.css gave it a 1.065:1 step, which is nothing.
+     .09 alpha over this ground composites to #252930 — a 1.243:1 step,
+     +19 in 8-bit, twice the old one on a ground that is itself lighter.
+     Alpha rather than a flat hex on purpose: the same token then lifts
+     a card off #bg-kill by the same amount inside the kill section,
+     where a hex tuned to the page ground would sink. */
+  --panel: rgba(226,236,252,.09); --panel-2: rgba(226,236,252,.17);
+
+  /* HAIRLINES. The page is drawn in one device pixel; a lighter ground
+     eats a hairline, so each of the three is raised (.14/.28/.46 ->
+     .17/.33/.52) to hold the same drawn weight it had on near-black. */
+  --hair: rgba(200,214,232,.17); --hair-2: rgba(200,214,232,.33); --hair-3: rgba(200,214,232,.52);
+
+  /* TYPE ON THE GROUND. fg-1 is the body: 10.33:1, the number this
+     theme was asked to hit. fg-0 (headings, the closed-tier chip, the
+     primary button) is 15.41:1 rather than 18:1 — a heading does not
+     need to be paper-white to out-rank a body line. fg-3 is the dimmest
+     text on the page (small print, the ghost section numerals, the
+     status line) and it was the real accessibility risk: 4.55:1 in
+     instrument, i.e. one rounding away from failing. Here it is 5.90:1
+     on the ground and never below 4.75:1 on any surface it lands on. */
+  --fg-0:#e7edf5; --fg-1:#bcc4d1; --fg-2:#98a2b1; --fg-3:#8a94a1;
+
+  /* ONE accent, and it means FACT: a digit, a pull, a score, the bet.
+     Pale lemon, OKLCH L .879 C .132 H 99.7 — warm, brighter than
+     --link, 47 deg off --c2 and 72 deg off --alert. --fact-hi is the
+     worst pull bar (brighter, never red: the worst row prints in the
+     same colour as the best one). --fact-glow is the bloom under the
+     hero digits; it is the last piece of the crypto-poster look, so it
+     is a whisper rather than a halo. */
+  --fact:#ecd96b; --fact-hi:#f7ecab; --fact-dk:#b09b34; --fact-glow: rgba(236,217,107,.07);
+
+  /* links keep their own colour, so the accent never means "click" */
+  --link:#7cc3ff; --link-dk:#4aa3ea;
+
+  /* the warning colour. Allowed inside #kill and nowhere else. Pushed
+     from 30.1 to 27.9 deg and deepened: "this is how the framework
+     dies" should read red, not coral, now that --c2 owns orange. */
+  --alert:#ff5f52; --alert-lt:#ff9d90;
+
+  /* the figures' warm line: a cut, a hole, a 3 sigma rule. Not a
+     warning. Bound to --fact, as in instrument: the cut marks where a
+     number stops being known, which is the accent's own meaning seen
+     from the side. --c2 never appears in a figure, so moving --fact
+     here costs nothing. */
+  --cut: var(--fact); --cut-lt: var(--fact-hi);
+
+  /* three site colours. They encode a colour class, never an evidence
+     tier. c1 and c3 are unchanged; c2 is the one that moved. Mutual
+     OKLCH separation 115 / 119 / 126 deg — the widest split available,
+     since --c3 is pinned (the figures draw the conditional tier in it)
+     and --c1 would collide with --link if pushed cool.
+     They are 8.8-10.5:1 on the ground, so a 3.4-unit dot in the 81-state
+     grid is a mark, not a smudge, at every size the grid is rendered. */
+  --c1:#3ddbc0; --c2:#ff9d5c; --c3:#b39cff;
+  --c1-lt:#7fe9d6; --c2-lt:#ffc194; --c3-lt:#cbbcff;
+  --c1-dk:#1d6f63; --c2-dk:#a85c22; --c3-dk:#5b4a9c;
+
+  /* the glyph: the collided pair is drawn in the FOREGROUND colour. Never
+     in the accent — the accent is spent on digits, not on decoration. */
+  --k-hit: var(--fg-0); --k-off: rgba(200,214,232,.24);
+
+  /* the only light on the page that is not type: three faint fields behind
+     the object, and the hatch that marks the conditional tier.
+     The orb alphas are CUT (.16/.16/.12 -> .10/.11/.075): a tint that
+     read as a faint glow over near-black reads as a colour cast over a
+     lifted ground, and the teal and orange fields were crossing into
+     olive behind the tetrahedron. The hatch goes the other way,
+     .17 -> .22: a lighter ground swallows it, and the conditional tier
+     has no hue to fall back on. */
+  --orb-1: rgba(61,219,192,.10); --orb-2: rgba(179,156,255,.11); --orb-3: rgba(255,157,92,.075);
+  --hatch: rgba(214,226,240,.22);
+
+  /* names the server-rendered figures ask for. --fig-bg is what a hollow
+     marker is filled with (the i-figure's hop bubbles, the route's
+     conditional nodes); at bg-2 it is a 1.19:1 step above the page, so a
+     hollow node reads as a chip sitting on the line rather than as a hole
+     punched in it. */
+  --fig-bg: var(--bg-2); --fig-fg: var(--fg-0);
+  --text: var(--fg-0); --text-2: var(--fg-1); --text-3: var(--fg-2);
+  --rule: var(--hair); --rule-2: var(--hair-2); --rule-3: var(--fg-3);
+  --paper-hi: var(--panel); --card: var(--panel);
+  --accent: var(--link); --accent-dk: var(--link-dk);
+  --ground: var(--bg-0);
+
+  /* type stacks — system only; the CSP forbids a linked font. Identical
+     to instrument.css: a palette pass has no business moving type. */
+  --han-serif: "Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
+  --han: "PingFang SC","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  --lat: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans","PingFang SC","Noto Sans CJK SC",sans-serif;
+  --sans: var(--han);
+  --fig: "Iowan Old Style",Palatino,"Palatino Linotype",Georgia,"Liberation Serif","Times New Roman",serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono","Noto Sans Mono CJK SC",monospace;
+
+  --t-display: clamp(1.8rem,3.2vw,2.85rem);
+  --t-title: clamp(1.5rem,2.8vw,2.3rem);
+  --t-ask: clamp(1.2rem,1.8vw,1.5rem);
+  --t-lead: 1.0625rem; --t-body: 1rem; --t-small: .875rem;
+  --t-micro: .8125rem; --t-nano: .6875rem;
+  --t-score: clamp(2.6rem,7vw,5rem);
+
+  --lh-tight: 1.14; --lh-head: 1.34; --lh-read: 1.85;
+  --col-read: 40rem;
+  --shell: min(100% - 2.5rem, 46rem);
+  --rail: 10rem;
+}
