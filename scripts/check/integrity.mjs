@@ -18,8 +18,9 @@ import {
   both, checksumText, chinese, decks, english, files, founderFingerprint, founderFingerprintV2,
   founderPublicKey, founderPublicKeyV2, founderTestPayload, founderTestPayloadPath,
   founderTestSignature, founderTestSignaturePath, headers, hexless, ledger, noticeEn, noticeZh,
-  officialPage, officialPayload, officialPayloadPath, officialSignature, officialSignaturePath,
-  notFoundPage, officialStatus, publicationReceipt, robots, cname, rootPage, searchable, season, site, status,
+  observabilityInventory, officialPage, officialPayload, officialPayloadPath, officialSignature,
+  officialSignaturePath, notFoundPage, officialStatus, predictionPage, predictionPublicationReceipt,
+  predictionRegistry, publicationReceipt, robots, cname, rootPage, searchable, season, site, status,
   textOf, css,
 } from "./common.mjs";
 
@@ -241,7 +242,7 @@ for (const [name, page] of [["index.html", rootPage], ["404.html", notFoundPage]
     `${name}: this page is bilingual and must mark its Chinese`);
 }
 
-for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage]) {
+for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage, predictionPage]) {
   assert.doesNotMatch(page, /<script(?![^>]*\bsrc=)/i, "no inline script (CSP forbids it)");
   assert.doesNotMatch(page, /<style\b/i, "no inline style element (CSP forbids it)");
   assert.doesNotMatch(page, /\sstyle="/i, "no inline style attribute (CSP forbids it)");
@@ -257,6 +258,31 @@ assert.equal(status.science.full_scientific_reproduction_package, "OPEN");
 assert.equal(status.science.public_review_pdf_sha256, ledger.artifact.sha256);
 assert.equal(status.science.carved_submissions.length, 2);
 assert.equal(status.public_science.season, "NOT_STARTED");
+assert.equal(status.public_science.protocol, "REVISION_IN_PROGRESS_D0076");
+assert.equal(status.public_science.scientific_validation.public_participation_direct_weight, 0);
+assert.equal(status.public_science.scientific_validation.prediction_registry,
+  "FOUNDATION_PASS / ENTRIES_0 / PREREGISTERED_0");
+assert.equal(status.public_science.scientific_validation.prediction_registry_path, "/predictions/");
+assert.equal(status.public_science.scientific_validation.prediction_registry_publication,
+  "PASS@6fae08691052224efb35a359b2e31377f1d42223");
+assert.equal(status.public_science.scientific_validation.prediction_registry_receipt_path,
+  "/predictions/PUBLICATION_RECEIPT_v0.1.json");
+assert.deepEqual(status.public_science.scientific_validation.observability_inventory, {
+  scope: "PUBLIC_LEDGER_11_ROWS_ONLY",
+  retrospective: 11,
+  prediction_candidate: 0,
+  not_yet_observable: 0,
+  registry_eligible: 0,
+  global_k4_coverage: false,
+  paper_level_inventory: "OPEN",
+});
+assert.deepEqual(status.public_science.public_communication.purpose,
+  ["COMMUNICATION", "RESEARCH_SUPPORT", "SEPARATE_SPECULATIVE_DEMAND"]);
+assert.equal(status.public_science.public_communication.cards, "12_DRAFT");
+assert.equal(status.public_science.public_communication.campaign, "NOT_STARTED");
+assert.equal(status.public_science.public_communication.payment_or_wallet_collection_authorized, false);
+assert.match(status.public_science.start_gate.twelve_card_and_metrics_hash_freeze,
+  /^SUPERSEDED_BY_D0076/);
 assert.match(status.public_science.start_gate.public_review_status_sync, /^PASS@f739333/);
 assert.equal(status.public_science.start_gate.founder_signed_no_official_mint, "PASS");
 assert.equal(status.public_science.start_gate.canonical_https_source_graph,
@@ -306,6 +332,32 @@ assert.equal(publicationReceipt.verification.validsig_primary_fingerprint,
   "C74953F60AD573F54A3FD06C72213914E4860F47");
 assert.equal(publicationReceipt.launch_boundary.official_mint, null);
 assert.equal(publicationReceipt.launch_boundary.mainnet_authorized, false);
+
+/* ---- the signed prediction registry ---- *
+   The registry is published EMPTY on purpose: every public-ledger row is
+   retrospective, so none of them may be re-dressed as a prediction. These
+   gates are what stops the empty state from quietly filling in. */
+assert.equal(predictionRegistry.artifact_status, "OPEN_EMPTY_REGISTRY");
+assert.deepEqual(predictionRegistry.entries, []);
+assert.equal(predictionRegistry.official_mint, null);
+assert.equal(predictionRegistry.mainnet_authorized, false);
+assert.equal(observabilityInventory.scope.total_rows, 11);
+assert.equal(observabilityInventory.scope.global_k4_coverage, false);
+assert.equal(observabilityInventory.summary.retrospective, 11);
+assert.equal(observabilityInventory.summary.prediction_candidate, 0);
+assert.equal(observabilityInventory.summary.registry_eligible, 0);
+assert.ok(observabilityInventory.claims.every((claim) =>
+  claim.classification === "RETROSPECTIVE" && claim.registry_eligible === false));
+assert.match(predictionPage, /Preregistered predictions: zero/);
+assert.match(predictionPage, /预注册预测：零/);
+assert.match(predictionPage, /public attention, funding support and token interest have zero direct/i);
+assert.equal(predictionPublicationReceipt.live_validation.program_valid, true);
+assert.equal(predictionPublicationReceipt.live_validation.registry_entries, 0);
+assert.equal(predictionPublicationReceipt.live_validation.preregistered_predictions, 0);
+assert.equal(predictionPublicationReceipt.live_validation.retrospective_claims, 11);
+assert.equal(predictionPublicationReceipt.live_validation.python_bytecode_public, false);
+assert.equal(predictionPublicationReceipt.epistemic_boundary.official_mint, null);
+assert.equal(predictionPublicationReceipt.epistemic_boundary.mainnet_authorized, false);
 assert.equal(officialStatus.openpgp.payload_sha256,
   createHash("sha256").update(officialPayload).digest("hex"));
 assert.equal(officialStatus.openpgp.signature_sha256,
@@ -351,6 +403,26 @@ try {
 } finally {
   await rm(verificationHome, { recursive: true, force: true });
 }
+
+/* Cold-run the exact dependency-free registry validator and semantic tests that
+   the static site publishes. A copied JSON artifact is not accepted merely
+   because Node can parse it. */
+const { stdout: predictionValidationText } = await execFileAsync("python3", [
+  "-B", join(site, "predictions", "validate_prediction_registry.py"),
+]);
+const predictionValidation = JSON.parse(predictionValidationText);
+assert.equal(predictionValidation.valid, true);
+assert.equal(predictionValidation.registry.registry_state, "EMPTY");
+assert.equal(predictionValidation.registry.preregistered_or_later_count, 0);
+assert.equal(predictionValidation.inventory.claim_count, 11);
+assert.equal(predictionValidation.inventory.classification_counts.RETROSPECTIVE, 11);
+assert.equal(predictionValidation.inventory.registry_eligible_count, 0);
+await execFileAsync("python3", [
+  "-B", "-m", "unittest", "discover",
+  "-s", join(site, "predictions"),
+  "-p", "test_prediction_registry.py",
+]);
+
 assert.equal(status.k4v.launched, false);
 assert.equal(status.k4v.official_mint, null);
 assert.equal(status.k4v.mainnet_authorized, false);
@@ -377,14 +449,16 @@ assert.equal(
 
 /* ---- every class the hand-written and notice pages use is styled ---- */
 
-/* official-k4v/index.html is hand-written and links ../assets/site.css; the
-   notice pages are templated but share the same small vocabulary. A stylesheet
-   rewrite that dropped one of these names would leave the Founder attestation
-   page unstyled with nothing failing, so every class they use must be a
-   selector in the shipped stylesheet. */
+/* official-k4v/index.html and predictions/index.html are hand-written and link
+   ../assets/site.css; the notice pages are templated but share the same small
+   vocabulary. A stylesheet rewrite that dropped one of these names would leave
+   the Founder attestation page or the prediction registry unstyled with nothing
+   failing, so every class they use must be a selector in the shipped
+   stylesheet. */
 const styledClasses = new Set(
   [...css.replace(/\/\*[\s\S]*?\*\//g, "").matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)].map((m) => m[1]));
-for (const [name, page] of [["official-k4v", officialPage], ["notice-en", noticeEn], ["notice-zh", noticeZh]]) {
+for (const [name, page] of [["official-k4v", officialPage], ["predictions", predictionPage],
+  ["notice-en", noticeEn], ["notice-zh", noticeZh]]) {
   const used = new Set([...page.matchAll(/class="([^"]*)"/g)].flatMap((m) => m[1].split(/\s+/)).filter(Boolean));
   for (const cls of used) {
     assert.ok(styledClasses.has(cls), `${name}: class "${cls}" is used but site.css styles no .${cls}`);

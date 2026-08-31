@@ -31,12 +31,23 @@ export const required = [
   "provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt",
   "provenance/tests/SERVER_SIGNING_SUBKEY_TEST_v1.txt.asc",
   "provenance/tests/VERIFICATION.md",
+  "provenance/SCIENCE_VALIDATION_PUBLIC_COMMUNICATION_BOUNDARY_v1.md",
   "official-k4v/index.html",
   "official-k4v/official-k4v.v1.json",
   "official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt",
   "official-k4v/K4V_NO_OFFICIAL_MINT_ATTESTATION_v1.txt.asc",
   "official-k4v/VERIFY.md",
   "official-k4v/PUBLICATION_RECEIPT_v1.json",
+  "predictions/index.html",
+  "predictions/README.md",
+  "predictions/schemas/k4_prediction_registry.schema.json",
+  "predictions/schemas/k4_claim_observability_inventory.schema.json",
+  "predictions/config/K4_PREDICTION_REGISTRY_v0.1.json",
+  "predictions/config/K4_CLAIM_OBSERVABILITY_INVENTORY_v0.1.json",
+  "predictions/validate_prediction_registry.py",
+  "predictions/test_prediction_registry.py",
+  "predictions/evidence/snapshots/K4CELL_LEDGER_5ac0ca2.json",
+  "predictions/PUBLICATION_RECEIPT_v0.1.json",
   "status.json",
   "ledger.json",
   "season-01.json",
@@ -79,6 +90,10 @@ export const officialSignaturePath = `${officialPayloadPath}.asc`;
 export const officialPayload = await readFile(officialPayloadPath);
 export const officialSignature = await readFile(officialSignaturePath);
 export const publicationReceipt = JSON.parse(await readFile(join(site, "official-k4v", "PUBLICATION_RECEIPT_v1.json"), "utf8"));
+export const predictionPage = await readFile(join(site, "predictions", "index.html"), "utf8");
+export const predictionRegistry = JSON.parse(await readFile(join(site, "predictions", "config", "K4_PREDICTION_REGISTRY_v0.1.json"), "utf8"));
+export const observabilityInventory = JSON.parse(await readFile(join(site, "predictions", "config", "K4_CLAIM_OBSERVABILITY_INVENTORY_v0.1.json"), "utf8"));
+export const predictionPublicationReceipt = JSON.parse(await readFile(join(site, "predictions", "PUBLICATION_RECEIPT_v0.1.json"), "utf8"));
 
 export const both = `${english}\n${chinese}`;
 

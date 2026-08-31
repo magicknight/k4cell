@@ -39,7 +39,9 @@ import {
   listOverrides, listThemes, outsideRootBlock, readOverrides, readTheme, rootBlockOf,
 } from "../lib/theme.mjs";
 import { srcAssets } from "../lib/paths.mjs";
-import { chinese, css, english, noticeEn, noticeZh, notFoundPage, officialPage, rootPage } from "./common.mjs";
+import {
+  chinese, css, english, noticeEn, noticeZh, notFoundPage, officialPage, predictionPage, rootPage,
+} from "./common.mjs";
 
 /* A declaration head: after `{`, `;` or a newline, so a `--name:` written
    inside a value string is not mistaken for one. */
@@ -171,21 +173,26 @@ for (const [name, page] of [["index.html", rootPage], ["en/index.html", english]
     `${name} must carry exactly one <meta name="theme-color"> and it must be the palette's ${GROUND_TOKEN} (${ground}); it carries ${JSON.stringify(themeColorOf(page))}`);
 }
 
-/* official-k4v/index.html is hand-written and copied byte for byte — no
-   template reaches it, which is exactly how it kept a dark ground's
-   theme-color through a palette change until this gate was written. Because
-   the byte-for-byte copy is the point, it cannot track the theme a PREVIEW is
-   built with; it is pinned to the SHIPPING palette instead. That is still the
-   assertion that matters: the failure this catches is a palette swap that
-   leaves the frozen page painted for the ground the site no longer has, and
-   changing DEFAULT_THEME without re-inking it fails here. Tying it to the
+/* official-k4v/index.html and predictions/index.html are hand-written and
+   copied byte for byte — no template reaches them, which is exactly how the
+   attestation page kept a dark ground's theme-color through a palette change
+   until this gate was written, and how the prediction registry arrived
+   carrying #080a0f (the retired `instrument` ground) on a light site. Because
+   the byte-for-byte copy is the point, they cannot track the theme a PREVIEW
+   is built with; they are pinned to the SHIPPING palette instead. That is
+   still the assertion that matters: the failure this catches is a palette swap
+   that leaves a frozen page painted for the ground the site no longer has, and
+   changing DEFAULT_THEME without re-inking them fails here. Tying it to the
    emitted theme instead would make `npm run preview` build two palettes that
    cannot pass their own check. */
 const shippingGround = await groundOf(DEFAULT_THEME);
-assert.deepEqual(themeColorOf(officialPage), [shippingGround],
-  `official-k4v/index.html is hand-written and copied byte for byte, so it carries its `
-  + `<meta name="theme-color"> as a literal: it must be the SHIPPING palette's ${GROUND_TOKEN} `
-  + `(themes/${DEFAULT_THEME}.css, ${shippingGround}); it carries ${JSON.stringify(themeColorOf(officialPage))}`);
+for (const [name, page] of [["official-k4v/index.html", officialPage],
+  ["predictions/index.html", predictionPage]]) {
+  assert.deepEqual(themeColorOf(page), [shippingGround],
+    `${name} is hand-written and copied byte for byte, so it carries its `
+    + `<meta name="theme-color"> as a literal: it must be the SHIPPING palette's ${GROUND_TOKEN} `
+    + `(themes/${DEFAULT_THEME}.css, ${shippingGround}); it carries ${JSON.stringify(themeColorOf(page))}`);
+}
 
 /* ---- the tab icon is inked from the same palette ----
    favicon.svg is the one drawing on this site that carries its colours as

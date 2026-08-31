@@ -3,17 +3,18 @@ import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { ledger } from "./data.mjs";
-import { officialK4vDir, provenanceDir, seasonManifest, srcAssets } from "./paths.mjs";
+import { officialK4vDir, predictionsDir, provenanceDir, seasonManifest, srcAssets } from "./paths.mjs";
 import { status } from "./status.mjs";
 import { DEFAULT_THEME, composeStylesheet, themeSourceNames } from "./theme.mjs";
 
 /* ------------------------------------------------------------------ *
  * Emit: everything that lands in the output directory that is not a   *
- * rendered page. The frozen evidence (provenance/, official-k4v/) and  *
- * the assets are copied byte for byte; the manifest is written last.  *
+ * rendered page. The frozen evidence (provenance/, official-k4v/,      *
+ * predictions/) and the assets are copied byte for byte; the manifest  *
+ * is written last.                                                     *
  * ------------------------------------------------------------------ */
 
-export const SITEMAP_PATHS = ["", "en/", "zh/", "en/notice/", "zh/notice/", "official-k4v/"];
+export const SITEMAP_PATHS = ["", "en/", "zh/", "en/notice/", "zh/notice/", "official-k4v/", "predictions/"];
 
 export const sitemapFor = (paths, lastmod) => `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -62,6 +63,12 @@ export const prepareOut = async (out, stylesheet) => {
   await writeFile(join(out, "assets", "site.css"), stylesheet);
   await cp(provenanceDir, join(out, "provenance"), { recursive: true });
   await cp(officialK4vDir, join(out, "official-k4v"), { recursive: true });
+  /* The signed prediction registry is published bytes: the page, the two
+     configs, their schemas, the frozen ledger snapshot, the receipt and the
+     author's own validators. It is copied, never generated and never
+     reformatted — a rebuild that dropped it would delete a live section of
+     the site. */
+  await cp(predictionsDir, join(out, "predictions"), { recursive: true });
 };
 
 /* The machine-readable and transport files. */
