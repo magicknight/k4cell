@@ -104,7 +104,7 @@ export const renderHero = (copy) => {
 <figure class="hero-ruler inst" aria-label="${esc(copy.hero.rulerAlt)}">
 <p class="inst-lab">${sym(copy.hero.rulerLabel)}</p>
 ${ruler(heroRow, copy, { hero: true })}
-<figcaption class="hero-tier">${tagChips(copy, heroTiers)}<span class="hero-tier-t">${esc(chip)}</span><a class="hero-tier-l" href="#l-${heroRow.id}">${esc(rowLabel)}</a></figcaption>
+<figcaption class="hero-tier">${tagChips(copy, heroTiers)}<span class="hero-tier-t">${esc(chip)}</span><a class="hero-tier-l" href="#l-${heroRow.id}">${esc(rowLabel)}</a><a class="hero-tier-l" href="${links.predictions}">${esc(copy.hero.registryLink)}</a></figcaption>
 </figure>
 <p class="hero-bet"><strong>${esc(copy.hero.bet)}</strong><span>${esc(copy.hero.betNote)}</span></p>
 <div class="hero-actions">${actions}</div>
@@ -364,6 +364,7 @@ ${sigmaFigure(copy)}
 <div class="lgrid">${bounds}</div>
 <p class="noscore">${esc(L.noScore)}</p>
 <p class="lane-note">${esc(L.censusNote)} <a href="${links.pdf}">${esc(L.censusAuthority)}</a></p>
+<p class="lane-note registry-note">${esc(L.registryNote)} <a href="${links.predictions}">${esc(L.registryLink)}</a></p>
 <p class="lane-note">${esc(L.measuredNote)}</p>`);
 };
 
@@ -396,6 +397,7 @@ ${card.check ? `<details class="kcheck"><summary>${esc(k.checkLabel)}</summary><
 
   return sec("kill", "sec-kill", k.number, k.kicker, `<h2>${esc(k.h2)}</h2>
 <p class="lede">${esc(k.intro)}</p>
+<p class="registry-note kill-registry">${esc(k.registryStatus)} <a href="${links.predictions}">${esc(k.registryLink)}</a></p>
 <div class="kgrid">${cards}</div>
 <div class="kmore"><h3>${esc(k.moreTitle)}</h3><ul>${more}</ul></div>
 <div class="gradekey"><p class="gradeintro">${esc(k.gradeIntro)}</p>${gradekey}</div>

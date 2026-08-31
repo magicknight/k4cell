@@ -41,6 +41,7 @@ import {
 import { srcAssets } from "../lib/paths.mjs";
 import {
   chinese, css, english, noticeEn, noticeZh, notFoundPage, officialPage, predictionPage, rootPage,
+  supportPage,
 } from "./common.mjs";
 
 /* A declaration head: after `{`, `;` or a newline, so a `--name:` written
@@ -187,7 +188,7 @@ for (const [name, page] of [["index.html", rootPage], ["en/index.html", english]
    cannot pass their own check. */
 const shippingGround = await groundOf(DEFAULT_THEME);
 for (const [name, page] of [["official-k4v/index.html", officialPage],
-  ["predictions/index.html", predictionPage]]) {
+  ["predictions/index.html", predictionPage], ["support/index.html", supportPage]]) {
   assert.deepEqual(themeColorOf(page), [shippingGround],
     `${name} is hand-written and copied byte for byte, so it carries its `
     + `<meta name="theme-color"> as a literal: it must be the SHIPPING palette's ${GROUND_TOKEN} `

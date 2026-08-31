@@ -87,6 +87,9 @@ def check_static(page, path: str, language: str) -> None:
     assert computed.locator(".d-lit").count() == 8, "the hero lights the 8 resolved computed digits"
     assert measured.locator(".d-lit").count() == 8, "the hero lights the 8 resolved measured digits"
     assert computed.locator(".d-ghost").count() == 7, "seven digits wait to be checked"
+    assert page.locator('.hero-tier a[href="../predictions/"]').count() == 1
+    assert page.locator('.hero-actions a[href="../support/"]').count() == 1
+    assert page.locator(".kill-registry").count() == 1
 
     body = page.locator("body").inner_text()
     for number in NUMBERS:
@@ -269,6 +272,22 @@ def check_notice(page, path: str) -> None:
     assert "K4V" in body
 
 
+def check_support(page) -> None:
+    response = page.goto(urljoin(BASE, "support/"), wait_until="load")
+    assert response and response.ok, response.status if response else None
+    body = page.locator("body").inner_text()
+    assert "Back the attempt to derive nature from four points" in body
+    assert "支持一次从四个点推导自然的尝试" in body
+    assert "Strategic investment conversation" in body
+    assert "CONTACT ONLY" in body
+    assert "No payment wallet is active" in body
+    assert page.locator("form").count() == 0
+    assert page.locator('a[href^="mailto:zhihua@k4cell.com?subject="]').count() == 1
+    assert page.evaluate(
+        "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
+    ), "support/: horizontal overflow"
+
+
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=True)
 
@@ -284,6 +303,7 @@ with sync_playwright() as playwright:
     check_live(desktop.new_page(), "zh/", "zh-Hans", "k4cell-zh-desktop.png")
     check_notice(desktop.new_page(), "en/notice/")
     check_notice(desktop.new_page(), "zh/notice/")
+    check_support(desktop.new_page())
     desktop.close()
 
     mobile = browser.new_context(
@@ -302,6 +322,7 @@ with sync_playwright() as playwright:
     )
     check_widths(sweep.new_page(), "en/")
     check_widths(sweep.new_page(), "zh/")
+    check_widths(sweep.new_page(), "support/")
     sweep.close()
     browser.close()
 

@@ -1,0 +1,32 @@
+{
+  "schema": "K4CELL-SUPPORT-STATUS-v0.1",
+  "recorded_at_utc": "2026-08-31T10:34:41Z",
+  "state": "CONTACT_ONLY",
+  "purpose": [
+    "RESEARCH_PATRONAGE",
+    "INSTITUTIONAL_SPONSORSHIP",
+    "STRATEGIC_INVESTMENT_CONVERSATION",
+    "SEPARATE_FUTURE_K4V_INTEREST"
+  ],
+  "active_contact": "zhihua@k4cell.com",
+  "roadmap_path": "/support/#roadmap",
+  "payment_acceptance_started": false,
+  "payment_wallet": null,
+  "donation_return_promise": false,
+  "equity_offering": false,
+  "securities_offering": false,
+  "token_offering": false,
+  "token_rights_from_contact": false,
+  "k4v": {
+    "launched": false,
+    "official_mint": null,
+    "presale": null,
+    "whitelist": null,
+    "mainnet_authorized": false
+  },
+  "scientific_boundary": {
+    "funding_direct_weight_in_scientific_verdict": 0,
+    "supporter_scientific_authority": false,
+    "claims_remain_subject_to_peer_review_and_experiment": true
+  }
+}

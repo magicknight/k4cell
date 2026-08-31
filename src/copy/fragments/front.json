@@ -8,7 +8,7 @@
   "navLabel": "主导航",
   "footerNavLabel": "页脚导航",
   "title": "一个只有四个点的对象——K4 单元框架",
-  "description": "一个只有四个点的有限量子对象，零个连续拟合参数，十一个“为什么”。μ 子和电子的质量比算到第 15 位，实验检验到第 8 位。每一条主张带着它的证据等级。未经同行评议，公开评阅中。",
+  "description": "一个只有四个点的有限量子对象，零个连续拟合参数，十一个“为什么”。它给出一个 15 位的 μ 子—电子质量比候选值；现有实验分辨到 8 位，8 位一致。这是回顾性对照，不是预注册预测。未经同行评议，公开评阅中。",
   "nav": [
    [
     "object",
@@ -33,30 +33,31 @@
   ],
   "brand": {
    "name": "K4 单元",
-   "tagline": "一个只有四个点的对象 · 公开评阅中"
+   "tagline": "从四个点，到自然界的常数"
   },
   "hero": {
    "eyebrow": "K4 单元 · 公开评阅中",
-   "h1a": "一个只有四个点的对象，把 μ 子和电子的质量比算到了第 15 位。",
-   "h1b": "实验只能检验前 8 位。前 8 位全对。",
-   "sub": "标准模型没有错。它只是还没被算出来。",
+   "h1a": "一个四点对象，给出了 μ 子—电子质量比的 15 位数值。",
+   "h1b": "实验目前能分辨 8 位；8 位全部一致。",
+   "sub": "标准模型把这些数作为输入。K4 的目标，是让它们成为几何的必然。",
    "rulerLabel": "m_μ/m_e · 算出的值与实测值，逐位对照",
    "rulerComputed": "算出",
    "rulerMeasured": "实测",
    "rulerCut": "实验分辨到此为止 · 第 {n} 位",
    "rulerGhost": "等着被检验的位",
    "rulerAlt": "逐位对照图。m_μ/m_e 的算出值是 206.768282688691，共 15 位有效数字。实测值 206.7682827 只分辨到第 8 位。前 8 位全部相同；越过分界线还有 7 位，等着被检验。",
-   "tierChip": "条件性 · 依赖一条作者自己列为开放的接口",
+   "tierChip": "条件性 · 回顾性对照",
+   "registryLink": "预测注册 · 0 项预注册",
    "bet": "如果中微子的质量顺序测出来是倒的，这一页就作废。",
-   "betNote": "JUNO 正在测。Hyper-K、DUNE 随后。",
+   "betNote": "JUNO 已在运行；Hyper-K 目标 2028；DUNE 首台远端探测器目标 2029、束流目标 2031。",
    "actions": [
     [
      "看这个对象",
      "#object"
     ],
     [
-     "怎么证伪",
-     "#kill"
+     "支持这项工作",
+     "../support/"
     ]
    ],
    "byline": [
@@ -206,7 +207,7 @@
   "navLabel": "Primary navigation",
   "footerNavLabel": "Footer navigation",
   "title": "An object with only four points — K4 Cell Framework",
-  "description": "One four-point quantum object, zero continuous fitted parameters, eleven whys. m_μ/m_e computed to 15 digits, checked to 8. Claims tiered. Not peer reviewed.",
+  "description": "One four-point quantum object, zero continuous fitted parameters, eleven whys. It produces a 15-digit candidate value for m_μ/m_e; experiment resolves 8 digits and all 8 agree. A retrospective comparison, not a preregistered prediction. Not peer reviewed.",
   "nav": [
    [
     "object",
@@ -231,30 +232,31 @@
   ],
   "brand": {
    "name": "K4 Cell",
-   "tagline": "An object with only four points · under public review"
+   "tagline": "From four points to nature’s constants"
   },
   "hero": {
    "eyebrow": "K4 Cell · under public review",
-   "h1a": "An object with only four points computes the muon-to-electron mass ratio to 15 digits.",
-   "h1b": "Experiment can check only the first 8. All 8 agree.",
-   "sub": "The Standard Model is not wrong. It has simply not been computed yet.",
+   "h1a": "A four-point object yields a 15-digit value for the muon-to-electron mass ratio.",
+   "h1b": "Experiment currently resolves 8 digits. All 8 agree.",
+   "sub": "The Standard Model takes these numbers as inputs. K4 aims to make them consequences of geometry.",
    "rulerLabel": "m_μ/m_e · computed against measured, digit by digit",
    "rulerComputed": "computed",
    "rulerMeasured": "measured",
    "rulerCut": "measurement stops resolving here · digit {n}",
    "rulerGhost": "digits waiting to be checked",
    "rulerAlt": "Digit-by-digit comparison. The computed m_μ/m_e is 206.768282688691, fifteen significant digits. The measured value, 206.7682827, resolves only the first 8. All 8 agree; seven more digits lie past the cut, waiting to be checked.",
-   "tierChip": "Conditional · rides on an interface the author himself lists as open",
+   "tierChip": "Conditional · retrospective comparison",
+   "registryLink": "Prediction Registry · 0 preregistered",
    "bet": "If the neutrino mass ordering turns out to be inverted, this page is void.",
-   "betNote": "JUNO is measuring it now. Hyper-K and DUNE follow.",
+   "betNote": "JUNO is running; Hyper-K targets 2028; DUNE targets 2029 for its first far detector and 2031 for beam.",
    "actions": [
     [
      "See the object",
      "#object"
     ],
     [
-     "How to kill it",
-     "#kill"
+     "Support the work",
+     "../support/"
     ]
    ],
    "byline": [

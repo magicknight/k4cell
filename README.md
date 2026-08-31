@@ -5,13 +5,14 @@
 > Scientific state: `CANDIDATE RESEARCH PROGRAM / NOT PEER REVIEWED / FULL PHYSICAL REALIZATION OPEN`
 
 The bilingual public surface for the K4 Cell Framework. Its job is to put one
-checkable, falsifiable, parameter-free comparison in front of a reader inside ten
-seconds, and to attach to every number the evidence state, the open interface, and
-the route by which the reader can attack it.
+beautiful, checkable, parameter-free comparison in front of a reader inside ten
+seconds, then open three durable paths: the papers, the Prediction Registry, and
+support for the research programme.
 
-The page is built around a ledger, not around a pitch. It runs the object
-before the numbers, the numbers before the classification, and it never puts a
-caveat in front of the idea it qualifies:
+The page is built around one object and a public ledger. Discovery leads;
+validation stays attached to the claim it qualifies. The object comes before
+the numbers, the numbers before the classification, and the support path never
+gets to change a scientific verdict:
 
 ```text
 hero    one number, computed to 15 digits and checked to 8, and the bet
@@ -189,8 +190,13 @@ the build instead of surviving to the next rebuild.
   side, outside the repository, leaving `site/` alone;
 - `tools/og_cards.py` — regenerates the OG cards from the copy decks and the
   shipping palette, and stamps each one with the record of what it drew from;
+- `official-k4v/` and `predictions/` — the Founder-signed K4V boundary and the
+  public prediction infrastructure, copied byte for byte into the build;
+- `support/` — the bilingual contact-only funding and strategic-collaboration
+  surface, its public roadmap, and its machine-readable status;
 - `site/` — the generated deployable site;
-- `docs/` — the frozen public-science protocol and the publication handoff;
+- `docs/` — the active communication-and-support roadmap, the preserved
+  public-science measurement design, and the publication handoff;
 - `provenance/` — Founder public OpenPGP key and fingerprint; no secret material.
 
 ## Two orientations, one caption
@@ -326,15 +332,15 @@ baked cards — by `scripts/check/cards.mjs`:
 | budget | cap | at the 2026-08-31 palette ship |
 |---|---|---|
 | `assets/app.js` | 48 000 B | 9 051 B |
-| `assets/site.css` | 160 000 B | 94 572 B |
-| `assets/og-k4cell-en.jpg` | 260 000 B | 72 512 B |
-| `assets/og-k4cell-zh.jpg` | 260 000 B | 62 675 B |
-| whole site | 3 MiB | 718 175 B |
+| `assets/site.css` | 160 000 B | 96 923 B |
+| `assets/og-k4cell-en.jpg` | 260 000 B | 76 208 B |
+| `assets/og-k4cell-zh.jpg` | 260 000 B | 67 728 B |
+| whole site | 3 MiB | 845 268 B |
 | any one file | 25 MiB | — |
 | hex outside the token block | 0 | 0 |
 
-Both cards got *smaller* when the site went light — 141 KB → 73 KB and
-131 KB → 63 KB — because a cream ground with a white disc behind the object
+Both cards remain compact after the light redesign and narrative revision —
+141 KB → 76 KB and 131 KB → 68 KB — because a cream ground with a white disc behind the object
 compresses far better than a near-black one with three coloured fields.
 
 The stylesheet cap is generous on purpose: the site ships exactly one

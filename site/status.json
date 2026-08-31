@@ -1,6 +1,7 @@
 {
   "schema": "K4CELL-PUBLIC-STATUS-v1",
   "recorded_at_utc": "2026-08-29",
+  "site_updated_on": "2026-08-31",
   "artifact_status": "PUBLISHED",
   "intended_canonical_domain": "k4cell.com",
   "science": {
@@ -61,6 +62,12 @@
         "COMMUNICATION",
         "RESEARCH_SUPPORT",
         "SEPARATE_SPECULATIVE_DEMAND"
+      ],
+      "support_path": "/support/",
+      "support_roadmap_path": "/support/#roadmap",
+      "support_state": "CONTACT_ONLY",
+      "accepted_support_channels": [
+        "EMAIL_INQUIRY"
       ],
       "cards": "12_DRAFT",
       "campaign": "NOT_STARTED",

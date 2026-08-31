@@ -48,6 +48,9 @@ export const required = [
   "predictions/test_prediction_registry.py",
   "predictions/evidence/snapshots/K4CELL_LEDGER_5ac0ca2.json",
   "predictions/PUBLICATION_RECEIPT_v0.1.json",
+  "support/index.html",
+  "support/README.md",
+  "support/SUPPORT_STATUS_v0.1.json",
   "status.json",
   "ledger.json",
   "season-01.json",
@@ -69,6 +72,7 @@ export const css = await readFile(join(site, "assets", "site.css"), "utf8");
 export const javascript = await readFile(join(site, "assets", "app.js"), "utf8");
 export const headers = await readFile(join(site, "_headers"), "utf8");
 export const robots = await readFile(join(site, "robots.txt"), "utf8");
+export const sitemap = await readFile(join(site, "sitemap.xml"), "utf8");
 export const cname = await readFile(join(site, "CNAME"), "utf8");
 export const status = JSON.parse(await readFile(join(site, "status.json"), "utf8"));
 export const ledger = JSON.parse(await readFile(join(site, "ledger.json"), "utf8"));
@@ -94,6 +98,8 @@ export const predictionPage = await readFile(join(site, "predictions", "index.ht
 export const predictionRegistry = JSON.parse(await readFile(join(site, "predictions", "config", "K4_PREDICTION_REGISTRY_v0.1.json"), "utf8"));
 export const observabilityInventory = JSON.parse(await readFile(join(site, "predictions", "config", "K4_CLAIM_OBSERVABILITY_INVENTORY_v0.1.json"), "utf8"));
 export const predictionPublicationReceipt = JSON.parse(await readFile(join(site, "predictions", "PUBLICATION_RECEIPT_v0.1.json"), "utf8"));
+export const supportPage = await readFile(join(site, "support", "index.html"), "utf8");
+export const supportStatus = JSON.parse(await readFile(join(site, "support", "SUPPORT_STATUS_v0.1.json"), "utf8"));
 
 export const both = `${english}\n${chinese}`;
 

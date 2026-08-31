@@ -655,6 +655,9 @@ html[lang=en] .contrast,html[lang=en] .noknob{font-family:var(--fig)}
 .lane{display:flex;align-items:center;gap:.9rem;margin:2.6rem 0 1.2rem;color:var(--fg-2);font:600 var(--t-nano) var(--mono);letter-spacing:.14em}
 .lane::after{content:"";flex:1;height:1px;background:var(--hair)}
 .lane-note{margin:.9rem 0 0;max-width:var(--col-read);color:var(--fg-3);font-size:var(--t-micro);line-height:1.75}
+.registry-note{max-width:var(--col-read);color:var(--fg-2);font-size:var(--t-micro);line-height:1.75}
+.registry-note a{font-family:var(--mono);font-size:var(--t-nano);letter-spacing:.04em;white-space:nowrap}
+.kill-registry{margin:1.2rem 0 2rem;padding:.8rem 1rem;border:1px solid var(--hair);background:var(--bg-1)}
 .lgrid{display:grid;gap:.9rem}
 .lgrid>*{min-width:0}
 @media(min-width:900px){.lgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -892,6 +895,29 @@ html[lang=en] .closing{font-family:var(--fig)}
 .notice-inner h1{margin:1rem 0 1.2rem;font-size:var(--t-title)}
 .notice-inner p{margin:0 0 .9rem;max-width:var(--col-read);color:var(--fg-1);font-size:var(--t-small);line-height:1.85}
 .notice-contact{font-family:var(--mono);font-size:var(--t-small)}
+
+/* The support surface shares the notice shell but carries one complete public
+   path: ambition, proof of work, modes of support, and the active boundary. */
+.support-page{place-items:start center}
+.support-inner{width:min(100%,58rem)}
+.support-lede{font-size:var(--t-lead)!important;line-height:1.7!important;color:var(--fg-0)!important}
+.support-proof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:2rem 0;border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+.support-proof div{display:grid;gap:.35rem;padding:1rem;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--panel)}
+.support-proof strong{color:var(--fact);font:400 clamp(1.5rem,4vw,2.7rem)/1 var(--mono)}
+.support-proof span{color:var(--fg-2);font:var(--t-nano)/1.6 var(--sans)}
+.support-proof i{font-style:normal;color:var(--fg-3)}
+.support-manifesto{margin:2.2rem 0!important;padding:1.4rem 0;border-top:1px solid var(--hair-3);border-bottom:1px solid var(--hair-3);color:var(--fg-0)!important;font:400 var(--t-ask)/1.65 var(--fig)!important}
+.support-manifesto span{display:block;margin-top:.8rem;font-family:var(--han-serif);font-size:var(--t-lead)}
+.support-inner h2{margin:2.4rem 0 1rem;color:var(--fg-0);font-size:var(--t-ask)}
+.support-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1rem 0 0;list-style:none}
+.support-options li{padding:1rem;border:1px solid var(--hair);background:var(--panel)}
+.support-options h3{margin:0 0 .7rem;color:var(--fg-0);font-size:var(--t-small)}
+.support-options p{font-size:var(--t-nano);line-height:1.75}
+.support-unlocks{display:grid;gap:.6rem;margin:.8rem 0 0;padding-left:1.2rem;color:var(--fg-1);font-size:var(--t-small);line-height:1.75}
+.support-status{margin:2.5rem 0 0;padding:1.2rem 1.3rem;border:2px solid var(--fact);background:var(--panel)}
+.support-status h2{margin:.35rem 0 .8rem}
+.support-status p:last-child{margin-bottom:0}
+@media(max-width:640px){.support-proof,.support-options{grid-template-columns:1fr}}
 
 /* ---------------- motion, forced colours, print ---------------- */
 
@@ -1375,7 +1401,7 @@ html[lang=en] .closing{font-family:var(--fig)}
 
 /* ---- PROTOTYPE ONLY — placeholder token values, not shipped ---------
  * The live site defines these in :root; the figure never names a colour.
- * 
+ *
  * .light-ground {           (the silver-grey inversion also proven)
  *   --ink:#eceae4; --paper:#14171c; --body:#3a414d; --label:#616a79; --dim:#7b8492;
  *   --rule:rgba(20,23,28,.34); --rule-faint:rgba(20,23,28,.13); --accent:#4a6076;

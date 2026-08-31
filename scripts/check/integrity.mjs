@@ -20,8 +20,8 @@ import {
   founderTestSignature, founderTestSignaturePath, headers, hexless, ledger, noticeEn, noticeZh,
   observabilityInventory, officialPage, officialPayload, officialPayloadPath, officialSignature,
   officialSignaturePath, notFoundPage, officialStatus, predictionPage, predictionPublicationReceipt,
-  predictionRegistry, publicationReceipt, robots, cname, rootPage, searchable, season, site, status,
-  textOf, css,
+  predictionRegistry, publicationReceipt, robots, sitemap, cname, rootPage, searchable, season, site, status,
+  supportPage, supportStatus, textOf, css,
 } from "./common.mjs";
 
 const execFileAsync = promisify(execFile);
@@ -76,6 +76,20 @@ assert.match(chinese, /这里没有解决宇宙学常数问题/);
 /* The parameter count may never appear without its convention hedge. */
 assert.match(english, /26 to 28 once neutrino masses are included/);
 assert.match(chinese, /26 到 28 个/);
+
+/* Experimental schedules drift, so the public timeline must retain both the
+   current milestones and the primary-source links that justify them. */
+assert.match(english, /JUNO began taking data in August 2025/);
+assert.match(english, /Hyper-Kamiokande’s latest official overview aims to begin experimentation in 2028/);
+assert.match(english, /first far detector in 2029/);
+assert.match(english, /accelerator neutrino beam is targeted for 2031/);
+assert.match(english, /BabyIAXO’s current plan puts magnet installation around 2029/);
+assert.match(english, /juno\.ihep\.cas\.cn\/PPjuno\/202511\/t20251121_1132538\.html/);
+assert.match(english, /www-sk\.icrr\.u-tokyo\.ac\.jp\/en\/hk\/about\/outline/);
+assert.match(english, /news\.fnal\.gov\/wp-content\/uploads\/dune_fact_sheet\.pdf/);
+assert.match(english, /indico\.cern\.ch\/event\/1562687/);
+assert.doesNotMatch(english, /JUNO’s first results are due in 2026/);
+assert.doesNotMatch(english, /IAXO expects first data around 2029/);
 
 /* "Planck length" must not appear on the first screen: l_* = l_P is a
    normalisation, not a result, and printing it beside the glyph would assert
@@ -201,6 +215,7 @@ if (/AdS\/CFT/i.test(chinese)) assert.match(chinese, /AdS\/CFT 都不是这条�
 assert.match(english, /meta name="robots" content="index,follow"/);
 assert.match(chinese, /meta name="robots" content="index,follow"/);
 assert.equal(robots, "User-agent: *\nAllow: /\n\nSitemap: https://k4cell.com/sitemap.xml\n");
+assert.match(sitemap, /<loc>https:\/\/k4cell\.com\/support\/<\/loc>/);
 assert.equal(cname.trim(), "k4cell.com");
 assert.doesNotMatch(headers, /X-Robots-Tag/, "the noindex header must be gone once the site is public");
 assert.match(headers, /Content-Security-Policy/);
@@ -211,20 +226,18 @@ assert.match(chinese, /hreflang="en"/);
 assert.match(rootPage, /href="en\/"/);
 assert.match(rootPage, /href="zh\/"/);
 
-/* ---- the two bilingual shells ------------------------------------- *
+/* ---- the bilingual shells ----------------------------------------- *
  *
- * The root language gate and the 404 are served as <html lang="en"> and both
- * print Chinese inside it — the sentence and the button that offer the Chinese
- * page. Unmarked, a screen reader speaks those with English phonemes. Every
- * Han run on those two pages must therefore sit inside an element that
- * declares its own language. The 404 also shipped without the CSP <meta> the
- * other static pages carry: production is covered by site/_headers either way,
- * but a page opened from disk or served by anything else was not. */
+ * The root language gate, the 404 and the bilingual support page are served as
+ * <html lang="en"> and print Chinese inside it. Unmarked, a screen reader speaks
+ * those runs with English phonemes. Every Han run must therefore sit inside an
+ * element that declares its own language. */
 
 /* read once, in common.mjs */
 const HAN = /[\u3400-\u9fff\uf900-\ufaff\u3000-\u303f\uff00-\uffef]/;
 
-for (const [name, page] of [["index.html", rootPage], ["404.html", notFoundPage]]) {
+for (const [name, page] of [["index.html", rootPage], ["404.html", notFoundPage],
+  ["support/index.html", supportPage]]) {
   assert.match(page, /<html lang="en">/, `${name}: the bilingual shell is served as an English document`);
   assert.match(page, /<meta http-equiv="Content-Security-Policy"/, `${name}: no CSP meta`);
   /* Strip every element that declares Chinese, then nothing Chinese may be left. */
@@ -242,7 +255,8 @@ for (const [name, page] of [["index.html", rootPage], ["404.html", notFoundPage]
     `${name}: this page is bilingual and must mark its Chinese`);
 }
 
-for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage, predictionPage]) {
+for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage, predictionPage,
+  supportPage]) {
   assert.doesNotMatch(page, /<script(?![^>]*\bsrc=)/i, "no inline script (CSP forbids it)");
   assert.doesNotMatch(page, /<style\b/i, "no inline style element (CSP forbids it)");
   assert.doesNotMatch(page, /\sstyle="/i, "no inline style attribute (CSP forbids it)");
@@ -251,6 +265,7 @@ for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage
 /* ---- machine-readable status ---- */
 
 assert.equal(status.artifact_status, "PUBLISHED");
+assert.equal(status.site_updated_on, "2026-08-31");
 assert.equal(status.science.peer_reviewed, false);
 assert.equal(status.science.monograph_under_journal_review, false);
 assert.equal(status.science.full_physical_realization, "OPEN");
@@ -278,6 +293,11 @@ assert.deepEqual(status.public_science.scientific_validation.observability_inven
 });
 assert.deepEqual(status.public_science.public_communication.purpose,
   ["COMMUNICATION", "RESEARCH_SUPPORT", "SEPARATE_SPECULATIVE_DEMAND"]);
+assert.equal(status.public_science.public_communication.support_path, "/support/");
+assert.equal(status.public_science.public_communication.support_roadmap_path, "/support/#roadmap");
+assert.equal(status.public_science.public_communication.support_state, "CONTACT_ONLY");
+assert.deepEqual(status.public_science.public_communication.accepted_support_channels,
+  ["EMAIL_INQUIRY"]);
 assert.equal(status.public_science.public_communication.cards, "12_DRAFT");
 assert.equal(status.public_science.public_communication.campaign, "NOT_STARTED");
 assert.equal(status.public_science.public_communication.payment_or_wallet_collection_authorized, false);
@@ -351,6 +371,7 @@ assert.ok(observabilityInventory.claims.every((claim) =>
 assert.match(predictionPage, /Preregistered predictions: zero/);
 assert.match(predictionPage, /预注册预测：零/);
 assert.match(predictionPage, /public attention, funding support and token interest have zero direct/i);
+assert.match(predictionPage, /href="\.\.\/support\/"/);
 assert.equal(predictionPublicationReceipt.live_validation.program_valid, true);
 assert.equal(predictionPublicationReceipt.live_validation.registry_entries, 0);
 assert.equal(predictionPublicationReceipt.live_validation.preregistered_predictions, 0);
@@ -358,6 +379,37 @@ assert.equal(predictionPublicationReceipt.live_validation.retrospective_claims, 
 assert.equal(predictionPublicationReceipt.live_validation.python_bytecode_public, false);
 assert.equal(predictionPublicationReceipt.epistemic_boundary.official_mint, null);
 assert.equal(predictionPublicationReceipt.epistemic_boundary.mainnet_authorized, false);
+
+/* ---- contact-only support surface ----
+   The page is a real funding funnel, but it may not silently become a payment
+   or token-offering surface. These assertions keep the constructive public
+   path and its active boundary in one transaction. */
+assert.equal(supportStatus.state, "CONTACT_ONLY");
+assert.equal(supportStatus.roadmap_path, "/support/#roadmap");
+assert.equal(supportStatus.payment_acceptance_started, false);
+assert.equal(supportStatus.payment_wallet, null);
+assert.equal(supportStatus.donation_return_promise, false);
+assert.equal(supportStatus.equity_offering, false);
+assert.equal(supportStatus.securities_offering, false);
+assert.equal(supportStatus.token_offering, false);
+assert.equal(supportStatus.token_rights_from_contact, false);
+assert.equal(supportStatus.k4v.launched, false);
+assert.equal(supportStatus.k4v.official_mint, null);
+assert.equal(supportStatus.k4v.mainnet_authorized, false);
+assert.equal(supportStatus.scientific_boundary.funding_direct_weight_in_scientific_verdict, 0);
+assert.match(supportPage, /Back the attempt to derive nature from four points/);
+assert.match(supportPage, /Strategic investment conversation/);
+assert.match(supportPage, /战略投资讨论/);
+assert.match(supportPage, /CONTACT ONLY/);
+assert.match(supportPage, /No payment wallet is active/);
+assert.match(supportPage, /id="roadmap"/);
+assert.match(supportPage, /K4V · SEPARATE GATE/);
+assert.match(supportPage, /og:url" content="https:\/\/k4cell\.com\/support\/"/);
+assert.match(supportPage, /og:image" content="https:\/\/k4cell\.com\/assets\/og-k4cell-en\.jpg"/);
+assert.match(supportPage, /mailto:zhihua@k4cell\.com\?subject=K4%20research%20support/);
+assert.doesNotMatch(supportPage, /<form\b/i);
+assert.doesNotMatch(supportPage, /(?:0x)?[0-9a-f]{40,}/i,
+  "support page must not publish a wallet or contract address while contact-only");
 assert.equal(officialStatus.openpgp.payload_sha256,
   createHash("sha256").update(officialPayload).digest("hex"));
 assert.equal(officialStatus.openpgp.signature_sha256,
@@ -372,6 +424,7 @@ assert.match(officialPage, /3d972bdaec125196f5629485d1bec3f80b4c64c234d547903051
 assert.match(officialPage, /83447c16556ba4f68c04c295fefa8924b2e07d5115f5c08e7498c7c39775fd36/);
 assert.match(officialPage, /github\.com\/magicknight\/k4cell\/tree\/34a7aa92d2badc20d292a01a6be4770b1631ebb8\/official-k4v/);
 assert.match(officialPage, /PUBLICATION_RECEIPT_v1\.json/);
+assert.match(officialPage, /href="\.\.\/support\/"/);
 assert.doesNotMatch(Buffer.concat([officialPayload, officialSignature]).toString("utf8"),
   /BEGIN PGP (?:PRIVATE|SECRET) KEY BLOCK/);
 
@@ -458,7 +511,7 @@ assert.equal(
 const styledClasses = new Set(
   [...css.replace(/\/\*[\s\S]*?\*\//g, "").matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)].map((m) => m[1]));
 for (const [name, page] of [["official-k4v", officialPage], ["predictions", predictionPage],
-  ["notice-en", noticeEn], ["notice-zh", noticeZh]]) {
+  ["support", supportPage], ["notice-en", noticeEn], ["notice-zh", noticeZh]]) {
   const used = new Set([...page.matchAll(/class="([^"]*)"/g)].flatMap((m) => m[1].split(/\s+/)).filter(Boolean));
   for (const cls of used) {
     assert.ok(styledClasses.has(cls), `${name}: class "${cls}" is used but site.css styles no .${cls}`);

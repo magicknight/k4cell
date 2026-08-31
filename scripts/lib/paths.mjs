@@ -8,4 +8,5 @@ export const srcAssets = join(root, "src", "assets");
 export const provenanceDir = join(root, "provenance");
 export const officialK4vDir = join(root, "official-k4v");
 export const predictionsDir = join(root, "predictions");
+export const supportDir = join(root, "support");
 export const seasonManifest = join(root, "content", "season-01", "MANIFEST.json");

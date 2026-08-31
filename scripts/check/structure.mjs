@@ -347,6 +347,16 @@ for (const [name, page] of pages) {
   for (const line of deck.hero.byline) {
     assert.ok(page.includes(escaped(line)), `${name}: the byline must render in full`);
   }
+  assert.ok(page.includes(escaped(deck.hero.registryLink)),
+    `${name}: the first screen must expose the Prediction Registry state`);
+  assert.match(page, /class="hero-tier-l" href="\.\.\/predictions\/"/,
+    `${name}: the hero Registry label must be a working link`);
+  assert.match(page, /class="button" href="\.\.\/support\/"/,
+    `${name}: the hero must carry the public support path`);
+  assert.ok(page.includes(escaped(deck.ledger.registryNote)),
+    `${name}: the manuscript census must be distinguished from preregistration`);
+  assert.ok(page.includes(escaped(deck.kill.registryStatus)),
+    `${name}: the experimental bets must expose their Registry state`);
   assert.ok(page.includes(escaped(deck.footer.status)), `${name}: the review state must render`);
   assert.ok(page.includes(ledger.artifact.sha256), `${name}: the archive checksum must render`);
   assert.ok(page.includes(escaped(deck.next.closing)), `${name}: the closing line must render`);

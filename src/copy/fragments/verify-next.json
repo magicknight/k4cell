@@ -14,6 +14,16 @@
      "pdf"
     ],
     [
+     "预测注册",
+     "跟踪未来预测；当前预注册 0 项",
+     "predictions"
+    ],
+    [
+     "支持这项工作",
+     "面向研究资助、机构赞助与战略投资讨论的联系入口",
+     "support"
+    ],
+    [
      "勘误",
      "更正只追加，不替换原件；每一条都有编号",
      "errata"
@@ -27,6 +37,11 @@
      "概念 DOI",
      "一个不变的编号，始终指向最新一版归档",
      "conceptDoi"
+    ],
+    [
+     "Founder 签名的 K4V 状态",
+     "K4V 尚未发行；核验签名声明",
+     "officialK4v"
     ],
     [
      "校验和",
@@ -100,24 +115,28 @@
    "h2": "这一页什么时候要改，看这几个日期。",
    "items": [
     [
+     "现在",
+     "把下一批论文、可预注册预测和独立复现包推进到可发布状态。研究支持将用于 Founder 研究时间、计算、开放发表与专业评阅。"
+    ],
+    [
      "审稿中",
      "两篇拆出的论文，2026 年 7 月投出：一篇投给 <em>Classical and Quantum Gravity</em>，在等审稿报告；一篇投给 <em>Journal of Geometry and Physics</em>，审稿中。都还没有结果。1003 页的专著没有投稿。"
     ],
     [
-     "2025–2026",
-     "中微子探测器 JUNO 交出首批结果。质量顺序的判决要靠多年积累的数据，首批结果只是这条线的起点。哪一天测出倒序，这一页作废。"
+     "2025 年 8 月起",
+     "<a href=\"https://juno.ihep.cas.cn/PPjuno/202511/t20251121_1132538.html\">JUNO 已于 2025 年 8 月开始取数，并在 11 月公布首批物理结果</a>。质量顺序的判决仍要靠多年数据；哪一天确认倒序，这一页作废。"
     ],
     [
-     "2027 年起",
-     "Hyper-Kamiokande 开始采集数据。CP 相位的符号、质子会不会衰变，两道判决它都有份。"
+     "目标 2028",
+     "<a href=\"https://www-sk.icrr.u-tokyo.ac.jp/en/hk/about/outline/\">Hyper-Kamiokande 的最新官方概览以 2028 年开始实验为目标</a>。CP 相位的符号、质子会不会衰变，两道判决它都有份；时间表可能调整。"
     ],
     [
-     "2029–2035",
-     "DUNE 从首批中微子数据一直做到全精度。质量顺序、CP 符号、θ₂₃ 卦限，都要在它这里得到决定性的判定。"
+     "2029 / 2031",
+     "<a href=\"https://news.fnal.gov/wp-content/uploads/dune_fact_sheet.pdf\">DUNE 当前目标是 2029 年运行首台远端探测器</a>；天然中微子研究可先开始。<a href=\"https://news.fnal.gov/2026/07/fermilab-marks-70-years-of-neutrino-science-and-leads-next-generation-experiment/\">加速器中微子束流目标是 2031 年</a>；CP 符号和 θ₂₃ 卦限的核心计划依赖后续束流数据。"
     ],
     [
-     "2029 年前后",
-     "IAXO 交出首批物理数据，它是一台专门找轴子的望远镜。真在那里找到 QCD 轴子，世界就落在这个元胞的分支之外。那需要另一种微观拓扑，或者另一种真空结构。"
+     "2029–2030+ · 依计划",
+     "<a href=\"https://indico.cern.ch/event/1562687/contributions/6743697/attachments/3157090/5608657/BabyIAXO%20magnet%20-%20Irastorza.pdf\">BabyIAXO 当前计划约在 2029 年安装磁体，2030 年以后调试并开展轴子运行</a>。若找到符合 QCD 轴子的信号，世界就落在这个元胞选定的分支之外。"
     ],
     [
      "日期未定",
@@ -141,6 +160,14 @@
     [
      "讨论区",
      "discussions"
+    ],
+    [
+     "预测",
+     "predictions"
+    ],
+    [
+     "支持",
+     "support"
     ],
     [
      "声明",
@@ -170,8 +197,8 @@
   },
   "gate": {
    "h1": "Four points. Six lines. Three colours.",
-   "line": "One finite object. Zero continuous fitted parameters. Not peer reviewed. Come and check it; come and break it.",
-   "lineZh": "一个有限对象，零个连续拟合参数，未经同行评议。来核，来攻击。"
+   "line": "One finite object. Zero continuous fitted parameters. Read the papers. Follow the predictions. Back the work.",
+   "lineZh": "一个有限对象，零个连续拟合参数。读论文，跟预测，支持这项工作。"
   },
   "notFound": {
    "kicker": "404",
@@ -194,6 +221,16 @@
      "pdf"
     ],
     [
+     "Prediction Registry",
+     "follow future predictions; currently 0 preregistered",
+     "predictions"
+    ],
+    [
+     "Support the work",
+     "contact path for research funding, institutional sponsorship and strategic investment conversations",
+     "support"
+    ],
+    [
      "Errata",
      "corrections appended, never replacing the original; each one numbered",
      "errata"
@@ -207,6 +244,11 @@
      "Concept DOI",
      "one unchanging number that always resolves to the latest archived version",
      "conceptDoi"
+    ],
+    [
+     "Founder-signed K4V status",
+     "K4V has not launched; verify the signed statement",
+     "officialK4v"
     ],
     [
      "Checksums",
@@ -280,24 +322,28 @@
    "h2": "The dates when this page will have to change.",
    "items": [
     [
+     "Now",
+     "Move the next papers, preregistration-ready predictions and independent reproduction packages to publication. Support funds Founder research time, computation, open publication and professional review."
+    ],
+    [
      "Under review",
      "Two papers carved out of the monograph, submitted in July 2026: one to <em>Classical and Quantum Gravity</em>, awaiting referee reports; one to the <em>Journal of Geometry and Physics</em>, under review. Neither has an outcome yet. The 1003-page monograph has not been submitted to a journal."
     ],
     [
-     "2025–2026",
-     "First results from JUNO, the underground neutrino observatory. A verdict on the neutrino mass ordering takes years of accumulated exposure, and these first results are only the start of that line. An inverted ordering ends this page."
+     "From August 2025",
+     "<a href=\"https://juno.ihep.cas.cn/PPjuno/202511/t20251121_1132538.html\">JUNO began taking data in August 2025 and released its first physics results in November</a>. A mass-ordering verdict still needs years of data; a confirmed inverted ordering ends this page."
     ],
     [
-     "From 2027",
-     "Hyper-Kamiokande (Hyper-K) begins taking data. The sign of the CP phase and whether the proton decays are two verdicts it has a hand in."
+     "Target: 2028",
+     "<a href=\"https://www-sk.icrr.u-tokyo.ac.jp/en/hk/about/outline/\">Hyper-Kamiokande’s latest official overview aims to begin experimentation in 2028</a>. It has a hand in two verdicts here: the sign of the CP phase and whether the proton decays. Schedules can move."
     ],
     [
-     "2029–2035",
-     "DUNE runs from first neutrino data to full precision. The ordering, the CP sign and the θ₂₃ octant each reach a decisive measurement there."
+     "2029 / 2031",
+     "<a href=\"https://news.fnal.gov/wp-content/uploads/dune_fact_sheet.pdf\">DUNE currently targets operation of its first far detector in 2029</a>, when natural-neutrino science can begin. <a href=\"https://news.fnal.gov/2026/07/fermilab-marks-70-years-of-neutrino-science-and-leads-next-generation-experiment/\">Its accelerator neutrino beam is targeted for 2031</a>; the central CP-sign and θ₂₃ programme depends on the beam exposure that follows."
     ],
     [
-     "Around 2029",
-     "First physics data from IAXO, the axion telescope. A QCD axion found there would put the world outside this cell’s branch: a different microscopic topology, or a different vacuum structure, would be needed."
+     "2029–2030+ · schedule-dependent",
+     "<a href=\"https://indico.cern.ch/event/1562687/contributions/6743697/attachments/3157090/5608657/BabyIAXO%20magnet%20-%20Irastorza.pdf\">BabyIAXO’s current plan puts magnet installation around 2029, followed by commissioning and axion runs from 2030 onward</a>. A QCD-axion signal would put the world outside this cell’s selected branch."
     ],
     [
      "Date not set",
@@ -321,6 +367,14 @@
     [
      "Discussions",
      "discussions"
+    ],
+    [
+     "Predictions",
+     "predictions"
+    ],
+    [
+     "Support",
+     "support"
     ],
     [
      "Notice",
@@ -350,8 +404,8 @@
   },
   "gate": {
    "h1": "Four points. Six lines. Three colours.",
-   "line": "One finite object. Zero continuous fitted parameters. Not peer reviewed. Come and check it; come and break it.",
-   "lineZh": "一个有限对象，零个连续拟合参数，未经同行评议。来核，来攻击。"
+   "line": "One finite object. Zero continuous fitted parameters. Read the papers. Follow the predictions. Back the work.",
+   "lineZh": "一个有限对象，零个连续拟合参数。读论文，跟预测，支持这项工作。"
   },
   "notFound": {
    "kicker": "404",

@@ -5,6 +5,8 @@
    "kicker": "怎么证伪",
    "h2": "这套理论把自己的死法写在了前面。",
    "intro": "有旋钮的理论怎么都死不了——测出什么，拧一下就对上了。这套理论没有旋钮。所以一旦对不上，只有两个动作：在推导里找出一处真正的错误并公开更正，或者承认它完了。下面六张卡，从手稿列出的检验里挑出来。每一张都写明：谁来测，哪一年，怎么算输，输掉哪一层。",
+   "registryStatus": "这是研究计划最锋利的实验赌注，来自手稿。公开 Registry 已为未来预测就绪；当前预注册预测为 0。",
+   "registryLink": "查看预测注册",
    "thresholdLabel": "怎么算输",
    "whereLabel": "谁来测",
    "whenLabel": "哪一年",
@@ -37,7 +39,7 @@
      "where": "JUNO · DUNE · Hyper-K",
      "when": "2026–2035",
      "grade": "ends",
-     "note": "JUNO 的首批结果在 2026 年内；DUNE 从 2029 年起。目前全局拟合略偏向正常序，偏得不多，还不算判决。",
+     "note": "JUNO 已于 2025 年 8 月开始取数，并在同年 11 月公布首批物理结果。DUNE 的当前目标是 2029 年运行首台远端探测器、2031 年获得束流。目前全局拟合略偏向正常序，偏得不多，还不算判决。",
      "check": "正常序在 c_R = 1 的跷跷板分支上推出；倒序排除定理见宇宙学读出附录。评阅靶点 6。"
     },
     {
@@ -45,7 +47,7 @@
      "claim": "中微子和反中微子的行为不必一样，差多少由一个相位定，它叫 CP 相位。在这套理论里，它只能是 +90° 或 −90°。取哪一个，由宇宙里物质多于反物质这件事锁定：实验室里量到的符号，必须和天上看到的符号扣得上，sign(sin δ_CP) × sign(η_B) = −1，η_B 就是宇宙留下的那点物质。这个宇宙是物质做的，所以 sin δ_CP 必须为负。",
      "threshold": "测出正号，框架被证伪。",
      "where": "DUNE · Hyper-K",
-     "when": "2027–2035",
+     "when": "2028–2035",
      "grade": "ends",
      "note": "哪一面是物质，理论不推。作者逐层证明了：定律分不出物质和反物质哪一面是哪一面。所以这个宇宙落在物质这一面，是一段历史，不是定理。定理是两个符号之间的那条关系，DUNE 和 Hyper-K 要测的就是它。目前全局拟合的最佳值约 214°，落在负的那一半；理论要的 270° 离它约 1.6 σ，没有排除，也没有定案。",
      "check": "重子—狄拉克符号锁定定理，内部观察者附录；自发取向注记，实真空一章。评阅靶点 C。"
@@ -55,7 +57,7 @@
      "claim": "第二、三代中微子混得有多深，由一个角定，它叫 θ₂₃。它的 sin² 算出来是 4/7，落在上卦限——也就是大于 1/2 的那一半。",
      "threshold": "若下卦限被确定，与之矛盾。",
      "where": "DUNE · Hyper-K",
-     "when": "2027–2035",
+     "when": "2028–2035",
      "grade": "branch",
      "note": "卦限今天还悬着。目前全局拟合的最佳点落在下卦限（含超级神冈大气数据）；上卦限的解仍在允许范围内。两个解都活着，数据还没有替这一条说话。",
      "check": "伴随载体符号选择引理；预言一章的 PMNS 表。评阅靶点 6。"
@@ -97,14 +99,14 @@
      "QCD 轴子",
      "不需要轴子。找到一个，就要换一套根本不同的规范架构。",
      "IAXO · ALPHA",
-     "2029 年起",
+     "BabyIAXO：约 2029 安装磁体；2030+ 调试与轴子运行（依计划）",
      "architecture"
     ],
     [
      "质子衰变",
      "质子绝对稳定。看到一例，同样要重搭架构。",
      "Hyper-K · DUNE",
-     "2027–2035",
+     "2028–2035",
      "architecture"
     ],
     [
@@ -154,6 +156,8 @@
    "kicker": "How to falsify it",
    "h2": "This theory wrote down its own ways to die, in advance.",
    "intro": "A theory with dials never dies: whatever the experiment reads, a turn of a dial fits it. This one has no dials. So after a miss there are only two moves: find a genuine mistake in the derivation and publish the correction, or say it is over. The six cards below are this site’s pick from the places the manuscript lists where it can break. Each names who measures, which years, what counts as a miss, and what is lost.",
+   "registryStatus": "These are the programme’s sharpest experimental bets, drawn from the manuscript. The public Registry is ready for future claims; it currently contains 0 preregistered predictions.",
+   "registryLink": "See the Prediction Registry",
    "thresholdLabel": "What counts as a miss",
    "whereLabel": "Who measures",
    "whenLabel": "Which years",
@@ -186,7 +190,7 @@
      "where": "JUNO · DUNE · Hyper-K",
      "when": "2026–2035",
      "grade": "ends",
-     "note": "JUNO’s first results are due in 2026; DUNE from 2029. Today’s global fit leans weakly toward normal ordering — weakly, and not a verdict.",
+     "note": "JUNO began taking data in August 2025 and released first physics results that November. DUNE currently targets first far-detector operation in 2029 and beam in 2031. Today’s global fit leans weakly toward normal ordering — weakly, and not a verdict.",
      "check": "Normal ordering derived on the c_R = 1 seesaw branch; the inverted-ordering exclusion theorem, cosmology readout appendix. Review Target 6."
     },
     {
@@ -194,7 +198,7 @@
      "claim": "Neutrinos and antineutrinos need not behave alike; one number, the CP phase δ_CP, says by how much they differ. Here it can only be +90° or −90°, and the sky settles which: this universe is made of matter, not antimatter. The sign measured in a laboratory and the sign of that leftover matter are locked together — sign(sin δ_CP) × sign(η_B) = −1, with η_B the matter the universe kept — so sin δ_CP must be negative.",
      "threshold": "A measured positive sign falsifies the framework.",
      "where": "DUNE · Hyper-K",
-     "when": "2027–2035",
+     "when": "2028–2035",
      "grade": "ends",
      "note": "The theory does not derive which side came out as matter: step by step, the law is proved blind to the two, so which one this universe got is a historical fact, not a theorem. What is a theorem is the relation between the two signs, and that relation is what DUNE and Hyper-K will test. Today’s global best fit is about 214°, on the negative side; the 270° the theory needs sits about 1.6 σ from it, neither excluded nor decided.",
      "check": "The baryon–Dirac sign-lock theorem, internal-observer appendix; the spontaneous-orientation remark, real-vacuum chapter. Review Target C."
@@ -204,7 +208,7 @@
      "claim": "How strongly the second and third kinds of neutrino blend is set by one angle, θ₂₃. Its sin² comes out 4/7, in the upper octant — the half above 1/2.",
      "threshold": "A lower octant, once settled, contradicts it.",
      "where": "DUNE · Hyper-K",
-     "when": "2027–2035",
+     "when": "2028–2035",
      "grade": "branch",
      "note": "The octant is still open today. The current global best fit, with Super-Kamiokande atmospheric data, sits in the lower octant; the upper-octant solution remains allowed. Both are alive, and the data do not yet speak for this one.",
      "check": "The adjoint-carrier sign-selection lemma; the PMNS table in the predictions chapter. Review Target 6."
@@ -246,14 +250,14 @@
      "QCD axion",
      "No axion is needed. Find one, and the architecture of the forces has to be rebuilt.",
      "IAXO · ALPHA",
-     "from 2029",
+     "BabyIAXO: magnet installation around 2029; commissioning and axion runs from 2030+, schedule-dependent",
      "architecture"
     ],
     [
      "Proton decay",
      "The proton is absolutely stable. One event, and the architecture has to be rebuilt as well.",
      "Hyper-K · DUNE",
-     "2027–2035",
+     "2028–2035",
      "architecture"
     ],
     [

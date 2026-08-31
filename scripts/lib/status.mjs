@@ -7,6 +7,7 @@ import { publicReviewCommit, publicStatusCommit } from "./links.mjs";
 export const status = {
   schema: "K4CELL-PUBLIC-STATUS-v1",
   recorded_at_utc: ledger.recorded_at_utc,
+  site_updated_on: "2026-08-31",
   artifact_status: "PUBLISHED",
   intended_canonical_domain: "k4cell.com",
   science: {
@@ -56,6 +57,10 @@ export const status = {
     },
     public_communication: {
       purpose: ["COMMUNICATION", "RESEARCH_SUPPORT", "SEPARATE_SPECULATIVE_DEMAND"],
+      support_path: "/support/",
+      support_roadmap_path: "/support/#roadmap",
+      support_state: "CONTACT_ONLY",
+      accepted_support_channels: ["EMAIL_INQUIRY"],
       cards: "12_DRAFT",
       campaign: "NOT_STARTED",
       payment_or_wallet_collection_authorized: false,

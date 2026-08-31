@@ -1,8 +1,8 @@
 # K4 scientific validation and public communication boundary v1
 
-> State: `CURRENT ROUTE / CAMPAIGN NOT STARTED / NO TOKEN OUTREACH`
+> State: `CURRENT ROUTE / SUPPORT CONTACT OPEN / CAMPAIGN NOT STARTED / NO TOKEN OUTREACH`
 >
-> Recorded: 2026-08-30 UTC
+> Updated: 2026-08-31 UTC
 
 K4 scientific claims are evaluated through papers, professional criticism,
 independent derivation or reproduction, Founder-signed preregistered predictions,
@@ -34,5 +34,9 @@ tests and exactly eleven frozen public-ledger rows classified `RETROSPECTIVE`.
 The registry has zero entries and zero preregistered predictions. Paper-level
 inventory and the first source-native candidate remain open.
 
-The communication/funding campaign remains `NOT_STARTED`; no payment, wallet,
+The bilingual contact-only support surface is published at
+[`/support/`](../support/). It opens conversations for research patronage,
+institutional sponsorship and strategic collaboration, while granting no
+scientific authority, allocation, equity, return or token right. The wider
+communication/funding campaign remains `NOT_STARTED`; no payment, wallet,
 presale, whitelist, TGE or mainnet action is authorized.

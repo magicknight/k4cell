@@ -2,9 +2,24 @@
 
 > Adopted as design: 2026-08-29 UTC
 >
-> Status: `FROZEN DESIGN / SEASON NOT STARTED`
+> Status: `PRESERVED DESIGN / SUPERSEDED AS PRIMARY ROUTE / SEASON NOT STARTED`
 >
 > Start gate: `BLOCKED ON SIGNED IDENTITY + CANONICAL HTTPS + CONTENT HASH`
+
+## Route change recorded 2026-08-31
+
+The Founder made a strategic decision that broad public participation is not a
+scientific-validation gate and should not dominate the programme. The smallest
+changed node is this document’s public-participation target quantifier; there
+was no computational, empirical or mathematical failure.
+
+What survives is the four-week season as a reusable campaign-measurement design:
+its privacy rules, cohort discipline, stop rules and separation of scientific,
+funding and speculative signals remain sound. It has not run and produces no
+result. The primary route is now the positive communication and support roadmap:
+papers, professional scrutiny, Founder-signed future predictions, experiment,
+research funding and a durable institution. See
+[`COMMUNICATION_AND_SUPPORT_ROADMAP_v1.md`](COMMUNICATION_AND_SUPPORT_ROADMAP_v1.md).
 
 ## Mission card
 
