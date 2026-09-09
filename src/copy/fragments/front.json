@@ -48,7 +48,7 @@
    "rulerAlt": "逐位对照图。m_μ/m_e 的算出值是 206.768282688691，共 15 位有效数字。实测值 206.7682827 只分辨到第 8 位。前 8 位全部相同；越过分界线还有 7 位，等着被检验。",
    "tierChip": "条件性 · 回顾性对照",
    "registryLink": "预测注册 · 0 项预注册",
-   "bet": "如果中微子的质量顺序测出来是倒的，这一页就作废。",
+   "bet": "如果中微子的质量顺序被确立为倒序，这里采用的正序主张及依赖它的结论就需要修正。",
    "betNote": "JUNO 已在运行；Hyper-K 目标 2028；DUNE 首台远端探测器目标 2029、束流目标 2031。",
    "actions": [
     [
@@ -247,7 +247,7 @@
    "rulerAlt": "Digit-by-digit comparison. The computed m_μ/m_e is 206.768282688691, fifteen significant digits. The measured value, 206.7682827, resolves only the first 8. All 8 agree; seven more digits lie past the cut, waiting to be checked.",
    "tierChip": "Conditional · retrospective comparison",
    "registryLink": "Prediction Registry · 0 preregistered",
-   "bet": "If the neutrino mass ordering turns out to be inverted, this page is void.",
+   "bet": "If inverted neutrino mass ordering is established, the normal-ordering claim used here and the conclusions that depend on it must be revised.",
    "betNote": "JUNO is running; Hyper-K targets 2028; DUNE targets 2029 for its first far detector and 2031 for beam.",
    "actions": [
     [

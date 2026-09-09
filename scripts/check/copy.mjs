@@ -61,6 +61,7 @@ import { join as joinPath } from "node:path";
 import { site } from "./common.mjs";
 
 const published = [english, chinese, noticeEn, noticeZh, rootPage,
+  await readSite(joinPath(site, "languages.html"), "utf8"),
   await readSite(joinPath(site, "404.html"), "utf8")].join("\n");
 const tagless = published.replace(/<[^>]*>/g, "");
 const spaced = published.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");

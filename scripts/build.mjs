@@ -17,6 +17,7 @@ import { assertRouteDecks } from "./lib/figures/route.mjs";
 import { assertSigmaDecks } from "./lib/figures/sigma.mjs";
 import { defaultOut } from "./lib/paths.mjs";
 import { notFound, renderNotice, renderPage, renderRoot } from "./lib/sections/page.mjs";
+import { renderOverview, renderProgress, renderSupport, renderInterest } from "./lib/sections/overview.mjs";
 import { DEFAULT_THEME, assertThemeName, groundOf } from "./lib/theme.mjs";
 
 const decks = [en, zh];
@@ -38,13 +39,26 @@ export const buildSite = async (out = defaultOut, { theme = DEFAULT_THEME } = {}
      has to follow the theme rather than be typed into lib/html.mjs. */
   const themeColor = await groundOf(theme);
   const page = { themeColor };
+  const research = { en: renderPage(en, page), zh: renderPage(zh, page) };
+  const overviewOptions = (lang) => ({ ...page,
+    legacyIds: [...research[lang].matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]),
+  });
   await emitSite({
     out,
     theme,
     html: {
-      "index.html": renderRoot(page),
-      "en/index.html": renderPage(en, page),
-      "zh/index.html": renderPage(zh, page),
+      "index.html": renderOverview("en", { ...overviewOptions("en"), root: true }),
+      "languages.html": renderRoot(page),
+      "en/index.html": renderOverview("en", overviewOptions("en")),
+      "zh/index.html": renderOverview("zh", overviewOptions("zh")),
+      "en/research.html": research.en,
+      "zh/research.html": research.zh,
+      "en/progress/index.html": renderProgress("en", page),
+      "zh/progress/index.html": renderProgress("zh", page),
+      "en/support/index.html": renderSupport("en", page),
+      "zh/support/index.html": renderSupport("zh", page),
+      "en/interest/index.html": renderInterest("en", page),
+      "zh/interest/index.html": renderInterest("zh", page),
       "en/notice/index.html": renderNotice(en, page),
       "zh/notice/index.html": renderNotice(zh, page),
       "404.html": notFound(page),

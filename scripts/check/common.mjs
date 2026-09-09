@@ -15,6 +15,16 @@ export const required = [
   "index.html",
   "en/index.html",
   "zh/index.html",
+  "languages.html",
+  "en/research.html",
+  "zh/research.html",
+  "en/progress/index.html",
+  "zh/progress/index.html",
+  "en/support/index.html",
+  "zh/support/index.html",
+  "en/interest/index.html",
+  "zh/interest/index.html",
+  "assets/interest.js",
   "en/notice/index.html",
   "zh/notice/index.html",
   "404.html",
@@ -63,8 +73,10 @@ export const required = [
 
 for (const path of required) await access(join(site, path));
 
-export const english = await readFile(join(site, "en", "index.html"), "utf8");
-export const chinese = await readFile(join(site, "zh", "index.html"), "utf8");
+// Existing science, copy, figure, and honesty gates follow the full account
+// to its new route. The short home/support/interest routes have their own gate.
+export const english = await readFile(join(site, "en", "research.html"), "utf8");
+export const chinese = await readFile(join(site, "zh", "research.html"), "utf8");
 export const rootPage = await readFile(join(site, "index.html"), "utf8");
 export const noticeEn = await readFile(join(site, "en", "notice", "index.html"), "utf8");
 export const noticeZh = await readFile(join(site, "zh", "notice", "index.html"), "utf8");

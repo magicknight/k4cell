@@ -1,5 +1,7 @@
 # K4 communication and support roadmap v1
 
+> 2026-09-09 implementation update: [short homepage, v3.0 progress, localized support and the 180-day candidate feedback route](SITE_DISCOVERY_AND_INTEREST_v2.md). The full research account now lives at `/en/research.html` and `/zh/research.html`; earlier status below is historical. A branch or PR is not a deployment receipt.
+
 > Adopted: 2026-08-31 UTC
 >
 > State: `ACTIVE PRIMARY ROUTE / SUPPORT CONTACT OPEN / TRANSACTIONS NOT STARTED`

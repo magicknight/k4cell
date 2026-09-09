@@ -49,7 +49,7 @@ export default {
     rulerAlt: "Digit-by-digit comparison. The computed m_μ/m_e is 206.768282688691, fifteen significant digits. The measured value, 206.7682827, resolves only the first 8. All 8 agree; seven more digits lie past the cut, waiting to be checked.",
     tierChip: "Conditional · retrospective comparison",
     registryLink: "Prediction Registry · 0 preregistered",
-    bet: "If the neutrino mass ordering turns out to be inverted, this page is void.",
+    bet: "If inverted neutrino mass ordering is established, the normal-ordering claim used here and the conclusions that depend on it must be revised.",
     betNote: "JUNO is running; Hyper-K targets 2028; DUNE targets 2029 for its first far detector and 2031 for beam.",
     actions: [
       ["See the object", "#object"],
