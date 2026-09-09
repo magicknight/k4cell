@@ -557,7 +557,7 @@ export const renderPage = (copy, { themeColor }) => {
 <html lang="${copy.htmlLang}">
 ${renderHead({
     description: copy.description, title: esc(copy.title), csp: "page",
-    canonical: `${copy.dir}/`, alternates: true, assetRoot: "../", og: ogFor(copy),
+    canonical: `${copy.dir}/research.html`, assetRoot: "../", og: { ...ogFor(copy), url: `https://k4cell.com/${copy.dir}/research.html` },
     themeColor,
   })}
 <body>
@@ -565,9 +565,10 @@ ${renderHead({
   <header class="topbar"><div class="shell bar-in">
     <a class="brand" href="#hero">${brandMark}<span>${esc(copy.brand.name)}</span><span class="brand-t">${esc(copy.brand.tagline)}</span></a>
     <nav class="site-nav" aria-label="${esc(copy.navLabel)}">${nav}</nav>
-    <a class="lang" href="../${alternate.dir}/" hreflang="${alternate.htmlLang}">${esc(copy.languageLabel)}</a>
+    <a class="lang" href="../${alternate.dir}/research.html" hreflang="${alternate.htmlLang}">${esc(copy.languageLabel)}</a>
   </div></header>
   <main id="main">
+    <p class="overview-archive-note">${copy.dir === "zh" ? '以下深读材料依据公开 v2.0 及 2026-08-29 状态记录。v3.0 正在编写。<a href="progress/">查看最新进展</a> · <a href="./">返回短首页</a>' : 'This full account uses public v2.0 and the status record of 2026-08-29. v3.0 is in progress. <a href="progress/">See current progress</a> · <a href="./">Back to the short homepage</a>'}</p>
     ${renderHero(copy)}
     ${renderWhy(copy)}
     ${renderObject(copy)}

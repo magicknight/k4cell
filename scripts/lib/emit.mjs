@@ -14,7 +14,7 @@ import { DEFAULT_THEME, composeStylesheet, themeSourceNames } from "./theme.mjs"
  * is written last.                                                     *
  * ------------------------------------------------------------------ */
 
-export const SITEMAP_PATHS = ["", "en/", "zh/", "en/notice/", "zh/notice/", "official-k4v/", "predictions/", "support/"];
+export const SITEMAP_PATHS = ["", "en/", "zh/", "en/research.html", "zh/research.html", "en/progress/", "zh/progress/", "en/support/", "zh/support/", "en/interest/", "zh/interest/", "en/notice/", "zh/notice/", "official-k4v/", "predictions/", "support/"];
 
 export const sitemapFor = (paths, lastmod) => `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -1,5 +1,7 @@
 # K4 Cell Public Science
 
+> 2026-09-09 implementation update: [short homepage, v3.0 progress, localized support and the 180-day candidate feedback route](docs/SITE_DISCOVERY_AND_INTEREST_v2.md). The full research account now lives at `/en/research.html` and `/zh/research.html`; earlier status below is historical. A branch or PR is not a deployment receipt.
+
 > Canonical domain: `https://k4cell.com`
 >
 > Scientific state: `CANDIDATE RESEARCH PROGRAM / NOT PEER REVIEWED / FULL PHYSICAL REALIZATION OPEN`

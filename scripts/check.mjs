@@ -14,6 +14,7 @@
 
 import "./check/copy.mjs";
 import "./check/integrity.mjs";
+import "./check/overview.mjs";
 import { svgTextMeasured } from "./check/svgtext.mjs";
 import { orientationChecked } from "./check/orientation.mjs";
 import { stateCount } from "./check/structure.mjs";

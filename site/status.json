@@ -1,10 +1,17 @@
 {
   "schema": "K4CELL-PUBLIC-STATUS-v1",
   "recorded_at_utc": "2026-08-29",
-  "site_updated_on": "2026-08-31",
+  "site_updated_on": "2026-09-09",
   "artifact_status": "PUBLISHED",
   "intended_canonical_domain": "k4cell.com",
   "science": {
+    "working_monograph": {
+      "version": "v3.0",
+      "state": "IN_PROGRESS",
+      "confirmed_on": "2026-09-09",
+      "source": "AUTHOR_CONFIRMATION",
+      "public_pdf": null
+    },
     "state": "CANDIDATE_NOT_INDEPENDENTLY_ESTABLISHED",
     "public_review": "2.0-public-review",
     "public_review_frozen_at": "2026-07-08",
@@ -103,6 +110,15 @@
     "official_no_mint_signature_sha256": "83447C16556BA4F68C04C295FEFA8924B2E07D5115F5C08E7498C7C39775FD36"
   },
   "k4v": {
+    "implementation_candidate": {
+      "version": "K4V-180D-2026-09-09",
+      "founder_cliff_days": 180,
+      "period_days": 30,
+      "clock_anchor": "OFFICIAL_T0",
+      "official_t0": null,
+      "new_program_verified": false,
+      "public_program_cliff_days": 730
+    },
     "launched": false,
     "official_mint": null,
     "presale": null,

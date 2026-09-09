@@ -265,7 +265,7 @@ for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage
 /* ---- machine-readable status ---- */
 
 assert.equal(status.artifact_status, "PUBLISHED");
-assert.equal(status.site_updated_on, "2026-08-31");
+assert.equal(status.site_updated_on, "2026-09-09");
 assert.equal(status.science.peer_reviewed, false);
 assert.equal(status.science.monograph_under_journal_review, false);
 assert.equal(status.science.full_physical_realization, "OPEN");
@@ -432,21 +432,23 @@ assert.doesNotMatch(Buffer.concat([officialPayload, officialSignature]).toString
    GOODSIG key ID is useful to humans, but VALIDSIG is the acceptance object:
    it binds the complete signing-subkey fingerprint to the primary fingerprint. */
 const verificationHome = await mkdtemp(join(tmpdir(), "k4cell-gpg-"));
+const verificationKeyring = join(verificationHome, "public.gpg");
 try {
+  // Public-key verification needs no secret-key agent or agent socket.
   await execFileAsync("gpg", [
-    "--homedir", verificationHome, "--batch", "--import",
+    "--homedir", verificationHome, "--batch", "--dearmor", "--output", verificationKeyring,
     join(site, "provenance", "K4V_FOUNDER_OPENPGP_KEY_v2.asc"),
   ]);
-  const { stdout: gpgStatus } = await execFileAsync("gpg", [
-    "--homedir", verificationHome, "--batch", "--status-fd", "1", "--verify",
+  const { stdout: gpgStatus } = await execFileAsync("gpgv", [
+    "--homedir", verificationHome, "--keyring", verificationKeyring, "--status-fd", "1",
     founderTestSignaturePath, founderTestPayloadPath,
   ]);
   assert.match(gpgStatus,
     /\[GNUPG:\] GOODSIG 48D9A06D3C49431F Zhihua Liang <zhihua@k4cell\.com>/);
   assert.match(gpgStatus,
     /\[GNUPG:\] VALIDSIG 0427411FA4820FDA5EBFB79B48D9A06D3C49431F .* C74953F60AD573F54A3FD06C72213914E4860F47/);
-  const { stdout: officialGpgStatus } = await execFileAsync("gpg", [
-    "--homedir", verificationHome, "--batch", "--status-fd", "1", "--verify",
+  const { stdout: officialGpgStatus } = await execFileAsync("gpgv", [
+    "--homedir", verificationHome, "--keyring", verificationKeyring, "--status-fd", "1",
     officialSignaturePath, officialPayloadPath,
   ]);
   assert.match(officialGpgStatus,
