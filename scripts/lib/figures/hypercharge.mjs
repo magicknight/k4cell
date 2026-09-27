@@ -206,9 +206,12 @@ export const renderHypercharge = (copy, { figure = FIG.hypercharge, linkCodes = 
     /* The phone's last name sits below its row, so the foot rule needs the
        extra leading or it cuts through the descenders. */
     const bottom = g.top + rows.length * g.pitch + (narrow ? 16 : 0);
+    /* Font fallback can make Chinese glyphs wider than the wrap estimator;
+       reserve space inside the viewBox for the browser's actual text boxes. */
+    const noteWrapWidth = g.w - 20;
     const noteLines = narrow
       ? [t.idxNote, t.narrowNote].reduce((sum, block) =>
-        sum + figWrap(block, HY_NOTE_SIZE, g.w - 4, ADV.sans, HY_NOTE_TRACK).length, 0)
+        sum + figWrap(block, HY_NOTE_SIZE, noteWrapWidth, ADV.sans, HY_NOTE_TRACK).length, 0)
       : 0;
     const height = bottom + (narrow ? 56 + 13 * noteLines + 16 : 68);
 
@@ -242,7 +245,7 @@ export const renderHypercharge = (copy, { figure = FIG.hypercharge, linkCodes = 
          the viewBox and the phone cut them off mid-word. */
       let line = bottom + 56;
       for (const block of [t.idxNote, t.narrowNote]) {
-        for (const text of figWrap(block, HY_NOTE_SIZE, g.w - 4, ADV.sans, HY_NOTE_TRACK)) {
+        for (const text of figWrap(block, HY_NOTE_SIZE, noteWrapWidth, ADV.sans, HY_NOTE_TRACK)) {
           notes.push(note("", 0, line, esc(text)));
           line += 13;
         }

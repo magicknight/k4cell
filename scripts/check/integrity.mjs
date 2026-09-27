@@ -265,7 +265,7 @@ for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage
 /* ---- machine-readable status ---- */
 
 assert.equal(status.artifact_status, "PUBLISHED");
-assert.equal(status.site_updated_on, "2026-09-09");
+assert.equal(status.site_updated_on, "2026-09-27");
 assert.equal(status.science.peer_reviewed, false);
 assert.equal(status.science.monograph_under_journal_review, false);
 assert.equal(status.science.full_physical_realization, "OPEN");

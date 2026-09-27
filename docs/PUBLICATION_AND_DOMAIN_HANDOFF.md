@@ -1,10 +1,21 @@
 # Publication and domain handoff
 
+> **Historical handoff snapshot — superseded as a current runbook.** This file
+> records the prelaunch plan and observations from 2026-08-29. The repository
+> now contains the Founder-signed no-official-mint statement, builds an indexable
+> site, and publishes `/official-k4v/`. Its DNS baseline, unsigned-status gate,
+> preview-only instructions, and publication flip below must not be read as the
+> current state or repeated without fresh verification. Use the
+> [current routes and validation guide](../README.md),
+> [implementation update](SITE_DISCOVERY_AND_INTEREST_v2.md), and generated
+> `site/status.json` for the repository's present declared state. A local build
+> or PR does not establish the live site's deployment status.
+>
 > Recorded: 2026-08-29 UTC
 >
-> Status: `BUILD PASS / CANONICAL DNS + FOUNDER SIGNATURE OPEN`
+> Status at recording: `BUILD PASS / CANONICAL DNS + FOUNDER SIGNATURE OPEN`
 
-## Authority boundary
+## Authority boundary (at recording)
 
 This repository may build and deploy a non-indexed preview. It must not claim
 that R1 official identity is closed until the Founder personally signs the
@@ -24,10 +35,10 @@ or hosting service may synthesize that signature.
 - `tetractys.cn` and `eksmu.com` remain parked unless a later campaign gives
   them one explicit, non-canonical redirect role.
 
-## Current `k4cell.com` DNS baseline
+## Recorded `k4cell.com` DNS baseline (2026-08-29)
 
-The domain uses DNSPod. Website records are absent. Existing mail records must
-be preserved byte-for-byte through the website cutover.
+The domain used DNSPod at recording. Website records were absent. The plan
+required preserving existing mail records byte-for-byte through cutover.
 
 ```text
 MX digest:       f21a47fca56105c29132395515e8a81a690e8635be625145e3d3577720aa7907
@@ -35,7 +46,7 @@ apex TXT digest: e342c59ae572c27a4b84f54a177d16048f0a0a9ba3768a4960debc204196a94
 NS digest:       99c4517d2652fd0577e47db8b8d9ea947dcb9eefa074446104b6485975e90098
 ```
 
-## GitHub Pages cutover
+## GitHub Pages cutover plan (historical)
 
 Perform in this order:
 
@@ -59,9 +70,9 @@ www  CNAME  magicknight.github.io
 6. Recompute the MX, TXT, and NS digests and complete a real inbound/outbound
    mailbox check.
 
-## Canonical publication flip
+## Planned canonical publication flip (historical)
 
-The preview build intentionally contains:
+The preview build at recording intentionally contained:
 
 - `robots.txt` with `Disallow: /`;
 - `noindex,nofollow,noarchive` HTML metadata;
@@ -73,7 +84,7 @@ Indexing and `/official-k4v/` are enabled only in one reviewed change after the
 Founder signature and source graph pass. That change must update the HTML meta,
 `robots.txt`, headers, status JSON, sitemap, and signed identity bytes together.
 
-## Acceptance checks
+## Acceptance checks from the handoff plan
 
 ```bash
 gh api repos/magicknight/k4cell/pages \
@@ -88,7 +99,7 @@ curl -fsSIL https://www.k4cell.com/
 curl -fsSL https://k4cell.com/status.json | jq .
 ```
 
-## Rollback
+## Rollback plan (historical)
 
 1. For a content defect, revert the site commit and leave DNS unchanged.
 2. For a domain-routing defect, first remove only the four new apex A records

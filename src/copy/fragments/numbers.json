@@ -76,7 +76,8 @@
    "censusAuthority": "每一行的当前状态以手稿表格为准。",
    "registryNote": "“预言”是手稿对这些条目的称呼；公开 Registry 当前有 0 项预注册预测。上面 11 行全部是回顾性对照。",
    "registryLink": "打开预测注册",
-   "measuredNote": "实测值和误差棒，都抄自公开评阅仓库里的对照表，2026-07-08 冻结版；算出的那一列取自同一版。本站没有独立溯源。要核，先从这一步核起。",
+   "measuredNote": "表中数值与误差棒转录自 2026-07-08 冻结的公开评阅版。μ 子与电子质量比的实验侧数值已对照 NIST/CODATA 2022 表核验；其余十行尚未逐项独立溯源。理论数值的推导仍需独立复现。",
+   "measuredSourceLabel": "核对 μ/e 的来源和算术",
    "noScore": "没有总分，以后也不会有。三道里的数是三种不同的数；把它们平均，等于把三样东西加起来当一样东西。",
    "lambdaNote": "这一行由两块拼成。第一块：几何响应量等于 3π 除以宇宙视界的熵，熵从元胞的结构里数出来。第二块：指数的尾巴，是 m_b/m_s 那个分数除以 64。同一个 92,633 在这套理论里出现在三处——m_b/m_s 这一行、电磁耦合的强度里，还有这条尾巴。作者称之为结构上的一致，不是一个推出另一个。这一行站在一个选定的分支上；普朗克质量是保留的单位，不是算出来的。作者自己的勘误也指出，冻结版里几何响应量和物理的 Λ 还没有分清。这里没有解决宇宙学常数问题。",
    "types": {
@@ -175,7 +176,8 @@
    "censusAuthority": "The manuscript tables are the authority on each row’s current status.",
    "registryNote": "“Predictions” is the manuscript’s name for these entries; the public Registry currently contains 0 preregistered predictions. All 11 rows above are retrospective comparisons.",
    "registryLink": "Open the Prediction Registry",
-   "measuredNote": "Measured values and error bars are transcribed from the public-review repository’s comparison table, frozen 2026-07-08; the computed column comes from the same frozen edition. This site does not source them independently. That transcription is the first thing to check.",
+   "measuredNote": "The table’s values and uncertainty bars are transcribed from the public-review edition frozen 2026-07-08. The measured muon-to-electron mass ratio has been cross-checked against the NIST/CODATA 2022 table; the other ten rows have not been independently sourced here. The theoretical calculation still awaits independent reproduction.",
+   "measuredSourceLabel": "Check μ/e sources and arithmetic",
    "noScore": "There is no total score, and there will not be one. The three lanes hold three different kinds of number; averaging them would add up three unlike things and call the result one number.",
    "lambdaNote": "This row is put together from two pieces. First: the geometric response quantity is 3π divided by the entropy of the cosmic horizon, an entropy counted from the cell’s structure. Second: the tail of the exponent is the m_b/m_s fraction divided by 64. The same 92,633 turns up in three places in this theory — the m_b/m_s row, the strength of the electromagnetic coupling, and that tail. The author calls this a structural agreement, not a derivation of one from the other. The row stands on a selected branch, with the Planck mass kept as a unit rather than derived; the author’s own erratum notes that the frozen edition has not yet separated the geometric response quantity from the physical Λ. The cosmological-constant problem is not solved here.",
    "types": {

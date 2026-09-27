@@ -365,7 +365,7 @@ ${sigmaFigure(copy)}
 <p class="noscore">${esc(L.noScore)}</p>
 <p class="lane-note">${esc(L.censusNote)} <a href="${links.pdf}">${esc(L.censusAuthority)}</a></p>
 <p class="lane-note registry-note">${esc(L.registryNote)} <a href="${links.predictions}">${esc(L.registryLink)}</a></p>
-<p class="lane-note">${esc(L.measuredNote)}</p>`);
+<p class="lane-note">${esc(L.measuredNote)} <a href="${links.heroEvidence}">${esc(L.measuredSourceLabel)}</a></p>`);
 };
 
 /* ------------------------------------------------------------------ *

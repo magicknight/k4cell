@@ -1,8 +1,14 @@
 # K4 scientific validation and public communication boundary v1
 
-> State: `CURRENT ROUTE / SUPPORT CONTACT OPEN / CAMPAIGN NOT STARTED / NO TOKEN OUTREACH`
+> State recorded 2026-08-31: `SUPPORT CONTACT OPEN / CAMPAIGN NOT STARTED / NO PROACTIVE TOKEN OUTREACH`
 >
 > Updated: 2026-08-31 UTC
+
+This v1 record preserves the 2026-08-31 boundary. The
+[2026-09-09 communication update](https://github.com/magicknight/k4cell/blob/main/docs/SITE_DISCOVERY_AND_INTEREST_v2.md)
+later added a passive K4V feedback page that prepares a visitor-controlled
+email draft. It does not start a sales campaign, collect payment, or authorize
+an official mint. The scientific-validation boundary below still applies.
 
 K4 scientific claims are evaluated through papers, professional criticism,
 independent derivation or reproduction, Founder-signed preregistered predictions,
