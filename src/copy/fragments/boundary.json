@@ -178,7 +178,7 @@
    },
    "submissions": {
     "h3": "投稿状态",
-    "intro": "专著本身没有投过期刊，未经同行评议，也不在 arXiv 上。从中拆出的两篇论文在审。一篇 2026 年 7 月 15 日投给 <em>Classical and Quantum Gravity</em>，编号 CQG-116665，等待审稿报告。一篇 2026 年 7 月 21 日投给 <em>Journal of Geometry and Physics</em>，编号 JGP13432，审稿中。",
+    "intro": "截至 2026-08-29 的记录：专著本身没有投过期刊，未经同行评议，也不在 arXiv 上。从中拆出的两篇论文当时在审。一篇 2026 年 7 月 15 日投给 <em>Classical and Quantum Gravity</em>，编号 CQG-116665，当时等待审稿报告。一篇 2026 年 7 月 21 日投给 <em>Journal of Geometry and Physics</em>，编号 JGP13432，当时审稿中。",
     "underReview": "审稿中",
     "awaiting": "等待审稿报告",
     "submittedOn": "提交于",
@@ -380,7 +380,7 @@
    },
    "submissions": {
     "h3": "Where the papers stand",
-    "intro": "The monograph itself has not been submitted to a journal, is not peer reviewed, and is not on arXiv. Two papers carved out of it are with journals now: one at <em>Classical and Quantum Gravity</em> (CQG-116665, submitted 2026-07-15), awaiting referee reports; one at the <em>Journal of Geometry and Physics</em> (JGP13432, submitted 2026-07-21), under review.",
+    "intro": "As recorded on 2026-08-29, the monograph itself had not been submitted to a journal, was not peer reviewed, and was not on arXiv. Two papers carved out of it were then with journals: one at <em>Classical and Quantum Gravity</em> (CQG-116665, submitted 2026-07-15), awaiting referee reports at that date; one at the <em>Journal of Geometry and Physics</em> (JGP13432, submitted 2026-07-21), under review at that date.",
     "underReview": "under review",
     "awaiting": "awaiting referee reports",
     "submittedOn": "submitted",

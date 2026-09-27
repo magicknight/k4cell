@@ -1,7 +1,8 @@
-/* Check entry. Eight modules, run in this order: the copy-pipeline gate (the
-   decks must be what the fragments assemble to, and every reviewed string must
-   reach a reader), the integrity and honesty gates (never edited by a
-   redesign), the SVG label gate (no figure text may escape its own viewBox),
+/* Check entry. The source and copy gates run before the rendered-site checks:
+   the decks must match their fragments, every reviewed string must reach a
+   reader, and the headline observed value must match its independent source.
+   Then the integrity and honesty gates check scientific boundaries and signed
+   evidence, the SVG label gate keeps figure text inside its viewBox,
    the orientation gate (every plate ships in two orientations, so nothing
    outside a plate may point at a place inside one), the structure gates (pins
    on the DOM, rewritten with the page), the theme gates (a palette is one
@@ -13,6 +14,7 @@
    first failure stops the run. */
 
 import "./check/copy.mjs";
+import "./check/hero-source.mjs";
 import "./check/integrity.mjs";
 import "./check/overview.mjs";
 import { svgTextMeasured } from "./check/svgtext.mjs";

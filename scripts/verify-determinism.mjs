@@ -34,7 +34,7 @@ try {
     matches_committed_site: committed === null ? null : committed === ma,
   };
   console.log(JSON.stringify(result, null, 2));
-  if (differing.length) process.exit(1);
+  if (differing.length || result.matches_committed_site === false) process.exit(1);
 } finally {
   await rm(a, { recursive: true, force: true });
   await rm(b, { recursive: true, force: true });

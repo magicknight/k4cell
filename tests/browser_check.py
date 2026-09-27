@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """Browser acceptance suite for a running preview of the K4 Cell site.
 
-Three things are checked, and they matter more than pixels:
+The complete research pages and short discovery pages have separate checks:
 
-  1. with JavaScript DISABLED the whole argument is still on the page — the
+  1. with JavaScript DISABLED the research pages still carry the whole argument — the
      81 states, the digit split, the eleven claims and their tiers, the six
      falsifiers, every load-bearing number, and none of the retracted or
      banned phrases;
   2. the interactions that teach something actually change the page;
-  3. on a 390-wide phone the object and the readout are reachable inside the
+  3. the short homepage reaches the research, progress, support, and feedback
+     routes in both languages, with a usable email draft and no-JS fallback;
+  4. on a 390-wide phone the object and the readout are reachable inside the
      first three screens, and nothing overflows sideways;
-  4. at sixteen widths from 320 to 2560, in both languages, the page never
+  5. at sixteen widths from 320 to 2560, in both languages, the research never
      scrolls sideways and no SVG label is cut off by its own plate.
 
 Run against a local preview:
@@ -60,7 +62,7 @@ MOBILE_FOLD = 3 * 844   # the first three screens of a 390 x 844 phone
 
 
 def check_static(page, path: str, language: str) -> None:
-    """With JavaScript off, the page must still carry the whole argument."""
+    """With JavaScript off, the research page must carry the whole argument."""
     response = page.goto(urljoin(BASE, path), wait_until="load")
     assert response and response.ok, (path, response.status if response else None)
     assert page.locator("html").get_attribute("lang") == language
@@ -249,11 +251,11 @@ def check_svg_labels(page, path: str) -> None:
 WIDTHS = (320, 360, 390, 414, 600, 768, 880, 900, 960, 1024, 1180, 1280, 1399, 1440, 1920, 2560)
 
 
-def check_widths(page, path: str) -> None:
+def check_widths(page, path: str, widths=WIDTHS) -> None:
     response = page.goto(urljoin(BASE, path), wait_until="load")
     assert response and response.ok, (path, response.status if response else None)
     page.evaluate("() => { for (const d of document.querySelectorAll('details')) d.open = true; }")
-    for width in WIDTHS:
+    for width in widths:
         page.set_viewport_size({"width": width, "height": 900})
         page.wait_for_timeout(60)
         over = page.evaluate(
@@ -288,19 +290,115 @@ def check_support(page) -> None:
     ), "support/: horizontal overflow"
 
 
+def check_overview(page, language: str, html_lang: str, path: str | None = None) -> None:
+    """The short homepage remains a usable entry point without JavaScript."""
+    path = f"{language}/" if path is None else path
+    response = page.goto(urljoin(BASE, path), wait_until="load")
+    assert response and response.ok, (path, response.status if response else None)
+    assert page.locator("html").get_attribute("lang") == html_lang
+    assert page.locator("main > section").count() == 5, f"{path}: five discovery sections"
+    assert page.locator(".st").count() == 0, f"{path}: research grid belongs on research.html"
+    for suffix in ("research.html", "progress/", "support/", "interest/"):
+        assert page.locator(f'a[href="/{language}/{suffix}"]').count() > 0, (
+            f"{path}: missing route to {suffix}")
+    other = "zh" if language == "en" else "en"
+    language_href = f"{other}/" if path == "" else f"/{other}/"
+    assert page.locator(".overview-language").get_attribute("href") == language_href
+    assert page.locator(".overview-status").count() == 1
+    assert page.locator("main").inner_text().count("v3.0") > 0
+    assert page.evaluate(
+        "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
+    ), f"{path}: horizontal overflow"
+
+
+def check_discovery_navigation(page, language: str) -> None:
+    """A homepage reader can reach the complete account and switch languages."""
+    page.goto(urljoin(BASE, f"{language}/"), wait_until="load")
+    page.locator(f'.hero-actions a[href="/{language}/research.html"]').click()
+    assert page.url.split("#", 1)[0].endswith(f"/{language}/research.html")
+    assert page.locator(".st").count() == 81
+    page.goto(urljoin(BASE, f"{language}/"), wait_until="load")
+    other = "zh" if language == "en" else "en"
+    page.locator(".overview-language").click()
+    assert page.url.split("#", 1)[0].endswith(f"/{other}/")
+
+
+def check_localized_page(page, language: str, html_lang: str, kind: str) -> None:
+    path = f"{language}/{kind}/"
+    response = page.goto(urljoin(BASE, path), wait_until="load")
+    assert response and response.ok, (path, response.status if response else None)
+    assert page.locator("html").get_attribute("lang") == html_lang
+    assert page.locator("main h1").count() == 1
+    other = "zh" if language == "en" else "en"
+    assert page.locator(".overview-language").get_attribute("href") == f"/{other}/{kind}/"
+    assert page.locator(f'a[href="/{language}/research.html"]').count() > 0
+    assert page.evaluate(
+        "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
+    ), f"{path}: horizontal overflow"
+
+    body = page.locator("main").inner_text()
+    if kind == "progress":
+        assert "v2.0" in body and "v3.0" in body
+    elif kind == "support":
+        assert page.locator("form").count() == 0
+        assert page.locator('main a[href^="mailto:zhihua@k4cell.com?"]').count() > 0
+        assert page.locator(f'a[href="/{language}/interest/"]').count() > 0
+    elif kind == "interest":
+        assert page.locator('#interest-form [required]').count() == 6
+        assert not page.locator('#consent').is_checked()
+        assert page.locator('#draft-preview').is_hidden()
+        assert page.locator('main a[href^="mailto:zhihua@k4cell.com?"]').count() > 0
+        assert page.locator('noscript').is_visible(), f"{path}: no-JS fallback is missing"
+
+
+def check_interest_live(page, language: str) -> None:
+    """Preparing a draft is reviewable, local, and invalidated by edits."""
+    path = f"{language}/interest/"
+    page.goto(urljoin(BASE, path), wait_until="load")
+    for field, answer in (("q1", "No interest"), ("q2", "No rights"),
+                          ("q4", "Price unknown"), ("q5", "Unclear liquidity")):
+        page.locator(f"#{field}").fill(answer)
+    page.locator("#q3").select_option("NO")
+    page.locator("#q6").select_option("NO")
+    page.locator("#prepare-email").click()
+    assert page.locator("#draft-preview").is_visible()
+    draft = page.locator("#draft-body").input_value()
+    assert f"Language: {language}" in draft
+    assert "Consent to one follow-up / 一次跟进同意: NO" in draft
+    assert "not an order or funding commitment" in draft
+    assert page.locator("#open-email").get_attribute("href").startswith(
+        "mailto:zhihua@k4cell.com?subject=")
+
+    page.locator("#q1").fill("Changed answer")
+    assert page.locator("#draft-preview").is_hidden()
+    assert page.locator("#open-email").get_attribute("href") == "mailto:zhihua@k4cell.com"
+    page.locator("#consent").check()
+    page.locator("#prepare-email").click()
+    assert page.locator("#draft-preview").is_visible()
+    assert "Consent to one follow-up / 一次跟进同意: YES" in page.locator("#draft-body").input_value()
+
+
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=True)
 
     no_js = browser.new_context(viewport={"width": 1440, "height": 1000}, java_script_enabled=False)
-    check_static(no_js.new_page(), "en/", "en")
-    check_static(no_js.new_page(), "zh/", "zh-Hans")
+    check_static(no_js.new_page(), "en/research.html", "en")
+    check_static(no_js.new_page(), "zh/research.html", "zh-Hans")
+    check_overview(no_js.new_page(), "en", "en", path="")
+    for language, html_lang in (("en", "en"), ("zh", "zh-Hans")):
+        check_overview(no_js.new_page(), language, html_lang)
+        for kind in ("progress", "support", "interest"):
+            check_localized_page(no_js.new_page(), language, html_lang, kind)
     no_js.close()
 
     desktop = browser.new_context(
         viewport={"width": 1440, "height": 1000}, device_scale_factor=1, reduced_motion="reduce",
     )
-    check_live(desktop.new_page(), "en/", "en", "k4cell-en-desktop.png")
-    check_live(desktop.new_page(), "zh/", "zh-Hans", "k4cell-zh-desktop.png")
+    check_live(desktop.new_page(), "en/research.html", "en", "k4cell-en-desktop.png")
+    check_live(desktop.new_page(), "zh/research.html", "zh-Hans", "k4cell-zh-desktop.png")
+    for language in ("en", "zh"):
+        check_discovery_navigation(desktop.new_page(), language)
+        check_interest_live(desktop.new_page(), language)
     check_notice(desktop.new_page(), "en/notice/")
     check_notice(desktop.new_page(), "zh/notice/")
     check_support(desktop.new_page())
@@ -310,19 +408,23 @@ with sync_playwright() as playwright:
         viewport={"width": 390, "height": 844}, device_scale_factor=1,
         is_mobile=True, has_touch=True, reduced_motion="reduce",
     )
-    check_live(mobile.new_page(), "zh/", "zh-Hans", "k4cell-zh-mobile.png")
+    check_live(mobile.new_page(), "zh/research.html", "zh-Hans", "k4cell-zh-mobile.png")
     fold = mobile.new_page()
-    check_mobile_fold(fold, "zh/")
+    check_mobile_fold(fold, "zh/research.html")
     fold.screenshot(path=str(ARTIFACTS / "k4cell-zh-mobile-fold.png"))
-    check_mobile_fold(mobile.new_page(), "en/")
+    check_mobile_fold(mobile.new_page(), "en/research.html")
     mobile.close()
 
     sweep = browser.new_context(
         viewport={"width": 1440, "height": 900}, device_scale_factor=1, reduced_motion="reduce",
     )
-    check_widths(sweep.new_page(), "en/")
-    check_widths(sweep.new_page(), "zh/")
+    check_widths(sweep.new_page(), "en/research.html")
+    check_widths(sweep.new_page(), "zh/research.html")
     check_widths(sweep.new_page(), "support/")
+    check_widths(sweep.new_page(), "", widths=(320, 390, 768, 1440))
+    for language in ("en", "zh"):
+        for path in ("", "progress/", "support/", "interest/"):
+            check_widths(sweep.new_page(), f"{language}/{path}", widths=(320, 390, 768, 1440))
     sweep.close()
     browser.close()
 

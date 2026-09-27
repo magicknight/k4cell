@@ -3,8 +3,8 @@
   "kill": {
    "number": "06",
    "kicker": "怎么证伪",
-   "h2": "这套理论把自己的死法写在了前面。",
-   "intro": "有旋钮的理论怎么都死不了——测出什么，拧一下就对上了。这套理论没有旋钮。所以一旦对不上，只有两个动作：在推导里找出一处真正的错误并公开更正，或者承认它完了。下面六张卡，从手稿列出的检验里挑出来。每一张都写明：谁来测，哪一年，怎么算输，输掉哪一层。",
+   "h2": "这套理论写明了哪些检验会迫使物理主张改写。",
+   "intro": "这套理论不靠连续拟合参数调节这些数值。一旦检验不符，就要公开更正真实的推导错误，或撤回受影响的主张及依赖它的物理结论。下面六张卡从手稿列出的检验中挑出；每一张写明谁来测、哪一年、怎么算输，以及失效范围。",
    "registryStatus": "这是研究计划最锋利的实验赌注，来自手稿。公开 Registry 已为未来预测就绪；当前预注册预测为 0。",
    "registryLink": "查看预测注册",
    "thresholdLabel": "怎么算输",
@@ -17,8 +17,8 @@
    "gradeKey": [
     [
      "ends",
-     "整套框架结束",
-     "没有分支可退，也没有哪一步没接上的地方可赖。倒序的中微子质量、正号的 CP 相位，属于这一级。"
+     "核心物理路线失效",
+     "若确认倒序或 CP 相位为正，相关核心主张及依赖链失效，物理实现必须重审；独立的有限系统数学结果仍须分别判断。"
     ],
     [
      "architecture",
@@ -35,21 +35,21 @@
     {
      "h3": "中微子的质量顺序",
      "claim": "三种中微子谁重谁轻，这套理论是算出来的，不是填进去的。三个质量里有两个挨得很近：理论把这对近邻放在下面，落单的那个放在上面——这就是正常序；在它选定的分支上，最轻的那个质量恰好为零。倒序，也就是近邻在上面，模型内直接排除了：不是不利，是不允许。",
-     "threshold": "倒序一旦确认，框架结束。",
+     "threshold": "倒序一旦确认，正常序主张及依赖它的物理结论失效。",
      "where": "JUNO · DUNE · Hyper-K",
      "when": "2026–2035",
      "grade": "ends",
-     "note": "JUNO 已于 2025 年 8 月开始取数，并在同年 11 月公布首批物理结果。DUNE 的当前目标是 2029 年运行首台远端探测器、2031 年获得束流。目前全局拟合略偏向正常序，偏得不多，还不算判决。",
+     "note": "JUNO 已于 2025 年 8 月开始取数，并在同年 11 月公布首批物理结果。DUNE 的当前目标是 2029 年运行首台远端探测器、2031 年获得束流。冻结的 v2.0 专著所引全局拟合略偏向正常序，偏得不多；这是旧版对照，不是当前判决。",
      "check": "正常序在 c_R = 1 的跷跷板分支上推出；倒序排除定理见宇宙学读出附录。评阅靶点 6。"
     },
     {
      "h3": "CP 相位的符号",
      "claim": "中微子和反中微子的行为不必一样，差多少由一个相位定，它叫 CP 相位。在这套理论里，它只能是 +90° 或 −90°。取哪一个，由宇宙里物质多于反物质这件事锁定：实验室里量到的符号，必须和天上看到的符号扣得上，sign(sin δ_CP) × sign(η_B) = −1，η_B 就是宇宙留下的那点物质。这个宇宙是物质做的，所以 sin δ_CP 必须为负。",
-     "threshold": "测出正号，框架被证伪。",
+     "threshold": "测出正号，符号锁主张及依赖它的物理结论失效。",
      "where": "DUNE · Hyper-K",
      "when": "2028–2035",
      "grade": "ends",
-     "note": "哪一面是物质，理论不推。作者逐层证明了：定律分不出物质和反物质哪一面是哪一面。所以这个宇宙落在物质这一面，是一段历史，不是定理。定理是两个符号之间的那条关系，DUNE 和 Hyper-K 要测的就是它。目前全局拟合的最佳值约 214°，落在负的那一半；理论要的 270° 离它约 1.6 σ，没有排除，也没有定案。",
+     "note": "哪一面是物质，理论不推。作者逐层证明了：定律分不出物质和反物质哪一面是哪一面。所以这个宇宙落在物质这一面，是一段历史，不是定理。定理是两个符号之间的那条关系，DUNE 和 Hyper-K 要测的就是它。冻结版引用 NuFIT 6.0 的约 214° 与约 1.6 σ，属于历史对照。NuFIT 6.1 正常序拟合的最佳值依大气数据方案分别为 207° 或 212°，两种方案的 3 σ 范围均包含 270°；尚未定案。",
      "check": "重子—狄拉克符号锁定定理，内部观察者附录；自发取向注记，实真空一章。评阅靶点 C。"
     },
     {
@@ -59,17 +59,17 @@
      "where": "DUNE · Hyper-K",
      "when": "2028–2035",
      "grade": "branch",
-     "note": "卦限今天还悬着。目前全局拟合的最佳点落在下卦限（含超级神冈大气数据）；上卦限的解仍在允许范围内。两个解都活着，数据还没有替这一条说话。",
+     "note": "冻结的 v2.0 专著所引全局拟合（含超级神冈大气数据）最佳点落在下卦限，上卦限的解也在当时允许范围内。这是旧版数据状态，当前卦限须按新的拟合核对。",
      "check": "伴随载体符号选择引理；预言一章的 PMNS 表。评阅靶点 6。"
     },
     {
      "h3": "无中微子双 β 衰变",
      "claim": "这套理论里中微子是自己的反粒子。所以原子核偶尔会只放出两个电子，一个中微子都不放。这种衰变有多快，理论这一边只由一个数定：m_ββ。理论给的不是一个区间，是一颗钉子，3.69 meV。",
-     "threshold": "1.5 meV 处出现信号，那正是相反的符号选择给出的值，这一串符号就选错了；远高于 10 meV，这条中微子分支出局。目前低于所有上限——还没被检验，不是已被证实。",
+     "threshold": "1.5 meV 处出现信号，那正是相反的符号选择给出的值，这一串符号就选错了；远高于 10 meV，这条中微子分支出局。按 2026-07-08 冻结版所引上限，它当时尚未被检验，更谈不上证实。",
      "where": "LEGEND-1000 · nEXO",
      "when": "2030 年代",
      "grade": "branch",
-     "note": "今天的上限是 28 到 122 meV，离这颗钉子还远。下一代要探到 1 到 10 meV 那一层。核物理里那块算不准的因子（核矩阵元）会把这根线抹宽一些。",
+     "note": "冻结的 v2.0 专著引用的上限是 28 到 122 meV，离这颗钉子还远。下一代要探到 1 到 10 meV 那一层。核物理里那块算不准的因子（核矩阵元）会把这根线抹宽一些。",
      "check": "马约拉纳相位发射定理，宇宙学读出附录；预言 P2，预言一章。"
     },
     {
@@ -117,7 +117,7 @@
      "branch"
     ]
    ],
-   "today": "今天这六项没有一项已经把它判死，也没有一项已经把它证实。中微子的三张卡里，两张的现有数据略偏向它，一张略偏向反面；剩下三张要么还没测到，要么实验还不够精。“没有判死”只是还活着，不是赢了。",
+   "today": "按 2026-07-08 冻结版记录，这六项没有一项已证实或排除对应主张。中微子的三张卡里，当时两张的数据略偏向它，一张略偏向反面；其余三张尚待更精确的检验。新的实验与全局拟合须另行核对。",
    "decade": "十年之约：2026–2035。质量顺序、CP 符号、θ₂₃ 卦限，这三张卡会先有判决。"
   },
   "machine": {
@@ -154,8 +154,8 @@
   "kill": {
    "number": "06",
    "kicker": "How to falsify it",
-   "h2": "This theory wrote down its own ways to die, in advance.",
-   "intro": "A theory with dials never dies: whatever the experiment reads, a turn of a dial fits it. This one has no dials. So after a miss there are only two moves: find a genuine mistake in the derivation and publish the correction, or say it is over. The six cards below are this site’s pick from the places the manuscript lists where it can break. Each names who measures, which years, what counts as a miss, and what is lost.",
+   "h2": "This theory states which tests would force its physical claims to change.",
+   "intro": "These numerical claims do not use continuously fitted parameters. After a miss, a genuine derivation error must be corrected in public, or the affected claim and its dependent physical conclusions must be withdrawn. The six cards below select tests named in the manuscript. Each names who measures, which years, what counts as a miss, and the scope of the failure.",
    "registryStatus": "These are the programme’s sharpest experimental bets, drawn from the manuscript. The public Registry is ready for future claims; it currently contains 0 preregistered predictions.",
    "registryLink": "See the Prediction Registry",
    "thresholdLabel": "What counts as a miss",
@@ -168,8 +168,8 @@
    "gradeKey": [
     [
      "ends",
-     "the whole framework ends",
-     "No branch to retreat to, and no unfinished join to the Standard Model to blame. An inverted neutrino ordering or a positive CP sign belongs here."
+     "the central physical route fails",
+     "A confirmed inverted ordering or positive CP sign defeats the related core claim and its dependent chain; the physical realization needs review. Independent finite-system mathematics must be judged separately."
     ],
     [
      "architecture",
@@ -186,21 +186,21 @@
     {
      "h3": "Neutrino mass ordering",
      "claim": "Which of the three neutrinos is heaviest is computed here, not put in by hand. Two of the three lie close together in mass; the theory puts that close pair at the bottom and the odd one on top — the normal ordering — and on the branch it selects, the lightest of all is exactly massless. The inverted ordering, close pair on top, is not disfavoured inside the model: it is excluded.",
-     "threshold": "A confirmed inverted ordering ends the framework.",
+     "threshold": "A confirmed inverted ordering defeats the normal-ordering claim and its dependent physical conclusions.",
      "where": "JUNO · DUNE · Hyper-K",
      "when": "2026–2035",
      "grade": "ends",
-     "note": "JUNO began taking data in August 2025 and released first physics results that November. DUNE currently targets first far-detector operation in 2029 and beam in 2031. Today’s global fit leans weakly toward normal ordering — weakly, and not a verdict.",
+     "note": "JUNO began taking data in August 2025 and released first physics results that November. DUNE currently targets first far-detector operation in 2029 and beam in 2031. The global fit cited by the frozen v2.0 account leaned weakly toward normal ordering. That is a historical comparison, not a current verdict.",
      "check": "Normal ordering derived on the c_R = 1 seesaw branch; the inverted-ordering exclusion theorem, cosmology readout appendix. Review Target 6."
     },
     {
      "h3": "The sign of the CP phase",
      "claim": "Neutrinos and antineutrinos need not behave alike; one number, the CP phase δ_CP, says by how much they differ. Here it can only be +90° or −90°, and the sky settles which: this universe is made of matter, not antimatter. The sign measured in a laboratory and the sign of that leftover matter are locked together — sign(sin δ_CP) × sign(η_B) = −1, with η_B the matter the universe kept — so sin δ_CP must be negative.",
-     "threshold": "A measured positive sign falsifies the framework.",
+     "threshold": "A measured positive sign defeats the sign-lock claim and its dependent physical conclusions.",
      "where": "DUNE · Hyper-K",
      "when": "2028–2035",
      "grade": "ends",
-     "note": "The theory does not derive which side came out as matter: step by step, the law is proved blind to the two, so which one this universe got is a historical fact, not a theorem. What is a theorem is the relation between the two signs, and that relation is what DUNE and Hyper-K will test. Today’s global best fit is about 214°, on the negative side; the 270° the theory needs sits about 1.6 σ from it, neither excluded nor decided.",
+     "note": "The theory does not derive which side came out as matter: step by step, the law is proved blind to the two, so which one this universe got is a historical fact, not a theorem. What is a theorem is the relation between the two signs, and that relation is what DUNE and Hyper-K will test. The frozen v2.0 account’s NuFIT 6.0 figures of about 214° and 1.6 σ are historical. NuFIT 6.1 gives normal-ordering best fits of 207° or 212° under its two atmospheric-data variants; both reported 3 σ ranges include 270°. This remains unsettled.",
      "check": "The baryon–Dirac sign-lock theorem, internal-observer appendix; the spontaneous-orientation remark, real-vacuum chapter. Review Target C."
     },
     {
@@ -210,17 +210,17 @@
      "where": "DUNE · Hyper-K",
      "when": "2028–2035",
      "grade": "branch",
-     "note": "The octant is still open today. The current global best fit, with Super-Kamiokande atmospheric data, sits in the lower octant; the upper-octant solution remains allowed. Both are alive, and the data do not yet speak for this one.",
+     "note": "In the global fit cited by the frozen v2.0 account, including Super-Kamiokande atmospheric data, the best fit sat in the lower octant and the upper-octant solution remained allowed. This is a historical data status; the present octant must be checked against newer fits.",
      "check": "The adjoint-carrier sign-selection lemma; the PMNS table in the predictions chapter. Review Target 6."
     },
     {
      "h3": "Neutrinoless double beta decay",
      "claim": "Here the neutrino is its own antiparticle, so a nucleus will occasionally emit two electrons and nothing else — no neutrinos at all. On the theory side the rate is set by one number, m_ββ. And the theory gives no range: one point, nailed down at 3.69 meV.",
-     "threshold": "A signal at 1.5 meV — the value the opposite sign choice would give — falsifies the chain of signs this number rests on; one far above 10 meV puts this neutrino branch out. Today the prediction sits below every limit: untested, not confirmed.",
+     "threshold": "A signal at 1.5 meV — the value the opposite sign choice would give — falsifies the chain of signs this number rests on; one far above 10 meV puts this neutrino branch out. Under the limits cited in the frozen 2026-07-08 account, it was untested, not confirmed.",
      "where": "LEGEND-1000 · nEXO",
      "when": "2030s",
      "grade": "branch",
-     "note": "Today’s limits reach 28 to 122 meV, still far above the prediction. The next generation aims at the 1 to 10 meV layer; uncertainty in the nuclear matrix elements, how strongly a given nucleus responds, will smear that line somewhat.",
+     "note": "The frozen v2.0 account cites limits of 28 to 122 meV, still far above the prediction. The next generation aims at the 1 to 10 meV layer; uncertainty in the nuclear matrix elements, how strongly a given nucleus responds, will smear that line somewhat.",
      "check": "The Majorana-phase emission theorem, cosmology readout appendix; prediction P2, predictions chapter."
     },
     {
@@ -268,7 +268,7 @@
      "branch"
     ]
    ],
-   "today": "None of the six has killed it today, and none has confirmed it. Of the three neutrino cards, present data lean its way on two and the other way on one; of the remaining three, one is out of reach and two wait on sharper experiments. “Not killed” means alive, not vindicated.",
+   "today": "In the frozen 2026-07-08 account, none of the six tests had confirmed or excluded its associated claim. Of the three neutrino cards, the data cited then leaned its way on two and the other way on one; the others needed sharper experiments. New experiment results and global fits require a fresh check.",
    "decade": "Ten years, on the calendar: 2026–2035. Mass ordering, the CP sign and the θ₂₃ octant are the three that get decided first, inside that window."
   },
   "machine": {

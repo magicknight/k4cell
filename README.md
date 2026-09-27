@@ -1,20 +1,41 @@
 # K4 Cell Public Science
 
-> 2026-09-09 implementation update: [short homepage, v3.0 progress, localized support and the 180-day candidate feedback route](docs/SITE_DISCOVERY_AND_INTEREST_v2.md). The full research account now lives at `/en/research.html` and `/zh/research.html`; earlier status below is historical. A branch or PR is not a deployment receipt.
+> Current implementation: [short homepage, v3.0 progress, localized support and the 180-day candidate feedback route](docs/SITE_DISCOVERY_AND_INTEREST_v2.md). The long research account is published separately at `/en/research.html` and `/zh/research.html`. A branch or PR is not a deployment receipt.
 
 > Canonical domain: `https://k4cell.com`
 >
 > Scientific state: `CANDIDATE RESEARCH PROGRAM / NOT PEER REVIEWED / FULL PHYSICAL REALIZATION OPEN`
 
-The bilingual public surface for the K4 Cell Framework. Its job is to put one
-beautiful, checkable, parameter-free comparison in front of a reader inside ten
-seconds, then open three durable paths: the papers, the Prediction Registry, and
-support for the research programme.
+This repository builds the bilingual, static public site for the K4 Cell
+Framework. The short homepage introduces the four-point object and links to the
+full research account, progress, papers, and contact-only support. The current
+site has no application server, hosted form, payment flow, or wallet connection.
 
-The page is built around one object and a public ledger. Discovery leads;
-validation stays attached to the claim it qualifies. The object comes before
-the numbers, the numbers before the classification, and the support path never
-gets to change a scientific verdict:
+## Current routes
+
+| Route | Purpose | Source |
+|---|---|---|
+| `/`, `/en/`, `/zh/` | Five-section discovery homepage; `/` shows English immediately | `src/copy/overview.js`, `scripts/lib/sections/overview.mjs` |
+| `/{en,zh}/research.html` | Full v2.0-based research account, comparisons, figures, falsifiers, and verification links | `src/copy/fragments/`, `scripts/lib/sections/page.mjs` |
+| `/{en,zh}/progress/` | Frozen public v2.0 versus author-confirmed v3.0 work in progress | `src/copy/overview.js`, `scripts/lib/status.mjs` |
+| `/{en,zh}/support/` | Localized contact-only research support and collaboration | `src/copy/overview.js`, `scripts/lib/sections/overview.mjs` |
+| `/{en,zh}/interest/` | Six-question K4V feedback form that prepares a local email draft | `scripts/lib/sections/overview.mjs`, `src/assets/interest.js` |
+| `/{en,zh}/notice/`, `/official-k4v/` | No-official-mint notices and signed boundary material | `scripts/lib/sections/page.mjs`, `official-k4v/` |
+| `/predictions/`, `/support/`, `/languages.html` | Prediction Registry, original support surface, and language links | `predictions/`, `support/`, `scripts/lib/sections/page.mjs` |
+| `/status.json`, `/ledger.json`, `/season-01.json`, `/SITE_SHA256SUMS.txt` | Machine-readable status, figures, season manifest, and build checksums | `scripts/lib/emit.mjs` |
+
+Existing anchors from the former long homepage redirect to the corresponding
+research page when JavaScript is available; the homepage also links directly to
+the research page. The `site/` directory is generated output, not the source of
+the pages. The v3.0 monograph is in progress and has no public PDF; the public
+v2.0 review artifact remains frozen. See `/status.json` for the site's recorded
+state and [the discovery update](docs/SITE_DISCOVERY_AND_INTEREST_v2.md) for the
+route change.
+
+## Full research account
+
+The research page leads with a checkable parameter-free comparison, then opens
+the papers, Prediction Registry, and support path. Its sections are:
 
 ```text
 hero    one number, computed to 15 digits and checked to 8, and the bet
@@ -30,31 +51,29 @@ hero    one number, computed to 15 digits and checked to 8, and the bet
 10 what happens next     dates, not a peroration
 ```
 
-The page architecture, the visual system and the check gates are one design:
+The research page architecture, the visual system and the check gates are one design:
 `scripts/lib/sections/page.mjs` renders it, `src/assets/site-body.css` plus one
 palette out of `src/assets/themes/` is the entire visual system, and
 `scripts/check/structure.mjs` pins the parts of both that carry meaning.
 
 ## Numeric integrity
 
-Every figure printed on the site comes from `src/data/ledger.json`. No numeric
-literal appears in a template. At build time `scripts/build.mjs` **recomputes**
+The research account's numerical comparisons come from `src/data/ledger.json`.
+At build time `scripts/build.mjs` **recomputes**
 the resolved-digit count `floor(log10(|x|/σ)) + 1` and the pull `|pred − meas|/σ`
 for every row and asserts them against the stored values; it enumerates all 81
 basis states and asserts the census (36/24/18/3), the total of 162 same-colour
 edges, and the mean of exactly 2. `scripts/check.mjs` then re-asserts the same
 quantities against the built HTML.
 
-If a figure on the page ever disagrees with the manuscript, the build fails
-rather than publishing the disagreement.
+If a stored comparison disagrees with its recomputation, the build fails.
 
 ## Static first
 
-The hero readout, the digit rulers, all 81 basis states, every ledger row, the
-pull bars, the sigma axis, the route map, the falsifier board and the Lean
-sign-off are **server-rendered**. With JavaScript disabled the page carries the
-entire argument; `tests/browser_check.py` runs a dedicated no-JS pass that
-asserts this. JavaScript only adds five progressive enhancements: the 81-state
+On the full research page, the hero readout, digit rulers, 81 basis states,
+ledger rows, pull bars, sigma axis, route map, falsifier board, and Lean
+sign-off are **rendered at build time**. With JavaScript disabled, the page
+carries the entire argument. JavaScript adds the 81-state
 filter, the sweep, the division stepper, the interface kill switch, and two
 observers (the hero readout lighting its digits, and `aria-current` on the nav).
 
@@ -65,9 +84,12 @@ stylesheet. Because CSS cannot switch SMIL off, the glyph ships twice: the
 animated group and a still twin drawn at frame 0, and `prefers-reduced-motion`
 chooses between them.
 
-The Content-Security-Policy is `script-src 'self'; style-src 'self'`, so there is
-no inline script, no inline style element, and no `style=` attribute anywhere —
-`check/integrity.mjs` enforces all three.
+The research page's Content-Security-Policy allows only local scripts and
+styles, so there is no inline script, no inline style element, and no `style=`
+attribute anywhere —
+`check/integrity.mjs` enforces all three. The emitted `_headers` file states
+additional HTTP header policy, but GitHub Pages does not apply that file; the
+HTML CSP meta tag is the operative policy on that host.
 
 ## Colour has one meaning each
 
@@ -146,21 +168,19 @@ the build instead of surviving to the next rebuild.
 
 ## Repository map
 
-- `src/data/ledger.json` — every number on the page, with its source;
+- `src/data/ledger.json` — the full research account's numerical comparison
+  ledger, with source references;
 - `src/data/external.json` — journal submission status (never emitted);
+- `src/copy/overview.js` — localized copy for the short homepage, progress,
+  support, and interest pages;
 - `src/copy/fragments/*.json` — **the copy source**: eight reviewed clusters,
   each a `{ zh, en }` pair covering one part of the page. This is the file a
   copy reviewer edits;
 - `src/copy/{en,zh}.js` — the assembled decks, **generated** from the fragments
-  by `npm run copy`; never hand-edited (see *The copy pipeline* below). All
-  prose, both languages first-class. No user-visible string is written in
-  `page.mjs` or in the stylesheet; the figure modules do derive a few sentences
-  in code — `sigma.mjs` joins its lane sentences, and `route.mjs` writes two
-  counted notes (how many rows fall through the gaps, and which row hangs on
-  two interfaces and is therefore drawn twice) — and those are the only
-  exceptions. Both are held to the same rules as the deck: the apostrophe gate
-  now reads the built English pages, and the orientation gate reads the
-  rendered caption;
+  by `npm run copy`; never hand-edited (see *The copy pipeline* below). They
+  supply the full research account in both languages. The figure modules
+  derive a few explanatory sentences from the ledger and copy; the copy and
+  orientation gates check the rendered result;
 - `src/assets/` — the stylesheet's sources (`site-head.css`,
   `themes/<name>.css`, an optional `themes/<name>.overrides.css`,
   `site-body.css`; see *The palette is swappable*), the interaction layer,
@@ -171,7 +191,8 @@ the build instead of surviving to the next rebuild.
   the six numbered plates `deal imaginary hypercharge ruler sigma route`, the
   inline digit readouts `digits.mjs`, the 81-state grid `grid81.mjs`, the
   figure-numbering authority `order.mjs` and the SVG text measure `text.mjs`),
-  `sections/page.mjs` (the page itself);
+  `sections/page.mjs` (the full research account), and
+  `sections/overview.mjs` (the current short and contact pages);
 - `scripts/check.mjs` — the entry, printing the PASS JSON;
 - `scripts/check/` — `copy.mjs` (the decks are what the fragments assemble to,
   every reviewed string — and every segment of one — reaches a reader, one
@@ -185,8 +206,10 @@ the build instead of surviving to the next rebuild.
   contracts, the colour semantics, one fold label per page), `themes.mjs` (a
   palette is one `:root` block, every palette declares the same names, and the
   emitted sheet is the concatenation of its sources), `cards.mjs` (the two baked
-  social cards are still pictures of *this* page — see *The social cards*
-  below), `budgets.mjs` (bytes and tokens);
+  social cards remain tied to the research deck — see *The social cards*
+  below), `hero-source.mjs` (the independent CODATA input check),
+  `overview.mjs` (current routes and local email-draft behavior),
+  `budgets.mjs` (bytes and tokens);
 - `scripts/verify-determinism.mjs` — builds twice and diffs the manifests;
 - `scripts/build-previews.mjs` — `npm run preview`: every palette built side by
   side, outside the repository, leaving `site/` alone;
@@ -197,8 +220,10 @@ the build instead of surviving to the next rebuild.
 - `support/` — the bilingual contact-only funding and strategic-collaboration
   surface, its public roadmap, and its machine-readable status;
 - `site/` — the generated deployable site;
+- `evidence/hero-mu-e/` — independent NIST/CODATA check of the headline
+  observed value and comparison arithmetic; the K4 derivation remains open;
 - `docs/` — the active communication-and-support roadmap, the preserved
-  public-science measurement design, and the publication handoff;
+  public-science measurement design, and a historical publication handoff;
 - `provenance/` — Founder public OpenPGP key and fingerprint; no secret material.
 
 ## Two orientations, one caption
@@ -283,11 +308,10 @@ viewBox or any label the stylesheet gives no size to.
 
 ## The social cards
 
-`assets/og-k4cell-{en,zh}.jpg` are the only pictures of this page that are
-**baked**. Everything else is regenerated from the sources on every build, so a
-headline edit or a palette swap reaches it automatically; a card is drawn once,
-by hand, and then shown to every reader who meets the link before they meet the
-page. That is the one artefact that can go quietly, durably wrong — and it did,
+`assets/og-k4cell-{en,zh}.jpg` are baked images generated from the full research
+deck and reused by the short homepage's social metadata. A research-deck edit
+or palette swap requires regenerating them separately from the HTML build.
+That is one artefact that can go quietly, durably wrong — and it did,
 for a day, when the site left the dark ground and the cards went on previewing
 it in near-black and amber.
 
@@ -351,17 +375,44 @@ including the CSS for every figure.
 
 ## Local use
 
+Node.js 24 or newer is required. The integrity gate also invokes `gpg` and
+`gpgv`. The commands below serve and check the generated `site/` tree; they do
+not prove that a branch, PR, or local build is deployed at `k4cell.com`.
+
 ```bash
 npm run copy                                    # only after editing a fragment
 python3 tools/og_cards.py                       # only after a headline or palette change
-npm test                                        # build + validate
+npm test                                        # build site/ + source/output validation
 npm run preview                                 # every palette, outside the repo
-python3 -m http.server 4173 --directory site
-python3 tests/browser_check.py                  # needs Playwright + Chromium
 node scripts/verify-determinism.mjs             # builds twice, diffs manifests
+python3 predictions/validate_prediction_registry.py
+python3 predictions/test_prediction_registry.py
+python3 -B evidence/hero-mu-e/verify.py           # headline source audit
 ```
 
-Set `K4CELL_TEST_BASE_URL` to run the acceptance suite against a deployed host.
+`npm test` runs `npm run build` followed by `npm run check`. The check validates
+scientific copy and figures, signed evidence, registry boundaries, the headline
+source audit, output structure, theme, cards, links, and checksums. It also runs
+the Python Prediction Registry validator and unit tests. The deterministic
+build check remains a separate command.
+
+For browser acceptance, install Playwright and Chromium, then serve `site/` in
+one terminal and run the suite in another:
+
+```bash
+python3 -m pip install playwright==1.62.0
+python3 -m playwright install chromium
+python3 -m http.server 4173 --directory site
+python3 tests/browser_check.py
+```
+
+The browser suite covers the short homepages and full research pages in both
+languages, including a no-JavaScript pass, interactions, notices, support, and
+responsive widths. Set `K4CELL_TEST_BASE_URL` to point it at another served
+build or deployed host; browser acceptance is separate from `npm test`.
+The PR workflow runs the build, output diff, deterministic build check, and
+browser suite without deploying. The Pages workflow performs its own build and
+browser checks before deploying changes from `main`.
 
 ## Evidence boundaries
 

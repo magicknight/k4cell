@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { basename, join } from "node:path";
 
 import { ledger } from "./data.mjs";
 import { officialK4vDir, predictionsDir, provenanceDir, seasonManifest, srcAssets, supportDir } from "./paths.mjs";
@@ -48,6 +48,11 @@ const isStylesheetSource = (path) => {
   return themeSourceNames.some((name) => relative === name || relative.startsWith(`${name}/`));
 };
 
+/* Local Python checks can leave bytecode in the source tree. Those files are
+   neither registry evidence nor part of the published source snapshot. */
+const isTransientPythonFile = (source) =>
+  basename(source) === "__pycache__" || /\.py[cod]$/.test(source);
+
 /* Wipe the output and copy in the assets and the frozen evidence. The
    stylesheet arrives already composed, because the wipe below is destructive:
    a mistyped --theme must fail before site/ is deleted, not halfway through. */
@@ -68,7 +73,10 @@ export const prepareOut = async (out, stylesheet) => {
      author's own validators. It is copied, never generated and never
      reformatted — a rebuild that dropped it would delete a live section of
      the site. */
-  await cp(predictionsDir, join(out, "predictions"), { recursive: true });
+  await cp(predictionsDir, join(out, "predictions"), {
+    recursive: true,
+    filter: (source) => !isTransientPythonFile(source),
+  });
   /* The support page is contact-only and carries its own machine-readable
      boundary. It is source material like the two signed-status surfaces, not
      generated copy, so the build must preserve its bytes too. */

@@ -58,7 +58,7 @@ export default {
     byline: [
       "Zhihua Liang · PhD in Physics (Southern Methodist University, 2012) · BSc in Physics (Tsinghua University, 2003)",
       "ATLAS collaboration 2006–2012 (H→WW analysis) · INFN Cagliari / CERN LHCb 2024–2026",
-      "1003-page monograph, frozen 2026-07-08 · not peer reviewed · two papers carved out of it, under review",
+      "1003-page monograph, frozen 2026-07-08 · not peer reviewed · two carved-out papers under review as recorded 2026-08-29",
     ],
     glyphA: "Four points, six links, three colours",
     glyphB: "Every link wants its two ends to differ, and one pair always clashes",
@@ -275,10 +275,10 @@ export default {
         n: "10",
         scale: "every scale · laboratory and cosmos",
         q: "Why is there more matter than antimatter, and why does time run one way?",
-        answer: "The law is perfectly symmetric between +i and −i, yet the universe can only live on one side — the way a magnet, cooling, spontaneously picks its north. Which side is matter, the theory does not predict. The author proves, layer by layer, that the seven kinds of structure he writes down cannot tell the two sides apart, and that no datum installed anywhere carries the orientation; which side the universe settled on is therefore history rather than theorem — the vacuum picked a side on its own, what the book calls spontaneously selected vacuum data. What the theory does predict is that the one selection echoes at four depths: the CP phase of neutrino oscillations in the laboratory (an angle that sets how differently neutrinos and antineutrinos oscillate; here it can only be +90° or −90°), the imbalance of leptons and antileptons in the early universe, matter winning over antimatter, and the direction of cosmic time that this marks (meaning only the time asymmetry that “more matter than antimatter” exhibits, not the arrow of rising entropy). The four echoes come from one selection, so the sign measured in the laboratory and the sign seen in the sky must match: sign(sin δ_CP) × sign(η_B) = −1, where δ_CP is that neutrino phase and η_B the leftover matter. This is a matter universe, so sin δ_CP must be negative: δ_CP = 270°, the −90° option written the way experiments quote it. Today’s best fit to all the world’s data is about 214°, on the negative side, about 1.6 σ from 270°, with +90° excluded by the same fit — leaning the right way, not decided. Hyper-K’s latest official target is to begin experimentation in 2028; DUNE targets its accelerator neutrino beam for 2031. A positive value from either breaks the chain of four echoes.",
+        answer: "The law is perfectly symmetric between +i and −i, yet the universe can only live on one side — the way a magnet, cooling, spontaneously picks its north. Which side is matter, the theory does not predict. The author proves, layer by layer, that the seven kinds of structure he writes down cannot tell the two sides apart, and that no datum installed anywhere carries the orientation; which side the universe settled on is therefore history rather than theorem — the vacuum picked a side on its own, what the book calls spontaneously selected vacuum data. What the theory does predict is that the one selection echoes at four depths: the CP phase of neutrino oscillations in the laboratory (an angle that sets how differently neutrinos and antineutrinos oscillate; here it can only be +90° or −90°), the imbalance of leptons and antileptons in the early universe, matter winning over antimatter, and the direction of cosmic time that this marks (meaning only the time asymmetry that “more matter than antimatter” exhibits, not the arrow of rising entropy). The four echoes come from one selection, so the sign measured in the laboratory and the sign seen in the sky must match: sign(sin δ_CP) × sign(η_B) = −1, where δ_CP is that neutrino phase and η_B the leftover matter. This is a matter universe, so sin δ_CP must be negative: δ_CP = 270°, the −90° option written the way experiments quote it. The frozen v2.0 account quotes about 214° and 1.6 σ from NuFIT 6.0 as a historical comparison. The <a href=\"https://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf\">official NuFIT 6.1 parameter table</a>, based on data available through November 2025, gives normal-ordering best fits of 207° without SK atmospheric data and 212° with IC24 and SK atmospheric data; both reported 3 σ ranges include 270°. The data do not yet settle the claim. Hyper-K’s latest official target is to begin experimentation in 2028; DUNE targets its accelerator neutrino beam for 2031. A positive value from either breaks the chain of four echoes.",
         tags: ["conditional"],
         rides: "Each link is conditional, and each sits at a different depth: the +i/−i distinction (the representation-theory half is closed), the ±90° phase (closed), the lepton imbalance (rides on the heavy-neutrino scale and a washout factor — how much of the imbalance survives), the sign lock (closed inside the range it is proved in, with the branch picked by the observed matter excess). The framework also gives the size of the excess, 8.7 × 10⁻¹¹ against the observed (8.7 ± 0.06) × 10⁻¹¹ — a claim one tier below the sign lock. Which way the phase points is the author’s own open review question (Target C).",
-        check: "Real-vacuum chapter: the i-emergence theorem; the UV/IR δ_CP theorem; the “spontaneous orientation” remark (seven kinds of structure, none able to tell the two sides apart, checked item by item by machine). Appendix J (Read_cosmo): the leptogenesis-from-PMNS-Berry theorem; the arrow-of-time corollary. Appendix K (Read_int): the baryon–Dirac sign-lock theorem, sign(sin δ_CP)·sign(η_B) = −1. Experimental side: the PMNS status paragraph of the predictions chapter, NuFIT 6.0 best fit δ/π ≈ 1.19.",
+        check: "Real-vacuum chapter: the i-emergence theorem; the UV/IR δ_CP theorem; the “spontaneous orientation” remark (seven kinds of structure, none able to tell the two sides apart, checked item by item by machine). Appendix J (Read_cosmo): the leptogenesis-from-PMNS-Berry theorem; the arrow-of-time corollary. Appendix K (Read_int): the baryon–Dirac sign-lock theorem, sign(sin δ_CP)·sign(η_B) = −1. Experimental side: the PMNS status paragraph of the predictions chapter retains the historical NuFIT 6.0 comparison; the current comparison is in the two atmospheric-data variants of the official NuFIT 6.1 parameter table.",
         lead: "Which side is matter, the theory does not predict; what it predicts is that one selection leaves the same sign in four different places.",
       },
       {
@@ -408,7 +408,8 @@ export default {
     censusAuthority: "The manuscript tables are the authority on each row’s current status.",
     registryNote: "“Predictions” is the manuscript’s name for these entries; the public Registry currently contains 0 preregistered predictions. All 11 rows above are retrospective comparisons.",
     registryLink: "Open the Prediction Registry",
-    measuredNote: "Measured values and error bars are transcribed from the public-review repository’s comparison table, frozen 2026-07-08; the computed column comes from the same frozen edition. This site does not source them independently. That transcription is the first thing to check.",
+    measuredNote: "The table’s values and uncertainty bars are transcribed from the public-review edition frozen 2026-07-08. The measured muon-to-electron mass ratio has been cross-checked against the NIST/CODATA 2022 table; the other ten rows have not been independently sourced here. The theoretical calculation still awaits independent reproduction.",
+    measuredSourceLabel: "Check μ/e sources and arithmetic",
     noScore: "There is no total score, and there will not be one. The three lanes hold three different kinds of number; averaging them would add up three unlike things and call the result one number.",
     lambdaNote: "This row is put together from two pieces. First: the geometric response quantity is 3π divided by the entropy of the cosmic horizon, an entropy counted from the cell’s structure. Second: the tail of the exponent is the m_b/m_s fraction divided by 64. The same 92,633 turns up in three places in this theory — the m_b/m_s row, the strength of the electromagnetic coupling, and that tail. The author calls this a structural agreement, not a derivation of one from the other. The row stands on a selected branch, with the Planck mass kept as a unit rather than derived; the author’s own erratum notes that the frozen edition has not yet separated the geometric response quantity from the physical Λ. The cosmological-constant problem is not solved here.",
     types: {
@@ -430,8 +431,8 @@ export default {
   kill: {
     number: "06",
     kicker: "How to falsify it",
-    h2: "This theory wrote down its own ways to die, in advance.",
-    intro: "A theory with dials never dies: whatever the experiment reads, a turn of a dial fits it. This one has no dials. So after a miss there are only two moves: find a genuine mistake in the derivation and publish the correction, or say it is over. The six cards below are this site’s pick from the places the manuscript lists where it can break. Each names who measures, which years, what counts as a miss, and what is lost.",
+    h2: "This theory states which tests would force its physical claims to change.",
+    intro: "These numerical claims do not use continuously fitted parameters. After a miss, a genuine derivation error must be corrected in public, or the affected claim and its dependent physical conclusions must be withdrawn. The six cards below select tests named in the manuscript. Each names who measures, which years, what counts as a miss, and the scope of the failure.",
     registryStatus: "These are the programme’s sharpest experimental bets, drawn from the manuscript. The public Registry is ready for future claims; it currently contains 0 preregistered predictions.",
     registryLink: "See the Prediction Registry",
     thresholdLabel: "What counts as a miss",
@@ -444,8 +445,8 @@ export default {
     gradeKey: [
       [
         "ends",
-        "the whole framework ends",
-        "No branch to retreat to, and no unfinished join to the Standard Model to blame. An inverted neutrino ordering or a positive CP sign belongs here.",
+        "the central physical route fails",
+        "A confirmed inverted ordering or positive CP sign defeats the related core claim and its dependent chain; the physical realization needs review. Independent finite-system mathematics must be judged separately.",
       ],
       [
         "architecture",
@@ -462,21 +463,21 @@ export default {
       {
         h3: "Neutrino mass ordering",
         claim: "Which of the three neutrinos is heaviest is computed here, not put in by hand. Two of the three lie close together in mass; the theory puts that close pair at the bottom and the odd one on top — the normal ordering — and on the branch it selects, the lightest of all is exactly massless. The inverted ordering, close pair on top, is not disfavoured inside the model: it is excluded.",
-        threshold: "A confirmed inverted ordering ends the framework.",
+        threshold: "A confirmed inverted ordering defeats the normal-ordering claim and its dependent physical conclusions.",
         where: "JUNO · DUNE · Hyper-K",
         when: "2026–2035",
         grade: "ends",
-        note: "JUNO began taking data in August 2025 and released first physics results that November. DUNE currently targets first far-detector operation in 2029 and beam in 2031. Today’s global fit leans weakly toward normal ordering — weakly, and not a verdict.",
+        note: "JUNO began taking data in August 2025 and released first physics results that November. DUNE currently targets first far-detector operation in 2029 and beam in 2031. The global fit cited by the frozen v2.0 account leaned weakly toward normal ordering. That is a historical comparison, not a current verdict.",
         check: "Normal ordering derived on the c_R = 1 seesaw branch; the inverted-ordering exclusion theorem, cosmology readout appendix. Review Target 6.",
       },
       {
         h3: "The sign of the CP phase",
         claim: "Neutrinos and antineutrinos need not behave alike; one number, the CP phase δ_CP, says by how much they differ. Here it can only be +90° or −90°, and the sky settles which: this universe is made of matter, not antimatter. The sign measured in a laboratory and the sign of that leftover matter are locked together — sign(sin δ_CP) × sign(η_B) = −1, with η_B the matter the universe kept — so sin δ_CP must be negative.",
-        threshold: "A measured positive sign falsifies the framework.",
+        threshold: "A measured positive sign defeats the sign-lock claim and its dependent physical conclusions.",
         where: "DUNE · Hyper-K",
         when: "2028–2035",
         grade: "ends",
-        note: "The theory does not derive which side came out as matter: step by step, the law is proved blind to the two, so which one this universe got is a historical fact, not a theorem. What is a theorem is the relation between the two signs, and that relation is what DUNE and Hyper-K will test. Today’s global best fit is about 214°, on the negative side; the 270° the theory needs sits about 1.6 σ from it, neither excluded nor decided.",
+        note: "The theory does not derive which side came out as matter: step by step, the law is proved blind to the two, so which one this universe got is a historical fact, not a theorem. What is a theorem is the relation between the two signs, and that relation is what DUNE and Hyper-K will test. The frozen v2.0 account’s NuFIT 6.0 figures of about 214° and 1.6 σ are historical. NuFIT 6.1 gives normal-ordering best fits of 207° or 212° under its two atmospheric-data variants; both reported 3 σ ranges include 270°. This remains unsettled.",
         check: "The baryon–Dirac sign-lock theorem, internal-observer appendix; the spontaneous-orientation remark, real-vacuum chapter. Review Target C.",
       },
       {
@@ -486,17 +487,17 @@ export default {
         where: "DUNE · Hyper-K",
         when: "2028–2035",
         grade: "branch",
-        note: "The octant is still open today. The current global best fit, with Super-Kamiokande atmospheric data, sits in the lower octant; the upper-octant solution remains allowed. Both are alive, and the data do not yet speak for this one.",
+        note: "In the global fit cited by the frozen v2.0 account, including Super-Kamiokande atmospheric data, the best fit sat in the lower octant and the upper-octant solution remained allowed. This is a historical data status; the present octant must be checked against newer fits.",
         check: "The adjoint-carrier sign-selection lemma; the PMNS table in the predictions chapter. Review Target 6.",
       },
       {
         h3: "Neutrinoless double beta decay",
         claim: "Here the neutrino is its own antiparticle, so a nucleus will occasionally emit two electrons and nothing else — no neutrinos at all. On the theory side the rate is set by one number, m_ββ. And the theory gives no range: one point, nailed down at 3.69 meV.",
-        threshold: "A signal at 1.5 meV — the value the opposite sign choice would give — falsifies the chain of signs this number rests on; one far above 10 meV puts this neutrino branch out. Today the prediction sits below every limit: untested, not confirmed.",
+        threshold: "A signal at 1.5 meV — the value the opposite sign choice would give — falsifies the chain of signs this number rests on; one far above 10 meV puts this neutrino branch out. Under the limits cited in the frozen 2026-07-08 account, it was untested, not confirmed.",
         where: "LEGEND-1000 · nEXO",
         when: "2030s",
         grade: "branch",
-        note: "Today’s limits reach 28 to 122 meV, still far above the prediction. The next generation aims at the 1 to 10 meV layer; uncertainty in the nuclear matrix elements, how strongly a given nucleus responds, will smear that line somewhat.",
+        note: "The frozen v2.0 account cites limits of 28 to 122 meV, still far above the prediction. The next generation aims at the 1 to 10 meV layer; uncertainty in the nuclear matrix elements, how strongly a given nucleus responds, will smear that line somewhat.",
         check: "The Majorana-phase emission theorem, cosmology readout appendix; prediction P2, predictions chapter.",
       },
       {
@@ -544,7 +545,7 @@ export default {
         "branch",
       ],
     ],
-    today: "None of the six has killed it today, and none has confirmed it. Of the three neutrino cards, present data lean its way on two and the other way on one; of the remaining three, one is out of reach and two wait on sharper experiments. “Not killed” means alive, not vindicated.",
+    today: "In the frozen 2026-07-08 account, none of the six tests had confirmed or excluded its associated claim. Of the three neutrino cards, the data cited then leaned its way on two and the other way on one; the others needed sharper experiments. New experiment results and global fits require a fresh check.",
     decade: "Ten years, on the calendar: 2026–2035. Mass ordering, the CP sign and the θ₂₃ octant are the three that get decided first, inside that window.",
   },
   machine: {
@@ -726,7 +727,7 @@ export default {
     },
     submissions: {
       h3: "Where the papers stand",
-      intro: "The monograph itself has not been submitted to a journal, is not peer reviewed, and is not on arXiv. Two papers carved out of it are with journals now: one at <em>Classical and Quantum Gravity</em> (CQG-116665, submitted 2026-07-15), awaiting referee reports; one at the <em>Journal of Geometry and Physics</em> (JGP13432, submitted 2026-07-21), under review.",
+      intro: "As recorded on 2026-08-29, the monograph itself had not been submitted to a journal, was not peer reviewed, and was not on arXiv. Two papers carved out of it were then with journals: one at <em>Classical and Quantum Gravity</em> (CQG-116665, submitted 2026-07-15), awaiting referee reports at that date; one at the <em>Journal of Geometry and Physics</em> (JGP13432, submitted 2026-07-21), under review at that date.",
       underReview: "under review",
       awaiting: "awaiting referee reports",
       submittedOn: "submitted",
@@ -845,12 +846,12 @@ export default {
         "Move the next papers, preregistration-ready predictions and independent reproduction packages to publication. Support funds Founder research time, computation, open publication and professional review.",
       ],
       [
-        "Under review",
-        "Two papers carved out of the monograph, submitted in July 2026: one to <em>Classical and Quantum Gravity</em>, awaiting referee reports; one to the <em>Journal of Geometry and Physics</em>, under review. Neither has an outcome yet. The 1003-page monograph has not been submitted to a journal.",
+        "2026-08-29 submission record",
+        "In the submission-portal record dated 2026-08-29, two papers carved out of the monograph had been submitted in July 2026: one to <em>Classical and Quantum Gravity</em>, then awaiting referee reports; one to the <em>Journal of Geometry and Physics</em>, then under review. Neither had an outcome in that record. The 1003-page monograph had not been submitted to a journal at that date.",
       ],
       [
         "From August 2025",
-        "<a href=\"https://juno.ihep.cas.cn/PPjuno/202511/t20251121_1132538.html\">JUNO began taking data in August 2025 and released its first physics results in November</a>. A mass-ordering verdict still needs years of data; a confirmed inverted ordering ends this page.",
+        "<a href=\"https://juno.ihep.cas.cn/PPjuno/202511/t20251121_1132538.html\">JUNO began taking data in August 2025 and released its first physics results in November</a>. A mass-ordering verdict still needs years of data; a confirmed inverted ordering would require withdrawing or revising the normal-ordering claim and the physical conclusions that depend on it.",
       ],
       [
         "Target: 2028",
@@ -985,9 +986,9 @@ export default {
         n: "10",
         tags: ["conditional"],
         h3: "Why is there more matter than antimatter, and why does time run one way?",
-        body: "The law is perfectly symmetric between +i and −i, yet the universe can only live on one side — the way a magnet, cooling, spontaneously picks its north. Which side is matter, the theory does not predict. The author proves, layer by layer, that the seven kinds of structure he writes down cannot tell the two sides apart, and that no datum installed anywhere carries the orientation; which side the universe settled on is therefore history rather than theorem — the vacuum picked a side on its own, what the book calls spontaneously selected vacuum data. What the theory does predict is that the one selection echoes at four depths: the CP phase of neutrino oscillations in the laboratory (an angle that sets how differently neutrinos and antineutrinos oscillate; here it can only be +90° or −90°), the imbalance of leptons and antileptons in the early universe, matter winning over antimatter, and the direction of cosmic time that this marks (meaning only the time asymmetry that “more matter than antimatter” exhibits, not the arrow of rising entropy). The four echoes come from one selection, so the sign measured in the laboratory and the sign seen in the sky must match: sign(sin δ_CP) × sign(η_B) = −1, where δ_CP is that neutrino phase and η_B the leftover matter. This is a matter universe, so sin δ_CP must be negative: δ_CP = 270°, the −90° option written the way experiments quote it. Today’s best fit to all the world’s data is about 214°, on the negative side, about 1.6 σ from 270°, with +90° excluded by the same fit — leaning the right way, not decided. Hyper-K’s latest official target is to begin experimentation in 2028; DUNE targets its accelerator neutrino beam for 2031. A positive value from either breaks the chain of four echoes.",
+        body: "The law is perfectly symmetric between +i and −i, yet the universe can only live on one side — the way a magnet, cooling, spontaneously picks its north. Which side is matter, the theory does not predict. The author proves, layer by layer, that the seven kinds of structure he writes down cannot tell the two sides apart, and that no datum installed anywhere carries the orientation; which side the universe settled on is therefore history rather than theorem — the vacuum picked a side on its own, what the book calls spontaneously selected vacuum data. What the theory does predict is that the one selection echoes at four depths: the CP phase of neutrino oscillations in the laboratory (an angle that sets how differently neutrinos and antineutrinos oscillate; here it can only be +90° or −90°), the imbalance of leptons and antileptons in the early universe, matter winning over antimatter, and the direction of cosmic time that this marks (meaning only the time asymmetry that “more matter than antimatter” exhibits, not the arrow of rising entropy). The four echoes come from one selection, so the sign measured in the laboratory and the sign seen in the sky must match: sign(sin δ_CP) × sign(η_B) = −1, where δ_CP is that neutrino phase and η_B the leftover matter. This is a matter universe, so sin δ_CP must be negative: δ_CP = 270°, the −90° option written the way experiments quote it. The frozen v2.0 account quotes about 214° and 1.6 σ from NuFIT 6.0 as a historical comparison. The <a href=\"https://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf\">official NuFIT 6.1 parameter table</a>, based on data available through November 2025, gives normal-ordering best fits of 207° without SK atmospheric data and 212° with IC24 and SK atmospheric data; both reported 3 σ ranges include 270°. The data do not yet settle the claim. Hyper-K’s latest official target is to begin experimentation in 2028; DUNE targets its accelerator neutrino beam for 2031. A positive value from either breaks the chain of four echoes.",
         ridesOn: "Each link is conditional, and each sits at a different depth: the +i/−i distinction (the representation-theory half is closed), the ±90° phase (closed), the lepton imbalance (rides on the heavy-neutrino scale and a washout factor — how much of the imbalance survives), the sign lock (closed inside the range it is proved in, with the branch picked by the observed matter excess). The framework also gives the size of the excess, 8.7 × 10⁻¹¹ against the observed (8.7 ± 0.06) × 10⁻¹¹ — a claim one tier below the sign lock. Which way the phase points is the author’s own open review question (Target C).",
-        checkAt: "Real-vacuum chapter: the i-emergence theorem; the UV/IR δ_CP theorem; the “spontaneous orientation” remark (seven kinds of structure, none able to tell the two sides apart, checked item by item by machine). Appendix J (Read_cosmo): the leptogenesis-from-PMNS-Berry theorem; the arrow-of-time corollary. Appendix K (Read_int): the baryon–Dirac sign-lock theorem, sign(sin δ_CP)·sign(η_B) = −1. Experimental side: the PMNS status paragraph of the predictions chapter, NuFIT 6.0 best fit δ/π ≈ 1.19.",
+        checkAt: "Real-vacuum chapter: the i-emergence theorem; the UV/IR δ_CP theorem; the “spontaneous orientation” remark (seven kinds of structure, none able to tell the two sides apart, checked item by item by machine). Appendix J (Read_cosmo): the leptogenesis-from-PMNS-Berry theorem; the arrow-of-time corollary. Appendix K (Read_int): the baryon–Dirac sign-lock theorem, sign(sin δ_CP)·sign(η_B) = −1. Experimental side: the PMNS status paragraph of the predictions chapter retains the historical NuFIT 6.0 comparison; the current comparison is in the two atmospheric-data variants of the official NuFIT 6.1 parameter table.",
       },
       {
         n: "11",

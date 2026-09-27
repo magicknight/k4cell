@@ -24,6 +24,7 @@ export const links = {
   officialK4v: "../official-k4v/",
   contact: "mailto:zhihua@k4cell.com",
   orcid: "https://orcid.org/0000-0001-6027-6883",
+  heroEvidence: "https://github.com/magicknight/k4cell/blob/main/evidence/hero-mu-e/README.md",
 };
 
 /* Interface codes and target names link to the author's own published errata
