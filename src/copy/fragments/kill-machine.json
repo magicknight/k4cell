@@ -2,137 +2,137 @@
  "zh": {
   "kill": {
    "number": "06",
-   "kicker": "怎么证伪",
-   "h2": "这套理论写明了哪些检验会迫使物理主张改写。",
-   "intro": "这套理论不靠连续拟合参数调节这些数值。一旦检验不符，就要公开更正真实的推导错误，或撤回受影响的主张及依赖它的物理结论。下面六张卡从手稿列出的检验中挑出；每一张写明谁来测、哪一年、怎么算输，以及失效范围。",
-   "registryStatus": "这是研究计划最锋利的实验赌注，来自手稿。公开 Registry 已为未来预测就绪；当前预注册预测为 0。",
-   "registryLink": "查看预测注册",
-   "thresholdLabel": "怎么算输",
-   "whereLabel": "谁来测",
-   "whenLabel": "哪一年",
-   "gradeLabel": "输掉什么",
-   "noteLabel": "现状",
-   "checkLabel": "去查",
-   "gradeIntro": "输掉的不一样多。分三级：",
+   "kicker": "证伪检验",
+   "h2": "理论明确列出：哪些实验结果将直接证伪或迫使物理主张改写。",
+   "intro": "本框架不借助连续拟合参数微调数值以迎合实验。一旦关键观测与推算相悖，必须公开更正推导谬误，或撤回受影响的主张及依赖它的物理结论。下方列出专著中最关键的六项实验检验，逐一写明承测实验、预计时间窗、明确的证伪条件以及失效波及范围。",
+   "registryStatus": "以下六项代表本研究计划最锋利的实验判决赌注，均摘自专著。公开预测登记系统已就绪，当前含 0 项预注册预测。",
+   "registryLink": "查看预测登记表",
+   "thresholdLabel": "证伪条件",
+   "whereLabel": "检验实验",
+   "whenLabel": "预计时间",
+   "gradeLabel": "失效范围",
+   "noteLabel": "研究现状",
+   "checkLabel": "核对出处",
+   "gradeIntro": "不同证伪结果所动摇的范围并不相同，共分三级：",
    "gradeKey": [
     [
      "ends",
      "核心物理路线失效",
-     "若确认倒序或 CP 相位为正，相关核心主张及依赖链失效，物理实现必须重审；独立的有限系统数学结果仍须分别判断。"
+     "若确立倒序或测得正值 CP 相位，则相关核心物理主张与依赖链全体失效，物理实现机制须重新审视；有限系统层面的纯数学命题仍须另作分别评估。"
     ],
     [
      "architecture",
-     "力的架构要重搭",
-     "找到 QCD 轴子，或者看到质子衰变，属于这一级：要换一套根本不同的规范架构。"
+     "规范力架构须重建",
+     "若探测到 QCD 轴子或观测到质子衰变，属于这一层级：意味着必须重建一套截然不同的规范力架构。"
     ],
     [
      "branch",
-     "选定的那条分支出局",
-     "算出那个数的那条分支出局；更宽的框架不一定跟着完。无中微子双 β 衰变偏离点值、混合角 θ₂₃ 落到下卦限，属于这一级。"
+     "选定分支出局",
+     "产生该具体数值的特定理论分支宣告失效，但较宽广的外围框架未必随之全部失效。例如无中微子双 β 衰变偏离点值，或 θ₂₃ 落入下卦限均属此级。"
     ]
    ],
    "cards": [
     {
-     "h3": "中微子的质量顺序",
-     "claim": "三种中微子谁重谁轻，这套理论是算出来的，不是填进去的。三个质量里有两个挨得很近：理论把这对近邻放在下面，落单的那个放在上面——这就是正常序；在它选定的分支上，最轻的那个质量恰好为零。倒序，也就是近邻在上面，模型内直接排除了：不是不利，是不允许。",
-     "threshold": "倒序一旦确认，正常序主张及依赖它的物理结论失效。",
+     "h3": "中微子质量顺序",
+     "claim": "三种中微子的轻重排序在本框架内由结构导出，而非人为输入。其中两个质量相近的本征态位于底部，孤立本征态位于顶部——即正常质量顺序（Normal Ordering）；在选定分支下，最轻中微子质量严格为零。至于相近本征态位于顶部的倒序排列，在模型内部受到严格禁止而非仅仅偏好较低。",
+     "threshold": "若实验确证中微子为倒序质量排列，正常序主张及所有依赖该前提的物理结论立即失效。",
      "where": "JUNO · DUNE · Hyper-K",
      "when": "2026–2035",
      "grade": "ends",
-     "note": "JUNO 已于 2025 年 8 月开始取数，并在同年 11 月公布首批物理结果。DUNE 的当前目标是 2029 年运行首台远端探测器、2031 年获得束流。冻结的 v2.0 专著所引全局拟合略偏向正常序，偏得不多；这是旧版对照，不是当前判决。",
-     "check": "正常序在 c_R = 1 的跷跷板分支上推出；倒序排除定理见宇宙学读出附录。评阅靶点 6。"
+     "note": "JUNO 已于 2025 年 8 月正式开始取数，并于同年 11 月发布首批物理成果。DUNE 目前计划于 2029 年启用首台远端探测器，2031 年获得加速器束流。冻结的 v2.0 专著所引用的全局拟合仅微弱倾向正常序，属于历史数据对照，不代表最终判决。",
+     "check": "在 c_R = 1 的跷跷板分支下推出正常序；倒序排除定理见宇宙学读出附录。详见审阅问题 6。"
     },
     {
-     "h3": "CP 相位的符号",
-     "claim": "中微子和反中微子的行为不必一样，差多少由一个相位定，它叫 CP 相位。在这套理论里，它只能是 +90° 或 −90°。取哪一个，由宇宙里物质多于反物质这件事锁定：实验室里量到的符号，必须和天上看到的符号扣得上，sign(sin δ_CP) × sign(η_B) = −1，η_B 就是宇宙留下的那点物质。这个宇宙是物质做的，所以 sin δ_CP 必须为负。",
-     "threshold": "测出正号，符号锁主张及依赖它的物理结论失效。",
+     "h3": "中微子 CP 相位符号",
+     "claim": "中微子与反中微子振荡行为的差异由 Dirac CP 相位 δ_CP 主导。本框架将其代数取值严格限制为 +90° 或 −90°，并由现实宇宙“正物质多于反物质”的观测事实唯一锁定：实验室测得的 CP 符号与宇宙重子不对称度符号满足刚性约束 sign(sin δ_CP) × sign(η_B) = −1。因我们的宇宙由正物质构成（η_B > 0），故 sin δ_CP 必须为负。",
+     "threshold": "若实验确认 sin δ_CP 为正号，符号锁定主张及全套依赖结论立即失效。",
      "where": "DUNE · Hyper-K",
      "when": "2028–2035",
      "grade": "ends",
-     "note": "哪一面是物质，理论不推。作者逐层证明了：定律分不出物质和反物质哪一面是哪一面。所以这个宇宙落在物质这一面，是一段历史，不是定理。定理是两个符号之间的那条关系，DUNE 和 Hyper-K 要测的就是它。冻结版引用 NuFIT 6.0 的约 214° 与约 1.6 σ，属于历史对照。NuFIT 6.1 正常序拟合的最佳值依大气数据方案分别为 207° 或 212°，两种方案的 3 σ 范围均包含 270°；尚未定案。",
-     "check": "重子—狄拉克符号锁定定理，内部观察者附录；自发取向注记，实真空一章。评阅靶点 C。"
+     "note": "至于为何正物质一侧胜出，理论本身并不作先验推导——作者已逐层证明定律对正反两面盲视，故正物质主导属于真空自发选定的历史结果。理论所约束的是上述两符号之间的联动关系，这正是 DUNE 与 Hyper-K 将直接检验的焦点。冻结版专著引用的 NuFIT 6.0 约 214°（偏离约 1.6 σ）属历史对照；NuFIT 6.1 在两套大气数据方案下的正常序最佳拟合值分别为 207° 或 212°，两者的 3 σ 区间均仍包含 270°，目前仍无定论。",
+     "check": "《内部观察者》附录“重子—狄拉克符号锁定定理”；《实真空》一章“自发取向”注记。详见审阅问题 C。"
     },
     {
-     "h3": "θ₂₃ 的卦限",
-     "claim": "第二、三代中微子混得有多深，由一个角定，它叫 θ₂₃。它的 sin² 算出来是 4/7，落在上卦限——也就是大于 1/2 的那一半。",
-     "threshold": "若下卦限被确定，与之矛盾。",
+     "h3": "混合角 θ₂₃ 的卦限",
+     "claim": "刻画第二代与第三代中微子混合强度的混合角 θ₂₃，在本框架内算得 sin²θ₂₃ = 4/7 ≈ 0.5714，严格落于大于 1/2 的上卦限（upper octant）。",
+     "threshold": "若未来实验明确确立 θ₂₃ 处于下卦限（sin²θ₂₃ < 1/2），则本分支推导即遭证伪。",
      "where": "DUNE · Hyper-K",
      "when": "2028–2035",
      "grade": "branch",
-     "note": "冻结的 v2.0 专著所引全局拟合（含超级神冈大气数据）最佳点落在下卦限，上卦限的解也在当时允许范围内。这是旧版数据状态，当前卦限须按新的拟合核对。",
-     "check": "伴随载体符号选择引理；预言一章的 PMNS 表。评阅靶点 6。"
+     "note": "冻结的 v2.0 专著曾引用包含超级神冈大气数据的全局拟合（当时最佳拟合落于下卦限，而上卦限解仍位于允许区间内）。此属历史数据状况，目前卦限判断须待新一轮拟合及束流实验检验。",
+     "check": "伴随载体符号选择引理；《预言》一章 PMNS 混合参数表。详见审阅问题 6。"
     },
     {
-     "h3": "无中微子双 β 衰变",
-     "claim": "这套理论里中微子是自己的反粒子。所以原子核偶尔会只放出两个电子，一个中微子都不放。这种衰变有多快，理论这一边只由一个数定：m_ββ。理论给的不是一个区间，是一颗钉子，3.69 meV。",
-     "threshold": "1.5 meV 处出现信号，那正是相反的符号选择给出的值，这一串符号就选错了；远高于 10 meV，这条中微子分支出局。按 2026-07-08 冻结版所引上限，它当时尚未被检验，更谈不上证实。",
+     "h3": "无中微子双 β 衰变（m_ββ）",
+     "claim": "本框架中的中微子为马约拉纳粒子（即自身的反粒子），因而特定原子核可发生不发射中微子的双 β 衰变。理论端给出的有效马约拉纳质量并非模糊区间，而是一个极其锐利的单一点值：m_ββ = 3.69 meV。",
+     "threshold": "若在 1.5 meV 处探测到信号（该数值对应于完全相反的相位符号选择），说明符号选取链条出错；若信号远高于 10 meV，则本中微子质量分支失效。就 2026-07-08 冻结版所引用的上限而言，当时尚未触及检验灵敏度，更不能算作证实。",
      "where": "LEGEND-1000 · nEXO",
      "when": "2030 年代",
      "grade": "branch",
-     "note": "冻结的 v2.0 专著引用的上限是 28 到 122 meV，离这颗钉子还远。下一代要探到 1 到 10 meV 那一层。核物理里那块算不准的因子（核矩阵元）会把这根线抹宽一些。",
-     "check": "马约拉纳相位发射定理，宇宙学读出附录；预言 P2，预言一章。"
+     "note": "v2.0 冻结版引用当年的实验上限处于 28 至 122 meV 之间，远高于理论点值。下一代吨级实验目标是将灵敏度下探至 1 至 10 meV 区间，正式进入该理论值的检验窗口；此外核矩阵元理论计算的不确定度也会在一定程度上展宽比对线。",
+     "check": "宇宙学读出附录“马约拉纳相位发射定理”；《预言》一章预言 P2。"
     },
     {
-     "h3": "宇宙学常数",
-     "claim": "用这个框架自己的长度单位 ℓ_* 来量，宇宙学常数就成了一个不带单位的纯数 Λ ℓ_*²。算出 2.93 × 10⁻¹²²；观测 2.89 × 10⁻¹²²，误差 1.5%。差 0.9 σ，中间没有拧过任何连续参数。",
-     "threshold": "Λ 一旦测到 0.5%，中心值又不动，这点差距就是 2.6 σ——精度本身就把这条对照排除掉。",
+     "h3": "宇宙学常数（Λ ℓ_*²）",
+     "claim": "若以框架自身的长度单位 ℓ_* 加以无量纲化，宇宙学常数写为纯数 Λ ℓ_*²。理论算得 2.93 × 10⁻¹²²，与观测值 2.89 × 10⁻¹²²（误差 1.5%）仅差 0.9 σ，其间未调节任何连续拟合参数。",
+     "threshold": "若未来 Λ 的天文测定精度提升至 0.5% 而观测中心值保持不变，现有微差将瞬间放大至 2.6 σ，单凭精度即可排除这一对照关系。",
      "where": "下一代宇宙学巡天与 CMB 实验",
      "when": "2030 年代",
      "grade": "branch",
-     "note": "这一行是条件性的。它站在选定的分支上；长度单位 ℓ_* 是留着当单位用的，不是算出来的。书里算出来的是一个几何量，说的是几何怎么响应；把它等同于天文学家测到的那个 Λ，这一步还没闭合。这里没有解决宇宙学常数问题。",
-     "check": "勘误 E6；评阅靶点 B；Λ 门比较注记，宇宙学读出附录。"
+     "note": "该条目属于条件性比对，它依赖所选分支，且基本单位 ℓ_* 仍作为尺度基准保留。尤为关键的是：书中所算出的是一个刻画几何响应的量，将它等同于天文观测意义下的物理 Λ 这一步尚未闭合——本框架并未在此宣称解决了宇宙学常数问题。",
+     "check": "勘误 E6；审阅问题 B；宇宙学读出附录“Λ 门比较注记”。"
     },
     {
-     "h3": "弱混合角",
-     "claim": "电磁力与弱力的配比。理论算到 0.231219995；实验 0.23122 ± 0.00006。前 4 位对上，后面 5 位是理论替未来写的。",
-     "threshold": "实验一旦把误差收紧、中心值又挪开，这里没有旋钮可拧；能松动的只有它依赖的那两条开放接口。",
-     "where": "精密电弱测量（Z 极点）",
-     "when": "无排定的判决日期",
+     "h3": "弱混合角（sin²θ_W）",
+     "claim": "刻画电磁相互作用与弱相互作用混合比例的弱混合角，由裸值 3/13 跑动算得 Z 极点处为 0.231219995；现行实测值为 0.23122 ± 0.00006。前 4 位完全吻合，后续 5 位有待未来超高精度测量检验。",
+     "threshold": "若未来实验进一步收窄误差带并使中心值偏离预测，理论因无自由旋钮可调，将不得不检讨或撤回其依托的开放接口假设。",
+     "where": "精密电弱测量（Z 玻色子极点）",
+     "when": "尚无明确判决日程",
      "grade": "branch",
-     "note": "这一行也是条件性的：它依赖两条作者列为开放的接口。一条是把这两样配料真的认作电磁力和弱力；一条是把元胞的内容嵌进完整的标准模型。输掉的是整条电弱链——这个框架算出的、关于这两种力的每一个数。",
-     "check": "勘误 E3、E8；评阅靶点 8；多单元一章，源头值 3/13 与剪切量 1/936。"
+     "note": "该条目同样属于条件性推算，依托于作者标明的两条开放接口：其一为将结构中的两项配比正式识别为电磁力与弱力（E3），其二为将其严谨嵌入完整的标准模型体系（E8）。若该项证伪，整条电弱参数推导链均将一并失效。",
+     "check": "勘误 E3、E8；审阅问题 8；《多单元》一章源头值 3/13 与剪切项 1/936。"
     }
    ],
-   "moreTitle": "手稿还列了三处，本站没有做成卡：",
+   "moreTitle": "专著中另列出三项证伪途径，未逐一展开为卡片：",
    "more": [
     [
-     "QCD 轴子",
-     "不需要轴子。找到一个，就要换一套根本不同的规范架构。",
+     "QCD 轴子探测",
+     "框架断言无需引入轴子。一旦在实验上确证发现 QCD 轴子，整套规范架构须彻底推倒重建。",
      "IAXO · ALPHA",
-     "BabyIAXO：约 2029 安装磁体；2030+ 调试与轴子运行（依计划）",
+     "BabyIAXO：计划约 2029 年安装磁体、2030 年后调试与取数（依工程进度而定）",
      "architecture"
     ],
     [
      "质子衰变",
-     "质子绝对稳定。看到一例，同样要重搭架构。",
+     "框架推论质子绝对稳定。只要在实验中确证观测到一例质子衰变事例，同样须重构核心架构。",
      "Hyper-K · DUNE",
      "2028–2035",
      "architecture"
     ],
     [
      "原初引力波",
-     "这类波的强度 r 一旦测到 10⁻³ 以上，选定的暴胀分支出局。",
+     "若测得张量标量比 r 达到 10⁻³ 以上量级，则当前选定的几何暴胀分支出局。",
      "Simons Observatory · LiteBIRD",
      "2030 年代",
      "branch"
     ]
    ],
-   "today": "按 2026-07-08 冻结版记录，这六项没有一项已证实或排除对应主张。中微子的三张卡里，当时两张的数据略偏向它，一张略偏向反面；其余三张尚待更精确的检验。新的实验与全局拟合须另行核对。",
-   "decade": "十年之约：2026–2035。质量顺序、CP 符号、θ₂₃ 卦限，这三张卡会先有判决。"
+   "today": "截至 2026-07-08 冻结版记录，上述六项检验尚无任何一项能最终证实或彻底排除对应主张：三项中微子检验中，当时引用的数据有两项微弱倾向模型侧、一项微弱偏向反面；其余三项尚待更高精度实验。所有结论均需对照最新全局拟合与新实验数据不断重检。",
+   "decade": "未来十年关键检验期（2026–2035）：中微子质量顺序、CP 相位符号与 θ₂₃ 卦限将率先迎来实验判决。"
   },
   "machine": {
    "number": "07",
-   "kicker": "机器",
-   "h2": "机器核验了什么，没核验什么。",
-   "lead": "771 条带标签的定理行，727 条通过 Lean 4 核验。零 sorry，零项目公理——这套理论自己没有加过一条公理；只用数学库的三条标准逻辑公理：propext、Classical.choice、Quot.sound。",
-   "what": "Lean 4 是一个非常严格的证明检查器。把定理翻译成它能逐步核对的语言；任何一步缺了凭证，整个文件就编译不过。程序员有个偷懒的词叫 sorry，意思是“这一步先欠着”；这个语料库里一个都没有。它不看审稿人的直觉，也不看作者的自信。手稿里 771 条带标签的条目（定理、引理、命题、推论、定义、附注），逐条送进了这道门。2026-07-08 冻结时的账目：727 条已核验；19 条只核验了核心；4 条还没写出对应的 Lean 条目；21 条是文字或经验性陈述，仍开放。整个语料库 313 个模块。物理假设只有一条：这样的元胞存在。这一条明写成定义数据，不藏在公理里。这 313 个 Lean 4 模块目前保存在作者工作仓库中，尚未随公开评阅版一并开源发布；以上条目数为作者报告，尚待源码公开后接受独立编译复核。",
-   "meaning": "“已核验”的意思是账目干净，不是物理正确。核验断言的是逻辑结构，不是自然界。所谓“已核验”，是说 Lean 里那条陈述和手稿里那条文字陈述逻辑上是一回事，细到它自己说明的那一层为止。证书就是机器给每条定理开出的那张凭据。多数证书到某一步就停。数学库里还没有的那一小块分析（一个聚类界、一个连续极限），写成一条点名的假设。它摆在明处，不藏在暗处。把一个错的陈述核验一遍，它还是那个错的陈述。这些陈述描述的世界对不对，要看上面那张表。剩下的 44 行没有核验，逐行标明了原因。",
-   "barTitle": "四桶数字，加起来 771。",
+   "kicker": "机器形式化核验",
+   "h2": "形式化证明器核验了什么，又没有核验什么。",
+   "lead": "在 771 项带编号的定理与陈述条目中，有 727 项已通过 Lean 4 编译核验。整个代码库零 sorry，零自定义项目公理——完全没有添加任何私有公理，仅依赖 Lean 数学库标准的三条基础逻辑公理：propext、Classical.choice 与 Quot.sound。",
+   "what": "Lean 4 是一个极其严格的交互式定理证明检查器：只有将数学证明逐行拆解为形式化推理步骤并严丝合缝地通过编译器检验，文件才能完成编译。在 Lean 中，若某一步证明尚未完成而暂且跳过，须填入占位符 sorry；本代码库中不含任何 sorry。机器核验既不顾及审稿人的直觉印象，也不采信作者的主观信心。专著中 771 项带标签条目（包含定理、引理、命题、推论、定义与注记）已逐一经受该门禁检查。截至 2026-07-08 冻结时的完整账目为：727 项完全核验；19 项仅核验了核心推论；4 项在 Lean 代码中尚无对应条目；另有 21 项属于文字论证或经验比对，明确标为开放状态。整个语料库共涵盖 313 个模块。其中唯一的物理前置假设“存在满足条件的 K₄ 元胞”，是以显式定义参数的数据形式引入，而不隐藏在不可见的公理之中。须补充说明：这 313 个 Lean 4 模块目前仍保存在作者的工作仓库内，尚未随 2026 年公开评阅版专著一并开源；以上数字为作者统计报告，正式源码开源后方可接受学界独立的本地重新编译验证。",
+   "meaning": "“经 Lean 核验”仅意味着形式化推导账目清晰无误，绝不代表对应命题必然符合真实物理世界。核验断言的是逻辑结构，不是自然界。具体而言，“已核验”表明 Lean 代码中的形式化陈述与专著文字阐述在所声明的颗粒度上逻辑等价。需要留意的是，多数证书到某一步就停——当前标准数学库尚缺的细部解析环节（例如某些聚类界、连续极限过渡），均被显式写成一条点名的假设，坦诚摆在明处。用形式化证明器验证一条脱离现实的假定命题，得到的也只是基于该假定的逻辑无误推演；这些陈述能否真正刻画自然规律，仍须由上文的实验对照表与未来判决检验来回答。其余 44 项未通过核验的条目也已逐一列明具体原因。",
+   "barTitle": "四类条目统计，共计 771 项。",
    "barLabels": {
-    "leanCertified": "已核验",
-    "provedCoreOnly": "只核验了核心",
-    "needsLeanNode": "Lean 里还没有",
-    "proseEmpiricalOpen": "文字或经验性陈述，开放"
+    "leanCertified": "完整核验",
+    "provedCoreOnly": "仅核验核心部分",
+    "needsLeanNode": "尚无 Lean 对应条目",
+    "proseEmpiricalOpen": "文字阐述或经验比较（开放）"
    },
    "barCodes": {
     "leanCertified": "lean_certified",
@@ -141,13 +141,13 @@
     "proseEmpiricalOpen": "prose_empirical_open"
    },
    "bucketsPlain": {
-    "leanCertified": "Lean 里的陈述与手稿里的陈述，在它声明的细致程度上逻辑等价，编译通过。",
-    "provedCoreOnly": "核心结论过了机器，外围的表述还没有逐字对上。",
-    "needsLeanNode": "手稿里有，Lean 里还没有写出对应的条目。",
-    "proseEmpiricalOpen": "本来就是文字论证或经验比较，不是机器能核的东西；标为开放。"
+    "leanCertified": "Lean 形式化陈述与专著陈述在声明细致度上逻辑等价，并零 sorry 编译通过。",
+    "provedCoreOnly": "核心数学内核已通过机器编译检验，外围叙述语境尚未实现逐字完全形式化对位。",
+    "needsLeanNode": "专著文本中已经提出，但尚未在 Lean 代码库内编写对应的形式化节点。",
+    "proseEmpiricalOpen": "本质上属于文字物理阐释或实验数据比对，并非形式化证明器适用对象，故标注为开放。"
    },
-   "barNote": "44 行没有核验，逐行标注了原因，分三类。",
-   "asOf": "以 2026-07-08 冻结版为准。"
+   "barNote": "其余 44 项尚未完全形式化的条目已逐项归因，分为上述后三类。",
+   "asOf": "统计口径以 2026-07-08 公开冻结版为准。"
   }
  },
  "en": {
@@ -215,7 +215,7 @@
     },
     {
      "h3": "Neutrinoless double beta decay",
-     "claim": "Here the neutrino is its own antiparticle, so a nucleus will occasionally emit two electrons and nothing else — no neutrinos at all. On the theory side the rate is set by one number, m_ββ. And the theory gives no range: one point, nailed down at 3.69 meV.",
+     "claim": "Here the neutrino is its own antiparticle, so a nucleus will occasionally emit two electrons and nothing else — no neutrinos at all. On the theory side the rate is set by one number, m_ββ. And the theory gives no range: one single point value at 3.69 meV.",
      "threshold": "A signal at 1.5 meV — the value the opposite sign choice would give — falsifies the chain of signs this number rests on; one far above 10 meV puts this neutrino branch out. Under the limits cited in the frozen 2026-07-08 account, it was untested, not confirmed.",
      "where": "LEGEND-1000 · nEXO",
      "when": "2030s",
@@ -278,7 +278,7 @@
    "lead": "771 labelled theorem rows, 727 of them certified in Lean 4. Zero sorry, and no axioms of its own; only the mathematical library’s three standard logical axioms: propext, Classical.choice, Quot.sound.",
    "what": "Lean 4 is a proof checker, and a very strict one: restate a theorem in a language it can check step by step, and if any step is missing its justification the whole file refuses to compile. Programmers have a word for skipping a step, sorry, meaning “I owe you this one”; this corpus contains none. It does not consult a referee’s intuition or the author’s confidence. The manuscript’s 771 labelled entries (theorems, lemmas, propositions, corollaries, definitions, remarks) were each put to that gate. The tally, frozen on 2026-07-08: 727 certified; 19 with only the core checked; 4 with no matching entry written in Lean yet; 21 that are prose or empirical statements and stay open. The Lean corpus runs to 313 modules. There is one physical assumption — that such a cell exists — and it enters as part of the definition, written out in the open, not as a hidden axiom. These 313 Lean 4 modules currently reside in the author’s working repository and have not yet been released in the public-review archive; the counts above are the author’s report and await independent compilation once released.",
    "meaning": "“Certified” means the bookkeeping is clean, not that the physics is right. Certification is a claim about logical structure. It is not an empirical claim about nature. What it says is that the statement in Lean and the written statement in the manuscript are logically the same thing, at the level of detail the statement itself declares. Most certificates stop at a named input: the small piece of analysis the library does not yet have — a bound on clustering, a continuum limit — is written into the statement as an explicit hypothesis, in plain view rather than buried. A machine-checked proof of the wrong statement is still a proof of the wrong statement. Whether those statements describe the world correctly is what the table above is for. The remaining 44 rows are not certified, and each is labelled with the reason.",
-   "barTitle": "Four buckets, adding to 771.",
+   "barTitle": "Four categories, totalling 771 entries.",
    "barLabels": {
     "leanCertified": "certified",
     "provedCoreOnly": "core checked only",

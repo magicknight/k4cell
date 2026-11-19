@@ -35,5 +35,5 @@ export const linkCodes = (text) => esc(text)
      review targets never linked at all under the single combined pattern. */
   .replace(/\b(Targets?)\s?([A-D0-9]+(?:\s?and\s?[A-D0-9]+)*)/g,
     `<a href="${links.targets}">$1 $2</a>`)
-  .replace(/(靶点)\s?([A-D0-9]+(?:\s?[与、]\s?[A-D0-9]+)*)/g,
+  .replace(/(靶点|审阅问题|审阅议题)\s?([A-D0-9]+(?:\s?[与、]\s?[A-D0-9]+)*)/g,
     `<a href="${links.targets}">$1 $2</a>`);

@@ -206,16 +206,16 @@
       routeLive.replaceChildren();
       if (ids.length) {
         const msg = isZh
-          ? `已抽掉开放接口 ${code}：受影响的 ${ids.length} 条数值行（${names.join("、")}）已在上文账本中变暗。`
+          ? `已移除开放接口 ${code}：受其影响的 ${ids.length} 项数值对照（${names.join("、")}）已在数值表中淡化显示。`
           : `Pulled ${code}: the ${ids.length} affected ledger row${ids.length === 1 ? "" : "s"} (${names.join(", ")}) ${ids.length === 1 ? "is" : "are"} dimmed above. `;
         routeLive.append(document.createTextNode(msg));
         const jump = document.createElement("a");
         jump.href = "#numbers";
-        jump.textContent = isZh ? "跳转到数值账本 →" : "Jump to the ledger →";
+        jump.textContent = isZh ? "前往数值对照表 →" : "Jump to the ledger →";
         routeLive.append(jump);
       } else {
         routeLive.append(document.createTextNode(isZh
-          ? `已抽掉开放接口 ${code}：该接口不直接挂数值行，而约束四层态的目录与粘合。`
+          ? `已移除开放接口 ${code}：此接口不直接关联数值行，而用于约束四层态的目录与粘合关系。`
           : `Pulled ${code}: no numeric ledger row hangs here; it governs the catalogue and gluing of the four layers.`));
       }
       routeLive.hidden = false;
@@ -255,7 +255,7 @@
       toggle.className = "gap-toggle";
       toggle.setAttribute("aria-pressed", "false");
       toggle.setAttribute("aria-label", isZh
-        ? `抽掉开放接口 ${code}，查看受影响的数值行`
+        ? `移除开放接口 ${code}，查看受影响的数值对照`
         : `Pull open interface ${code} and highlight affected ledger rows`);
       toggle.textContent = code;
       toggle.addEventListener("click", () => {

@@ -65,8 +65,8 @@ line has lost the clause, and `scripts/check/cards.mjs` refuses to ship one.
 ```text
 og-k4cell-en.jpg  1200x630   76208 B   drawn 2026-11-19, palette `paper`
   stamp sha256 31ab69ca3a694bb6e8988c22f3268896781bb35cd370dd42ee1a8e630613b7cb
-og-k4cell-zh.jpg  1200x630   67729 B   drawn 2026-11-19, palette `paper`
-  stamp sha256 b01fbf2b50ac0030472a81645811c415c8da4ad194aa15f99fc4f67405c7557f
+og-k4cell-zh.jpg  1200x630   65946 B   drawn 2026-11-19, palette `paper`
+  stamp sha256 7b2c30971638f346a503f6147e964d05b234ec9e7085218720a983e19b03bbc1
 ```
 
 **The four lines above are written by `tools/og_cards.py`, not by hand.** A

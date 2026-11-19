@@ -392,9 +392,9 @@ export const sigmaCaption = (copy) => {
   assert.ok(codes.length, "no open interfaces left in the ledger; drop the ring rather than draw it");
 
   return (zhLike
-    ? [legendCut, introCut, `单边那一道：${L.laneBoundsNote}`,
+    ? [legendCut, introCut, `单边约束道：${L.laneBoundsNote}`,
       `${alphaRow.symbol}：${noPullCut}所以它画在刻度之外，而不是画在零上。`,
-      L.noScore, `外环标出${L.conditionalOn}已具名开放接口的行（${codes.join("、")}）。`]
+      L.noScore, `外环标出${L.conditionalOn}已列明开放接口的行（${codes.join("、")}）。`]
     : [legendCut, introCut, `The one-sided lane. ${L.laneBoundsNote}`,
       `${noPullCut} That is why ${alphaRow.symbol} is drawn off the scale rather than at zero.`,
       L.noScore, `A hollow ring marks a row ${L.conditionalOn} a named open interface (${codes.join(", ")}).`]

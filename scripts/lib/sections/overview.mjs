@@ -101,11 +101,11 @@ export function renderSupport(lang, options) {
   const c = overview[lang];
   const bottomUrls = [route(lang, "research.html"), route(lang, "progress/#updates"), "/predictions/"];
   return shell(lang, "support", `<section class="overview-section overview-intro"><p class="eyebrow">${esc(c.supportEyebrow)}</p><h1>${esc(c.supportHeading)}</h1><p class="overview-lead">${esc(c.supportLead)}</p>
-${button(email(`K4 research support / ${lang}`, lang === "zh" ? "想支持或合作的工作包：\n我可以提供的支持：\n我想先确认的问题：\n是否同意就此次讨论跟进（请填写）：\n" : "Work package I would like to support or collaborate on:\nSupport I could provide:\nQuestions to clarify first:\nMay I be contacted about this discussion? (please fill in):\n"), c.supportCta, true)}${paragraph(c.mailNote)}</section>
+${button(email(`K4 research support / ${lang}`, lang === "zh" ? "希望支持或合作的研究方向：\n我可以提供的支持：\n需先确认的问题：\n是否同意就此沟通跟进（请填写）：\n" : "Research area I would like to support or collaborate on:\nSupport I could provide:\nQuestions to clarify first:\nMay I be contacted about this discussion? (please fill in):\n"), c.supportCta, true)}${paragraph(c.mailNote)}</section>
 <section class="overview-section" id="roadmap"><h2>${esc(c.workHeading)}</h2><div class="overview-grid overview-grid-two">${c.work.map(([title, text]) => `<article><h3>${esc(title)}</h3>${paragraph(text)}</article>`).join("")}</div>${paragraph(c.workNote)}</section>
 <section class="overview-section"><h2>${esc(c.participateTitle)}</h2><div class="overview-grid">${c.supportBottomCards.map(([title, text, action], i) => `<article><h3>${esc(title)}</h3>${paragraph(text)}<a href="${bottomUrls[i]}">${esc(action)} →</a></article>`).join("")}</div>
 <p class="support-k4v-sep">${lang === "zh"
-    ? `注：未来如考虑与研究关注相关的纯 meme 代币方案（K4V），该机制与上述研究资助完全隔离，不涉及股权、分配或任何收益权利。<a href="/official-k4v/">核验 K4V 尚未发行声明</a> · <a href="${route(lang, "interest/")}">查看早期方案并提交非约束反馈</a>`
+    ? `注：未来如考量与公众关注相关的纯纪念性代币（K4V）草案，该机制与上述科研资助完全隔离，不涉及任何股权、额度分配或收益权利。<a href="/official-k4v/">核验 K4V 尚未发行官方声明</a> · <a href="${route(lang, "interest/")}">查看早期方案并提交非约束反馈</a>`
     : `Separate gate: any hypothetical K4V meme token proposal stays strictly separate from research patronage and confers no equity, allocation, or rights. <a href="/official-k4v/">Verify the no-mint attestation</a> · <a href="${route(lang, "interest/")}">Read the K4V proposal &amp; early feedback form</a>`}</p></section>`, options);
 }
 

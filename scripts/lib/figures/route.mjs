@@ -184,7 +184,7 @@ export const figRouteWide = (copy) => {
      with no explanation; both the fact and the codes come from the ledger. */
   const dupNote = ledger.gaussian.filter((row) => row.interfaces.length > 1)
     .map((row) => (copy.dir === "zh"
-      ? `${row.symbol} 同时挂在 ${row.interfaces.join(" 与 ")} 上，因此在图上出现两次。`
+      ? `${row.symbol} 同时依赖于 ${row.interfaces.join(" 与 ")}，因此在图上出现两次。`
       : `${row.symbol} hangs on ${row.interfaces.join(" and ")} at once, so it is drawn twice.`)).join("  ");
 
   const H = deepest + 40;
@@ -300,7 +300,7 @@ export const figRouteNarrow = (copy) => {
 
   const dupLines = ledger.gaussian.filter((row) => row.interfaces.length > 1)
     .flatMap((row) => figWrap(copy.dir === "zh"
-      ? `${row.symbol} 同时挂在 ${row.interfaces.join(" 与 ")} 上，因此在图上出现两次。`
+      ? `${row.symbol} 同时依赖于 ${row.interfaces.join(" 与 ")}，因此在图上出现两次。`
       : `${row.symbol} hangs on ${row.interfaces.join(" and ")} at once, so it is drawn twice.`, 11, W - 16));
   const H = Math.round(y + 16 + 14 * dupLines.length);
 
@@ -321,7 +321,7 @@ export const renderRouteFigure = (copy) => {
      which single hole takes the most. The last clause is the figure's own
      honesty — the errata are not indexed by link, so nothing here claims one. */
   const note = isZh
-    ? `${r.gaps.length} 个具名缺口共承载 ${carried.size} 行数值，${widest[0]} 一条承载 ${widest[2].length} 行；缺口画多宽，就是有多少行从这里掉下去。缺口按缺口画，不按链节定位——作者的勘误没有按链节编号。`
+    ? `${r.gaps.length} 个具名缺口共关联 ${carried.size} 行数值，其中 ${widest[0]} 单独关联 ${widest[2].length} 行；缺口宽度即按所关联条目的数量绘制。缺口按缺口本身而非具体链节位置标注——作者的勘误表未按链节定位索引。`
     : `The ${r.gaps.length} named gaps carry ${carried.size} numeric rows between them; ${widest[0]} alone carries ${widest[2].length}. A gap is drawn as wide as the number of rows that fall through it. The gaps are drawn as gaps, not placed link by link — the author’s errata are not indexed by link.`;
 
   return `<figure class="fig fig-route">

@@ -585,7 +585,7 @@ ${renderHead({
     <a class="lang" href="../${alternate.dir}/research.html" hreflang="${alternate.htmlLang}">${esc(copy.languageLabel)}</a>
   </div></header>
   <main id="main">
-    <div class="shell"><p class="overview-archive-note">${copy.dir === "zh" ? '以下深读材料依据公开 v2.0 专著及 2026-08-29 账本结构（页面状态与投稿记录已同步至 2026-11-19），v3.0 正在编写。<a href="progress/">查看最新进展</a> · <a href="support/">资助与合作</a> · <a href="./">返回短首页</a>' : 'This full account builds on public v2.0 and the 2026-08-29 ledger structure (page status and submission records synced to 2026-11-19); v3.0 is in progress. <a href="progress/">See current progress</a> · <a href="support/">Support the work</a> · <a href="./">Back to the short homepage</a>'}</p></div>
+    <div class="shell"><p class="overview-archive-note">${copy.dir === "zh" ? '以下深读材料基于 v2.0 冻结专著（2026-07-08）与 2026-08-29 账本（投稿与状态已同步至 2026-11-19），v3.0 修订中。<a href="progress/">最新进展</a> · <a href="support/">资助与合作</a> · <a href="./">返回首页</a>' : 'This full account builds on public v2.0 and the 2026-08-29 ledger (status synced to 2026-11-19); v3.0 is in progress. <a href="progress/">Progress</a> · <a href="support/">Support</a> · <a href="./">Home</a>'}</p></div>
     ${renderHero(copy)}
     ${renderWhy(copy)}
     ${renderObject(copy)}
