@@ -6,7 +6,7 @@
   const resolveAnchor = () => {
     let id;
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
-    if (!id || document.getElementById(id) || !anchors.has(id)) return;
+    if (!id || !anchors.has(id) || id === "main" || id === "hero") return;
     location.replace(main.dataset.researchRoute + location.hash);
   };
   window.addEventListener("hashchange", resolveAnchor);

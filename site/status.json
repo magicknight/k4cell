@@ -1,14 +1,14 @@
 {
   "schema": "K4CELL-PUBLIC-STATUS-v1",
   "recorded_at_utc": "2026-08-29",
-  "site_updated_on": "2026-09-27",
+  "site_updated_on": "2026-11-19",
   "artifact_status": "PUBLISHED",
   "intended_canonical_domain": "k4cell.com",
   "science": {
     "working_monograph": {
       "version": "v3.0",
       "state": "IN_PROGRESS",
-      "confirmed_on": "2026-09-09",
+      "confirmed_on": "2026-11-19",
       "source": "AUTHOR_CONFIRMATION",
       "public_pdf": null
     },
@@ -24,10 +24,10 @@
     "full_scientific_reproduction_package": "OPEN",
     "carved_submissions": [
       {
-        "id": "CQG-116665",
-        "journal": "Classical and Quantum Gravity",
-        "submitted": "2026-07-15",
-        "status": "AWAITING_REFEREE_REPORTS"
+        "id": "EYM-PAPER-2",
+        "journal": "Target journal pending (pre-transfer revision)",
+        "submitted": null,
+        "status": "REVISING_FOR_SUBMISSION"
       },
       {
         "id": "JGP13432",

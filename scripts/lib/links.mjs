@@ -20,7 +20,7 @@ export const links = {
   issues: `${repo}/issues/new/choose`,
   vaults: "https://github.com/magicknight/k4v-research-funding-vaults/tree/e1afead138fbf56956b298ebae7a97a8ae9ad956",
   predictions: "../predictions/",
-  support: "../support/",
+  support: "support/",
   officialK4v: "../official-k4v/",
   contact: "mailto:zhihua@k4cell.com",
   orcid: "https://orcid.org/0000-0001-6027-6883",

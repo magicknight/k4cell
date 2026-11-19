@@ -53,12 +53,12 @@ export default {
     betNote: "JUNO is running; Hyper-K targets 2028; DUNE targets 2029 for its first far detector and 2031 for beam.",
     actions: [
       ["See the object", "#object"],
-      ["Support the work", "../support/"],
+      ["Support the work", "support/"],
     ],
     byline: [
       "Zhihua Liang · PhD in Physics (Southern Methodist University, 2012) · BSc in Physics (Tsinghua University, 2003)",
       "ATLAS collaboration 2006–2012 (H→WW analysis) · INFN Cagliari / CERN LHCb 2024–2026",
-      "1003-page monograph, frozen 2026-07-08 · not peer reviewed · two carved-out papers under review as recorded 2026-08-29",
+      "1003-page monograph, frozen 2026-07-08 · not peer reviewed · as of 2026-11-19: 1 carved-out paper in review, 1 revised for a new journal",
     ],
     glyphA: "Four points, six links, three colours",
     glyphB: "Every link wants its two ends to differ, and one pair always clashes",
@@ -258,7 +258,7 @@ export default {
         answer: "Imagine walking a closed loop on a sphere carrying two instruments. A pedometer records how far you walked. A Foucault pendulum that was swinging north when you set out is found, on your return, swinging in a different plane, though you never touched it. The pedometer reads distance; the pendulum reads “came back to the same place, yet turned”. When this object’s quantum ground state walks through its “settings space” (the values of its couplings), it carries both instruments too — not two things but two faces of one geometry, packed into a single complex number: real part the pedometer, imaginary part the pendulum. That number is the quantum geometric tensor (Provost and Vallée, 1980). What is new here is not the split but following both faces to the end on one finite object of 81 states. The real face measures how distinguishable two states are and reads as distance, a metric: gravity lives on this face. The imaginary face measures how far an internal arrow turns when carried round a loop and reads as curvature: the Yang–Mills-type fields that describe the strong, weak and electromagnetic forces live on this face. That both faces come off one tensor is a theorem. The bet this framework places is the next step: that their dynamics therefore arrive together, Einstein’s equations and the Yang–Mills equations from one source rather than glued side by side. That step is written as a conditional system with its conditions listed one by one; the paper drawn from it is titled “Conditional Einstein–Yang–Mills Field Equations”.",
         tags: ["closed", "conditional"],
         rides: "The step written as a conditional system rides on four things the author lists as open:\n- The step up to the weak and electromagnetic forces (E3).\n- The passage from a geometry with four alike directions to three of space and one of time, together with the most basic piece of gravity, which is classified rather than built (E7).\n- The massless spin-two excitation that gravitational waves are made of, not yet constructed (E11).\n- A tower of higher-order response terms: what is derived is the leading system only. This one carries no interface number of its own.\nThe step that both faces come off one tensor rides on no interface.",
-        check: "The symmetric/antisymmetric split of the quantum geometric tensor (Provost and Vallée, 1980) and its antisymmetry lemma, Grassmannian chapter; the Einstein–Yang–Mills substrate equations, whose title qualifier in the monograph is narrowed by erratum E4; the paper drawn from it, CQG-116665, under review. Review Targets 1 and 2.",
+        check: "The symmetric/antisymmetric split of the quantum geometric tensor (Provost and Vallée, 1980) and its antisymmetry lemma, Grassmannian chapter; the Einstein–Yang–Mills substrate equations, whose title qualifier in the monograph is narrowed by erratum E4; the carved-out conditional Einstein–Yang–Mills paper has been revised and is being prepared for submission to a new journal. Review Targets 1 and 2.",
         lead: "One geometry with two faces: gravity is read off one of them, the other forces off the other.",
       },
       {
@@ -337,7 +337,7 @@ export default {
     nameNoteA: "attached afterwards",
     nameNoteB: "no equation in the derivation uses them",
     idxNote: "01–07 are the ring’s seven anonymous rows, labelled only by where they sit and what they carry.",
-    ariaA: "Row 06: the Standard Model’s seven hypercharges ",
+    ariaA: "Claim 06: the Standard Model’s seven hypercharges ",
     ariaB: ", each multiplied by six, equal in order the integers ",
     ariaC: " that the ring’s seven anonymous rows are forced to. The particle names (",
     ariaD: ") are separated from the arithmetic by a break, attached afterwards and used by no equation in the derivation.",
@@ -540,7 +540,7 @@ export default {
       [
         "Primordial gravitational waves",
         "A detection at r ≳ 10⁻³, where r measures how strong those waves are, puts the selected inflation branch out.",
-        "CMB-S4 · LiteBIRD",
+        "Simons Observatory · LiteBIRD",
         "2030s",
         "branch",
       ],
@@ -553,7 +553,7 @@ export default {
     kicker: "The machine",
     h2: "What the machine checked, and what it did not.",
     lead: "771 labelled theorem rows, 727 of them certified in Lean 4. Zero sorry, and no axioms of its own; only the mathematical library’s three standard logical axioms: propext, Classical.choice, Quot.sound.",
-    what: "Lean 4 is a proof checker, and a very strict one: restate a theorem in a language it can check step by step, and if any step is missing its justification the whole file refuses to compile. Programmers have a word for skipping a step, sorry, meaning “I owe you this one”; this corpus contains none. It does not consult a referee’s intuition or the author’s confidence. The manuscript’s 771 labelled entries (theorems, lemmas, propositions, corollaries, definitions, remarks) were each put to that gate. The tally, frozen on 2026-07-08: 727 certified; 19 with only the core checked; 4 with no matching entry written in Lean yet; 21 that are prose or empirical statements and stay open. The Lean corpus runs to 313 modules. There is one physical assumption — that such a cell exists — and it enters as part of the definition, written out in the open, not as a hidden axiom.",
+    what: "Lean 4 is a proof checker, and a very strict one: restate a theorem in a language it can check step by step, and if any step is missing its justification the whole file refuses to compile. Programmers have a word for skipping a step, sorry, meaning “I owe you this one”; this corpus contains none. It does not consult a referee’s intuition or the author’s confidence. The manuscript’s 771 labelled entries (theorems, lemmas, propositions, corollaries, definitions, remarks) were each put to that gate. The tally, frozen on 2026-07-08: 727 certified; 19 with only the core checked; 4 with no matching entry written in Lean yet; 21 that are prose or empirical statements and stay open. The Lean corpus runs to 313 modules. There is one physical assumption — that such a cell exists — and it enters as part of the definition, written out in the open, not as a hidden axiom. These 313 Lean 4 modules currently reside in the author’s working repository and have not yet been released in the public-review archive; the counts above are the author’s report and await independent compilation once released.",
     meaning: "“Certified” means the bookkeeping is clean, not that the physics is right. Certification is a claim about logical structure. It is not an empirical claim about nature. What it says is that the statement in Lean and the written statement in the manuscript are logically the same thing, at the level of detail the statement itself declares. Most certificates stop at a named input: the small piece of analysis the library does not yet have — a bound on clustering, a continuum limit — is written into the statement as an explicit hypothesis, in plain view rather than buried. A machine-checked proof of the wrong statement is still a proof of the wrong statement. Whether those statements describe the world correctly is what the table above is for. The remaining 44 rows are not certified, and each is labelled with the reason.",
     barTitle: "Four buckets, adding to 771.",
     barLabels: {
@@ -727,15 +727,21 @@ export default {
     },
     submissions: {
       h3: "Where the papers stand",
-      intro: "As recorded on 2026-08-29, the monograph itself had not been submitted to a journal, was not peer reviewed, and was not on arXiv. Two papers carved out of it were then with journals: one at <em>Classical and Quantum Gravity</em> (CQG-116665, submitted 2026-07-15), awaiting referee reports at that date; one at the <em>Journal of Geometry and Physics</em> (JGP13432, submitted 2026-07-21), under review at that date.",
+      intro: "As recorded on 2026-11-19, the monograph itself has not been submitted to a journal, is not peer reviewed, and is not on arXiv. Of the two papers carved out of it, one at the <em>Journal of Geometry and Physics</em> (JGP13432, submitted 2026-07-21) remains under review; the conditional Einstein–Yang–Mills paper has been revised and is being prepared for submission to a new target journal (no longer under review at <em>Classical and Quantum Gravity</em>).",
       underReview: "under review",
-      awaiting: "awaiting referee reports",
+      revising: "revising for new submission",
       submittedOn: "submitted",
+      updatedOn: "updated",
       noArxiv: "The monograph is not on arXiv.",
       defect: "The frozen v2.0 PDF has one known defect: its title page still prints the v1.0 version line, date and DOI, while the body and the checksum are v2.0. Recorded 2026-08-29; it belongs in the errata, appended, and the file is never quietly replaced.",
       records: [
-        ["CQG-116665", "Classical and Quantum Gravity", "2026-07-15", "awaiting"],
         ["JGP13432", "Journal of Geometry and Physics", "2026-07-21", "underReview"],
+        [
+          "EYM-PAPER-2",
+          "Conditional EYM paper · new journal pending",
+          "2026-11-19",
+          "revising",
+        ],
       ],
     },
   },
@@ -759,7 +765,7 @@ export default {
       ],
       [
         "Support the work",
-        "contact path for research funding, institutional sponsorship and strategic investment conversations",
+        "contact path for research patronage, institutional sponsorship and collaboration",
         "support",
       ],
       [
@@ -846,8 +852,8 @@ export default {
         "Move the next papers, preregistration-ready predictions and independent reproduction packages to publication. Support funds Founder research time, computation, open publication and professional review.",
       ],
       [
-        "2026-08-29 submission record",
-        "In the submission-portal record dated 2026-08-29, two papers carved out of the monograph had been submitted in July 2026: one to <em>Classical and Quantum Gravity</em>, then awaiting referee reports; one to the <em>Journal of Geometry and Physics</em>, then under review. Neither had an outcome in that record. The 1003-page monograph had not been submitted to a journal at that date.",
+        "2026-11-19 paper and monograph status",
+        "As of 2026-11-19, the manuscript at the <em>Journal of Geometry and Physics</em> (JGP13432) remains under review; the conditional Einstein–Yang–Mills paper has completed revision and is being prepared for submission to a new target journal (no longer under review at <em>Classical and Quantum Gravity</em>). Work on v3.0 continues in the author’s working repository with no public v3.0 PDF yet; the 1003-page v2.0 public-review monograph remains frozen and unsubmitted.",
       ],
       [
         "From August 2025",
@@ -972,7 +978,7 @@ export default {
         h3: "Why are gravity and the gauge forces one geometry read twice?",
         body: "Imagine walking a closed loop on a sphere carrying two instruments. A pedometer records how far you walked. A Foucault pendulum that was swinging north when you set out is found, on your return, swinging in a different plane, though you never touched it. The pedometer reads distance; the pendulum reads “came back to the same place, yet turned”. When this object’s quantum ground state walks through its “settings space” (the values of its couplings), it carries both instruments too — not two things but two faces of one geometry, packed into a single complex number: real part the pedometer, imaginary part the pendulum. That number is the quantum geometric tensor (Provost and Vallée, 1980). What is new here is not the split but following both faces to the end on one finite object of 81 states. The real face measures how distinguishable two states are and reads as distance, a metric: gravity lives on this face. The imaginary face measures how far an internal arrow turns when carried round a loop and reads as curvature: the Yang–Mills-type fields that describe the strong, weak and electromagnetic forces live on this face. That both faces come off one tensor is a theorem. The bet this framework places is the next step: that their dynamics therefore arrive together, Einstein’s equations and the Yang–Mills equations from one source rather than glued side by side. That step is written as a conditional system with its conditions listed one by one; the paper drawn from it is titled “Conditional Einstein–Yang–Mills Field Equations”.",
         ridesOn: "The step written as a conditional system rides on four things the author lists as open:\n- The step up to the weak and electromagnetic forces (E3).\n- The passage from a geometry with four alike directions to three of space and one of time, together with the most basic piece of gravity, which is classified rather than built (E7).\n- The massless spin-two excitation that gravitational waves are made of, not yet constructed (E11).\n- A tower of higher-order response terms: what is derived is the leading system only. This one carries no interface number of its own.\nThe step that both faces come off one tensor rides on no interface.",
-        checkAt: "The symmetric/antisymmetric split of the quantum geometric tensor (Provost and Vallée, 1980) and its antisymmetry lemma, Grassmannian chapter; the Einstein–Yang–Mills substrate equations, whose title qualifier in the monograph is narrowed by erratum E4; the paper drawn from it, CQG-116665, under review. Review Targets 1 and 2.",
+        checkAt: "The symmetric/antisymmetric split of the quantum geometric tensor (Provost and Vallée, 1980) and its antisymmetry lemma, Grassmannian chapter; the Einstein–Yang–Mills substrate equations, whose title qualifier in the monograph is narrowed by erratum E4; the carved-out conditional Einstein–Yang–Mills paper has been revised and is being prepared for submission to a new journal. Review Targets 1 and 2.",
       },
       {
         n: "09",

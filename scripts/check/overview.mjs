@@ -14,9 +14,14 @@ for (const language of ["en", "zh"]) {
   const home = await readFile(join(site, language, "index.html"), "utf8");
   assert.equal((home.match(/<section\b/g) || []).length, 5, "home must remain a five-section introduction");
   assert.ok(home.length < 18000, "a short homepage must not contain the old long account");
-  for (const path of ["research.html", "progress/", "support/", "interest/"]) {
+  for (const path of ["research.html", "progress/", "support/"]) {
     assert.ok(home.includes(`/${language}/${path}`), `${language} homepage misses ${path}`);
   }
+  assert.ok(home.includes('class="k4-deal"'), `${language} homepage must carry the K4 glyph`);
+  assert.ok(home.includes("206.768282688691"), `${language} homepage must carry the hero numerical witness`);
+  assert.ok(home.includes("/predictions/"), `${language} homepage must link to /predictions/`);
+  assert.ok(home.includes("/official-k4v/"), `${language} homepage must link to /official-k4v/`);
+  assert.ok(!home.includes(`/${language}/interest/`), `${language} homepage must not carry token questionnaire`);
   for (const kind of ["", "progress/", "support/", "interest/"]) {
     const html = await readFile(join(site, language, kind, "index.html"), "utf8");
     assert.ok(html.includes(`<html lang="${language === "zh" ? "zh-Hans" : "en"}">`));
@@ -46,7 +51,8 @@ for (const language of ["en", "zh"]) {
   assert.equal(url.pathname, "zhihua@k4cell.com");
   assert.deepEqual([...url.searchParams.keys()], ["subject", "body"]);
   assert.equal(url.searchParams.get("body"), draft.body);
-  assert.match(draft.body, /3\. Interest \/ 条件兴趣: NO/);
+  assert.match(draft.body, /3\. Interest \/ 条件兴趣: NO \(不考虑 \/ Would not consider\)/);
+  assert.match(draft.body, /6\. Willing to look again \/ 愿意再看: NO \(不愿意 \/ No\)/);
   assert.match(draft.body, /一次跟进同意: NO/);
   assert.match(draft.body, /not an order or funding commitment/);
   assert.throws(() => prepareDraft({ ...answers, q3: "" }, language));

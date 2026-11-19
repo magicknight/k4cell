@@ -178,24 +178,25 @@
    },
    "submissions": {
     "h3": "投稿状态",
-    "intro": "截至 2026-08-29 的记录：专著本身没有投过期刊，未经同行评议，也不在 arXiv 上。从中拆出的两篇论文当时在审。一篇 2026 年 7 月 15 日投给 <em>Classical and Quantum Gravity</em>，编号 CQG-116665，当时等待审稿报告。一篇 2026 年 7 月 21 日投给 <em>Journal of Geometry and Physics</em>，编号 JGP13432，当时审稿中。",
+    "intro": "截至 2026-11-19 的记录：专著本身没有投过期刊，未经同行评议，也不在 arXiv 上。从中拆出的两篇论文，一篇于 2026 年 7 月 21 日投给 <em>Journal of Geometry and Physics</em>（编号 JGP13432），仍在审稿中；另一篇条件性 Einstein–Yang–Mills 论文已完成修订，正准备改投其他期刊（已不再在 <em>Classical and Quantum Gravity</em> 审稿）。",
     "underReview": "审稿中",
-    "awaiting": "等待审稿报告",
+    "revising": "改投修订中",
     "submittedOn": "提交于",
+    "updatedOn": "更新于",
     "noArxiv": "专著不在 arXiv 上。",
     "defect": "冻结的 2.0 版 PDF 有一处已知缺陷：标题页仍印着 1.0 版的版本行、日期和 DOI，正文与校验和都是 2.0 版的。这一条 2026 年 8 月 29 日记录在案，应追加进勘误，不悄悄换掉文件。",
     "records": [
-     [
-      "CQG-116665",
-      "Classical and Quantum Gravity",
-      "2026-07-15",
-      "awaiting"
-     ],
      [
       "JGP13432",
       "Journal of Geometry and Physics",
       "2026-07-21",
       "underReview"
+     ],
+     [
+      "EYM-PAPER-2",
+      "条件性 EYM 论文 · 拟改投新刊",
+      "2026-11-19",
+      "revising"
      ]
     ]
    }
@@ -380,24 +381,25 @@
    },
    "submissions": {
     "h3": "Where the papers stand",
-    "intro": "As recorded on 2026-08-29, the monograph itself had not been submitted to a journal, was not peer reviewed, and was not on arXiv. Two papers carved out of it were then with journals: one at <em>Classical and Quantum Gravity</em> (CQG-116665, submitted 2026-07-15), awaiting referee reports at that date; one at the <em>Journal of Geometry and Physics</em> (JGP13432, submitted 2026-07-21), under review at that date.",
+    "intro": "As recorded on 2026-11-19, the monograph itself has not been submitted to a journal, is not peer reviewed, and is not on arXiv. Of the two papers carved out of it, one at the <em>Journal of Geometry and Physics</em> (JGP13432, submitted 2026-07-21) remains under review; the conditional Einstein–Yang–Mills paper has been revised and is being prepared for submission to a new target journal (no longer under review at <em>Classical and Quantum Gravity</em>).",
     "underReview": "under review",
-    "awaiting": "awaiting referee reports",
+    "revising": "revising for new submission",
     "submittedOn": "submitted",
+    "updatedOn": "updated",
     "noArxiv": "The monograph is not on arXiv.",
     "defect": "The frozen v2.0 PDF has one known defect: its title page still prints the v1.0 version line, date and DOI, while the body and the checksum are v2.0. Recorded 2026-08-29; it belongs in the errata, appended, and the file is never quietly replaced.",
     "records": [
-     [
-      "CQG-116665",
-      "Classical and Quantum Gravity",
-      "2026-07-15",
-      "awaiting"
-     ],
      [
       "JGP13432",
       "Journal of Geometry and Physics",
       "2026-07-21",
       "underReview"
+     ],
+     [
+      "EYM-PAPER-2",
+      "Conditional EYM paper · new journal pending",
+      "2026-11-19",
+      "revising"
      ]
     ]
    }

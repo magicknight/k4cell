@@ -166,6 +166,7 @@
 
 *{box-sizing:border-box}
 html[lang=en]{--sans:var(--lat)}
+html[lang="zh-Hans"]{--t-nano:.78rem}
 /* The bar is sticky and it is 3.4rem on the desktop, 4.2rem on a phone where
    the nav wraps to its own row, 5.1rem on the English phone. Without this
    every anchor — the five nav links, the two hero buttons, the eleven
@@ -211,12 +212,14 @@ a:hover{text-decoration:underline;text-underline-offset:.22em}
    a bulleted list — no box, no tray, nothing but --link against --fg-1 at
    1.55:1 — so on the one page whose whole job is to be checked, the things
    to check with looked like text. Same remedy, same rule. */
-.notice-inner li a{
+.notice-inner li a,.overview-prose a,.overview-archive-note a,.overview-section>p a,.support-k4v-note a,.support-k4v-sep a,.route-live a{
   text-decoration:underline;text-underline-offset:.22em;
 }
 button{font:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--link);outline-offset:.15rem}
 summary:focus-visible{outline:2px solid var(--link);outline-offset:.15rem}
+.sec-kill :focus-visible{outline-color:var(--fg-0)}
+.sec-kill .kill-registry :focus-visible{outline-color:var(--link)}
 .shell{width:var(--shell);margin-inline:auto}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:.75rem;top:.75rem;z-index:100;padding:.7rem 1rem;background:var(--fg-0);color:var(--bg-0)}
@@ -805,6 +808,8 @@ html[lang=en] .decade{font-family:var(--fig)}
 .gap-toggle{margin-top:.7rem;min-height:2.2rem;padding:0 .7rem;border:1px solid var(--hair-3);background:transparent;color:var(--fg-2);font:600 var(--t-nano) var(--mono);letter-spacing:.08em}
 .gap-toggle:hover{border-color:var(--fg-2);color:var(--fg-0);background:var(--panel-2)}
 .gap-toggle[aria-pressed=true]{border-color:var(--fact);color:var(--fact)}
+.route-live{margin:1.2rem 0 0;padding:.75rem 1rem;border-left:2px solid var(--fact);background:var(--panel);color:var(--fg-1);font-size:var(--t-small);line-height:1.7}
+.route-live[hidden]{display:none}
 .killswitch{margin:1.8rem 0 0}
 .killswitch-note{margin:1rem 0 0;max-width:var(--col-read);color:var(--fg-2);font-size:var(--t-micro);line-height:1.8}
 .iface,.notderived,.inputs,.subs{margin:2.6rem 0 0;padding-top:1.6rem;border-top:1px solid var(--hair)}
@@ -889,8 +894,9 @@ html[lang=en] .closing{font-family:var(--fig)}
 .language-gate .brand-mark{width:2rem;height:2rem;margin-inline:auto}
 .gate-num{margin-top:2.2rem}
 .gate-num code{display:block;color:var(--fg-1);font-size:clamp(.85rem,2.2vw,1.1rem)}
-.notice-page{min-height:100svh;display:grid;place-items:center;padding:3rem 1.5rem;background:var(--bg-0)}
-.notice-inner{max-width:42rem}
+.notice-page{min-height:calc(100svh - 5rem);display:grid;place-items:center;padding:3rem 1.5rem;background:var(--bg-0)}
+.notice-inner{width:100%;max-width:42rem;min-width:0}
+.notice-inner code{overflow-wrap:anywhere}
 .notice-inner .brand-mark{width:2rem;height:2rem}
 .notice-inner h1{margin:1rem 0 1.2rem;font-size:var(--t-title)}
 .notice-inner p{margin:0 0 .9rem;max-width:var(--col-read);color:var(--fg-1);font-size:var(--t-small);line-height:1.85}
@@ -899,7 +905,7 @@ html[lang=en] .closing{font-family:var(--fig)}
 /* The support surface shares the notice shell but carries one complete public
    path: ambition, proof of work, modes of support, and the active boundary. */
 .support-page{place-items:start center}
-.support-inner{width:min(100%,58rem)}
+.support-inner{width:min(100%,58rem);max-width:58rem}
 .support-lede{font-size:var(--t-lead)!important;line-height:1.7!important;color:var(--fg-0)!important}
 .support-proof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:2rem 0;border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
 .support-proof div{display:grid;gap:.35rem;padding:1rem;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--panel)}
@@ -918,12 +924,16 @@ html[lang=en] .closing{font-family:var(--fig)}
 .support-status h2{margin:.35rem 0 .8rem}
 .support-status p:last-child{margin-bottom:0}
 @media(max-width:640px){.support-proof,.support-options{grid-template-columns:1fr}}
+.support-k4v-note{margin:2.2rem 0;padding:1.1rem 1.2rem;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--panel)}
+.support-k4v-note h2{margin:0 0 .7rem;font-size:var(--t-ask)}
+.support-k4v-note p:last-child{margin-bottom:0}
+.support-k4v-sep{margin:1.8rem 0 0;padding-top:1rem;border-top:1px solid var(--hair);font-size:.85rem;color:var(--fg-2)}
 
 /* ---------------- motion, forced colours, print ---------------- */
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .st,.lrow,.iwalk,.iwalk-halo,.imk{transition:none;animation:none}
+  .st,.lrow,.iwalk,.iwalk-halo,.imk,.rt-chip-g{transition:none;animation:none}
   /* SMIL cannot be switched off from CSS, so the glyph ships twice and this
      is where the still twin — frame 0 of the same generated table — wins. */
   .k4-anim{display:none}
@@ -1304,9 +1314,12 @@ html[lang=en] .closing{font-family:var(--fig)}
    and the four closed steps stay lit. The base state is the author's actual
    claim, so a reader with prefers-reduced-motion loses only the fade. */
 .rt-conditional, .rt-open, .rt-stub, .rt-drop, .rt-dead,
-.rt-chip, .rt-chip-in, .rt-sym, .rt-carries { transition: opacity 180ms ease }
+.rt-chip, .rt-chip-in, .rt-sym, .rt-carries, .rt-chip-g { transition: opacity 180ms ease }
 .route.killed :is(.rt-conditional, .rt-open, .rt-stub, .rt-drop, .rt-dead,
 .rt-chip, .rt-chip-in, .rt-sym, .rt-carries) { opacity: .2 }
+.route .rt-chip-g.is-dark { opacity: .2 }
+.route .rt-gap.is-active .rt-code { fill: var(--fg-0); font-weight: 700 }
+.route .rt-gap.is-active .rt-cut { stroke: var(--fg-0) }
 
 @media (forced-colors: active) {
   .rt-link, .rt-arrow, .rt-cut, .rt-lead, .rt-stub, .rt-drop, .rt-dead,
@@ -1532,18 +1545,26 @@ html[lang=en] .closing{font-family:var(--fig)}
 .overview-bar { min-height:5rem; display:flex; align-items:center; gap:2rem; flex-wrap:wrap; padding-block:1rem; }
 .overview-bar .brand { margin-right:auto; }
 .overview-bar nav { display:flex; gap:1.4rem; flex-wrap:wrap; font-size:.9rem; }
+.overview-bar nav a[aria-current="page"] { color:var(--fg-0); font-weight:600; border-bottom:2px solid var(--link); padding-bottom:.2rem; }
 .overview-language { font-size:.85rem; white-space:nowrap; }
-.overview-hero { display:grid; grid-template-columns:1.35fr 1fr; gap:4rem; align-items:center; padding:5rem 0 4rem; }
-.overview-page h1 { font-family:var(--fig),var(--han-serif); font-size:clamp(2.2rem,4.4vw,4rem); line-height:1.2; letter-spacing:-.035em; font-weight:500; margin:.8rem 0 1.5rem; max-width:21ch; }
+.overview-hero { display:grid; grid-template-columns:1.28fr 1fr; gap:3.2rem; align-items:center; padding:3.8rem 0 3.2rem; }
+.overview-hero > * { min-width:0; }
+.overview-page h1 { font-family:var(--fig),var(--han-serif); font-size:clamp(2.2rem,4.4vw,4rem); line-height:1.2; letter-spacing:-.035em; font-weight:500; margin:.8rem 0 1.4rem; max-width:21ch; }
 .overview-page:lang(zh-Hans) h1 { max-width:13em; letter-spacing:0; }
 .overview-lead { font-size:1.06rem; max-width:58ch; }
-.overview-status { margin-top:2rem; font-size:.8rem; color:var(--fg-2); }
+.overview-proof { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin:1.6rem 0 1.4rem; }
+.overview-proof article { padding:.9rem 1rem; border:1px solid var(--hair); background:var(--panel); min-width:0; }
+.overview-proof h3 { margin:.25rem 0 .45rem; font:600 1.02rem/1.35 var(--mono); color:var(--fg-0); overflow-wrap:anywhere; }
+.overview-proof .num { color:var(--fact); }
+.overview-proof p { margin:0; font-size:.86rem; color:var(--fg-2); line-height:1.6; }
+.overview-proof a { display:inline-block; margin-top:.55rem; font-size:.86rem; }
+.overview-status { margin-top:1.5rem; font-size:.82rem; color:var(--fg-2); }
 .overview-status span { display:inline-block; border:1px solid var(--hair-2); padding:.25rem .65rem; margin-right:.65rem; color:var(--fg-1); }
+.overview-byline { margin:1rem 0 0; display:grid; gap:.35rem; font-size:.84rem; color:var(--fg-2); line-height:1.6; }
 .overview-object { margin:0; padding:1.5rem; border:1px solid var(--hair); }
+.overview-object .orb { width:100%; max-width:24rem; }
 .overview-object svg { display:block; width:100%; height:auto; }
-.overview-edge { stroke:var(--fact); stroke-width:1.5; fill:none; }
-.overview-vertex { fill:var(--fg-0); }
-.overview-object figcaption { font-size:.75rem; color:var(--fg-2); margin-top:1rem; max-width:45ch; }
+.overview-object figcaption { font-size:.78rem; color:var(--fg-2); margin-top:1rem; max-width:45ch; }
 .overview-section { padding:3.5rem 0; border-top:1px solid var(--hair); }
 .overview-section h2 { font-family:var(--fig),var(--han-serif); font-weight:500; font-size:clamp(1.6rem,2.6vw,2.3rem); margin:0 0 1.8rem; }
 .overview-section h3 { font-size:1.15rem; line-height:1.4; margin:.3rem 0 1rem; }
@@ -1572,6 +1593,8 @@ html[lang=en] .closing{font-family:var(--fig)}
 .overview-terms dt { font-weight:600; }
 .overview-terms dd { margin:0; }
 .interest-question { display:grid; gap:.6rem; margin-bottom:1.7rem; }
+.interest-qhead { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
+.interest-count { font:var(--t-nano)/1 var(--mono); font-variant-numeric:tabular-nums; color:var(--fg-2); white-space:nowrap; }
 #interest-form { max-width:48rem; }
 #interest-form label { font-size:.95rem; }
 #interest-form textarea, #interest-form select, #interest-form input:not([type=checkbox]) { width:100%; min-width:0; border:1px solid var(--hair-3); background:var(--bg-0); color:var(--fg-0); padding:.8rem; font:inherit; border-radius:0; }
@@ -1580,15 +1603,18 @@ html[lang=en] .closing{font-family:var(--fig)}
 .interest-consent { display:flex; gap:.7rem; align-items:flex-start; }
 .interest-consent input { margin-top:.45rem; min-width:1rem; min-height:1rem; }
 .interest-privacy { color:var(--fg-2); font-size:.85rem; }
-#draft-status { font-size:.9rem; }
+#draft-status { font-size:.9rem; margin-top:.9rem; }
 #draft-preview textarea { display:block; margin:1rem 0; font-size:.85rem; }
 #draft-preview[hidden] { display:none; }
-.overview-archive-note { width:min(100% - 2.5rem,70rem); margin:1.4rem auto; font-size:.85rem; }
+.draft-actions { display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; }
+.draft-warn { margin:.9rem 0; padding-left:.75rem; border-left:2px solid var(--hair-3); font-size:.85rem; color:var(--fg-1); }
+.overview-archive-note { margin:1.2rem 0 0; padding:.75rem 1rem; border:1px solid var(--hair); background:var(--panel); font-size:.85rem; color:var(--fg-2); }
 @media (max-width:760px) {
  .overview-bar { gap:1rem; }
  .overview-bar .brand { flex:1 1 70%; }
- .overview-bar nav { order:3; width:100%; gap:1.5rem; }
- .overview-hero { grid-template-columns:1fr; gap:2rem; padding:3rem 0; }
+ .overview-bar nav { order:3; width:100%; gap:1.2rem; }
+ .overview-hero { grid-template-columns:1fr; gap:2rem; padding:2.5rem 0; }
+ .overview-proof { grid-template-columns:1fr; }
  .overview-object { max-width:25rem; width:100%; justify-self:center; }
  .overview-grid, .overview-grid-two { grid-template-columns:1fr; gap:1.5rem; }
  .overview-section { padding:2.5rem 0; }
@@ -1649,10 +1675,17 @@ html[lang=en] .closing{font-family:var(--fig)}
      hovered button, the lit gap and the dials are all on paper — so this
      line is here to keep that true when something does. */
   --panel-2: var(--panel);
-  /* --link is deliberately NOT remapped. §06 carries no anchor, and a
-     value invented for one that does not exist is a value nobody would
-     look at again. If a link is ever written into the falsifier section
-     it needs a line here: this theme's --link reads 2.1:1 on the plate. */
+  --link: var(--bg-0);
+  --link-dk: var(--card);
+}
+
+.sec-kill .kill-registry {
+  --fg-0: var(--text);
+  --fg-1: var(--text-2);
+  --fg-2: var(--text-3);
+  --fg-3: var(--text-3);
+  --link: var(--accent);
+  --link-dk: var(--accent-dk);
 }
 
 }

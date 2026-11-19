@@ -112,7 +112,7 @@
     [
      "原初引力波",
      "这类波的强度 r 一旦测到 10⁻³ 以上，选定的暴胀分支出局。",
-     "CMB-S4 · LiteBIRD",
+     "Simons Observatory · LiteBIRD",
      "2030 年代",
      "branch"
     ]
@@ -125,7 +125,7 @@
    "kicker": "机器",
    "h2": "机器核验了什么，没核验什么。",
    "lead": "771 条带标签的定理行，727 条通过 Lean 4 核验。零 sorry，零项目公理——这套理论自己没有加过一条公理；只用数学库的三条标准逻辑公理：propext、Classical.choice、Quot.sound。",
-   "what": "Lean 4 是一个非常严格的证明检查器。把定理翻译成它能逐步核对的语言；任何一步缺了凭证，整个文件就编译不过。程序员有个偷懒的词叫 sorry，意思是“这一步先欠着”；这个语料库里一个都没有。它不看审稿人的直觉，也不看作者的自信。手稿里 771 条带标签的条目（定理、引理、命题、推论、定义、附注），逐条送进了这道门。2026-07-08 冻结时的账目：727 条已核验；19 条只核验了核心；4 条还没写出对应的 Lean 条目；21 条是文字或经验性陈述，仍开放。整个语料库 313 个模块。物理假设只有一条：这样的元胞存在。这一条明写成定义数据，不藏在公理里。",
+   "what": "Lean 4 是一个非常严格的证明检查器。把定理翻译成它能逐步核对的语言；任何一步缺了凭证，整个文件就编译不过。程序员有个偷懒的词叫 sorry，意思是“这一步先欠着”；这个语料库里一个都没有。它不看审稿人的直觉，也不看作者的自信。手稿里 771 条带标签的条目（定理、引理、命题、推论、定义、附注），逐条送进了这道门。2026-07-08 冻结时的账目：727 条已核验；19 条只核验了核心；4 条还没写出对应的 Lean 条目；21 条是文字或经验性陈述，仍开放。整个语料库 313 个模块。物理假设只有一条：这样的元胞存在。这一条明写成定义数据，不藏在公理里。这 313 个 Lean 4 模块目前保存在作者工作仓库中，尚未随公开评阅版一并开源发布；以上条目数为作者报告，尚待源码公开后接受独立编译复核。",
    "meaning": "“已核验”的意思是账目干净，不是物理正确。核验断言的是逻辑结构，不是自然界。所谓“已核验”，是说 Lean 里那条陈述和手稿里那条文字陈述逻辑上是一回事，细到它自己说明的那一层为止。证书就是机器给每条定理开出的那张凭据。多数证书到某一步就停。数学库里还没有的那一小块分析（一个聚类界、一个连续极限），写成一条点名的假设。它摆在明处，不藏在暗处。把一个错的陈述核验一遍，它还是那个错的陈述。这些陈述描述的世界对不对，要看上面那张表。剩下的 44 行没有核验，逐行标明了原因。",
    "barTitle": "四桶数字，加起来 771。",
    "barLabels": {
@@ -263,7 +263,7 @@
     [
      "Primordial gravitational waves",
      "A detection at r ≳ 10⁻³, where r measures how strong those waves are, puts the selected inflation branch out.",
-     "CMB-S4 · LiteBIRD",
+     "Simons Observatory · LiteBIRD",
      "2030s",
      "branch"
     ]
@@ -276,7 +276,7 @@
    "kicker": "The machine",
    "h2": "What the machine checked, and what it did not.",
    "lead": "771 labelled theorem rows, 727 of them certified in Lean 4. Zero sorry, and no axioms of its own; only the mathematical library’s three standard logical axioms: propext, Classical.choice, Quot.sound.",
-   "what": "Lean 4 is a proof checker, and a very strict one: restate a theorem in a language it can check step by step, and if any step is missing its justification the whole file refuses to compile. Programmers have a word for skipping a step, sorry, meaning “I owe you this one”; this corpus contains none. It does not consult a referee’s intuition or the author’s confidence. The manuscript’s 771 labelled entries (theorems, lemmas, propositions, corollaries, definitions, remarks) were each put to that gate. The tally, frozen on 2026-07-08: 727 certified; 19 with only the core checked; 4 with no matching entry written in Lean yet; 21 that are prose or empirical statements and stay open. The Lean corpus runs to 313 modules. There is one physical assumption — that such a cell exists — and it enters as part of the definition, written out in the open, not as a hidden axiom.",
+   "what": "Lean 4 is a proof checker, and a very strict one: restate a theorem in a language it can check step by step, and if any step is missing its justification the whole file refuses to compile. Programmers have a word for skipping a step, sorry, meaning “I owe you this one”; this corpus contains none. It does not consult a referee’s intuition or the author’s confidence. The manuscript’s 771 labelled entries (theorems, lemmas, propositions, corollaries, definitions, remarks) were each put to that gate. The tally, frozen on 2026-07-08: 727 certified; 19 with only the core checked; 4 with no matching entry written in Lean yet; 21 that are prose or empirical statements and stay open. The Lean corpus runs to 313 modules. There is one physical assumption — that such a cell exists — and it enters as part of the definition, written out in the open, not as a hidden axiom. These 313 Lean 4 modules currently reside in the author’s working repository and have not yet been released in the public-review archive; the counts above are the author’s report and await independent compilation once released.",
    "meaning": "“Certified” means the bookkeeping is clean, not that the physics is right. Certification is a claim about logical structure. It is not an empirical claim about nature. What it says is that the statement in Lean and the written statement in the manuscript are logically the same thing, at the level of detail the statement itself declares. Most certificates stop at a named input: the small piece of analysis the library does not yet have — a bound on clustering, a continuum limit — is written into the statement as an explicit hypothesis, in plain view rather than buried. A machine-checked proof of the wrong statement is still a proof of the wrong statement. Whether those statements describe the world correctly is what the table above is for. The remaining 44 rows are not certified, and each is labelled with the reason.",
    "barTitle": "Four buckets, adding to 771.",
    "barLabels": {

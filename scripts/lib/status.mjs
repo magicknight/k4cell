@@ -7,11 +7,11 @@ import { publicReviewCommit, publicStatusCommit } from "./links.mjs";
 export const status = {
   schema: "K4CELL-PUBLIC-STATUS-v1",
   recorded_at_utc: ledger.recorded_at_utc,
-  site_updated_on: "2026-09-27",
+  site_updated_on: "2026-11-19",
   artifact_status: "PUBLISHED",
   intended_canonical_domain: "k4cell.com",
   science: {
-    working_monograph: { version: "v3.0", state: "IN_PROGRESS", confirmed_on: "2026-09-09", source: "AUTHOR_CONFIRMATION", public_pdf: null },
+    working_monograph: { version: "v3.0", state: "IN_PROGRESS", confirmed_on: "2026-11-19", source: "AUTHOR_CONFIRMATION", public_pdf: null },
     state: "CANDIDATE_NOT_INDEPENDENTLY_ESTABLISHED",
     public_review: ledger.artifact.version,
     public_review_frozen_at: ledger.artifact.frozen,

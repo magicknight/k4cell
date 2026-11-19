@@ -60,39 +60,49 @@ export const assertThemeColour = (value) => {
  *   themeColor    the palette's --bg-0; see assertThemeColour above
  */
 export const headGroups = ({
-  description, title, csp = "static", canonical, alternates = false,
-  assetRoot = "", og = null, robotsFirst = false, compact = false, themeColor,
+  description, title, csp = "static", canonical, alternates = false, hreflangs = null,
+  assetRoot = "", og = null, scholar = null, robots = "index,follow", robotsFirst = false, compact = false, themeColor,
 }) => {
   const charset = `<meta charset="utf-8">`;
   const viewport = `<meta name="viewport" content="width=device-width,initial-scale=1">`;
   const theme = `<meta name="theme-color" content="${assertThemeColour(themeColor)}">`;
   const desc = `<meta name="description" content="${esc(description)}">`;
-  const robots = `<meta name="robots" content="index,follow">`;
+  const robotsMeta = `<meta name="robots" content="${esc(robots)}">`;
   const policy = `<meta http-equiv="Content-Security-Policy" content="${CSP[csp]}">`;
   const canon = `<link rel="canonical" href="${SITE_ORIGIN}/${canonical}">`;
-  const alts = alternates
-    ? ALTERNATES.map(([lang, path]) => `<link rel="alternate" hreflang="${lang}" href="${SITE_ORIGIN}/${path}">`)
-    : [];
+  const altList = hreflangs || (alternates ? ALTERNATES : []);
+  const alts = altList.map(([lang, path]) => `<link rel="alternate" hreflang="${lang}" href="${SITE_ORIGIN}/${path}">`);
   const icon = `<link rel="icon" href="${assetRoot}assets/favicon.svg" type="image/svg+xml">`;
   const sheet = `<link rel="stylesheet" href="${assetRoot}assets/site.css">`;
   const social = og ? [
     `<meta property="og:type" content="website">`,
+    `<meta property="og:site_name" content="K4 Cell Framework">`,
     `<meta property="og:title" content="${esc(og.title)}">`,
     `<meta property="og:description" content="${esc(og.description)}">`,
     `<meta property="og:url" content="${og.url}">`,
     `<meta property="og:image" content="${og.image}">`,
+    `<meta property="og:image:width" content="1200">`,
+    `<meta property="og:image:height" content="630">`,
+    `<meta property="og:image:alt" content="${esc(og.imageAlt || og.title)}">`,
+    ...(og.locale ? [`<meta property="og:locale" content="${esc(og.locale)}">`] : []),
     `<meta name="twitter:card" content="summary_large_image">`,
+  ] : [];
+  const scholarly = scholar ? [
+    `<meta name="citation_title" content="${esc(scholar.title)}">`,
+    `<meta name="citation_author" content="${esc(scholar.author)}">`,
+    `<meta name="citation_publication_date" content="${esc(scholar.date)}">`,
+    `<meta name="citation_doi" content="${esc(scholar.doi)}">`,
   ] : [];
   const titleTag = `<title>${title}</title>`;
 
   if (compact) {
-    return [[charset, viewport], [theme, robots], [desc], [policy], [canon, ...alts], [icon, sheet],
-      ...social.map((tag) => [tag]), [titleTag]];
+    return [[charset, viewport], [theme, robotsMeta], [desc], [policy], [canon, ...alts], [icon, sheet],
+      ...social.map((tag) => [tag]), ...scholarly.map((tag) => [tag]), [titleTag]];
   }
   return [[charset], [viewport], [theme],
-    ...(robotsFirst ? [[robots], [desc]] : [[desc], [robots]]),
+    ...(robotsFirst ? [[robotsMeta], [desc]] : [[desc], [robotsMeta]]),
     [policy], [canon], ...alts.map((tag) => [tag]), [icon], [sheet],
-    ...social.map((tag) => [tag]), [titleTag]];
+    ...social.map((tag) => [tag]), ...scholarly.map((tag) => [tag]), [titleTag]];
 };
 
 export const renderHead = (spec) =>
@@ -104,4 +114,5 @@ export const ogFor = (copy) => ({
   description: copy.description,
   url: `${SITE_ORIGIN}/${copy.dir}/`,
   image: `${SITE_ORIGIN}/assets/og-k4cell-${copy.dir}.jpg`,
+  locale: copy.dir === "zh" ? "zh_CN" : "en_US",
 });

@@ -351,7 +351,7 @@ for (const [name, page] of pages) {
     `${name}: the first screen must expose the Prediction Registry state`);
   assert.match(page, /class="hero-tier-l" href="\.\.\/predictions\/"/,
     `${name}: the hero Registry label must be a working link`);
-  assert.match(page, /class="button" href="\.\.\/support\/"/,
+  assert.match(page, /class="button" href="support\/"/,
     `${name}: the hero must carry the public support path`);
   assert.ok(page.includes(escaped(deck.ledger.registryNote)),
     `${name}: the manuscript census must be distinguished from preregistration`);

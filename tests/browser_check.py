@@ -44,7 +44,6 @@ NUMBERS = [
     "727",
     "771",
     "1003",
-    "CQG-116665",
     "JGP13432",
     "727d7c1fd690655a7a487afd66ba39b12f5b0eae5a622e2a224005a02d27c479",
 ]
@@ -90,7 +89,7 @@ def check_static(page, path: str, language: str) -> None:
     assert measured.locator(".d-lit").count() == 8, "the hero lights the 8 resolved measured digits"
     assert computed.locator(".d-ghost").count() == 7, "seven digits wait to be checked"
     assert page.locator('.hero-tier a[href="../predictions/"]').count() == 1
-    assert page.locator('.hero-actions a[href="../support/"]').count() == 1
+    assert page.locator('.hero-actions a[href="support/"]').count() == 1
     assert page.locator(".kill-registry").count() == 1
 
     body = page.locator("body").inner_text()
@@ -154,9 +153,19 @@ def check_live(page, path: str, language: str, screenshot: str) -> None:
     assert toggle.count() == 1, "the interface toggle must be a real button"
     toggle.click()
     assert page.locator(".lrow.dark").count() == 4, "E8 carries four numeric rows"
+    assert page.locator(".rt-chip-g.is-dark").count() > 0, "E8 highlights affected figure chips"
+    assert page.locator(".route-live").is_visible(), "E8 exposes route-live status"
     assert toggle.get_attribute("aria-pressed") == "true"
     toggle.click()
     assert page.locator(".lrow.dark").count() == 0
+    assert page.locator(".rt-chip-g.is-dark").count() == 0
+
+    kill_colors = page.evaluate("""() => {
+      const box = document.querySelector('.sec-kill .kill-registry');
+      const sec = document.querySelector('.sec-kill');
+      return [getComputedStyle(box).color, getComputedStyle(sec).color];
+    }""")
+    assert kill_colors[0] != kill_colors[1], f"{path}: .kill-registry must override dark-plate ink"
 
     # The kill switch darkens every row at once.
     page.locator("[data-killswitch]").click()
@@ -298,9 +307,14 @@ def check_overview(page, language: str, html_lang: str, path: str | None = None)
     assert page.locator("html").get_attribute("lang") == html_lang
     assert page.locator("main > section").count() == 5, f"{path}: five discovery sections"
     assert page.locator(".st").count() == 0, f"{path}: research grid belongs on research.html"
-    for suffix in ("research.html", "progress/", "support/", "interest/"):
+    assert page.locator(".k4-deal").count() == 1, f"{path}: homepage carries the K4 glyph"
+    assert page.locator('.overview-bar nav a[aria-current="page"]').count() == 1
+    for suffix in ("research.html", "progress/", "support/"):
         assert page.locator(f'a[href="/{language}/{suffix}"]').count() > 0, (
             f"{path}: missing route to {suffix}")
+    assert page.locator('a[href="/predictions/"]').count() > 0
+    assert page.locator(f'a[href="/{language}/interest/"]').count() == 0, (
+        f"{path}: token questionnaire should stay off homepage")
     other = "zh" if language == "en" else "en"
     language_href = f"{other}/" if path == "" else f"/{other}/"
     assert page.locator(".overview-language").get_attribute("href") == language_href
@@ -358,10 +372,12 @@ def check_interest_live(page, language: str) -> None:
     for field, answer in (("q1", "No interest"), ("q2", "No rights"),
                           ("q4", "Price unknown"), ("q5", "Unclear liquidity")):
         page.locator(f"#{field}").fill(answer)
+    assert page.locator('.interest-count[data-count-for="q1"]').inner_text().strip() == "11 / 160"
     page.locator("#q3").select_option("NO")
     page.locator("#q6").select_option("NO")
     page.locator("#prepare-email").click()
     assert page.locator("#draft-preview").is_visible()
+    assert page.locator("#copy-draft").is_visible()
     draft = page.locator("#draft-body").input_value()
     assert f"Language: {language}" in draft
     assert "Consent to one follow-up / 一次跟进同意: NO" in draft
@@ -421,6 +437,8 @@ with sync_playwright() as playwright:
     check_widths(sweep.new_page(), "en/research.html")
     check_widths(sweep.new_page(), "zh/research.html")
     check_widths(sweep.new_page(), "support/")
+    check_widths(sweep.new_page(), "official-k4v/", widths=(320, 390, 768, 1440))
+    check_widths(sweep.new_page(), "predictions/", widths=(320, 390, 768, 1440))
     check_widths(sweep.new_page(), "", widths=(320, 390, 768, 1440))
     for language in ("en", "zh"):
         for path in ("", "progress/", "support/", "interest/"):

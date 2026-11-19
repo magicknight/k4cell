@@ -53,7 +53,7 @@
       "conditional"
      ],
      "rides": "写成条件性方程组的那一步，依赖四件作者自己列为开放的事：\n- 弱作用和电磁那一层怎么接上来（E3）。\n- 四个方向一样的几何怎么变成三个空间加一个时间，以及引力最基本的那一块（E7）。\n- 引力波那种无质量的自旋二激发，至今没有造出来（E11）。\n- 响应展开里更高阶的那些项：推出来的只是领头的一组方程。这一条在接口表上没有自己的编号。\n两面出自同一个张量的那一步，不依赖任何接口。",
-     "check": "Grassmann 流形那一章：量子几何张量（Provost–Vallée, 1980）的对称/反对称拆分，及其反对称引理；Einstein–Yang–Mills 基底方程（专著里的标题限定词已由勘误 E4 收窄）；拆出的论文 CQG-116665 在审。评阅靶点 1 与 2。",
+     "check": "Grassmann 流形那一章：量子几何张量（Provost–Vallée, 1980）的对称/反对称拆分，及其反对称引理；Einstein–Yang–Mills 基底方程（专著里的标题限定词已由勘误 E4 收窄）；拆出的条件性 Einstein–Yang–Mills 论文已完成修订，正准备改投其他期刊。评阅靶点 1 与 2。",
      "lead": "同一块几何有两面：引力从一面读出，其余的力从另一面读出。"
     }
    ]
@@ -102,7 +102,7 @@
    "nameNoteA": "是最后才贴上去的",
    "nameNoteB": "推导中没有任何一个方程用到它们",
    "idxNote": "01–07 是环上七个匿名行，只按它们所处的位置和所带的东西标记，不贴任何粒子名。",
-   "ariaA": "第 06 行：标准模型的七个超荷 ",
+   "ariaA": "第 06 条主张：标准模型的七个超荷 ",
    "ariaB": "，各乘以六，依次等于环上七个匿名行被逼到的整数 ",
    "ariaC": "。粒子名（",
    "ariaD": "）与算式之间隔着一道断口，为事后附加，推导中未用到。",
@@ -163,7 +163,7 @@
       "conditional"
      ],
      "rides": "The step written as a conditional system rides on four things the author lists as open:\n- The step up to the weak and electromagnetic forces (E3).\n- The passage from a geometry with four alike directions to three of space and one of time, together with the most basic piece of gravity, which is classified rather than built (E7).\n- The massless spin-two excitation that gravitational waves are made of, not yet constructed (E11).\n- A tower of higher-order response terms: what is derived is the leading system only. This one carries no interface number of its own.\nThe step that both faces come off one tensor rides on no interface.",
-     "check": "The symmetric/antisymmetric split of the quantum geometric tensor (Provost and Vallée, 1980) and its antisymmetry lemma, Grassmannian chapter; the Einstein–Yang–Mills substrate equations, whose title qualifier in the monograph is narrowed by erratum E4; the paper drawn from it, CQG-116665, under review. Review Targets 1 and 2.",
+     "check": "The symmetric/antisymmetric split of the quantum geometric tensor (Provost and Vallée, 1980) and its antisymmetry lemma, Grassmannian chapter; the Einstein–Yang–Mills substrate equations, whose title qualifier in the monograph is narrowed by erratum E4; the carved-out conditional Einstein–Yang–Mills paper has been revised and is being prepared for submission to a new journal. Review Targets 1 and 2.",
      "lead": "One geometry with two faces: gravity is read off one of them, the other forces off the other."
     }
    ]
@@ -212,7 +212,7 @@
    "nameNoteA": "attached afterwards",
    "nameNoteB": "no equation in the derivation uses them",
    "idxNote": "01–07 are the ring’s seven anonymous rows, labelled only by where they sit and what they carry.",
-   "ariaA": "Row 06: the Standard Model’s seven hypercharges ",
+   "ariaA": "Claim 06: the Standard Model’s seven hypercharges ",
    "ariaB": ", each multiplied by six, equal in order the integers ",
    "ariaC": " that the ring’s seven anonymous rows are forced to. The particle names (",
    "ariaD": ") are separated from the arithmetic by a break, attached afterwards and used by no equation in the derivation.",

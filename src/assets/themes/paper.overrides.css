@@ -50,10 +50,17 @@
      hovered button, the lit gap and the dials are all on paper — so this
      line is here to keep that true when something does. */
   --panel-2: var(--panel);
-  /* --link is deliberately NOT remapped. §06 carries no anchor, and a
-     value invented for one that does not exist is a value nobody would
-     look at again. If a link is ever written into the falsifier section
-     it needs a line here: this theme's --link reads 2.1:1 on the plate. */
+  --link: var(--bg-0);
+  --link-dk: var(--card);
+}
+
+.sec-kill .kill-registry {
+  --fg-0: var(--text);
+  --fg-1: var(--text-2);
+  --fg-2: var(--text-3);
+  --fg-3: var(--text-3);
+  --link: var(--accent);
+  --link-dk: var(--accent-dk);
 }
 
 }

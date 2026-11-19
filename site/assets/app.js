@@ -186,7 +186,40 @@
   const route = killswitch && killswitch.closest(".route");
 
   if (gaps.length) {
+    const isZh = document.documentElement.lang.startsWith("zh");
+    const routeLive = $(".route-live");
     let active = null;
+
+    const updateRouteLive = (killed) => {
+      if (!routeLive) return;
+      if (!active || killed) {
+        routeLive.hidden = true;
+        routeLive.replaceChildren();
+        return;
+      }
+      const code = active.dataset.code || "";
+      const ids = (active.dataset.carries || "").split(" ").filter(Boolean);
+      const names = ids.map((id) => {
+        const symEl = $(`.lrow[data-row="${id}"] .lsym`);
+        return symEl ? symEl.textContent.trim() : id;
+      });
+      routeLive.replaceChildren();
+      if (ids.length) {
+        const msg = isZh
+          ? `已抽掉开放接口 ${code}：受影响的 ${ids.length} 条数值行（${names.join("、")}）已在上文账本中变暗。`
+          : `Pulled ${code}: the ${ids.length} affected ledger row${ids.length === 1 ? "" : "s"} (${names.join(", ")}) ${ids.length === 1 ? "is" : "are"} dimmed above. `;
+        routeLive.append(document.createTextNode(msg));
+        const jump = document.createElement("a");
+        jump.href = "#numbers";
+        jump.textContent = isZh ? "跳转到数值账本 →" : "Jump to the ledger →";
+        routeLive.append(jump);
+      } else {
+        routeLive.append(document.createTextNode(isZh
+          ? `已抽掉开放接口 ${code}：该接口不直接挂数值行，而约束四层态的目录与粘合。`
+          : `Pulled ${code}: no numeric ledger row hangs here; it governs the catalogue and gluing of the four layers.`));
+      }
+      routeLive.hidden = false;
+    };
 
     const render = () => {
       const killed = route && route.classList.contains("killed");
@@ -204,16 +237,27 @@
         const toggle = $(".gap-toggle", gap);
         if (toggle) toggle.setAttribute("aria-pressed", String(on));
       }
+      for (const gapNode of $$(".rt-gap")) {
+        gapNode.classList.toggle("is-active", Boolean(active && !killed && gapNode.dataset.gap === active.dataset.code));
+      }
+      for (const chip of $$(".rt-chip-g")) {
+        chip.classList.toggle("is-dark", Boolean(active && !killed && carried.has(chip.dataset.chipRow)));
+      }
+      updateRouteLive(killed);
     };
 
     /* The toggle is created here, not in the HTML: without JavaScript a control
        that does nothing would be worse than no control at all. */
     for (const gap of gaps) {
+      const code = gap.dataset.code || "";
       const toggle = document.createElement("button");
       toggle.type = "button";
       toggle.className = "gap-toggle";
       toggle.setAttribute("aria-pressed", "false");
-      toggle.textContent = gap.dataset.code || "";
+      toggle.setAttribute("aria-label", isZh
+        ? `抽掉开放接口 ${code}，查看受影响的数值行`
+        : `Pull open interface ${code} and highlight affected ledger rows`);
+      toggle.textContent = code;
       toggle.addEventListener("click", () => {
         if (route && route.classList.contains("killed")) return;
         active = active === gap ? null : gap;

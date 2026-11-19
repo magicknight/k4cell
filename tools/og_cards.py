@@ -143,9 +143,10 @@ def decks():
 
 
 def font(paths, size):
-    for path in paths:
+    for entry in paths:
+        path, index = entry if isinstance(entry, tuple) else (entry, 0)
         try:
-            return ImageFont.truetype(path, size)
+            return ImageFont.truetype(path, size, index=index)
         except OSError:
             continue
     return ImageFont.load_default()
@@ -156,42 +157,80 @@ SERIF_BOLD = ["/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"] + SERIF
 SANS = ["/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]
 MONO = ["/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"]
 CJK = [str(Path.home() / ".local/share/fonts/NotoSansCJKsc-Regular.otf"),
+       ("/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc", 2),
        "/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf"]
-CJK_BOLD = [str(Path.home() / ".local/share/fonts/NotoSansCJKsc-Bold.otf")] + CJK
+CJK_BOLD = [str(Path.home() / ".local/share/fonts/NotoSansCJKsc-Bold.otf"),
+            ("/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc", 2)] + CJK
 
 HAN = re.compile(r"[⺀-鿿＀-￯　-〿]")
+CLOSING_PUNCT = set("。，；：、”’）】》—·.!?,;:)")
+OPENING_PUNCT = set("“‘（【《(")
 
 
 def wrap(draw, text, fnt, width):
-    """Break Han runs per glyph and Latin runs per word."""
+    """Break Han runs per glyph and Latin runs per word, respecting punctuation and NBSP."""
     tokens, buffer = [], ""
     for character in text:
-        if HAN.match(character):
-            if buffer:
-                tokens.append(buffer)
-                buffer = ""
-            tokens.append(character)
-        elif character == " ":
+        if character == " ":
             if buffer:
                 tokens.append(buffer)
                 buffer = ""
             tokens.append(" ")
+        elif character == "\u00a0" or character in OPENING_PUNCT:
+            buffer += character
+        elif character in CLOSING_PUNCT:
+            if buffer:
+                tokens.append(buffer + character)
+                buffer = ""
+            elif tokens and tokens[-1] != " ":
+                tokens[-1] += character
+            else:
+                tokens.append(character)
+        elif HAN.match(character):
+            if buffer.endswith("\u00a0") or (buffer and buffer[-1] in OPENING_PUNCT):
+                tokens.append(buffer + character)
+                buffer = ""
+            else:
+                if buffer:
+                    tokens.append(buffer)
+                    buffer = ""
+                tokens.append(character)
         else:
             buffer += character
     if buffer:
         tokens.append(buffer)
 
-    lines, line = [], ""
+    line_tokens, cur = [], []
     for token in tokens:
-        candidate = line + token
-        if candidate.strip() and draw.textlength(candidate, font=fnt) > width and line.strip():
-            lines.append(line.rstrip())
-            line = "" if token == " " else token
+        candidate = "".join(cur) + token
+        if candidate.strip() and draw.textlength(candidate, font=fnt) > width and "".join(cur).strip():
+            while cur and cur[-1] == " ":
+                cur.pop()
+            if cur:
+                line_tokens.append(cur)
+            cur = [] if token == " " else [token]
         else:
-            line = candidate
-    if line.strip():
-        lines.append(line.rstrip())
-    return lines
+            cur.append(token)
+    while cur and cur[-1] == " ":
+        cur.pop()
+    if cur:
+        line_tokens.append(cur)
+
+    # Avoid an orphan single CJK glyph on the final line by pulling one token back.
+    if len(line_tokens) >= 2:
+        last_str = "".join(line_tokens[-1])
+        bare = "".join(ch for ch in last_str if ch not in CLOSING_PUNCT and ch != " ")
+        if len(bare) <= 1 and len(line_tokens[-2]) >= 3:
+            pulled = line_tokens[-2].pop()
+            while line_tokens[-2] and line_tokens[-2][-1] == " ":
+                line_tokens[-2].pop()
+            candidate = pulled + last_str
+            if draw.textlength(candidate, font=fnt) <= width:
+                line_tokens[-1].insert(0, pulled)
+            else:
+                line_tokens[-2].append(pulled)
+
+    return ["".join(row).rstrip() for row in line_tokens if "".join(row).strip()]
 
 
 def draw_numbered(draw, x, y, line, fnt, plain, accent):

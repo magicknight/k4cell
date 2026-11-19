@@ -132,8 +132,9 @@ export const sigmaAria = (copy, sx) => {
     : row.noFigure ? row.symbol
     : `${row.symbol} ${row.display}${row.worst ? `${zhLike ? "，" : ", "}${sx.ariaWorst}` : ""}`;
   const lane = (id, name) => `${name}${colon}${sigmaRows.filter((r) => r.lane === id).map(say).join(sep)}`;
-  return [sx.ariaLead, lane("a", copy.ledger.laneGaussian), lane("b", copy.ledger.laneDiagnostic),
-    `${lane("c", copy.ledger.laneBounds)}${zhLike ? "——" : " — "}${sx.noneTag}`].join(zhLike ? "" : " ");
+  const body = [lane("a", copy.ledger.laneGaussian), lane("b", copy.ledger.laneDiagnostic),
+    `${lane("c", copy.ledger.laneBounds)}${zhLike ? "——" : " — "}${sx.noneTag}`].join(zhLike ? "。" : ". ");
+  return `${sx.ariaLead}${zhLike ? "" : " "}${body}${zhLike ? "。" : "."}`;
 };
 
 /* ---- horizontal build (>= 901px) ------------------------------------ */

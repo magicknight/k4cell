@@ -15,6 +15,7 @@ import assert from "node:assert/strict";
 
 import en from "../../../src/copy/en.js";
 import zh from "../../../src/copy/zh.js";
+import { overview } from "../../../src/copy/overview.js";
 
 import { classCensus, external, heroRow, ledger, machine, notCertified, states } from "../data.mjs";
 import { CSP, assertThemeColour, brandMark, colon, esc, ogFor, renderHead } from "../html.mjs";
@@ -463,8 +464,10 @@ export const renderBoundary = (copy) => {
     return `<li>${item}${refs ? `<span class="nd-refs">${refs}</span>` : ""}</li>`;
   }).join("");
 
-  const submissions = b.submissions.records.map(([id, journal, submitted, state]) =>
-    `<article class="sub"><span class="sub-id">${esc(id)}</span><p class="sub-meta"><em>${esc(journal)}</em> &#183; ${esc(b.submissions.submittedOn)} ${esc(submitted)} &#183; <strong>${esc(b.submissions[state])}</strong></p></article>`).join("");
+  const submissions = b.submissions.records.map(([id, journal, date, state]) => {
+    const dateLabel = state === "revising" ? b.submissions.updatedOn : b.submissions.submittedOn;
+    return `<article class="sub"><span class="sub-id">${esc(id)}</span><p class="sub-meta"><em>${esc(journal)}</em> &#183; ${esc(dateLabel)} ${esc(date)} &#183; <strong>${esc(b.submissions[state])}</strong></p></article>`;
+  }).join("");
 
   return sec("deeper", "sec-boundary route", b.number, b.kicker, `<h2>${esc(b.h2)}</h2>
 <p class="lede">${esc(b.intro)}</p>
@@ -475,6 +478,7 @@ ${renderRouteFigure(copy)}
 <ol class="stations">${stations}</ol>
 <p class="mainbridge"><span class="tag open">${esc(r.mainBridgeLabel)}</span><code>${esc(r.mainBridge)}</code></p>
 <div class="gaps">${gaps}</div>
+<p class="route-live" aria-live="polite" hidden></p>
 <div class="killswitch">
 <button type="button" class="button" data-killswitch><span data-kill-on>${esc(r.killSwitch)}</span><span data-kill-off hidden>${esc(r.killSwitchReset)}</span></button>
 <p class="killswitch-note">${esc(r.killSwitchCaption)}</p>
@@ -553,22 +557,35 @@ export const renderPage = (copy, { themeColor }) => {
     return `<a href="${href}">${esc(label)}</a>`;
   }).join("");
 
+  const scholar = {
+    title: copy.dir === "zh"
+      ? "K4 单元框架：从有限四点图推导物理常数（v2.0 公开审阅版）"
+      : "The K4 Cell Framework: Attempting to Derive Physical Constants from Four Points (v2.0 Public Review)",
+    author: "Zhihua Liang",
+    date: ledger.artifact.frozen,
+    doi: ledger.artifact.conceptDoi,
+  };
+
   return `<!doctype html>
 <html lang="${copy.htmlLang}">
 ${renderHead({
     description: copy.description, title: esc(copy.title), csp: "page",
-    canonical: `${copy.dir}/research.html`, assetRoot: "../", og: { ...ogFor(copy), url: `https://k4cell.com/${copy.dir}/research.html` },
+    canonical: `${copy.dir}/research.html`,
+    hreflangs: [["en", "en/research.html"], ["zh-Hans", "zh/research.html"], ["x-default", "en/research.html"]],
+    assetRoot: "../",
+    og: { ...ogFor(copy), url: `https://k4cell.com/${copy.dir}/research.html` },
+    scholar,
     themeColor,
   })}
 <body>
   <a class="skip" href="#main">${esc(copy.skip)}</a>
   <header class="topbar"><div class="shell bar-in">
-    <a class="brand" href="#hero">${brandMark}<span>${esc(copy.brand.name)}</span><span class="brand-t">${esc(copy.brand.tagline)}</span></a>
+    <a class="brand" href="./">${brandMark}<span>${esc(copy.brand.name)}</span><span class="brand-t">${esc(copy.brand.tagline)}</span></a>
     <nav class="site-nav" aria-label="${esc(copy.navLabel)}">${nav}</nav>
     <a class="lang" href="../${alternate.dir}/research.html" hreflang="${alternate.htmlLang}">${esc(copy.languageLabel)}</a>
   </div></header>
   <main id="main">
-    <p class="overview-archive-note">${copy.dir === "zh" ? '以下深读材料依据公开 v2.0 及 2026-08-29 状态记录。v3.0 正在编写。<a href="progress/">查看最新进展</a> · <a href="./">返回短首页</a>' : 'This full account uses public v2.0 and the status record of 2026-08-29. v3.0 is in progress. <a href="progress/">See current progress</a> · <a href="./">Back to the short homepage</a>'}</p>
+    <div class="shell"><p class="overview-archive-note">${copy.dir === "zh" ? '以下深读材料依据公开 v2.0 专著及 2026-08-29 账本结构（页面状态与投稿记录已同步至 2026-11-19），v3.0 正在编写。<a href="progress/">查看最新进展</a> · <a href="support/">资助与合作</a> · <a href="./">返回短首页</a>' : 'This full account builds on public v2.0 and the 2026-08-29 ledger structure (page status and submission records synced to 2026-11-19); v3.0 is in progress. <a href="progress/">See current progress</a> · <a href="support/">Support the work</a> · <a href="./">Back to the short homepage</a>'}</p></div>
     ${renderHero(copy)}
     ${renderWhy(copy)}
     ${renderObject(copy)}
@@ -591,13 +608,33 @@ ${renderHead({
 </html>`;
 };
 
-export const renderNotice = (copy, { themeColor }) => `<!doctype html>
+export const renderNotice = (copy, { themeColor }) => {
+  const alternate = copy.dir === "zh" ? en : zh;
+  const c = overview[copy.dir];
+  return `<!doctype html>
 <html lang="${copy.htmlLang}">
 ${renderHead({
   description: copy.notice.h1, title: esc(copy.notice.title), csp: "static",
-  canonical: `${copy.dir}/notice/`, assetRoot: "../../", robotsFirst: true, themeColor,
+  canonical: `${copy.dir}/notice/`,
+  hreflangs: [["en", "en/notice/"], ["zh-Hans", "zh/notice/"], ["x-default", "en/notice/"]],
+  assetRoot: "../../",
+  og: { ...ogFor(copy), title: copy.notice.title, description: copy.notice.h1, url: `https://k4cell.com/${copy.dir}/notice/` },
+  robotsFirst: true, themeColor,
 })}
-<body><main class="notice-page"><div class="notice-inner">
+<body>
+<a class="skip" href="#main">${esc(copy.skip)}</a>
+<header class="overview-header"><div class="overview-shell overview-bar">
+<a class="brand" href="../">${brandMark}<span>${esc(c.brand)}</span></a>
+<nav aria-label="${esc(c.navLabel)}">
+<a href="../">${esc(c.nav[0])}</a>
+<a href="../research.html">${esc(c.nav[1])}</a>
+<a href="../progress/">${esc(c.nav[2])}</a>
+<a href="../../predictions/">${esc(c.nav[3])}</a>
+<a href="../support/">${esc(c.nav[4])}</a>
+</nav>
+<a class="overview-language" href="../../${alternate.dir}/notice/" hreflang="${alternate.htmlLang}" lang="${alternate.htmlLang}">${esc(c.other)}</a>
+</div></header>
+<main id="main" class="notice-page"><div class="notice-inner">
 ${brandMark}
 <p class="eyebrow">${esc(copy.brand.name)}</p>
 <h1>${esc(copy.notice.h1)}</h1>
@@ -606,12 +643,13 @@ ${copy.notice.body.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}
 <p class="hero-actions"><a class="button primary" href="../">${esc(copy.notice.back)}</a><a class="button" href="../../status.json">status.json</a></p>
 </div></main></body>
 </html>`;
+};
 
 export const renderRoot = ({ themeColor }) => `<!doctype html>
 <html lang="en">
 ${renderHead({
   description: en.description, title: `${esc(en.brand.name)} &#8212; ${esc(en.gate.h1)}`, csp: "static",
-  canonical: "", alternates: true, assetRoot: "", robotsFirst: true, compact: true, themeColor,
+  canonical: "", alternates: true, assetRoot: "", robots: "noindex,follow", robotsFirst: true, compact: true, themeColor,
 })}
 <body><main class="language-gate"><div class="language-gate-inner">${brandMark}
 <p class="eyebrow">${esc(en.brand.name)}</p><h1>${esc(en.gate.h1)}</h1>

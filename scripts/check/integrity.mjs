@@ -42,9 +42,10 @@ for (const [name, page] of [["en", english], ["zh", chinese]]) {
   assert.ok(prose.includes(String(ledger.machine.leanCertified)), `${name}: certified count`);
   assert.ok(prose.includes(String(ledger.machine.rows)), `${name}: row total`);
   assert.ok(prose.includes(String(ledger.artifact.pages)), `${name}: page count`);
-  assert.ok(text.includes("CQG-116665"), `${name}: the CQG submission id must appear`);
   assert.ok(text.includes("JGP13432"), `${name}: the JGP submission id must appear`);
 }
+assert.doesNotMatch(both, /CQG-116665/, "retired CQG submission id must not remain on public pages");
+assert.doesNotMatch(both, /CMB-S4/, "retired CMB-S4 reference must not remain");
 
 for (const [name, page] of [["en", english], ["zh", chinese], ["root", rootPage], ["notice-en", noticeEn], ["notice-zh", noticeZh]]) {
   assert.doesNotMatch(page, />undefined(?=[<\s])/, `${name}: a copy lookup rendered undefined`);
@@ -223,7 +224,7 @@ assert.match(english, /Content-Security-Policy/);
 assert.match(chinese, /Content-Security-Policy/);
 assert.match(english, /hreflang="zh-Hans"/);
 assert.match(chinese, /hreflang="en"/);
-assert.match(rootPage, /href="en\/"/);
+assert.match(rootPage, /href="\/en\/research\.html"/);
 assert.match(rootPage, /href="zh\/"/);
 
 /* ---- the bilingual shells ----------------------------------------- *
@@ -237,7 +238,8 @@ assert.match(rootPage, /href="zh\/"/);
 const HAN = /[\u3400-\u9fff\uf900-\ufaff\u3000-\u303f\uff00-\uffef]/;
 
 for (const [name, page] of [["index.html", rootPage], ["404.html", notFoundPage],
-  ["support/index.html", supportPage]]) {
+  ["support/index.html", supportPage], ["official-k4v/index.html", officialPage],
+  ["predictions/index.html", predictionPage]]) {
   assert.match(page, /<html lang="en">/, `${name}: the bilingual shell is served as an English document`);
   assert.match(page, /<meta http-equiv="Content-Security-Policy"/, `${name}: no CSP meta`);
   /* Strip every element that declares Chinese, then nothing Chinese may be left. */
@@ -265,7 +267,7 @@ for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage
 /* ---- machine-readable status ---- */
 
 assert.equal(status.artifact_status, "PUBLISHED");
-assert.equal(status.site_updated_on, "2026-09-27");
+assert.equal(status.site_updated_on, "2026-11-19");
 assert.equal(status.science.peer_reviewed, false);
 assert.equal(status.science.monograph_under_journal_review, false);
 assert.equal(status.science.full_physical_realization, "OPEN");

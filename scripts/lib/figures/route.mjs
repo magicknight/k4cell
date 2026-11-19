@@ -153,10 +153,10 @@ export const figRouteWide = (copy) => {
     if (!rows.length) {
       const note = figWrap(copy.boundary.route.gapCarriesNothing, 11, 200);
       deepest = Math.max(deepest, 320 + 14 * note.length);
-      return head
+      return `<g class="rt-gap" data-gap="${esc(code)}">${head
         + `<line class="rt-drop" x1="${cx}" y1="${cutBot}" x2="${cx}" y2="302"/>`
         + `<line class="rt-dead" x1="${cx - 9}" y1="302" x2="${cx + 9}" y2="302"/>`
-        + figLines("rt-note", cx, 320, 14, "middle", note);
+        + figLines("rt-note", cx, 320, 14, "middle", note)}</g>`;
     }
 
     /* .rt-sym is 12.5px --mono; measure it as that, not as 12px --sans. */
@@ -164,18 +164,20 @@ export const figRouteWide = (copy) => {
       Math.max(96, Math.max(...rows.map((row) => figWidth(row.symbol, 12.5, ADV.mono))) + 24));
     const chips = rows.map((row, slot) => {
       const y = 320 + slot * 28;
-      return `<rect class="rt-chip" x="${(cx - chipW / 2).toFixed(1)}" y="${y}" width="${chipW.toFixed(1)}" height="22" rx="2"/>`
+      return `<g class="rt-chip-g" data-chip-row="${esc(row.id)}">`
+        + `<rect class="rt-chip" x="${(cx - chipW / 2).toFixed(1)}" y="${y}" width="${chipW.toFixed(1)}" height="22" rx="2"/>`
         + (row.interfaces.length > 1
           ? `<rect class="rt-chip-in" x="${(cx - chipW / 2 + 3).toFixed(1)}" y="${y + 3}" width="${(chipW - 6).toFixed(1)}" height="16" rx="1"/>`
           : "")
-        + figText("rt-sym", cx, y + 15, "middle", row.symbol);
+        + figText("rt-sym", cx, y + 15, "middle", row.symbol)
+        + "</g>";
     }).join("");
     deepest = Math.max(deepest, 320 + 28 * (rows.length - 1) + 22);
 
-    return head
+    return `<g class="rt-gap" data-gap="${esc(code)}">${head
       + `<line class="rt-drop" x1="${cx}" y1="${cutBot}" x2="${cx}" y2="300"/>`
       + figText("rt-carries", cx, 312, "middle", copy.boundary.route.gapCarries)
-      + chips;
+      + chips}</g>`;
   }).join("");
 
   /* One row can go dark two ways. Say so, rather than leave a chip drawn twice
@@ -268,7 +270,7 @@ export const figRouteNarrow = (copy) => {
         + `<line class="rt-dead" x1="${railX - 9}" y1="${(bottom + 12).toFixed(1)}" x2="${railX + 9}" y2="${(bottom + 12).toFixed(1)}"/>`
         + figLines("rt-note", railX + 22, bottom + 18, 14, "start", note);
       y = bottom + 18 + 14 * note.length;
-      return block;
+      return `<g class="rt-gap" data-gap="${esc(code)}">${block}</g>`;
     }
 
     /* Chips flow into as many rows as they need; E8's four make two, and the
@@ -285,13 +287,15 @@ export const figRouteNarrow = (copy) => {
     const foot = cursorY + 21;
     block += `<line class="rt-drop" x1="${railX}" y1="${bottom.toFixed(1)}" x2="${railX}" y2="${foot.toFixed(1)}"/>`
       + figText("rt-carries", railX + 22, (bottom + 14).toFixed(1), "start", copy.boundary.route.gapCarries)
-      + placed.map(({ row, x, y: cy, w }) => `<rect class="rt-chip" x="${x.toFixed(1)}" y="${cy.toFixed(1)}" width="${w.toFixed(1)}" height="21" rx="2"/>`
+      + placed.map(({ row, x, y: cy, w }) => `<g class="rt-chip-g" data-chip-row="${esc(row.id)}">`
+        + `<rect class="rt-chip" x="${x.toFixed(1)}" y="${cy.toFixed(1)}" width="${w.toFixed(1)}" height="21" rx="2"/>`
         + (row.interfaces.length > 1
           ? `<rect class="rt-chip-in" x="${(x + 3).toFixed(1)}" y="${(cy + 3).toFixed(1)}" width="${(w - 6).toFixed(1)}" height="15" rx="1"/>`
           : "")
-        + figText("rt-sym", (x + w / 2).toFixed(1), (cy + 14.5).toFixed(1), "middle", row.symbol)).join("");
+        + figText("rt-sym", (x + w / 2).toFixed(1), (cy + 14.5).toFixed(1), "middle", row.symbol)
+        + "</g>").join("");
     y = foot + 12;
-    return block;
+    return `<g class="rt-gap" data-gap="${esc(code)}">${block}</g>`;
   }).join("");
 
   const dupLines = ledger.gaussian.filter((row) => row.interfaces.length > 1)
