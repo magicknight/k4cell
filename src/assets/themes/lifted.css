@@ -152,6 +152,29 @@
   --accent: var(--link); --accent-dk: var(--link-dk);
   --ground: var(--bg-0);
 
+  --link-hi: #a9d9ff; --link-soft: rgba(124,195,255,.12); --on-link: #04101c;
+  --ok:#5ce6a0; --focus:#f9f871;
+  --grid-line: rgba(124,195,255,.035); --scanline: rgba(255,255,255,.018); --scrim: rgba(11,14,19,.78);
+  --glow-link: none; --glow-text-link: none; --glow-fact: none; --glow-none: none;
+  --shadow-hud: 0 0 0 1px rgba(124,195,255,.18), 0 18px 48px rgba(0,0,0,.50);
+  --kill-fg-0: var(--fg-0); --kill-fg-1: var(--fg-1); --kill-fg-2: var(--fg-2); --kill-fg-3: var(--fg-3);
+  --kill-hair: var(--hair); --kill-hair-2: var(--hair-2); --kill-hair-3: var(--hair-3); --kill-panel: var(--panel);
+
+  --day-bg-0:#f4f5f8; --day-bg-1:#eaecef; --day-bg-2:#e2e5ec; --day-bg-3:#d5dae4; --day-bg-kill:#150f13;
+  --day-panel: rgba(30,42,74,.045); --day-panel-2: rgba(255,255,255,.86);
+  --day-hair: rgba(35,48,82,.16); --day-hair-2: rgba(35,48,82,.30); --day-hair-3:#6c768d;
+  --day-fg-0:#111622; --day-fg-1:#283044; --day-fg-2:#4a556e; --day-fg-3:#5b667f;
+  --day-fact:#8f5407; --day-fact-hi:#734003; --day-fact-dk:#5e3402; --day-fact-glow: transparent;
+  --day-link:#006a70; --day-link-dk:#004e54; --day-link-hi:#00545a; --day-link-soft: rgba(0,106,112,.10); --day-on-link:#ffffff;
+  --day-ok:#0a6e42; --day-focus:#8a5a00;
+  --day-c1:#327b65; --day-c2:#752745; --day-c3:#6941a8;
+  --day-c1-lt:#65b29a; --day-c2-lt:#c46086; --day-c3-lt:#9c78d9;
+  --day-c1-dk:#245c4b; --day-c2-dk:#54142e; --day-c3-dk:#4a2880;
+  --day-k-off: rgba(45,58,90,.28); --day-orb-1: rgba(0,106,112,.08); --day-orb-2: rgba(105,65,168,.08); --day-orb-3: rgba(255,255,255,.94); --day-hatch: rgba(45,58,90,.30);
+  --day-grid-line: rgba(40,52,90,.045); --day-scanline: transparent; --day-scrim: rgba(16,22,36,.48);
+  --day-shadow-hud: 0 0 0 1px rgba(40,52,90,.14), 0 12px 32px rgba(20,28,50,.14);
+  --day-paper-hi:#ffffff; --day-card:#fafbfd; --day-rule-2:#bfc6d6; --day-rule-3:#8e97ac;
+
   /* type stacks — system only; the CSP forbids a linked font. Identical
      to instrument.css: a palette pass has no business moving type. */
   --han-serif: "Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
@@ -160,6 +183,7 @@
   --sans: var(--han);
   --fig: "Iowan Old Style",Palatino,"Palatino Linotype",Georgia,"Liberation Serif","Times New Roman",serif;
   --mono: ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono","Noto Sans Mono CJK SC",monospace;
+  --display: "Chakra Petch",var(--sans);
 
   --t-display: clamp(1.8rem,3.2vw,2.85rem);
   --t-title: clamp(1.5rem,2.8vw,2.3rem);
@@ -172,4 +196,9 @@
   --col-read: 40rem;
   --shell: min(100% - 2.5rem, 46rem);
   --rail: 10rem;
+  --rail-w: 224px;
+  --rail-w-sm: 64px;
+  --header-h: 58px;
+  --tabbar-h: 56px;
+  --cut-btn: 9px;
 }

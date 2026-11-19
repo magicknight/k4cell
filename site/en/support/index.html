@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f4f2ec">
-  <meta name="description" content="Start by discussing a defined research scope, its outputs, and its budget. Contact is by email for now; this page does not accept payments.">
+  <meta name="theme-color" content="#07080d">
+  <meta name="description" content="Start with a concrete research scope, measurable deliverables, and transparent budget. Communication is strictly email-first; this site processes no payments or wallets.">
   <meta name="robots" content="index,follow">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <link rel="canonical" href="https://k4cell.com/en/support/">
@@ -12,44 +12,51 @@
   <link rel="alternate" hreflang="zh-Hans" href="https://k4cell.com/zh/support/">
   <link rel="alternate" hreflang="x-default" href="https://k4cell.com/en/support/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/fonts.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/theme.js"></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="K4 Cell Framework">
-  <meta property="og:title" content="Support the next stage of the research. · K4 Cell">
-  <meta property="og:description" content="Start by discussing a defined research scope, its outputs, and its budget. Contact is by email for now; this page does not accept payments.">
+  <meta property="og:title" content="Fund the runway to make an ambitious idea exact and testable. · K4 Cell">
+  <meta property="og:description" content="Start with a concrete research scope, measurable deliverables, and transparent budget. Communication is strictly email-first; this site processes no payments or wallets.">
   <meta property="og:url" content="https://k4cell.com/en/support/">
   <meta property="og:image" content="https://k4cell.com/assets/og-k4cell-en.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Support the next stage of the research. · K4 Cell">
+  <meta property="og:image:alt" content="Fund the runway to make an ambitious idea exact and testable. · K4 Cell">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Support the next stage of the research. · K4 Cell</title>
+  <title>Fund the runway to make an ambitious idea exact and testable. · K4 Cell</title>
 </head>
 <body class="overview-page">
+<div class="app-shell">
 <a class="skip" href="#main">Skip to content</a>
-<header class="overview-header"><div class="overview-shell overview-bar">
+<header class="hd topbar sh-top"><div class="hd-in topbar-inner">
 <a class="brand" href="/en/"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-<path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
-<circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg><span>K4 Cell</span></a>
-<nav aria-label="Main navigation">
-<a href="/en/">Home</a>
-<a href="/en/research.html">Research</a>
-<a href="/en/progress/">Progress</a>
-<a href="/predictions/">Predictions</a>
-<a href="/en/support/" aria-current="page">Support</a>
-</nav>
-<a class="overview-language" href="/zh/support/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<rect class="bm-box" x="1.5" y="1.5" width="29" height="29" rx="5"/><path class="bm-tri" d="M16 5.5 6.5 23.5h19Z"/><line class="bm-e" x1="16" y1="5.5" x2="16" y2="17.5"/><line class="bm-e" x1="6.5" y1="23.5" x2="16" y2="17.5"/><line class="bm-e" x1="25.5" y1="23.5" x2="16" y2="17.5"/>
+<circle class="bm-v" cx="16" cy="5.5" r="2"/><circle class="bm-v" cx="6.5" cy="23.5" r="2"/><circle class="bm-v" cx="25.5" cy="23.5" r="2"/><circle class="bm-v" cx="16" cy="17.5" r="2"/></svg><span class="brand-name glitch" data-text="K4 Cell">K4 Cell</span></a>
+<button type="button" class="cmd" id="cmd-trigger" aria-label="Open command palette (Ctrl+K / /)" aria-haspopup="dialog"><span class="cmd-gt mono" aria-hidden="true">&gt;</span><svg class="cmd-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg><span class="cmd-txt">Search pages, constants, falsifiers, or commands…</span><span class="cmd-keys" aria-hidden="true"><span class="kbd">Ctrl</span><span class="kbd">K</span></span></button>
+<div class="tools"><button class="tool fx" id="fx-toggle" type="button" aria-pressed="true" aria-label="FX"><span class="dot ok" aria-hidden="true"></span><span class="fx-txt">FX</span></button><button class="tool theme" id="theme-toggle" type="button" aria-label="Theme"><svg class="th-ico th-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg><svg class="th-ico th-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg><svg class="th-ico th-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.5A7.5 7.5 0 0 1 9.5 4.5a7.5 7.5 0 1 0 10 10z"/></svg><span class="theme-txt">DARK</span></button><a class="overview-language" href="/zh/support/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></div>
 </div></header>
-<main id="main" class="overview-shell"><section class="overview-section overview-intro"><p class="eyebrow">Contact only</p><h1>Support the next stage of the research.</h1><p class="overview-lead">Start by discussing a defined research scope, its outputs, and its budget. Contact is by email for now; this page does not accept payments.</p>
-<a class="button primary" href="mailto:zhihua@k4cell.com?subject=K4%20research%20support%20%2F%20en&amp;body=Research%20area%20I%20would%20like%20to%20support%20or%20collaborate%20on%3A%0ASupport%20I%20could%20provide%3A%0AQuestions%20to%20clarify%20first%3A%0AMay%20I%20be%20contacted%20about%20this%20discussion%3F%20(please%20fill%20in)%3A%0A">Open a collaboration email draft</a><p>Review and send in your email app. Opening a draft does not mean a message has been received.</p></section>
-<section class="overview-section" id="roadmap"><h2>Scoped research collaborations</h2><div class="overview-grid overview-grid-two"><article><h3>Monograph and papers</h3><p>Version organization, exposition of derivations, and navigation for the v3.0 work.</p></article><article><h3>Reproducibility materials</h3><p>Code, inputs, Lean proof scripts, and verification instructions prepared for independent inspection.</p></article><article><h3>A focused derivation</h3><p>Author research time for a named question, with assumptions and remaining gaps recorded.</p></article><article><h3>Independent review</h3><p>A defined scope, reviewer, quote, and deliverable; payment does not depend on a positive conclusion.</p></article></div><p>Costs and milestones follow an agreed scope. Individuals, institutions, and technical collaborators can begin with one question. Contact grants no equity, token allocation, or right to returns.</p></section>
-<section class="overview-section"><h2>Read, critique, and support the research.</h2><div class="overview-grid"><article><h3>Full research account</h3><p>Check the 81 basis states, 11 ledger rows, 6 falsification tests, and open interfaces.</p><a href="/en/research.html">Open research account →</a></article><article><h3>Progress and updates</h3><p>Follow v3.0 writing, paper submission status, or request topic updates by email.</p><a href="/en/progress/#updates">See progress and updates →</a></article><article><h3>Prediction Registry</h3><p>Inspect the intentionally empty preregistration ledger and 11-row retrospective inventory.</p><a href="/predictions/">Check the registry →</a></article></div>
-<p class="support-k4v-sep">Separate gate: any hypothetical K4V meme token proposal stays strictly separate from research patronage and confers no equity, allocation, or rights. <a href="/official-k4v/">Verify the no-mint attestation</a> · <a href="/en/interest/">Read the K4V proposal &amp; early feedback form</a></p></section></main>
-<footer class="overview-footer"><div class="overview-shell">
-<p>K4 is a candidate framework that is not independently established. Funding, attention, and token prices cannot establish whether its scientific claims are true.</p><p><strong>K4V has not launched</strong> · <a href="/official-k4v/">Verify the signed official statement</a></p>
-<p><a href="/en/">Back to the homepage</a> · <a href="/predictions/">Prediction Registry</a> · <a href="/status.json">status.json</a> · <a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a></p>
+<aside class="rail sh-rail overview-bar" aria-label="Console channels">
+<nav class="sec-railnav" aria-label="Main navigation"><a href="/en/" class="it" title="Home" aria-label="Home"><span class="no mono" aria-hidden="true">01</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span class="lb">Home</span></a><a href="/en/research.html" class="it" title="Research" aria-label="Research"><span class="no mono" aria-hidden="true">02</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span class="lb">Research</span></a><a href="/en/progress/" class="it" title="Progress" aria-label="Progress"><span class="no mono" aria-hidden="true">03</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span class="lb">Progress</span></a><a href="/predictions/" class="it" title="Predictions" aria-label="Predictions"><span class="no mono" aria-hidden="true">04</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 2v3.5m0 13V22M2 12h3.5m13 0H22"/></svg><span class="lb">Predictions</span></a><a href="/en/support/" class="it" aria-current="page" title="Support" aria-label="Support"><span class="no mono" aria-hidden="true">05</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span class="lb">Support</span></a></nav>
+<div class="rail-group"><p class="rail-group-title">PROVENANCE</p><nav class="rail-subnav" aria-label="PROVENANCE"><a href="/official-k4v/" class="it sub-it" title="Official K4V Notice" aria-label="Official K4V Notice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="lb">Official K4V Notice</span></a><a href="https://github.com/magicknight/k4cell/blob/main/K4_Cell_Framework_v2.0.pdf" class="it sub-it" title="Frozen v2.0 Monograph PDF" aria-label="Frozen v2.0 Monograph PDF"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">Frozen v2.0 Monograph PDF</span></a><a href="/status.json" class="it sub-it" title="status.json" aria-label="status.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">status.json</span></a><a href="/ledger.json" class="it sub-it" title="ledger.json" aria-label="ledger.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">ledger.json</span></a></nav></div>
+<div class="rail-foot"><button type="button" class="keys" id="rail-keys-btn" aria-label="Shortcuts"><span class="kbd">?</span><span class="keys-t">Shortcuts</span></button></div>
+</aside>
+<main id="main" class="sh-main">
+<section class="overview-section overview-intro"><div class="overview-shell"><p class="eyebrow">Contact only · No on-site payments</p><h1>Fund the runway to make an ambitious idea exact and testable.</h1><p class="overview-lead">Start with a concrete research scope, measurable deliverables, and transparent budget. Communication is strictly email-first; this site processes no payments or wallets.</p>
+<p class="hero-actions"><a class="button primary" href="mailto:zhihua@k4cell.com?subject=K4%20research%20support%20%2F%20en&amp;body=Research%20area%20I%20would%20like%20to%20support%20or%20collaborate%20on%3A%0ASupport%20I%20could%20provide%3A%0AQuestions%20to%20clarify%20first%3A%0AMay%20I%20be%20contacted%20about%20this%20discussion%3F%20(please%20fill%20in)%3A%0A">Prepare collaboration email draft</a></p><p>Review carefully before sending from your own email app; opening a draft does not transmit anything.</p></div></section>
+<section class="overview-section" id="roadmap"><div class="overview-shell"><h2>Four scoped ways to collaborate or sponsor</h2><div class="overview-grid overview-grid-two"><article class="hp"><header class="hp-head"><span class="hp-code mono">01</span><span class="hp-sub">Monograph &amp; paper exposition</span></header><div class="hp-body"><p>Support v3.0 synthesis, sharp presentation of derivations, open-access fees, and reader navigation.</p></div></article><article class="hp"><header class="hp-head"><span class="hp-code mono">02</span><span class="hp-sub">Reproducibility packages</span></header><div class="hp-body"><p>Prepare standalone code, input tables, Lean proof scripts, and independent verification walkthroughs.</p></div></article><article class="hp"><header class="hp-head"><span class="hp-code mono">03</span><span class="hp-sub">Focused bridge derivations</span></header><div class="hp-body"><p>Fund dedicated founder time to attack a named open physical-realization interface, documenting outcomes either way.</p></div></article><article class="hp"><header class="hp-head"><span class="hp-code mono">04</span><span class="hp-sub">Independent critical review</span></header><div class="hp-body"><p>Commission scoped technical scrutiny with clear deliverables; compensation is strictly independent of verdict.</p></div></article></div><p class="overview-prose fine">Budgets and milestones follow a mutually agreed written scope. Individuals, foundations, and technical partners can start with a single focused question. Contact grants no equity, token allocation, or financial return.</p></div></section>
+<section class="overview-section"><div class="overview-shell"><h2>Inspect, challenge, and back the work.</h2><div class="overview-grid"><article class="hp"><div class="hp-body"><h3>Full research console</h3><p>Check all 81 basis states, 11 ledger rows, 6 falsification bets, and open bridges.</p><a class="hp-more" href="/en/research.html">Open research console</a></div></article><article class="hp"><div class="hp-body"><h3>Progress &amp; papers</h3><p>Follow v3.0 writing, active journal status, or request topic updates by email.</p><a class="hp-more" href="/en/progress/#updates">See progress &amp; updates</a></div></article><article class="hp"><div class="hp-body"><h3>Prediction Registry</h3><p>Inspect the intentionally empty preregistration ledger and 11-row retrospective inventory.</p><a class="hp-more" href="/predictions/">Inspect registry</a></div></article></div>
+<p class="support-k4v-sep">Separate gate: any hypothetical K4V meme token proposal stays strictly separate from research patronage and confers no equity, allocation, or rights. <a href="/official-k4v/">Verify the no-mint attestation</a> · <a href="/en/interest/">Read the K4V proposal &amp; early feedback form</a></p></div></section>
+</main>
+<footer class="ft sh-foot"><div class="ft-in overview-shell">
+<div class="ft-brand"><span class="ft-name glitch" data-text="K4 Cell">K4 Cell</span><p class="ft-tag">From four points to nature’s constants</p></div>
+<nav class="ft-links" aria-label="Main navigation"><a href="/en/">Back to overview</a><a href="/en/research.html">Research</a><a href="/predictions/">Prediction Registry</a><a href="/official-k4v/">Verify Founder-signed OpenPGP attestation</a><a href="/status.json">status.json</a><a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a></nav>
+<p class="ft-credit">K4 is an unestablished candidate research programme. Patronage, public attention, and token narratives never settle whether a physical theory is true. <strong>K4V has not launched</strong>.</p>
 </div></footer>
-
-
-</body></html>
+<nav class="tabbar" aria-label="Main navigation"><a href="/en/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span>Home</span></a><a href="/en/research.html" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span>Research</span></a><a href="/en/progress/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span>Progress</span></a><a href="/en/support/" class="tab" aria-current="page"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span>Support</span></a></nav>
+</div>
+<script src="/assets/shell.js" defer></script>
+</body>
+</html>

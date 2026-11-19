@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f4f2ec">
-  <meta name="description" content="本页严格区分已公开发布的文档与作者报告的持续推进工作。最后更新：2026-11-19。">
+  <meta name="theme-color" content="#07080d">
+  <meta name="description" content="严格区分已完成公开发布并冻结字节的存档文档，以及作者报告的持续推进工作。状态最后核对：2026-11-19。">
   <meta name="robots" content="index,follow">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <link rel="canonical" href="https://k4cell.com/zh/progress/">
@@ -12,44 +12,51 @@
   <link rel="alternate" hreflang="zh-Hans" href="https://k4cell.com/zh/progress/">
   <link rel="alternate" hreflang="x-default" href="https://k4cell.com/en/progress/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/fonts.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/theme.js"></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="K4 Cell Framework">
-  <meta property="og:title" content="公开版本与研究进展 · K4 单元">
-  <meta property="og:description" content="本页严格区分已公开发布的文档与作者报告的持续推进工作。最后更新：2026-11-19。">
+  <meta property="og:title" content="公开冻结版本与持续研究进展 · K4 单元">
+  <meta property="og:description" content="严格区分已完成公开发布并冻结字节的存档文档，以及作者报告的持续推进工作。状态最后核对：2026-11-19。">
   <meta property="og:url" content="https://k4cell.com/zh/progress/">
   <meta property="og:image" content="https://k4cell.com/assets/og-k4cell-zh.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="公开版本与研究进展 · K4 单元">
+  <meta property="og:image:alt" content="公开冻结版本与持续研究进展 · K4 单元">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
-  <title>公开版本与研究进展 · K4 单元</title>
+  <title>公开冻结版本与持续研究进展 · K4 单元</title>
 </head>
 <body class="overview-page">
+<div class="app-shell">
 <a class="skip" href="#main">跳到正文</a>
-<header class="overview-header"><div class="overview-shell overview-bar">
+<header class="hd topbar sh-top"><div class="hd-in topbar-inner">
 <a class="brand" href="/zh/"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-<path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
-<circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg><span>K4 单元</span></a>
-<nav aria-label="主导航">
-<a href="/zh/">首页</a>
-<a href="/zh/research.html">研究</a>
-<a href="/zh/progress/" aria-current="page">进展</a>
-<a href="/predictions/">预测</a>
-<a href="/zh/support/">支持</a>
-</nav>
-<a class="overview-language" href="/en/progress/" hreflang="en" lang="en">English</a>
+<rect class="bm-box" x="1.5" y="1.5" width="29" height="29" rx="5"/><path class="bm-tri" d="M16 5.5 6.5 23.5h19Z"/><line class="bm-e" x1="16" y1="5.5" x2="16" y2="17.5"/><line class="bm-e" x1="6.5" y1="23.5" x2="16" y2="17.5"/><line class="bm-e" x1="25.5" y1="23.5" x2="16" y2="17.5"/>
+<circle class="bm-v" cx="16" cy="5.5" r="2"/><circle class="bm-v" cx="6.5" cy="23.5" r="2"/><circle class="bm-v" cx="25.5" cy="23.5" r="2"/><circle class="bm-v" cx="16" cy="17.5" r="2"/></svg><span class="brand-name glitch" data-text="K4 单元">K4 单元</span></a>
+<button type="button" class="cmd" id="cmd-trigger" aria-label="打开命令与检索面板 (Ctrl+K / /)" aria-haspopup="dialog"><span class="cmd-gt mono" aria-hidden="true">&gt;</span><svg class="cmd-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg><span class="cmd-txt">检索页面、物理常数、证伪检验或命令…</span><span class="cmd-keys" aria-hidden="true"><span class="kbd">Ctrl</span><span class="kbd">K</span></span></button>
+<div class="tools"><button class="tool fx" id="fx-toggle" type="button" aria-pressed="true" aria-label="视觉效果"><span class="dot ok" aria-hidden="true"></span><span class="fx-txt">FX</span></button><button class="tool theme" id="theme-toggle" type="button" aria-label="主题"><svg class="th-ico th-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg><svg class="th-ico th-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg><svg class="th-ico th-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.5A7.5 7.5 0 0 1 9.5 4.5a7.5 7.5 0 1 0 10 10z"/></svg><span class="theme-txt">DARK</span></button><a class="overview-language" href="/en/progress/" hreflang="en" lang="en">English</a></div>
 </div></header>
-<main id="main" class="overview-shell"><section class="overview-section overview-intro"><p class="eyebrow">状态更新 · 2026-11-19</p><h1>公开版本与研究进展</h1><p>本页严格区分已公开发布的文档与作者报告的持续推进工作。最后更新：2026-11-19。</p>
-<ol class="overview-timeline"><li><time datetime="2026-07-08">2026-07-08</time><div><h2>v2.0 公开冻结</h2><p>1003 页公开审阅版 PDF 保持原文不变；后续勘误只作追加说明，不静默替换已冻结文本。</p><a href="https://github.com/magicknight/k4-cell-framework-public-review/blob/36becf6d6941fc5e51fb7897a93a6b8443f100ba/K4_Cell_Framework_v2.0-public-review.pdf">阅读公开专著 →</a></div></li><li><time datetime="2026-08-29">2026-08-29</time><div><h2>公开审阅材料与预测登记基础</h2><p>勘误表、核心审阅问题与预测登记基础设施公开可查。预测登记表当前保持为空，不将 11 项回顾性对照包装为预注册预测。</p><a href="/predictions/">查看登记状态 →</a></div></li><li><time datetime="2026-11-19">2026-11-19</time><div><h2>v3.0 专著修订与专题论文状态</h2><p>v3.0 专著与后续手性晶体及 Einstein–Yang–Mills 推导在作者工作仓库持续推进，目前尚无公开的 v3.0 PDF。已拆分的专题论文中，JGP13432 仍在 Journal of Geometry and Physics 审稿；条件性 Einstein–Yang–Mills 论文已完成修订，正准备改投其他期刊（已不再在 Classical and Quantum Gravity 审稿）。</p><a href="/zh/research.html">进入完整研究页 →</a></div></li></ol>
-<p>更多版本说明、勘误与审阅问题请见公开评阅仓库；持续推进中的工作不代表已通过期刊同行评议。 <a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub →</a></p>
-</section><section class="overview-section" id="updates"><h2>跟踪研究更新</h2><p>请来信说明希望跟踪的研究主题，以及是否同意接收后续更新；普通联系不会自动为您加入任何订阅列表。</p>
-<a class="button primary" href="mailto:zhihua@k4cell.com?subject=K4%20research%20updates%20%2F%20zh&amp;body=%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%BB%E9%A2%98%EF%BC%9A%0A%0A%E6%98%AF%E5%90%A6%E6%84%BF%E6%84%8F%E6%8E%A5%E6%94%B6%E5%90%8E%E7%BB%AD%E7%A0%94%E7%A9%B6%E6%9B%B4%E6%96%B0%EF%BC%88%E8%AF%B7%E8%87%AA%E8%A1%8C%E5%A1%AB%E5%86%99%EF%BC%89%EF%BC%9A%0A">生成研究进展订阅草稿</a><p>请在邮件应用中审阅后发送；生成或打开草稿并不意味着对方已收到来信。</p></section></main>
-<footer class="overview-footer"><div class="overview-shell">
-<p>K4 仍属尚未获得独立确立的候选理论框架。资助支持、公众关注或任何代币动向，都不能代替数学证明与实验检验来确立科学结论。</p><p><strong>K4V 尚未发行</strong> · <a href="/official-k4v/">核验作者签名官方声明</a></p>
-<p><a href="/zh/">返回首页</a> · <a href="/predictions/">预测登记</a> · <a href="/status.json">status.json</a> · <a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a></p>
+<aside class="rail sh-rail overview-bar" aria-label="控制台频道">
+<nav class="sec-railnav" aria-label="主导航"><a href="/zh/" class="it" title="概览" aria-label="概览"><span class="no mono" aria-hidden="true">01</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span class="lb">概览</span></a><a href="/zh/research.html" class="it" title="完整研究" aria-label="完整研究"><span class="no mono" aria-hidden="true">02</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span class="lb">完整研究</span></a><a href="/zh/progress/" class="it" aria-current="page" title="研究进展" aria-label="研究进展"><span class="no mono" aria-hidden="true">03</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span class="lb">研究进展</span></a><a href="/predictions/" class="it" title="预测登记" aria-label="预测登记"><span class="no mono" aria-hidden="true">04</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 2v3.5m0 13V22M2 12h3.5m13 0H22"/></svg><span class="lb">预测登记</span></a><a href="/zh/support/" class="it" title="资助合作" aria-label="资助合作"><span class="no mono" aria-hidden="true">05</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span class="lb">资助合作</span></a></nav>
+<div class="rail-group"><p class="rail-group-title">公开存证</p><nav class="rail-subnav" aria-label="公开存证"><a href="/official-k4v/" class="it sub-it" title="K4V 官方未发行声明" aria-label="K4V 官方未发行声明"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="lb">K4V 官方未发行声明</span></a><a href="https://github.com/magicknight/k4cell/blob/main/K4_Cell_Framework_v2.0.pdf" class="it sub-it" title="v2.0 冻结专著 PDF" aria-label="v2.0 冻结专著 PDF"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">v2.0 冻结专著 PDF</span></a><a href="/status.json" class="it sub-it" title="status.json" aria-label="status.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">status.json</span></a><a href="/ledger.json" class="it sub-it" title="ledger.json" aria-label="ledger.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">ledger.json</span></a></nav></div>
+<div class="rail-foot"><button type="button" class="keys" id="rail-keys-btn" aria-label="快捷键"><span class="kbd">?</span><span class="keys-t">快捷键</span></button></div>
+</aside>
+<main id="main" class="sh-main">
+<section class="overview-section overview-intro"><div class="overview-shell"><p class="eyebrow">状态同步 · 2026-11-19</p><h1>公开冻结版本与持续研究进展</h1><p class="overview-lead">严格区分已完成公开发布并冻结字节的存档文档，以及作者报告的持续推进工作。状态最后核对：2026-11-19。</p>
+<ol class="overview-timeline"><li class="hp"><div class="hp-body timeline-row"><time datetime="2026-07-08">2026-07-08</time><div><h2>v2.0 公开冻结</h2><p>1003 页公开审阅版 PDF 自发布起保持逐字节不变；后续发现的任何瑕疵仅在勘误表中追加编号记录，绝不静默替换原件。</p><a class="hp-more" href="https://github.com/magicknight/k4-cell-framework-public-review/blob/36becf6d6941fc5e51fb7897a93a6b8443f100ba/K4_Cell_Framework_v2.0-public-review.pdf">阅读冻结专著</a></div></div></li><li class="hp"><div class="hp-body timeline-row"><time datetime="2026-08-29">2026-08-29</time><div><h2>公开审阅靶点与预测登记基础设施</h2><p>勘误表、核心审阅问题与独立预测登记系统上线。登记表当前刻意保持为空，拒绝将任何回顾性对照伪装为先验预注册预测。</p><a class="hp-more" href="/predictions/">检查预测登记表</a></div></div></li><li class="hp"><div class="hp-body timeline-row"><time datetime="2026-11-19">2026-11-19</time><div><h2>v3.0 专著修订与专题论文审稿状态</h2><p>v3.0 专著以及手性晶体、Einstein–Yang–Mills 后续推导在作者工作仓库持续推进，尚无公开 v3.0 PDF。专题论文方面，JGP13432 仍在 Journal of Geometry and Physics 审稿；条件性 Einstein–Yang–Mills 论文已完成修订，准备改投其他期刊（已不再在 Classical and Quantum Gravity 审稿）。</p><a class="hp-more" href="/zh/research.html">进入完整研究台</a></div></div></li></ol>
+<p class="overview-prose">完整版本史、勘误编号与审阅切入点载于公开评阅仓库；持续编写与投稿中的材料不代表已通过同行评议。 <a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub →</a></p>
+</div></section><section class="overview-section" id="updates"><div class="overview-shell"><div class="hp"><header class="hp-head"><span class="hp-code mono">UPDATES</span><h2 class="hp-title">跟踪后续研究更新</h2></header><div class="hp-body"><p>请来信写明您希望跟踪的物理主题及是否同意接收后续来信；普通邮件咨询不会将您加入任何群发列表。</p>
+<p class="hero-actions"><a class="button primary" href="mailto:zhihua@k4cell.com?subject=K4%20research%20updates%20%2F%20zh&amp;body=%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%BB%E9%A2%98%EF%BC%9A%0A%0A%E6%98%AF%E5%90%A6%E6%84%BF%E6%84%8F%E6%8E%A5%E6%94%B6%E5%90%8E%E7%BB%AD%E7%A0%94%E7%A9%B6%E6%9B%B4%E6%96%B0%EF%BC%88%E8%AF%B7%E8%87%AA%E8%A1%8C%E5%A1%AB%E5%86%99%EF%BC%89%EF%BC%9A%0A">生成研究更新订阅邮件草稿</a></p><p>生成后请在您的邮件客户端中仔细审阅再发送；打开草稿不等于对方已收悉。</p></div></div></div></section>
+</main>
+<footer class="ft sh-foot"><div class="ft-in overview-shell">
+<div class="ft-brand"><span class="ft-name glitch" data-text="K4 单元">K4 单元</span><p class="ft-tag">从四个点到自然常数</p></div>
+<nav class="ft-links" aria-label="主导航"><a href="/zh/">返回概览首页</a><a href="/zh/research.html">完整研究</a><a href="/predictions/">预测登记表</a><a href="/official-k4v/">核验作者 OpenPGP 官方未发行声明</a><a href="/status.json">status.json</a><a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a></nav>
+<p class="ft-credit">K4 仍属尚未获学界独立确立的候选理论框架。科研资助、公众关注或任何代币动向，均不能替代数学证明与实验判决来确立科学真理。 <strong>K4V 尚未发行</strong>。</p>
 </div></footer>
-
-
-</body></html>
+<nav class="tabbar" aria-label="主导航"><a href="/zh/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span>概览</span></a><a href="/zh/research.html" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span>研究</span></a><a href="/zh/progress/" class="tab" aria-current="page"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span>进展</span></a><a href="/zh/support/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span>支持</span></a></nav>
+</div>
+<script src="/assets/shell.js" defer></script>
+</body>
+</html>

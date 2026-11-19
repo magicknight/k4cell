@@ -1,0 +1,99 @@
+/* THEME night — Day Signal light-mode switch and .sec-kill ground inversion.
+ * Every colour points strictly to a token declared in themes/night.css. */
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg-0: var(--day-bg-0);
+  --bg-1: var(--day-bg-1);
+  --bg-2: var(--day-bg-2);
+  --bg-3: var(--day-bg-3);
+  --bg-kill: var(--day-bg-kill);
+  --panel: var(--day-panel);
+  --panel-2: var(--day-panel-2);
+  --hair: var(--day-hair);
+  --hair-2: var(--day-hair-2);
+  --hair-3: var(--day-hair-3);
+  --fg-0: var(--day-fg-0);
+  --fg-1: var(--day-fg-1);
+  --fg-2: var(--day-fg-2);
+  --fg-3: var(--day-fg-3);
+  --fact: var(--day-fact);
+  --fact-hi: var(--day-fact-hi);
+  --fact-dk: var(--day-fact-dk);
+  --fact-glow: var(--day-fact-glow);
+  --cut: var(--day-fact);
+  --cut-lt: var(--day-fact-hi);
+  --link: var(--day-link);
+  --link-dk: var(--day-link-dk);
+  --link-hi: var(--day-link-hi);
+  --link-soft: var(--day-link-soft);
+  --on-link: var(--day-on-link);
+  --ok: var(--day-ok);
+  --focus: var(--day-focus);
+  --c1: var(--day-c1);
+  --c2: var(--day-c2);
+  --c3: var(--day-c3);
+  --c1-lt: var(--day-c1-lt);
+  --c2-lt: var(--day-c2-lt);
+  --c3-lt: var(--day-c3-lt);
+  --c1-dk: var(--day-c1-dk);
+  --c2-dk: var(--day-c2-dk);
+  --c3-dk: var(--day-c3-dk);
+  --k-off: var(--day-k-off);
+  --orb-1: var(--day-orb-1);
+  --orb-2: var(--day-orb-2);
+  --orb-3: var(--day-orb-3);
+  --hatch: var(--day-hatch);
+  --fig-bg: var(--day-bg-0);
+  --fig-fg: var(--day-fg-0);
+  --text: var(--day-fg-0);
+  --text-2: var(--day-fg-1);
+  --text-3: var(--day-fg-2);
+  --rule: var(--day-hair);
+  --rule-2: var(--day-rule-2);
+  --rule-3: var(--day-rule-3);
+  --paper-hi: var(--day-paper-hi);
+  --card: var(--day-card);
+  --accent: var(--day-link);
+  --accent-dk: var(--day-link-dk);
+  --ground: var(--day-bg-0);
+  --grid-line: var(--day-grid-line);
+  --scanline: var(--day-scanline);
+  --scrim: var(--day-scrim);
+  --glow-link: var(--glow-none);
+  --glow-text-link: var(--glow-none);
+  --glow-fact: var(--glow-none);
+  --shadow-hud: var(--day-shadow-hud);
+}
+
+@media screen {
+  .sec-kill {
+    --fg-0: var(--kill-fg-0);
+    --fg-1: var(--kill-fg-1);
+    --fg-2: var(--kill-fg-2);
+    --fg-3: var(--kill-fg-3);
+    --hair: var(--kill-hair);
+    --hair-2: var(--kill-hair-2);
+    --hair-3: var(--kill-hair-3);
+    --panel: var(--kill-panel);
+    --panel-2: var(--kill-panel);
+    --link: var(--kill-fg-0);
+    --link-dk: var(--kill-fg-1);
+  }
+
+  .sec-kill .kill-registry {
+    --fg-1: var(--kill-fg-2);
+  }
+
+  html[data-theme="light"] .sec-kill .kill-registry {
+    --fg-0: var(--day-fg-0);
+    --fg-1: var(--day-fg-1);
+    --fg-2: var(--day-fg-2);
+    --fg-3: var(--day-fg-3);
+    --hair: var(--day-hair);
+    --hair-2: var(--day-hair-2);
+    --hair-3: var(--day-hair-3);
+    --link: var(--day-link);
+    --link-dk: var(--day-link-dk);
+  }
+}

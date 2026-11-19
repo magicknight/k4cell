@@ -63,10 +63,10 @@ it is enforced twice: `tools/og_cards.py` refuses to write a card whose status
 line has lost the clause, and `scripts/check/cards.mjs` refuses to ship one.
 
 ```text
-og-k4cell-en.jpg  1200x630   76208 B   drawn 2026-11-19, palette `paper`
-  stamp sha256 31ab69ca3a694bb6e8988c22f3268896781bb35cd370dd42ee1a8e630613b7cb
-og-k4cell-zh.jpg  1200x630   65946 B   drawn 2026-11-19, palette `paper`
-  stamp sha256 7b2c30971638f346a503f6147e964d05b234ec9e7085218720a983e19b03bbc1
+og-k4cell-en.jpg  1200x630   96290 B   drawn 2026-11-19, palette `night`
+  stamp sha256 46870f1392115b02952260121d9c715f04bbcdc4cf8c9213473c2f5a02e56e88
+og-k4cell-zh.jpg  1200x630   72662 B   drawn 2026-11-19, palette `night`
+  stamp sha256 f7370fa372e06a796707c7c52900a7fae66ab98a959da89c43bb026b9e45abc2
 ```
 
 **The four lines above are written by `tools/og_cards.py`, not by hand.** A

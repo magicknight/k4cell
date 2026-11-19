@@ -38,9 +38,9 @@ export default {
   },
   hero: {
     eyebrow: "K4 Cell · under public review",
-    h1a: "A four-point object yields a 15-digit value for the muon-to-electron mass ratio.",
-    h1b: "Experiment currently resolves 8 digits. All 8 agree.",
-    sub: "The Standard Model takes these numbers as inputs. K4 aims to make them consequences of geometry.",
+    h1a: "Four points and zero free dials yield 15 digits for the muon-to-electron mass ratio.",
+    h1b: "Experiment resolves 8 digits. Every resolved digit agrees.",
+    sub: "The Standard Model takes these numbers as external inputs. K4 tests whether they follow from finite geometry.",
     rulerLabel: "m_μ/m_e · computed against measured, digit by digit",
     rulerComputed: "computed",
     rulerMeasured: "measured",
@@ -67,7 +67,7 @@ export default {
   why: {
     number: "01",
     kicker: "About twenty numbers",
-    h2: "Nobody knows why the universe runs on the numbers it runs on.",
+    h2: "Physics measures twenty-odd constants—yet still has no answer for why the universe runs on these numbers.",
     lede: "There are about twenty of these numbers. They set the size of an atom and the rate the universe is flying apart. Physics measures each one — the electron’s mass, how strongly light grips charge, how much of the universe is dark matter — writes it into the equations by hand, and moves on.",
     contrast: "The Standard Model has about twenty dials, each turned into place by experiment. Here there are none.",
     contrastNote: "About twenty: 19 in the minimal Standard Model; 26 to 28 once neutrino masses are included, depending on whether neutrinos are Dirac or Majorana. Cosmology adds a batch of its own.",

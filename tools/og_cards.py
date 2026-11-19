@@ -105,6 +105,8 @@ FG_1 = rgb(TOKENS, "--fg-1")
 FG_2 = rgb(TOKENS, "--fg-2")
 FG_3 = rgb(TOKENS, "--fg-3")
 FACT = rgb(TOKENS, "--fact")
+LINK = rgb(TOKENS, "--link")
+GRID = rgb(TOKENS, "--grid-line")
 HAIR = rgb(TOKENS, "--hair", over=ORB)   # the ring is drawn on the field
 RULE = rgb(TOKENS, "--hair-2")           # the footer rule is on the ground
 SITE_COLOURS = tuple(rgb(TOKENS, n) for n in ("--c1", "--c2", "--c3"))
@@ -330,6 +332,17 @@ def build(lang, spec, frame):
     img = Image.new("RGBA", (W, H), BG_0)
     draw = ImageDraw.Draw(img)
 
+    # Subtle 44px HUD coordinate grid matching the site canvas
+    for gx in range(0, W, 44):
+        draw.line([(gx, 0), (gx, H)], fill=GRID, width=1)
+    for gy in range(0, H, 44):
+        draw.line([(0, gy), (W, gy)], fill=GRID, width=1)
+
+    # Machined corner brackets (top-left cyan, bottom-right hairline)
+    m, blen = 26, 22
+    draw.line([(m, m + blen), (m, m), (m + blen, m)], fill=LINK, width=2)
+    draw.line([(W - m - blen, H - m), (W - m, H - m), (W - m, H - m - blen)], fill=RULE, width=2)
+
     # the ground: the hero's own field, behind the object. On a dark palette
     # it is a lift out of the ground; on a light one --orb-3 is brighter than
     # the paper, so the object lands on a disc exactly as it does on the page.
@@ -367,7 +380,7 @@ def build(lang, spec, frame):
 
     # the review state, first, small, exactly as the page's status line
     draw.line([(64, 66), (104, 66)], fill=FACT, width=3)
-    draw.text((118, 54), eyebrow, font=f_eyebrow, fill=FG_2)
+    draw.text((118, 54), eyebrow, font=f_eyebrow, fill=LINK)
 
     y = 112
     for line in title_lines:

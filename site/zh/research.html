@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f4f2ec">
+  <meta name="theme-color" content="#07080d">
   <meta name="description" content="一个仅有四个顶点的有限量子对象，不含任何连续拟合参数，涵盖十一项物理机制推导。它给出 μ 子—电子质量比的 15 位候选数值，现有实验分辨至前 8 位且 8 位全部吻合。此为回顾性对照，而非预注册预测。未经同行评议，公开审阅中。">
   <meta name="robots" content="index,follow">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
@@ -12,7 +12,9 @@
   <link rel="alternate" hreflang="zh-Hans" href="https://k4cell.com/zh/research.html">
   <link rel="alternate" hreflang="x-default" href="https://k4cell.com/en/research.html">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/fonts.css">
   <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/theme.js"></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="K4 Cell Framework">
   <meta property="og:title" content="从四个点出发——K4 单元框架">
@@ -30,22 +32,29 @@
   <meta name="citation_doi" content="10.5281/zenodo.18892076">
   <title>从四个点出发——K4 单元框架</title>
 </head>
-<body>
-  <a class="skip" href="#main">跳到正文</a>
-  <header class="topbar"><div class="shell bar-in">
-    <a class="brand" href="./"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-<path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
-<circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg><span>K4 单元</span><span class="brand-t">从四个点到自然常数</span></a>
-    <nav class="site-nav" aria-label="主导航"><a href="#object">基本对象</a><a href="#whys">核心推导</a><a href="#numbers">数值对照</a><a href="#kill">证伪检验</a><a href="#deeper">理论边界</a></nav>
-    <a class="lang" href="../en/research.html" hreflang="en">English</a>
-  </div></header>
-  <main id="main">
-    <div class="shell"><p class="overview-archive-note">以下深读材料基于 v2.0 冻结专著（2026-07-08）与 2026-08-29 账本（投稿与状态已同步至 2026-11-19），v3.0 修订中。<a href="progress/">最新进展</a> · <a href="support/">资助与合作</a> · <a href="./">返回首页</a></p></div>
+<body class="research-page">
+<div class="app-shell">
+<a class="skip" href="#main">跳到正文</a>
+<header class="hd topbar sh-top"><div class="hd-in topbar-inner">
+<a class="brand" href="/zh/"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+<rect class="bm-box" x="1.5" y="1.5" width="29" height="29" rx="5"/><path class="bm-tri" d="M16 5.5 6.5 23.5h19Z"/><line class="bm-e" x1="16" y1="5.5" x2="16" y2="17.5"/><line class="bm-e" x1="6.5" y1="23.5" x2="16" y2="17.5"/><line class="bm-e" x1="25.5" y1="23.5" x2="16" y2="17.5"/>
+<circle class="bm-v" cx="16" cy="5.5" r="2"/><circle class="bm-v" cx="6.5" cy="23.5" r="2"/><circle class="bm-v" cx="25.5" cy="23.5" r="2"/><circle class="bm-v" cx="16" cy="17.5" r="2"/></svg><span class="brand-name glitch" data-text="K4 单元">K4 单元</span><span class="brand-t">从四个点到自然常数</span></a>
+<button type="button" class="cmd" id="cmd-trigger" aria-label="打开命令与检索面板 (Ctrl+K / /)" aria-haspopup="dialog"><span class="cmd-gt mono" aria-hidden="true">&gt;</span><svg class="cmd-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg><span class="cmd-txt">检索页面、物理常数、证伪检验或命令…</span><span class="cmd-keys" aria-hidden="true"><span class="kbd">Ctrl</span><span class="kbd">K</span></span></button>
+<div class="tools"><button class="tool fx" id="fx-toggle" type="button" aria-pressed="true" aria-label="视觉效果"><span class="dot ok" aria-hidden="true"></span><span class="fx-txt">FX</span></button><button class="tool theme" id="theme-toggle" type="button" aria-label="主题"><svg class="th-ico th-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg><svg class="th-ico th-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg><svg class="th-ico th-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.5A7.5 7.5 0 0 1 9.5 4.5a7.5 7.5 0 1 0 10 10z"/></svg><span class="theme-txt">DARK</span></button><a class="lang" href="../en/research.html" hreflang="en" lang="en">English</a></div>
+</div></header>
+<aside class="rail sh-rail overview-bar" aria-label="控制台频道">
+<nav class="sec-railnav" aria-label="主导航"><a href="/zh/" class="it" title="概览" aria-label="概览"><span class="no mono" aria-hidden="true">01</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span class="lb">概览</span></a><a href="/zh/research.html" class="it" aria-current="page" title="完整研究" aria-label="完整研究"><span class="no mono" aria-hidden="true">02</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span class="lb">完整研究</span></a><a href="/zh/progress/" class="it" title="研究进展" aria-label="研究进展"><span class="no mono" aria-hidden="true">03</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span class="lb">研究进展</span></a><a href="/predictions/" class="it" title="预测登记" aria-label="预测登记"><span class="no mono" aria-hidden="true">04</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 2v3.5m0 13V22M2 12h3.5m13 0H22"/></svg><span class="lb">预测登记</span></a><a href="/zh/support/" class="it" title="资助合作" aria-label="资助合作"><span class="no mono" aria-hidden="true">05</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span class="lb">资助合作</span></a></nav>
+<div class="rail-group"><p class="rail-group-title">公开存证</p><nav class="rail-subnav" aria-label="公开存证"><a href="/official-k4v/" class="it sub-it" title="K4V 官方未发行声明" aria-label="K4V 官方未发行声明"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="lb">K4V 官方未发行声明</span></a><a href="https://github.com/magicknight/k4cell/blob/main/K4_Cell_Framework_v2.0.pdf" class="it sub-it" title="v2.0 冻结专著 PDF" aria-label="v2.0 冻结专著 PDF"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">v2.0 冻结专著 PDF</span></a><a href="/status.json" class="it sub-it" title="status.json" aria-label="status.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">status.json</span></a><a href="/ledger.json" class="it sub-it" title="ledger.json" aria-label="ledger.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">ledger.json</span></a></nav></div>
+<div class="rail-foot"><button type="button" class="keys" id="rail-keys-btn" aria-label="快捷键"><span class="kbd">?</span><span class="keys-t">快捷键</span></button></div>
+</aside>
+<main id="main" class="sh-main">
+<div class="research-subbar"><div class="shell subbar-in"><nav class="site-nav" aria-label="主导航"><a href="#object">基本对象</a><a href="#whys">核心推导</a><a href="#numbers">数值对照</a><a href="#kill">证伪检验</a><a href="#deeper">理论边界</a></nav></div></div>
+    <div class="shell"><p class="overview-archive-note">以下深读控制台基于 v2.0 冻结专著（2026-07-08）与 2026-08-29 账本（投稿与状态已同步至 2026-11-19），v3.0 修订中。<a href="progress/">最新进展</a> · <a href="support/">资助与合作</a> · <a href="./">返回概览</a></p></div>
     <section id="hero" class="hero"><div class="shell hero-in">
 <div class="hero-main">
 <p class="eyebrow">K4 单元 · 公开审阅中</p>
-<h1><span class="h1a">一个四点对象，给出了 μ 子—电子质量比的 <span class="num">15</span> 位数值。</span><span class="h1b">现有实验分辨 <span class="num">8</span> 位，全部吻合。</span></h1>
-<p class="hero-sub">标准模型将这些常数作为外部输入；K4 试图将它们导引为几何的必然结果。</p>
+<h1><span class="h1a">四点零参，算出 μ/e 质量比 <span class="num">15</span> 位。</span><span class="h1b">实测前 <span class="num">8</span> 位，逐位吻合。</span></h1>
+<p class="hero-sub">标准模型将这些常数当作外部输入；K4 检验它们能否出自有限几何的必然结果。</p>
 <figure class="hero-ruler inst" aria-label="逐位对照图。m_μ/m_e 的理论计算值为 206.768282688691，共 15 位有效数字。实验测量值 206.7682827 仅分辨至第 8 位。前 8 位全部相同；跨越分辨界线后还有 7 位，有待未来实验检验。">
 <p class="inst-lab">m<sub>μ</sub>/m<sub>e</sub> · 理论计算值与实验测量值的逐位对照</p>
 <div class="ruler ruler-hero">
@@ -72,7 +81,7 @@
     <section id="why" class="sec sec-why"><div class="shell sec-in">
 <aside class="sec-rail"><p class="sec-n">01</p><p class="sec-k">二十余个基本常数</p></aside>
 <div class="sec-main"><p class="spine-tick">10⁻³⁵ m · 单个元胞</p>
-<h2>物理学尚不知晓，宇宙为何偏偏取这些数值。</h2>
+<h2>物理学测出了二十余个自然常数，却仍不知宇宙为何偏偏取这些数值。</h2>
 <p class="lede">基础物理中约有二十余个基本常数。它们共同决定了原子的尺度与宇宙膨胀的速率。现行物理学通过实验逐一测定这些数值——电子质量、电磁相互作用强度、暗物质密度——再将其作为外部参数手动写入方程。</p>
 <ul class="dials" aria-label="二十余个基本常数"><li><span class="knob" aria-hidden="true"></span><b>m<sub>e</sub></b><span>电子质量</span></li><li><span class="knob" aria-hidden="true"></span><b>α</b><span>电磁相互作用强度</span></li><li><span class="knob" aria-hidden="true"></span><b>m<sub>μ</sub></b><span>μ 子质量</span></li><li><span class="knob" aria-hidden="true"></span><b>θ<sub>C</sub></b><span>跨代夸克混合幅度</span></li><li><span class="knob" aria-hidden="true"></span><b>sin²θ<sub>W</sub></b><span>电磁力与弱力的混合比例</span></li><li><span class="knob" aria-hidden="true"></span><b>α<sub>s</sub></b><span>强相互作用耦合强度</span></li><li><span class="knob" aria-hidden="true"></span><b>θ<sub>QCD</sub></b><span>强相互作用是否破坏 CP 对称</span></li><li><span class="knob" aria-hidden="true"></span><b>Λ</b><span>宇宙加速膨胀标度</span></li></ul>
 <p class="contrast">标准模型包含二十余个由实验测定的自由参数；而本框架没有任何可连续调节的拟合旋钮。</p>
@@ -683,12 +692,15 @@
 <p class="spine-tick spine-end">10²⁶ m · 可观测宇宙</p>
 <p class="closing">科学真理一旦发现，便属于全人类；自然界的深层结构不是任何个人的私产。</p></div>
 </div></section>
-  </main>
-  <footer class="foot"><div class="shell">
-    <p class="footer-status">未经同行评议 · 公开评阅中的候选框架</p>
-    <p class="no-mint">K4V 尚未发行 · 不存在任何官方合约地址、预售、白名单或收款钱包 &#183; <a href="notice/">声明</a></p>
-    <nav aria-label="页脚导航"><a href="https://doi.org/10.5281/zenodo.18892076">DOI</a><a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a><a href="https://github.com/magicknight/k4-cell-framework-public-review/discussions">讨论区</a><a href="../predictions/">预测</a><a href="support/">支持</a><a href="notice/">声明</a><a href="../status.json">status.json</a><a href="mailto:zhihua@k4cell.com">联系</a></nav>
+</main>
+<footer class="ft sh-foot"><div class="ft-in shell">
+    <div class="ft-brand"><span class="ft-name glitch" data-text="K4 单元">K4 单元</span><p class="footer-status">未经同行评议 · 公开评阅中的候选框架</p></div>
+    <nav class="ft-links" aria-label="页脚导航"><a href="https://doi.org/10.5281/zenodo.18892076">DOI</a><a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a><a href="https://github.com/magicknight/k4-cell-framework-public-review/discussions">讨论区</a><a href="../predictions/">预测</a><a href="support/">支持</a><a href="notice/">声明</a><a href="../status.json">status.json</a><a href="mailto:zhihua@k4cell.com">联系</a></nav>
+    <p class="no-mint ft-credit">K4V 尚未发行 · 不存在任何官方合约地址、预售、白名单或收款钱包 &#183; <a href="notice/">声明</a></p>
   </div></footer>
-  <script src="../assets/app.js" defer></script>
+<nav class="tabbar" aria-label="主导航"><a href="/zh/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span>概览</span></a><a href="/zh/research.html" class="tab" aria-current="page"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span>研究</span></a><a href="/zh/progress/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span>进展</span></a><a href="/zh/support/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span>支持</span></a></nav>
+</div>
+<script src="../assets/shell.js" defer></script>
+<script src="../assets/app.js" defer></script>
 </body>
 </html>

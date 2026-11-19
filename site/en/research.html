@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f4f2ec">
+  <meta name="theme-color" content="#07080d">
   <meta name="description" content="One four-point quantum object, zero continuous fitted parameters, eleven whys. It produces a 15-digit candidate value for m_μ/m_e; experiment resolves 8 digits and all 8 agree. A retrospective comparison, not a preregistered prediction. Not peer reviewed.">
   <meta name="robots" content="index,follow">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
@@ -12,7 +12,9 @@
   <link rel="alternate" hreflang="zh-Hans" href="https://k4cell.com/zh/research.html">
   <link rel="alternate" hreflang="x-default" href="https://k4cell.com/en/research.html">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/fonts.css">
   <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/theme.js"></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="K4 Cell Framework">
   <meta property="og:title" content="An object with only four points — K4 Cell Framework">
@@ -30,22 +32,29 @@
   <meta name="citation_doi" content="10.5281/zenodo.18892076">
   <title>An object with only four points — K4 Cell Framework</title>
 </head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="topbar"><div class="shell bar-in">
-    <a class="brand" href="./"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-<path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
-<circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg><span>K4 Cell</span><span class="brand-t">From four points to nature’s constants</span></a>
-    <nav class="site-nav" aria-label="Primary navigation"><a href="#object">The object</a><a href="#whys">Eleven whys</a><a href="#numbers">The numbers</a><a href="#kill">How to kill it</a><a href="#deeper">Deeper</a></nav>
-    <a class="lang" href="../zh/research.html" hreflang="zh-Hans">中文</a>
-  </div></header>
-  <main id="main">
-    <div class="shell"><p class="overview-archive-note">This full account builds on public v2.0 and the 2026-08-29 ledger (status synced to 2026-11-19); v3.0 is in progress. <a href="progress/">Progress</a> · <a href="support/">Support</a> · <a href="./">Home</a></p></div>
+<body class="research-page">
+<div class="app-shell">
+<a class="skip" href="#main">Skip to content</a>
+<header class="hd topbar sh-top"><div class="hd-in topbar-inner">
+<a class="brand" href="/en/"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+<rect class="bm-box" x="1.5" y="1.5" width="29" height="29" rx="5"/><path class="bm-tri" d="M16 5.5 6.5 23.5h19Z"/><line class="bm-e" x1="16" y1="5.5" x2="16" y2="17.5"/><line class="bm-e" x1="6.5" y1="23.5" x2="16" y2="17.5"/><line class="bm-e" x1="25.5" y1="23.5" x2="16" y2="17.5"/>
+<circle class="bm-v" cx="16" cy="5.5" r="2"/><circle class="bm-v" cx="6.5" cy="23.5" r="2"/><circle class="bm-v" cx="25.5" cy="23.5" r="2"/><circle class="bm-v" cx="16" cy="17.5" r="2"/></svg><span class="brand-name glitch" data-text="K4 Cell">K4 Cell</span><span class="brand-t">From four points to nature’s constants</span></a>
+<button type="button" class="cmd" id="cmd-trigger" aria-label="Open command palette (Ctrl+K / /)" aria-haspopup="dialog"><span class="cmd-gt mono" aria-hidden="true">&gt;</span><svg class="cmd-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg><span class="cmd-txt">Search pages, constants, falsifiers, or commands…</span><span class="cmd-keys" aria-hidden="true"><span class="kbd">Ctrl</span><span class="kbd">K</span></span></button>
+<div class="tools"><button class="tool fx" id="fx-toggle" type="button" aria-pressed="true" aria-label="FX"><span class="dot ok" aria-hidden="true"></span><span class="fx-txt">FX</span></button><button class="tool theme" id="theme-toggle" type="button" aria-label="Theme"><svg class="th-ico th-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg><svg class="th-ico th-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg><svg class="th-ico th-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.5A7.5 7.5 0 0 1 9.5 4.5a7.5 7.5 0 1 0 10 10z"/></svg><span class="theme-txt">DARK</span></button><a class="lang" href="../zh/research.html" hreflang="zh-Hans" lang="zh-Hans">中文</a></div>
+</div></header>
+<aside class="rail sh-rail overview-bar" aria-label="Console channels">
+<nav class="sec-railnav" aria-label="Main navigation"><a href="/en/" class="it" title="Home" aria-label="Home"><span class="no mono" aria-hidden="true">01</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span class="lb">Home</span></a><a href="/en/research.html" class="it" aria-current="page" title="Research" aria-label="Research"><span class="no mono" aria-hidden="true">02</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span class="lb">Research</span></a><a href="/en/progress/" class="it" title="Progress" aria-label="Progress"><span class="no mono" aria-hidden="true">03</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span class="lb">Progress</span></a><a href="/predictions/" class="it" title="Predictions" aria-label="Predictions"><span class="no mono" aria-hidden="true">04</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 2v3.5m0 13V22M2 12h3.5m13 0H22"/></svg><span class="lb">Predictions</span></a><a href="/en/support/" class="it" title="Support" aria-label="Support"><span class="no mono" aria-hidden="true">05</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span class="lb">Support</span></a></nav>
+<div class="rail-group"><p class="rail-group-title">PROVENANCE</p><nav class="rail-subnav" aria-label="PROVENANCE"><a href="/official-k4v/" class="it sub-it" title="Official K4V Notice" aria-label="Official K4V Notice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="lb">Official K4V Notice</span></a><a href="https://github.com/magicknight/k4cell/blob/main/K4_Cell_Framework_v2.0.pdf" class="it sub-it" title="Frozen v2.0 Monograph PDF" aria-label="Frozen v2.0 Monograph PDF"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">Frozen v2.0 Monograph PDF</span></a><a href="/status.json" class="it sub-it" title="status.json" aria-label="status.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">status.json</span></a><a href="/ledger.json" class="it sub-it" title="ledger.json" aria-label="ledger.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">ledger.json</span></a></nav></div>
+<div class="rail-foot"><button type="button" class="keys" id="rail-keys-btn" aria-label="Shortcuts"><span class="kbd">?</span><span class="keys-t">Shortcuts</span></button></div>
+</aside>
+<main id="main" class="sh-main">
+<div class="research-subbar"><div class="shell subbar-in"><nav class="site-nav" aria-label="Primary navigation"><a href="#object">The object</a><a href="#whys">Eleven whys</a><a href="#numbers">The numbers</a><a href="#kill">How to kill it</a><a href="#deeper">Deeper</a></nav></div></div>
+    <div class="shell"><p class="overview-archive-note">This full research console builds on public v2.0 and the 2026-08-29 ledger (status synced to 2026-11-19); v3.0 is in progress. <a href="progress/">Progress</a> · <a href="support/">Support</a> · <a href="./">Overview</a></p></div>
     <section id="hero" class="hero"><div class="shell hero-in">
 <div class="hero-main">
 <p class="eyebrow">K4 Cell · under public review</p>
-<h1><span class="h1a">A four-point object yields a <span class="num">15</span>-digit value for the muon-to-electron mass ratio.</span><span class="h1b">Experiment currently resolves <span class="num">8</span> digits. All <span class="num">8</span> agree.</span></h1>
-<p class="hero-sub">The Standard Model takes these numbers as inputs. K4 aims to make them consequences of geometry.</p>
+<h1><span class="h1a">Four points and zero free dials yield <span class="num">15</span> digits for the muon-to-electron mass ratio.</span><span class="h1b">Experiment resolves <span class="num">8</span> digits. Every resolved digit agrees.</span></h1>
+<p class="hero-sub">The Standard Model takes these numbers as external inputs. K4 tests whether they follow from finite geometry.</p>
 <figure class="hero-ruler inst" aria-label="Digit-by-digit comparison. The computed m_μ/m_e is 206.768282688691, fifteen significant digits. The measured value, 206.7682827, resolves only the first 8. All 8 agree; seven more digits lie past the cut, waiting to be checked.">
 <p class="inst-lab">m<sub>μ</sub>/m<sub>e</sub> · computed against measured, digit by digit</p>
 <div class="ruler ruler-hero">
@@ -72,7 +81,7 @@
     <section id="why" class="sec sec-why"><div class="shell sec-in">
 <aside class="sec-rail"><p class="sec-n">01</p><p class="sec-k">About twenty numbers</p></aside>
 <div class="sec-main"><p class="spine-tick">10⁻³⁵ m · one cell</p>
-<h2>Nobody knows why the universe runs on the numbers it runs on.</h2>
+<h2>Physics measures twenty-odd constants—yet still has no answer for why the universe runs on these numbers.</h2>
 <p class="lede">There are about twenty of these numbers. They set the size of an atom and the rate the universe is flying apart. Physics measures each one — the electron’s mass, how strongly light grips charge, how much of the universe is dark matter — writes it into the equations by hand, and moves on.</p>
 <ul class="dials" aria-label="About twenty numbers"><li><span class="knob" aria-hidden="true"></span><b>m<sub>e</sub></b><span>how heavy the electron is</span></li><li><span class="knob" aria-hidden="true"></span><b>α</b><span>how strongly light grips charge</span></li><li><span class="knob" aria-hidden="true"></span><b>m<sub>μ</sub></b><span>how heavy the muon is</span></li><li><span class="knob" aria-hidden="true"></span><b>θ<sub>C</sub></b><span>how far quarks stray between generations</span></li><li><span class="knob" aria-hidden="true"></span><b>sin²θ<sub>W</sub></b><span>the recipe mixing electromagnetism and the weak force</span></li><li><span class="knob" aria-hidden="true"></span><b>α<sub>s</sub></b><span>how strong the strong force is</span></li><li><span class="knob" aria-hidden="true"></span><b>θ<sub>QCD</sub></b><span>whether the strong force breaks CP</span></li><li><span class="knob" aria-hidden="true"></span><b>Λ</b><span>how fast the universe flies apart</span></li></ul>
 <p class="contrast">The Standard Model has about twenty dials, each turned into place by experiment. Here there are none.</p>
@@ -683,12 +692,15 @@
 <p class="spine-tick spine-end">10²⁶ m · the observable universe</p>
 <p class="closing">Scientific truth, if found, belongs to humanity; the structures of nature are not private property.</p></div>
 </div></section>
-  </main>
-  <footer class="foot"><div class="shell">
-    <p class="footer-status">not peer reviewed · a candidate framework under public review</p>
-    <p class="no-mint">K4V has not launched · no official mint, presale, whitelist or payment wallet exists &#183; <a href="notice/">Notice</a></p>
-    <nav aria-label="Footer navigation"><a href="https://doi.org/10.5281/zenodo.18892076">DOI</a><a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a><a href="https://github.com/magicknight/k4-cell-framework-public-review/discussions">Discussions</a><a href="../predictions/">Predictions</a><a href="support/">Support</a><a href="notice/">Notice</a><a href="../status.json">status.json</a><a href="mailto:zhihua@k4cell.com">Contact</a></nav>
+</main>
+<footer class="ft sh-foot"><div class="ft-in shell">
+    <div class="ft-brand"><span class="ft-name glitch" data-text="K4 Cell">K4 Cell</span><p class="footer-status">not peer reviewed · a candidate framework under public review</p></div>
+    <nav class="ft-links" aria-label="Footer navigation"><a href="https://doi.org/10.5281/zenodo.18892076">DOI</a><a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a><a href="https://github.com/magicknight/k4-cell-framework-public-review/discussions">Discussions</a><a href="../predictions/">Predictions</a><a href="support/">Support</a><a href="notice/">Notice</a><a href="../status.json">status.json</a><a href="mailto:zhihua@k4cell.com">Contact</a></nav>
+    <p class="no-mint ft-credit">K4V has not launched · no official mint, presale, whitelist or payment wallet exists &#183; <a href="notice/">Notice</a></p>
   </div></footer>
-  <script src="../assets/app.js" defer></script>
+<nav class="tabbar" aria-label="Main navigation"><a href="/en/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span>Home</span></a><a href="/en/research.html" class="tab" aria-current="page"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span>Research</span></a><a href="/en/progress/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span>Progress</span></a><a href="/en/support/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span>Support</span></a></nav>
+</div>
+<script src="../assets/shell.js" defer></script>
+<script src="../assets/app.js" defer></script>
 </body>
 </html>

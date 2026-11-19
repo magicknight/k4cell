@@ -1,0 +1,29 @@
+/* Self-hosted Latin display & monospace fonts (SIL OFL) for the Quantum Signal HUD.
+   Served separately from site.css so site.css carries zero url() references. */
+
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("fonts/chakra-petch-500.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2193, U+2212;
+}
+
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("fonts/chakra-petch-700.woff2") format("woff2");
+  font-weight: 650 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2190-2193, U+2212;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/jetbrains-mono-500.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+2013-2014, U+2018-201D, U+2026, U+2190-2193, U+2212;
+}

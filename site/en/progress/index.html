@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f4f2ec">
-  <meta name="description" content="Published artifacts and author-reported work in progress are identified separately. Last updated: 2026-11-19.">
+  <meta name="theme-color" content="#07080d">
+  <meta name="description" content="Published, byte-frozen review records are kept strictly distinct from author-reported work in progress. Status verified: 2026-11-19.">
   <meta name="robots" content="index,follow">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <link rel="canonical" href="https://k4cell.com/en/progress/">
@@ -12,44 +12,51 @@
   <link rel="alternate" hreflang="zh-Hans" href="https://k4cell.com/zh/progress/">
   <link rel="alternate" hreflang="x-default" href="https://k4cell.com/en/progress/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/fonts.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/theme.js"></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="K4 Cell Framework">
-  <meta property="og:title" content="Published versions and current progress · K4 Cell">
-  <meta property="og:description" content="Published artifacts and author-reported work in progress are identified separately. Last updated: 2026-11-19.">
+  <meta property="og:title" content="Frozen archive and active research progress · K4 Cell">
+  <meta property="og:description" content="Published, byte-frozen review records are kept strictly distinct from author-reported work in progress. Status verified: 2026-11-19.">
   <meta property="og:url" content="https://k4cell.com/en/progress/">
   <meta property="og:image" content="https://k4cell.com/assets/og-k4cell-en.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Published versions and current progress · K4 Cell">
+  <meta property="og:image:alt" content="Frozen archive and active research progress · K4 Cell">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Published versions and current progress · K4 Cell</title>
+  <title>Frozen archive and active research progress · K4 Cell</title>
 </head>
 <body class="overview-page">
+<div class="app-shell">
 <a class="skip" href="#main">Skip to content</a>
-<header class="overview-header"><div class="overview-shell overview-bar">
+<header class="hd topbar sh-top"><div class="hd-in topbar-inner">
 <a class="brand" href="/en/"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-<path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
-<circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg><span>K4 Cell</span></a>
-<nav aria-label="Main navigation">
-<a href="/en/">Home</a>
-<a href="/en/research.html">Research</a>
-<a href="/en/progress/" aria-current="page">Progress</a>
-<a href="/predictions/">Predictions</a>
-<a href="/en/support/">Support</a>
-</nav>
-<a class="overview-language" href="/zh/progress/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<rect class="bm-box" x="1.5" y="1.5" width="29" height="29" rx="5"/><path class="bm-tri" d="M16 5.5 6.5 23.5h19Z"/><line class="bm-e" x1="16" y1="5.5" x2="16" y2="17.5"/><line class="bm-e" x1="6.5" y1="23.5" x2="16" y2="17.5"/><line class="bm-e" x1="25.5" y1="23.5" x2="16" y2="17.5"/>
+<circle class="bm-v" cx="16" cy="5.5" r="2"/><circle class="bm-v" cx="6.5" cy="23.5" r="2"/><circle class="bm-v" cx="25.5" cy="23.5" r="2"/><circle class="bm-v" cx="16" cy="17.5" r="2"/></svg><span class="brand-name glitch" data-text="K4 Cell">K4 Cell</span></a>
+<button type="button" class="cmd" id="cmd-trigger" aria-label="Open command palette (Ctrl+K / /)" aria-haspopup="dialog"><span class="cmd-gt mono" aria-hidden="true">&gt;</span><svg class="cmd-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg><span class="cmd-txt">Search pages, constants, falsifiers, or commands…</span><span class="cmd-keys" aria-hidden="true"><span class="kbd">Ctrl</span><span class="kbd">K</span></span></button>
+<div class="tools"><button class="tool fx" id="fx-toggle" type="button" aria-pressed="true" aria-label="FX"><span class="dot ok" aria-hidden="true"></span><span class="fx-txt">FX</span></button><button class="tool theme" id="theme-toggle" type="button" aria-label="Theme"><svg class="th-ico th-auto" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg><svg class="th-ico th-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg><svg class="th-ico th-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.5A7.5 7.5 0 0 1 9.5 4.5a7.5 7.5 0 1 0 10 10z"/></svg><span class="theme-txt">DARK</span></button><a class="overview-language" href="/zh/progress/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></div>
 </div></header>
-<main id="main" class="overview-shell"><section class="overview-section overview-intro"><p class="eyebrow">Status updated · 2026-11-19</p><h1>Published versions and current progress</h1><p>Published artifacts and author-reported work in progress are identified separately. Last updated: 2026-11-19.</p>
-<ol class="overview-timeline"><li><time datetime="2026-07-08">2026-07-08</time><div><h2>v2.0 public freeze</h2><p>The 1003-page public PDF remains unchanged. Later errata append corrections rather than silently replacing the frozen text.</p><a href="https://github.com/magicknight/k4-cell-framework-public-review/blob/36becf6d6941fc5e51fb7897a93a6b8443f100ba/K4_Cell_Framework_v2.0-public-review.pdf">Read the public monograph →</a></div></li><li><time datetime="2026-08-29">2026-08-29</time><div><h2>Review and registry materials</h2><p>Errata, review targets, and the prediction registry foundation can be inspected. The registry is intentionally empty; retrospective matches are not listed as preregistered predictions.</p><a href="/predictions/">Check the registry →</a></div></li><li><time datetime="2026-11-19">2026-11-19</time><div><h2>v3.0 in progress and standalone-paper status</h2><p>Monograph v3.0 and follow-up crystal/EYM work continue in the author’s working repository with no public v3.0 PDF yet. Among the standalone papers, JGP13432 remains under review at the Journal of Geometry and Physics; the conditional Einstein–Yang–Mills paper has completed revision and is being prepared for submission to a new target journal (no longer under review at Classical and Quantum Gravity).</p><a href="/en/research.html">Read the full research →</a></div></li></ol>
-<p>See the public review repository for errata and review targets; work in progress does not constitute peer-reviewed confirmation. <a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub →</a></p>
-</section><section class="overview-section" id="updates"><h2>Follow research updates</h2><p>Describe the topic you want to follow and whether you want further updates. Contact does not automatically subscribe you.</p>
-<a class="button primary" href="mailto:zhihua@k4cell.com?subject=K4%20research%20updates%20%2F%20en&amp;body=Research%20topics%20I%20would%20like%20to%20follow%3A%0A%0AMay%20I%20be%20contacted%20with%20future%20research%20updates%3F%20(please%20fill%20in)%3A%0A">Open a research updates email draft</a><p>Review and send in your email app. Opening a draft does not mean a message has been received.</p></section></main>
-<footer class="overview-footer"><div class="overview-shell">
-<p>K4 is a candidate framework that is not independently established. Funding, attention, and token prices cannot establish whether its scientific claims are true.</p><p><strong>K4V has not launched</strong> · <a href="/official-k4v/">Verify the signed official statement</a></p>
-<p><a href="/en/">Back to the homepage</a> · <a href="/predictions/">Prediction Registry</a> · <a href="/status.json">status.json</a> · <a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a></p>
+<aside class="rail sh-rail overview-bar" aria-label="Console channels">
+<nav class="sec-railnav" aria-label="Main navigation"><a href="/en/" class="it" title="Home" aria-label="Home"><span class="no mono" aria-hidden="true">01</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span class="lb">Home</span></a><a href="/en/research.html" class="it" title="Research" aria-label="Research"><span class="no mono" aria-hidden="true">02</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span class="lb">Research</span></a><a href="/en/progress/" class="it" aria-current="page" title="Progress" aria-label="Progress"><span class="no mono" aria-hidden="true">03</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span class="lb">Progress</span></a><a href="/predictions/" class="it" title="Predictions" aria-label="Predictions"><span class="no mono" aria-hidden="true">04</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 2v3.5m0 13V22M2 12h3.5m13 0H22"/></svg><span class="lb">Predictions</span></a><a href="/en/support/" class="it" title="Support" aria-label="Support"><span class="no mono" aria-hidden="true">05</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span class="lb">Support</span></a></nav>
+<div class="rail-group"><p class="rail-group-title">PROVENANCE</p><nav class="rail-subnav" aria-label="PROVENANCE"><a href="/official-k4v/" class="it sub-it" title="Official K4V Notice" aria-label="Official K4V Notice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="lb">Official K4V Notice</span></a><a href="https://github.com/magicknight/k4cell/blob/main/K4_Cell_Framework_v2.0.pdf" class="it sub-it" title="Frozen v2.0 Monograph PDF" aria-label="Frozen v2.0 Monograph PDF"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">Frozen v2.0 Monograph PDF</span></a><a href="/status.json" class="it sub-it" title="status.json" aria-label="status.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">status.json</span></a><a href="/ledger.json" class="it sub-it" title="ledger.json" aria-label="ledger.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">ledger.json</span></a></nav></div>
+<div class="rail-foot"><button type="button" class="keys" id="rail-keys-btn" aria-label="Shortcuts"><span class="kbd">?</span><span class="keys-t">Shortcuts</span></button></div>
+</aside>
+<main id="main" class="sh-main">
+<section class="overview-section overview-intro"><div class="overview-shell"><p class="eyebrow">Status synced · 2026-11-19</p><h1>Frozen archive and active research progress</h1><p class="overview-lead">Published, byte-frozen review records are kept strictly distinct from author-reported work in progress. Status verified: 2026-11-19.</p>
+<ol class="overview-timeline"><li class="hp"><div class="hp-body timeline-row"><time datetime="2026-07-08">2026-07-08</time><div><h2>v2.0 public freeze</h2><p>The 1003-page public-review PDF remains byte-identical since freeze. Later errata append numbered entries rather than silently overwriting published pages.</p><a class="hp-more" href="https://github.com/magicknight/k4-cell-framework-public-review/blob/36becf6d6941fc5e51fb7897a93a6b8443f100ba/K4_Cell_Framework_v2.0-public-review.pdf">Read frozen monograph</a></div></div></li><li class="hp"><div class="hp-body timeline-row"><time datetime="2026-08-29">2026-08-29</time><div><h2>Review targets &amp; prediction registry foundation</h2><p>Errata, focused review questions, and standalone prediction registry infrastructure went live. The registry remains intentionally empty so retrospective matches are never disguised as preregistered predictions.</p><a class="hp-more" href="/predictions/">Inspect empty registry</a></div></div></li><li class="hp"><div class="hp-body timeline-row"><time datetime="2026-11-19">2026-11-19</time><div><h2>v3.0 monograph revision &amp; standalone paper status</h2><p>Monograph v3.0 and follow-up chiral-crystal / Einstein–Yang–Mills work continue in the author’s working repository with no public v3.0 PDF yet. Among standalone papers, JGP13432 remains under review at the Journal of Geometry and Physics; the conditional Einstein–Yang–Mills paper has completed revision and is being prepared for submission to a new target journal (no longer under review at Classical and Quantum Gravity).</p><a class="hp-more" href="/en/research.html">Open full research console</a></div></div></li></ol>
+<p class="overview-prose">Full revision logs, errata, and review targets live in the public review repository; active work in progress does not imply peer-reviewed acceptance. <a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub →</a></p>
+</div></section><section class="overview-section" id="updates"><div class="overview-shell"><div class="hp"><header class="hp-head"><span class="hp-code mono">UPDATES</span><h2 class="hp-title">Follow research updates</h2></header><div class="hp-body"><p>Name the physical questions you want to follow and whether you consent to future updates; routine inquiries do not subscribe you to anything.</p>
+<p class="hero-actions"><a class="button primary" href="mailto:zhihua@k4cell.com?subject=K4%20research%20updates%20%2F%20en&amp;body=Research%20topics%20I%20would%20like%20to%20follow%3A%0A%0AMay%20I%20be%20contacted%20with%20future%20research%20updates%3F%20(please%20fill%20in)%3A%0A">Prepare research updates email draft</a></p><p>Review carefully before sending from your own email app; opening a draft does not transmit anything.</p></div></div></div></section>
+</main>
+<footer class="ft sh-foot"><div class="ft-in overview-shell">
+<div class="ft-brand"><span class="ft-name glitch" data-text="K4 Cell">K4 Cell</span><p class="ft-tag">From four points to nature’s constants</p></div>
+<nav class="ft-links" aria-label="Main navigation"><a href="/en/">Back to overview</a><a href="/en/research.html">Research</a><a href="/predictions/">Prediction Registry</a><a href="/official-k4v/">Verify Founder-signed OpenPGP attestation</a><a href="/status.json">status.json</a><a href="https://github.com/magicknight/k4-cell-framework-public-review">GitHub</a></nav>
+<p class="ft-credit">K4 is an unestablished candidate research programme. Patronage, public attention, and token narratives never settle whether a physical theory is true. <strong>K4V has not launched</strong>.</p>
 </div></footer>
-
-
-</body></html>
+<nav class="tabbar" aria-label="Main navigation"><a href="/en/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span>Home</span></a><a href="/en/research.html" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span>Research</span></a><a href="/en/progress/" class="tab" aria-current="page"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span>Progress</span></a><a href="/en/support/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span>Support</span></a></nav>
+</div>
+<script src="/assets/shell.js" defer></script>
+</body>
+</html>

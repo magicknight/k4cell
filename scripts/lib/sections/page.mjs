@@ -20,6 +20,7 @@ import { overview } from "../../../src/copy/overview.js";
 import { classCensus, external, heroRow, ledger, machine, notCertified, states } from "../data.mjs";
 import { CSP, assertThemeColour, brandMark, colon, esc, ogFor, renderHead } from "../html.mjs";
 import { linkCodes, links } from "../links.mjs";
+import { renderConsoleShell } from "./shell.mjs";
 import { k4Glyph } from "../figures/deal.mjs";
 import { pullBar, ruler } from "../figures/digits.mjs";
 import { renderGrid } from "../figures/grid81.mjs";
@@ -566,9 +567,7 @@ export const renderPage = (copy, { themeColor }) => {
     doi: ledger.artifact.conceptDoi,
   };
 
-  return `<!doctype html>
-<html lang="${copy.htmlLang}">
-${renderHead({
+  const head = renderHead({
     description: copy.description, title: esc(copy.title), csp: "page",
     canonical: `${copy.dir}/research.html`,
     hreflangs: [["en", "en/research.html"], ["zh-Hans", "zh/research.html"], ["x-default", "en/research.html"]],
@@ -576,16 +575,10 @@ ${renderHead({
     og: { ...ogFor(copy), url: `https://k4cell.com/${copy.dir}/research.html` },
     scholar,
     themeColor,
-  })}
-<body>
-  <a class="skip" href="#main">${esc(copy.skip)}</a>
-  <header class="topbar"><div class="shell bar-in">
-    <a class="brand" href="./">${brandMark}<span>${esc(copy.brand.name)}</span><span class="brand-t">${esc(copy.brand.tagline)}</span></a>
-    <nav class="site-nav" aria-label="${esc(copy.navLabel)}">${nav}</nav>
-    <a class="lang" href="../${alternate.dir}/research.html" hreflang="${alternate.htmlLang}">${esc(copy.languageLabel)}</a>
-  </div></header>
-  <main id="main">
-    <div class="shell"><p class="overview-archive-note">${copy.dir === "zh" ? '以下深读材料基于 v2.0 冻结专著（2026-07-08）与 2026-08-29 账本（投稿与状态已同步至 2026-11-19），v3.0 修订中。<a href="progress/">最新进展</a> · <a href="support/">资助与合作</a> · <a href="./">返回首页</a>' : 'This full account builds on public v2.0 and the 2026-08-29 ledger (status synced to 2026-11-19); v3.0 is in progress. <a href="progress/">Progress</a> · <a href="support/">Support</a> · <a href="./">Home</a>'}</p></div>
+  });
+
+  const mainContent = `<div class="research-subbar"><div class="shell subbar-in"><nav class="site-nav" aria-label="${esc(copy.navLabel)}">${nav}</nav></div></div>
+    <div class="shell"><p class="overview-archive-note">${copy.dir === "zh" ? '以下深读控制台基于 v2.0 冻结专著（2026-07-08）与 2026-08-29 账本（投稿与状态已同步至 2026-11-19），v3.0 修订中。<a href="progress/">最新进展</a> · <a href="support/">资助与合作</a> · <a href="./">返回概览</a>' : 'This full research console builds on public v2.0 and the 2026-08-29 ledger (status synced to 2026-11-19); v3.0 is in progress. <a href="progress/">Progress</a> · <a href="support/">Support</a> · <a href="./">Overview</a>'}</p></div>
     ${renderHero(copy)}
     ${renderWhy(copy)}
     ${renderObject(copy)}
@@ -596,53 +589,75 @@ ${renderHead({
     ${renderMachine(copy)}
     ${renderBoundary(copy)}
     ${renderVerify(copy)}
-    ${renderNext(copy)}
-  </main>
-  <footer class="foot"><div class="shell">
-    <p class="footer-status">${esc(copy.footer.status)}</p>
-    <p class="no-mint">${esc(copy.footer.noMint)} &#183; <a href="notice/">${esc(noticeLabel)}</a></p>
-    <nav aria-label="${esc(copy.footerNavLabel)}">${footerNav}</nav>
-  </div></footer>
-  <script src="../assets/app.js" defer></script>
-</body>
-</html>`;
+    ${renderNext(copy)}`;
+
+  const footerContent = `<div class="ft-in shell">
+    <div class="ft-brand"><span class="ft-name glitch" data-text="${esc(copy.brand.name)}">${esc(copy.brand.name)}</span><p class="footer-status">${esc(copy.footer.status)}</p></div>
+    <nav class="ft-links" aria-label="${esc(copy.footerNavLabel)}">${footerNav}</nav>
+    <p class="no-mint ft-credit">${esc(copy.footer.noMint)} &#183; <a href="notice/">${esc(noticeLabel)}</a></p>
+  </div>`;
+
+  return renderConsoleShell({
+    lang: copy.dir,
+    kind: "research",
+    head,
+    mainContent,
+    footerContent,
+    bodyClass: "research-page",
+    interactive: true,
+    brandName: copy.brand.name,
+    brandTagline: copy.brand.tagline,
+    skipLabel: copy.skip,
+    langHref: `../${alternate.dir}/research.html`,
+    langClass: "lang",
+    langLabel: copy.languageLabel,
+    altHtmlLang: alternate.htmlLang,
+    scripts: ["../assets/shell.js", "../assets/app.js"],
+  });
 };
 
 export const renderNotice = (copy, { themeColor }) => {
   const alternate = copy.dir === "zh" ? en : zh;
   const c = overview[copy.dir];
-  return `<!doctype html>
-<html lang="${copy.htmlLang}">
-${renderHead({
-  description: copy.notice.h1, title: esc(copy.notice.title), csp: "static",
-  canonical: `${copy.dir}/notice/`,
-  hreflangs: [["en", "en/notice/"], ["zh-Hans", "zh/notice/"], ["x-default", "en/notice/"]],
-  assetRoot: "../../",
-  og: { ...ogFor(copy), title: copy.notice.title, description: copy.notice.h1, url: `https://k4cell.com/${copy.dir}/notice/` },
-  robotsFirst: true, themeColor,
-})}
-<body>
-<a class="skip" href="#main">${esc(copy.skip)}</a>
-<header class="overview-header"><div class="overview-shell overview-bar">
-<a class="brand" href="../">${brandMark}<span>${esc(c.brand)}</span></a>
-<nav aria-label="${esc(c.navLabel)}">
-<a href="../">${esc(c.nav[0])}</a>
-<a href="../research.html">${esc(c.nav[1])}</a>
-<a href="../progress/">${esc(c.nav[2])}</a>
-<a href="../../predictions/">${esc(c.nav[3])}</a>
-<a href="../support/">${esc(c.nav[4])}</a>
-</nav>
-<a class="overview-language" href="../../${alternate.dir}/notice/" hreflang="${alternate.htmlLang}" lang="${alternate.htmlLang}">${esc(c.other)}</a>
-</div></header>
-<main id="main" class="notice-page"><div class="notice-inner">
+  const head = renderHead({
+    description: copy.notice.h1, title: esc(copy.notice.title), csp: "static",
+    canonical: `${copy.dir}/notice/`,
+    hreflangs: [["en", "en/notice/"], ["zh-Hans", "zh/notice/"], ["x-default", "en/notice/"]],
+    assetRoot: "../../",
+    og: { ...ogFor(copy), title: copy.notice.title, description: copy.notice.h1, url: `https://k4cell.com/${copy.dir}/notice/` },
+    robotsFirst: true, themeColor,
+  });
+
+  const mainContent = `<div class="notice-page"><div class="notice-inner hp"><div class="hp-body">
 ${brandMark}
 <p class="eyebrow">${esc(copy.brand.name)}</p>
 <h1>${esc(copy.notice.h1)}</h1>
 ${copy.notice.body.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}
 <p class="notice-contact">${esc(copy.notice.contactLine)} <a href="${links.contact}">${esc(copy.verify.personContact)}</a></p>
 <p class="hero-actions"><a class="button primary" href="../">${esc(copy.notice.back)}</a><a class="button" href="../../status.json">status.json</a></p>
-</div></main></body>
-</html>`;
+</div></div></div>`;
+
+  const footerContent = `<div class="ft-in overview-shell">
+<div class="ft-brand"><span class="ft-name">${esc(c.brand)}</span><p class="ft-tag">${esc(c.brandTag)}</p></div>
+<p class="ft-credit">${esc(c.footer)} <strong>${esc(c.noMint)}</strong>${copy.dir === "zh" ? "。" : "."}</p>
+</div>`;
+
+  return renderConsoleShell({
+    lang: copy.dir,
+    kind: "notice",
+    head,
+    mainContent,
+    footerContent,
+    bodyClass: "notice-shell",
+    interactive: false,
+    brandName: c.brand,
+    skipLabel: copy.skip,
+    langHref: `../../${alternate.dir}/notice/`,
+    langClass: "overview-language",
+    langLabel: c.other,
+    altHtmlLang: alternate.htmlLang,
+    scripts: [],
+  });
 };
 
 export const renderRoot = ({ themeColor }) => `<!doctype html>
@@ -651,12 +666,12 @@ ${renderHead({
   description: en.description, title: `${esc(en.brand.name)} &#8212; ${esc(en.gate.h1)}`, csp: "static",
   canonical: "", alternates: true, assetRoot: "", robots: "noindex,follow", robotsFirst: true, compact: true, themeColor,
 })}
-<body><main class="language-gate"><div class="language-gate-inner">${brandMark}
+<body><main class="language-gate"><div class="language-gate-inner hp"><div class="hp-body">${brandMark}
 <p class="eyebrow">${esc(en.brand.name)}</p><h1>${esc(en.gate.h1)}</h1>
 <p>${esc(en.gate.line)}<br><span lang="${zh.htmlLang}">${esc(en.gate.lineZh)}</span></p>
 <div class="hero-actions"><a class="button primary" href="en/">English</a><a class="button" lang="${zh.htmlLang}" href="zh/">&#31616;&#20307;&#20013;&#25991;</a></div>
 <p class="gate-num"><code>${sym(heroRow.symbol)} = ${esc(heroRow.predicted)}</code></p>
-</div></main></body></html>`;
+</div></div></main></body></html>`;
 
 /* Bilingual, like the root language gate: every other surface of this site is
    published in two languages, and the page a mistyped link lands on was the
@@ -668,4 +683,4 @@ ${renderHead({
    a screen reader speaks Chinese with English phonemes. This page also missed
    the CSP <meta> the other static pages carry; in production site/_headers
    covers every path either way, but a 404 opened from disk was not. */
-export const notFound = ({ themeColor }) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="${assertThemeColour(themeColor)}"><meta http-equiv="Content-Security-Policy" content="${CSP.static}"><meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/site.css"><title>${esc(en.notFound.kicker)} &#183; ${esc(en.brand.name)}</title></head><body><main class="language-gate"><div class="language-gate-inner"><p class="eyebrow">${esc(en.notFound.kicker)}</p><h1>${esc(en.notFound.h1)}</h1><p><span lang="${zh.htmlLang}">${esc(zh.notFound.h1)}</span></p><div class="hero-actions"><a class="button primary" href="/en/">${esc(en.notFound.back)}</a><a class="button" lang="${zh.htmlLang}" href="/zh/">${esc(zh.notFound.back)}</a></div></div></main></body></html>`;
+export const notFound = ({ themeColor }) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="${assertThemeColour(themeColor)}"><meta http-equiv="Content-Security-Policy" content="${CSP.static}"><meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/fonts.css"><link rel="stylesheet" href="/assets/site.css"><title>${esc(en.notFound.kicker)} &#183; ${esc(en.brand.name)}</title></head><body><main class="language-gate"><div class="language-gate-inner hp"><div class="hp-body"><p class="eyebrow">${esc(en.notFound.kicker)}</p><h1>${esc(en.notFound.h1)}</h1><p><span lang="${zh.htmlLang}">${esc(zh.notFound.h1)}</span></p><div class="hero-actions"><a class="button primary" href="/en/">${esc(en.notFound.back)}</a><a class="button" lang="${zh.htmlLang}" href="/zh/">${esc(zh.notFound.back)}</a></div></div></div></main></body></html>`;

@@ -1,0 +1,116 @@
+/* ==================================================================== *
+ * THEME: night — Quantum Signal / 量频 (default shipping palette).     *
+ *                                                                      *
+ * A cohesive HUD console palette sharing its architecture with sibling *
+ * sites Eksmu, Muxiv, and Moxox: near-black observatory night ground   *
+ * (#07080d), signal cyan for interactive controls & links, precision   *
+ * gold strictly reserved for computed/measured numbers, and falsifier  *
+ * crimson confined to #kill. Includes full --day-* tokens so           *
+ * night.overrides.css can toggle Day Signal light mode with zero hex.  *
+ * ==================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ground: observatory night steps; nothing is pure black */
+  --bg-0:#07080d; --bg-1:#0c0f18; --bg-2:#121624; --bg-3:#1b2135; --bg-kill:#0c0509;
+  --panel: rgba(16,22,38,.78); --panel-2: rgba(24,33,56,.90);
+
+  /* hairlines & machined borders */
+  --hair: rgba(130,148,200,.18); --hair-2: rgba(130,148,200,.34); --hair-3:#465378;
+
+  /* type on the ground */
+  --fg-0:#eef1f8; --fg-1:#cbd2e2; --fg-2:#9aa3b8; --fg-3:#858fa9;
+
+  /* ONE accent for numbers, digits, pulls, scores, and the falsifier bet */
+  --fact:#ffb84d; --fact-hi:#ffd384; --fact-dk:#c98828; --fact-glow: rgba(255,184,77,.28);
+
+  /* signal cyan — interactive controls, links, machined corner brackets */
+  --link:#2de2e6; --link-dk:#17a8ad; --link-hi:#86f6f8; --link-soft: rgba(45,226,230,.12); --on-link:#041014;
+
+  /* falsifier crimson — allowed strictly inside .sec-kill */
+  --alert:#ff3864; --alert-lt:#ff8aa5;
+
+  /* figures' warm line: cut rules, open gaps, 3-sigma rule */
+  --cut: var(--fact); --cut-lt: var(--fact-hi);
+
+  /* three lightness-separated, colorblind-safe K4 vertex colours */
+  --c1:#3ddbc0; --c2:#e0568a; --c3:#a78bfa;
+  --c1-lt:#7eead7; --c2-lt:#f595b8; --c3-lt:#cbbcff;
+  --c1-dk:#1d6f63; --c2-dk:#8c234d; --c3-dk:#5b42a8;
+
+  /* K4 glyph edges and hero backdrop */
+  --k-hit: var(--fg-0); --k-off: rgba(154,163,184,.28);
+  --orb-1: rgba(45,226,230,.14); --orb-2: rgba(167,139,250,.14); --orb-3: rgba(16,23,40,.92);
+  --hatch: rgba(203,210,226,.22);
+
+  /* server-rendered figure aliases */
+  --fig-bg: var(--bg-2); --fig-fg: var(--fg-0);
+  --text: var(--fg-0); --text-2: var(--fg-1); --text-3: var(--fg-2);
+  --rule: var(--hair); --rule-2: var(--hair-2); --rule-3: var(--fg-3);
+  --paper-hi: var(--bg-2); --card: var(--bg-1);
+  --accent: var(--link); --accent-dk: var(--link-dk);
+  --ground: var(--bg-0);
+
+  /* HUD telemetry & chrome tokens */
+  --ok:#5ce6a0; --focus:#f9f871;
+  --grid-line: rgba(45,226,230,.036);
+  --scanline: rgba(255,255,255,.022);
+  --scrim: rgba(2,3,8,.78);
+  --glow-link: 0 0 10px rgba(45,226,230,.46), 0 0 24px rgba(45,226,230,.18);
+  --glow-text-link: 0 0 12px rgba(45,226,230,.52);
+  --glow-fact: 0 0 14px rgba(255,184,77,.38);
+  --glow-none: none;
+  --shadow-hud: 0 0 0 1px rgba(45,226,230,.18), 0 18px 48px rgba(0,0,0,.60);
+
+  /* dedicated falsifier plate ink ladder */
+  --kill-fg-0:#f8f4f6; --kill-fg-1:#e5dce0; --kill-fg-2:#beb0b6; --kill-fg-3:#a39299;
+  --kill-hair: rgba(255,138,165,.18); --kill-hair-2: rgba(255,138,165,.34); --kill-hair-3:#7a5360;
+  --kill-panel: rgba(255,255,255,.04);
+
+  /* Day Signal (light theme) tokens — switched cleanly via var() in night.overrides.css */
+  --day-bg-0:#f4f5f8; --day-bg-1:#eaecef; --day-bg-2:#e2e5ec; --day-bg-3:#d5dae4; --day-bg-kill:#150f13;
+  --day-panel: rgba(30,42,74,.045); --day-panel-2: rgba(255,255,255,.86);
+  --day-hair: rgba(35,48,82,.16); --day-hair-2: rgba(35,48,82,.30); --day-hair-3:#6c768d;
+  --day-fg-0:#111622; --day-fg-1:#283044; --day-fg-2:#4a556e; --day-fg-3:#5b667f;
+  --day-fact:#8f5407; --day-fact-hi:#734003; --day-fact-dk:#5e3402; --day-fact-glow: transparent;
+  --day-link:#006a70; --day-link-dk:#004e54; --day-link-hi:#00545a; --day-link-soft: rgba(0,106,112,.10); --day-on-link:#ffffff;
+  --day-ok:#0a6e42; --day-focus:#8a5a00;
+  --day-c1:#327b65; --day-c2:#752745; --day-c3:#6941a8;
+  --day-c1-lt:#65b29a; --day-c2-lt:#c46086; --day-c3-lt:#9c78d9;
+  --day-c1-dk:#245c4b; --day-c2-dk:#54142e; --day-c3-dk:#4a2880;
+  --day-k-off: rgba(45,58,90,.28);
+  --day-orb-1: rgba(0,106,112,.08); --day-orb-2: rgba(105,65,168,.08); --day-orb-3: rgba(255,255,255,.94);
+  --day-hatch: rgba(45,58,90,.30);
+  --day-grid-line: rgba(40,52,90,.045);
+  --day-scanline: transparent;
+  --day-scrim: rgba(16,22,36,.48);
+  --day-shadow-hud: 0 0 0 1px rgba(40,52,90,.14), 0 12px 32px rgba(20,28,50,.14);
+  --day-paper-hi:#ffffff; --day-card:#fafbfd; --day-rule-2:#bfc6d6; --day-rule-3:#8e97ac;
+
+  /* type stacks — self-hosted Latin display/mono + system CJK/prose sans */
+  --han-serif: "Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
+  --han: "PingFang SC","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  --lat: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Liberation Sans","PingFang SC","Noto Sans CJK SC",sans-serif;
+  --sans: var(--han);
+  --fig: "Iowan Old Style",Palatino,"Palatino Linotype",Georgia,"Liberation Serif","Times New Roman",serif;
+  --mono: "JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono","Noto Sans Mono CJK SC",monospace;
+  --display: "Chakra Petch",var(--sans);
+
+  --t-display: clamp(1.85rem,3.4vw,3rem);
+  --t-title: clamp(1.45rem,2.7vw,2.2rem);
+  --t-ask: clamp(1.15rem,1.7vw,1.45rem);
+  --t-lead: 1.0625rem; --t-body: 1rem; --t-small: .875rem;
+  --t-micro: .8125rem; --t-nano: .72rem;
+  --t-score: clamp(2.6rem,7vw,4.8rem);
+
+  --lh-tight: 1.16; --lh-head: 1.32; --lh-read: 1.82;
+  --col-read: 40rem;
+  --shell: min(100% - 2.5rem, 48rem);
+  --rail: 9.5rem;
+  --rail-w: 224px;
+  --rail-w-sm: 64px;
+  --header-h: 58px;
+  --tabbar-h: 56px;
+  --cut-btn: 9px;
+}

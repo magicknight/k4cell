@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f4f2ec">
+  <meta name="theme-color" content="#07080d">
   <meta name="robots" content="index,follow">
   <meta name="description" content="K4V has not launched.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
@@ -12,6 +12,7 @@
   <link rel="alternate" hreflang="zh-Hans" href="https://k4cell.com/zh/notice/">
   <link rel="alternate" hreflang="x-default" href="https://k4cell.com/en/notice/">
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/fonts.css">
   <link rel="stylesheet" href="../../assets/site.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="K4 Cell Framework">
@@ -26,29 +27,39 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>Notice · K4 Cell</title>
 </head>
-<body>
+<body class="notice-shell">
+<div class="app-shell">
 <a class="skip" href="#main">Skip to content</a>
-<header class="overview-header"><div class="overview-shell overview-bar">
-<a class="brand" href="../"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-<path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
-<circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg><span>K4 Cell</span></a>
-<nav aria-label="Main navigation">
-<a href="../">Home</a>
-<a href="../research.html">Research</a>
-<a href="../progress/">Progress</a>
-<a href="../../predictions/">Predictions</a>
-<a href="../support/">Support</a>
-</nav>
-<a class="overview-language" href="../../zh/notice/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+<header class="hd topbar sh-top"><div class="hd-in topbar-inner">
+<a class="brand" href="/en/"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+<rect class="bm-box" x="1.5" y="1.5" width="29" height="29" rx="5"/><path class="bm-tri" d="M16 5.5 6.5 23.5h19Z"/><line class="bm-e" x1="16" y1="5.5" x2="16" y2="17.5"/><line class="bm-e" x1="6.5" y1="23.5" x2="16" y2="17.5"/><line class="bm-e" x1="25.5" y1="23.5" x2="16" y2="17.5"/>
+<circle class="bm-v" cx="16" cy="5.5" r="2"/><circle class="bm-v" cx="6.5" cy="23.5" r="2"/><circle class="bm-v" cx="25.5" cy="23.5" r="2"/><circle class="bm-v" cx="16" cy="17.5" r="2"/></svg><span class="brand-name glitch" data-text="K4 Cell">K4 Cell</span></a>
+
+<div class="tools"><a class="overview-language" href="../../zh/notice/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></div>
 </div></header>
-<main id="main" class="notice-page"><div class="notice-inner">
+<aside class="rail sh-rail overview-bar" aria-label="Console channels">
+<nav class="sec-railnav" aria-label="Main navigation"><a href="/en/" class="it" title="Home" aria-label="Home"><span class="no mono" aria-hidden="true">01</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span class="lb">Home</span></a><a href="/en/research.html" class="it" title="Research" aria-label="Research"><span class="no mono" aria-hidden="true">02</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span class="lb">Research</span></a><a href="/en/progress/" class="it" title="Progress" aria-label="Progress"><span class="no mono" aria-hidden="true">03</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span class="lb">Progress</span></a><a href="/predictions/" class="it" title="Predictions" aria-label="Predictions"><span class="no mono" aria-hidden="true">04</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 2v3.5m0 13V22M2 12h3.5m13 0H22"/></svg><span class="lb">Predictions</span></a><a href="/en/support/" class="it" title="Support" aria-label="Support"><span class="no mono" aria-hidden="true">05</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span class="lb">Support</span></a></nav>
+<div class="rail-group"><p class="rail-group-title">PROVENANCE</p><nav class="rail-subnav" aria-label="PROVENANCE"><a href="/official-k4v/" class="it sub-it" title="Official K4V Notice" aria-label="Official K4V Notice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="lb">Official K4V Notice</span></a><a href="https://github.com/magicknight/k4cell/blob/main/K4_Cell_Framework_v2.0.pdf" class="it sub-it" title="Frozen v2.0 Monograph PDF" aria-label="Frozen v2.0 Monograph PDF"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">Frozen v2.0 Monograph PDF</span></a><a href="/status.json" class="it sub-it" title="status.json" aria-label="status.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">status.json</span></a><a href="/ledger.json" class="it sub-it" title="ledger.json" aria-label="ledger.json"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4.5h4.5"/></svg><span class="lb">ledger.json</span></a></nav></div>
+
+</aside>
+<main id="main" class="sh-main">
+<div class="notice-page"><div class="notice-inner hp"><div class="hp-body">
 <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-<path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
-<circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg>
+<rect class="bm-box" x="1.5" y="1.5" width="29" height="29" rx="5"/><path class="bm-tri" d="M16 5.5 6.5 23.5h19Z"/><line class="bm-e" x1="16" y1="5.5" x2="16" y2="17.5"/><line class="bm-e" x1="6.5" y1="23.5" x2="16" y2="17.5"/><line class="bm-e" x1="25.5" y1="23.5" x2="16" y2="17.5"/>
+<circle class="bm-v" cx="16" cy="5.5" r="2"/><circle class="bm-v" cx="6.5" cy="23.5" r="2"/><circle class="bm-v" cx="25.5" cy="23.5" r="2"/><circle class="bm-v" cx="16" cy="17.5" r="2"/></svg>
 <p class="eyebrow">K4 Cell</p>
 <h1>K4V has not launched.</h1>
 <p>There is no official mint for K4V, no presale, whitelist, allocation or airdrop, no payment wallet and no token generation event. No date has been announced. No mainnet deployment has been authorised.</p><p>This site never asks for a wallet address, never offers a token allocation or a whitelist place, and never promises a financial return. Any page, account, contract address or message that claims otherwise has no connection to this project.</p><p>A machine-readable version sits in the k4v block of status.json: launched is false, official_mint is null, mainnet_authorized is false. A statement to the same effect, signed by the author with OpenPGP, is in this site’s official-k4v directory.</p><p>Science, funding and any future token question are kept strictly apart. Attention, donations, grants and press coverage settle nothing scientific.</p>
 <p class="notice-contact">Questions about this notice: <a href="mailto:zhihua@k4cell.com">zhihua@k4cell.com</a></p>
 <p class="hero-actions"><a class="button primary" href="../">Back to K4 Cell</a><a class="button" href="../../status.json">status.json</a></p>
-</div></main></body>
+</div></div></div>
+</main>
+<footer class="ft sh-foot"><div class="ft-in overview-shell">
+<div class="ft-brand"><span class="ft-name">K4 Cell</span><p class="ft-tag">From four points to nature’s constants</p></div>
+<p class="ft-credit">K4 is an unestablished candidate research programme. Patronage, public attention, and token narratives never settle whether a physical theory is true. <strong>K4V has not launched</strong>.</p>
+</div></footer>
+<nav class="tabbar" aria-label="Main navigation"><a href="/en/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 4l8 7.5V20h-5.5v-5h-5v5H4z"/></svg><span>Home</span></a><a href="/en/research.html" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 19.5h15Zm0 0v10.5M4.5 19.5l7.5-5.5 7.5 5.5"/></svg><span>Research</span></a><a href="/en/progress/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12h3.5l2.5-6.5 4 13 2.8-6.5H20.5"/></svg><span>Progress</span></a><a href="/en/support/" class="tab"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v15M4.5 12h15"/></svg><span>Support</span></a></nav>
+</div>
+
+</body>
 </html>

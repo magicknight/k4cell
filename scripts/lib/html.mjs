@@ -13,8 +13,8 @@ export const esc = (value) => String(value)
 export const colon = (copy) => (copy.dir === "zh" ? "：" : ": ");
 
 export const brandMark = `<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-<path d="M16 3 4 24h24Z"/><line x1="16" y1="3" x2="16" y2="18"/><line x1="4" y1="24" x2="16" y2="18"/><line x1="28" y1="24" x2="16" y2="18"/>
-<circle cx="16" cy="3" r="2"/><circle cx="4" cy="24" r="2"/><circle cx="28" cy="24" r="2"/><circle cx="16" cy="18" r="2"/></svg>`;
+<rect class="bm-box" x="1.5" y="1.5" width="29" height="29" rx="5"/><path class="bm-tri" d="M16 5.5 6.5 23.5h19Z"/><line class="bm-e" x1="16" y1="5.5" x2="16" y2="17.5"/><line class="bm-e" x1="6.5" y1="23.5" x2="16" y2="17.5"/><line class="bm-e" x1="25.5" y1="23.5" x2="16" y2="17.5"/>
+<circle class="bm-v" cx="16" cy="5.5" r="2"/><circle class="bm-v" cx="6.5" cy="23.5" r="2"/><circle class="bm-v" cx="25.5" cy="23.5" r="2"/><circle class="bm-v" cx="16" cy="17.5" r="2"/></svg>`;
 
 /* ---- the <head> ------------------------------------------------------ */
 
@@ -73,7 +73,9 @@ export const headGroups = ({
   const altList = hreflangs || (alternates ? ALTERNATES : []);
   const alts = altList.map(([lang, path]) => `<link rel="alternate" hreflang="${lang}" href="${SITE_ORIGIN}/${path}">`);
   const icon = `<link rel="icon" href="${assetRoot}assets/favicon.svg" type="image/svg+xml">`;
+  const fontsSheet = `<link rel="stylesheet" href="${assetRoot}assets/fonts.css">`;
   const sheet = `<link rel="stylesheet" href="${assetRoot}assets/site.css">`;
+  const themeBoot = csp === "page" ? [`<script src="${assetRoot}assets/theme.js"></script>`] : [];
   const social = og ? [
     `<meta property="og:type" content="website">`,
     `<meta property="og:site_name" content="K4 Cell Framework">`,
@@ -96,12 +98,13 @@ export const headGroups = ({
   const titleTag = `<title>${title}</title>`;
 
   if (compact) {
-    return [[charset, viewport], [theme, robotsMeta], [desc], [policy], [canon, ...alts], [icon, sheet],
+    return [[charset, viewport], [theme, robotsMeta], [desc], [policy], [canon, ...alts], [icon, fontsSheet, sheet, ...themeBoot],
       ...social.map((tag) => [tag]), ...scholarly.map((tag) => [tag]), [titleTag]];
   }
   return [[charset], [viewport], [theme],
     ...(robotsFirst ? [[robotsMeta], [desc]] : [[desc], [robotsMeta]]),
-    [policy], [canon], ...alts.map((tag) => [tag]), [icon], [sheet],
+    [policy], [canon], ...alts.map((tag) => [tag]), [icon], [fontsSheet], [sheet],
+    ...(themeBoot.length ? [themeBoot] : []),
     ...social.map((tag) => [tag]), ...scholarly.map((tag) => [tag]), [titleTag]];
 };
 

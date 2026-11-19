@@ -1,23 +1,20 @@
 /* ==================================================================== *
- * k4cell.com — one stylesheet, no inline style anywhere (the CSP
- * forbids it), no linked font, no image. The whole visual system is
- * here, and it obeys four rules.
- *
- * 1. COLOUR HAS ONE MEANING EACH. --fact (amber) marks a NUMBER: a
- *    computed digit, a pull, a score, the bet's rule. It never marks a
- *    whole sentence, a click target, a section number or a nav state.
- *    --link is the only colour that means "click". --alert (red) means
- *    "this is how the framework dies" and is allowed in one section:
- *    #kill. --cut is the amber the figures use for the line where the
- *    experiment stops, for a hole in the route, for the 3 sigma rule —
- *    none of which is a warning.
- * 2. THE EVIDENCE TIERS ARE HUE-FREE. closed / conditional / bound are
- *    told apart by fill, hatch and dash, so no reader has to know that
- *    one colour outranks another, and no tier can be misread in
- *    forced-colors mode.
- * 3. EVERY COLOUR IS A TOKEN. A hex value outside the first block below
- *    fails the build (scripts/check/budgets.mjs), because a colour
- *    written at the use site is how a meaning quietly drifts.
- * 4. THE READING MEASURE IS A CONSTRAINT, NOT A WISH. --col-read caps
- *    every prose element; no line of Chinese may run past ~40 glyphs.
+ * k4cell.com — Quantum Signal / 量频 HUD Console Stylesheet            *
+ *                                                                      *
+ * One stylesheet, zero inline style anywhere (CSP forbids it), zero    *
+ * external resource links (self-hosted fonts live in assets/fonts.css). *
+ *                                                                      *
+ * 1. COLOUR HAS ONE MEANING EACH. --fact (gold) marks a NUMBER: a      *
+ *    computed digit, a pull, a score, the falsifier bet. It never      *
+ *    marks a whole sentence, a click target, or a nav state.           *
+ *    --link (cyan) is the only colour that means "click / control".    *
+ *    --alert (crimson) means "this is how the framework dies" and is   *
+ *    confined to #kill (.sec-kill). --cut marks a figure cut/limit.    *
+ * 2. THE EVIDENCE TIERS ARE HUE-FREE. closed / conditional / bound are *
+ *    told apart by fill, hatch and dash, surviving greyscale and       *
+ *    forced-colors mode.                                               *
+ * 3. EVERY COLOUR IS A TOKEN. Any hex outside the :root block fails    *
+ *    scripts/check/budgets.mjs.                                        *
+ * 4. THE READING MEASURE IS A CONSTRAINT. --col-read caps long-form    *
+ *    scientific prose for comfortable sustained reading.               *
  * ==================================================================== */

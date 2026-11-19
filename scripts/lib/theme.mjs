@@ -46,14 +46,13 @@ import { join } from "node:path";
 
 import { srcAssets } from "./paths.mjs";
 
-/* The shipping palette. `paper` was chosen on 2026-08-31 after the three
-   were built and read at length: it is the only one that answers halation
-   at the mechanism rather than by degree, it dissolves the accent/site-colour
-   hue collision, and it is the only ground on which the falsifier section can
-   invert and become the page's one visible landmark. `instrument` and
-   `lifted` are kept as alternates -- one file each -- because they are the
-   comparison the decision rests on. Nothing treats either as canonical. */
-export const DEFAULT_THEME = "paper";
+/* The shipping palette. `night` ("Quantum Signal / 量频") aligns the site with
+   sibling HUD consoles (Eksmu, Muxiv, Moxox) while keeping K4 Cell’s strict
+   colour-meaning separation (--fact gold for numbers, --link cyan for controls,
+   --alert crimson confined to #kill) and supporting Day Signal light-mode toggle
+   via night.overrides.css. `paper`, `instrument`, and `lifted` remain as
+   swappable alternates. */
+export const DEFAULT_THEME = "night";
 
 export const themesDir = join(srcAssets, "themes");
 export const headPath = join(srcAssets, "site-head.css");
