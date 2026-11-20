@@ -71,6 +71,8 @@ export const required = [
   "ledger.json",
   "season-01.json",
   "robots.txt",
+  "llms.txt",
+  "32d58667e3f7c3f0e28edf158b70a3ad.txt",
   "sitemap.xml",
   "CNAME",
   "_headers",

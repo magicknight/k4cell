@@ -28,7 +28,7 @@ for (const language of ["en", "zh"]) {
     const html = await readFile(join(site, language, kind, "index.html"), "utf8");
     assert.ok(html.includes(`<html lang="${language === "zh" ? "zh-Hans" : "en"}">`));
     assert.match(html, /http-equiv="Content-Security-Policy"/);
-    assert.doesNotMatch(html, /<script(?![^>]*\bsrc=)|<style\b|\sstyle="|>undefined[<\s]/i);
+    assert.doesNotMatch(html, /<script(?![^>]*\b(?:src=|type="application\/ld\+json"))|<style\b|\sstyle="|>undefined[<\s]/i);
     assert.ok(html.includes('/official-k4v/'));
     const other = language === "zh" ? "en" : "zh";
     assert.ok(html.includes(`href="/${other}/${kind}"`), "language switch must preserve purpose");

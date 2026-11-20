@@ -24,6 +24,26 @@ function consolePage(lang, kind, content, { themeColor, root = false, script = f
   const homeHref = root ? "/" : route(lang);
   const langHref = root ? "zh/" : route(other, path);
 
+  const pageUrl = `https://k4cell.com/${canonical}`;
+  const jsonLd = kind === "home"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: c.brand,
+        url: pageUrl,
+        description,
+        inLanguage: lang === "zh" ? "zh-Hans" : "en",
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: title,
+        url: pageUrl,
+        description,
+        inLanguage: lang === "zh" ? "zh-Hans" : "en",
+        isPartOf: { "@type": "WebSite", name: c.brand, url: "https://k4cell.com/" },
+      };
+
   const head = renderHead({
     description,
     title: esc(title),
@@ -32,10 +52,11 @@ function consolePage(lang, kind, content, { themeColor, root = false, script = f
     hreflangs,
     assetRoot: "/",
     themeColor,
+    jsonLd,
     og: {
       title,
       description,
-      url: `https://k4cell.com/${canonical}`,
+      url: pageUrl,
       image: `https://k4cell.com/assets/og-k4cell-${lang}.jpg`,
       locale: lang === "zh" ? "zh_CN" : "en_US",
     },

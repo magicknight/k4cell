@@ -259,7 +259,7 @@ for (const [name, page] of [["index.html", rootPage], ["404.html", notFoundPage]
 
 for (const page of [english, chinese, rootPage, noticeEn, noticeZh, officialPage, predictionPage,
   supportPage]) {
-  assert.doesNotMatch(page, /<script(?![^>]*\bsrc=)/i, "no inline script (CSP forbids it)");
+  assert.doesNotMatch(page, /<script(?![^>]*\b(?:src=|type="application\/ld\+json"))/i, "no inline script (CSP forbids it)");
   assert.doesNotMatch(page, /<style\b/i, "no inline style element (CSP forbids it)");
   assert.doesNotMatch(page, /\sstyle="/i, "no inline style attribute (CSP forbids it)");
 }

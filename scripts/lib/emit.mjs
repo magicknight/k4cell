@@ -25,6 +25,28 @@ ${paths.map((path) =>
 
 export const ROBOTS = "User-agent: *\nAllow: /\n\nSitemap: https://k4cell.com/sitemap.xml\n";
 export const CNAME = "k4cell.com\n";
+export const INDEXNOW_KEY = "32d58667e3f7c3f0e28edf158b70a3ad";
+export const LLMS_TXT = `# K4 Cell Framework
+
+> Bilingual public-science surface for the K4 Cell Framework: four vertices, six links, three states per site (81 basis states, zero fitted parameters).
+
+## Scientific Status
+- Current artifact: Frozen v2.0 monograph (2026-07-08) and 2026-08-29 ledger (status synced to 2026-11-19).
+- Peer review status: Not peer-reviewed (peer_reviewed: false; monograph_under_journal_review: false).
+- Public review & reproduction: Full open artifacts, verifiable OpenPGP/ledger provenance, and pre-registered predictions.
+
+## Key Pages & Machine-Readable Endpoints
+- English Overview: https://k4cell.com/
+- Chinese Overview (简体中文): https://k4cell.com/zh/
+- English Full Research Console: https://k4cell.com/en/research.html
+- Chinese Full Research Console: https://k4cell.com/zh/research.html
+- Prediction Registry: https://k4cell.com/predictions/
+- Official K4V No-Mint Attestation: https://k4cell.com/official-k4v/
+- Machine-Readable Status: https://k4cell.com/status.json
+- Ledger Data: https://k4cell.com/ledger.json
+- Sitemap: https://k4cell.com/sitemap.xml
+- Repository: https://github.com/magicknight/k4cell
+`;
 /* GitHub Pages ignores _headers; it is kept as the statement of intent and
    check/integrity.mjs requires it. */
 export const HEADERS = `/*
@@ -88,6 +110,8 @@ export const writeStatic = async (out) => {
   await writeFile(join(out, "status.json"), json(status));
   await writeFile(join(out, "ledger.json"), json(ledger));
   await writeFile(join(out, "robots.txt"), ROBOTS);
+  await writeFile(join(out, "llms.txt"), LLMS_TXT);
+  await writeFile(join(out, `${INDEXNOW_KEY}.txt`), INDEXNOW_KEY);
   await writeFile(join(out, "sitemap.xml"), sitemapFor(SITEMAP_PATHS, status.site_updated_on));
   await writeFile(join(out, "CNAME"), CNAME);
   await writeFile(join(out, "_headers"), HEADERS);

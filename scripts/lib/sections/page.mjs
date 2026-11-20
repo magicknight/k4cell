@@ -567,13 +567,29 @@ export const renderPage = (copy, { themeColor }) => {
     doi: ledger.artifact.conceptDoi,
   };
 
+  const pageUrl = `https://k4cell.com/${copy.dir}/research.html`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    headline: scholar.title,
+    description: copy.description,
+    url: pageUrl,
+    datePublished: scholar.date,
+    sameAs: `https://doi.org/${scholar.doi}`,
+    author: { "@type": "Person", name: scholar.author },
+    inLanguage: copy.dir === "zh" ? "zh-Hans" : "en",
+    isAccessibleForFree: true,
+    mainEntityOfPage: pageUrl,
+  };
+
   const head = renderHead({
     description: copy.description, title: esc(copy.title), csp: "page",
     canonical: `${copy.dir}/research.html`,
     hreflangs: [["en", "en/research.html"], ["zh-Hans", "zh/research.html"], ["x-default", "en/research.html"]],
     assetRoot: "../",
-    og: { ...ogFor(copy), url: `https://k4cell.com/${copy.dir}/research.html` },
+    og: { ...ogFor(copy), url: pageUrl },
     scholar,
+    jsonLd,
     themeColor,
   });
 

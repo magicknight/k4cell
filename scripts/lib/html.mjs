@@ -61,7 +61,7 @@ export const assertThemeColour = (value) => {
  */
 export const headGroups = ({
   description, title, csp = "static", canonical, alternates = false, hreflangs = null,
-  assetRoot = "", og = null, scholar = null, robots = "index,follow", robotsFirst = false, compact = false, themeColor,
+  assetRoot = "", og = null, scholar = null, jsonLd = null, robots = "index,follow", robotsFirst = false, compact = false, themeColor,
 }) => {
   const charset = `<meta charset="utf-8">`;
   const viewport = `<meta name="viewport" content="width=device-width,initial-scale=1">`;
@@ -95,17 +95,18 @@ export const headGroups = ({
     `<meta name="citation_publication_date" content="${esc(scholar.date)}">`,
     `<meta name="citation_doi" content="${esc(scholar.doi)}">`,
   ] : [];
+  const ldTag = jsonLd ? [`<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>`] : [];
   const titleTag = `<title>${title}</title>`;
 
   if (compact) {
     return [[charset, viewport], [theme, robotsMeta], [desc], [policy], [canon, ...alts], [icon, fontsSheet, sheet, ...themeBoot],
-      ...social.map((tag) => [tag]), ...scholarly.map((tag) => [tag]), [titleTag]];
+      ...social.map((tag) => [tag]), ...scholarly.map((tag) => [tag]), ...(ldTag.length ? [ldTag] : []), [titleTag]];
   }
   return [[charset], [viewport], [theme],
     ...(robotsFirst ? [[robotsMeta], [desc]] : [[desc], [robotsMeta]]),
     [policy], [canon], ...alts.map((tag) => [tag]), [icon], [fontsSheet], [sheet],
     ...(themeBoot.length ? [themeBoot] : []),
-    ...social.map((tag) => [tag]), ...scholarly.map((tag) => [tag]), [titleTag]];
+    ...social.map((tag) => [tag]), ...scholarly.map((tag) => [tag]), ...(ldTag.length ? [ldTag] : []), [titleTag]];
 };
 
 export const renderHead = (spec) =>
