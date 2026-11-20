@@ -132,10 +132,13 @@ export const walk = async (directory) => {
 /* One `sha256  relpath` line per file, sorted, excluding only itself. Written
    last, so it covers everything. */
 export const writeChecksums = async (out) => {
+  const entries = (await walk(out))
+    .map((file) => ({ file, rel: file.slice(out.length + 1).replaceAll("\\", "/") }))
+    .sort((a, b) => (a.rel < b.rel ? -1 : a.rel > b.rel ? 1 : 0));
   const checksumLines = [];
-  for (const file of (await walk(out)).sort()) {
+  for (const { file, rel } of entries) {
     const bytes = await readFile(file);
-    checksumLines.push(`${createHash("sha256").update(bytes).digest("hex")}  ${file.slice(out.length + 1)}`);
+    checksumLines.push(`${createHash("sha256").update(bytes).digest("hex")}  ${rel}`);
   }
   await writeFile(join(out, "SITE_SHA256SUMS.txt"), `${checksumLines.join("\n")}\n`);
 };
