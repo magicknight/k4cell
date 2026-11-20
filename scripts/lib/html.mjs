@@ -65,6 +65,7 @@ export const headGroups = ({
 }) => {
   const charset = `<meta charset="utf-8">`;
   const viewport = `<meta name="viewport" content="width=device-width,initial-scale=1">`;
+  const googleVerify = `<meta name="google-site-verification" content="pinLI1x0hiLszYgznzvC6PW1pBUMlbLewwqvo0c958Q">`;
   const theme = `<meta name="theme-color" content="${assertThemeColour(themeColor)}">`;
   const desc = `<meta name="description" content="${esc(description)}">`;
   const robotsMeta = `<meta name="robots" content="${esc(robots)}">`;
@@ -99,10 +100,10 @@ export const headGroups = ({
   const titleTag = `<title>${title}</title>`;
 
   if (compact) {
-    return [[charset, viewport], [theme, robotsMeta], [desc], [policy], [canon, ...alts], [icon, fontsSheet, sheet, ...themeBoot],
+    return [[charset, viewport, googleVerify], [theme, robotsMeta], [desc], [policy], [canon, ...alts], [icon, fontsSheet, sheet, ...themeBoot],
       ...social.map((tag) => [tag]), ...scholarly.map((tag) => [tag]), ...(ldTag.length ? [ldTag] : []), [titleTag]];
   }
-  return [[charset], [viewport], [theme],
+  return [[charset], [viewport], [googleVerify], [theme],
     ...(robotsFirst ? [[robotsMeta], [desc]] : [[desc], [robotsMeta]]),
     [policy], [canon], ...alts.map((tag) => [tag]), [icon], [fontsSheet], [sheet],
     ...(themeBoot.length ? [themeBoot] : []),
